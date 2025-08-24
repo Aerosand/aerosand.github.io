@@ -1,17 +1,76 @@
 ---
-title: My Site
+title: Aerosand
 toc: false
 ---
 
-This is the landing page.
+{{< hextra/hero-badge >}}
+  <div class="hx-w-2 hx-h-2 hx-rounded-full hx-bg-primary-400"></div>
+  <span>Free, open source</span>
+  {{< icon name="arrow-circle-right" attributes="height=14" >}}
+{{< /hextra/hero-badge >}}
 
-## Explore
+<div class="hx-mt-6 hx-mb-6">
+{{< hextra/hero-headline >}}
+  Aerosand&nbsp;<br class="sm:hx-block hx-hidden" />---
+{{< /hextra/hero-headline >}}
+</div>
 
-{{< cards >}}
-  {{< card link="docs" title="Docs" icon="book-open" >}}
-  {{< card link="about" title="About" icon="user" >}}
-{{< /cards >}}
+<div class="hx-mb-12">
+{{< hextra/hero-subtitle >}}
+  Sharing & Discussions&nbsp;<br class="sm:hx-block hx-hidden" />for numerical calculation, CFD, OpenFOAM and more
+{{< /hextra/hero-subtitle >}}
+</div>
 
-## Documentation
+<div class="hx-mb-6">
+{{< hextra/hero-button text="Get Started" link="docs" >}}
+</div>
 
-For more information, visit [Hextra](https://imfing.github.io/hextra).
+<div class="hx-mt-6"></div>
+
+{{< hextra/feature-grid >}}
+  {{< hextra/feature-card
+    title="OFSB"
+    subtitle="OpenFOAM Sharing Basics."
+    link="/ofs/ofsb"
+    class="hx-aspect-auto md:hx-aspect-[1.1/1] max-md:hx-min-h-[340px]"
+    image="images/ofsb.png"
+    imageClass="hx-top-[40%] hx-left-[36px] hx-w-[180%] sm:hx-w-[110%] dark:hx-opacity-80"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(194,97,254,0.15),hsla(0,0%,100%,0));"
+  >}}
+  {{< hextra/feature-card
+    title="OFSP"
+    subtitle="OpenFOAM Sharing Programming."
+    link="/ofs/ofsp"
+    class="hx-aspect-auto md:hx-aspect-[1.1/1] max-lg:hx-min-h-[340px]"
+    image="images/ofsp.png"
+    imageClass="hx-top-[40%] hx-left-[36px] hx-w-[180%] sm:hx-w-[110%] dark:hx-opacity-80"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(142,53,74,0.15),hsla(0,0%,100%,0));"
+  >}}
+  {{< hextra/feature-card
+    title="OFSS"
+    subtitle="OpenFOAM Sharing Solver."
+    link="/ofs/ofss"
+    class="hx-aspect-auto md:hx-aspect-[1.1/1] max-md:hx-min-h-[340px]"
+    image="images/ofss.png"
+    imageClass="hx-top-[40%] hx-left-[36px] hx-w-[110%] sm:hx-w-[110%] dark:hx-opacity-80"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(221,210,59,0.15),hsla(0,0%,100%,0));"
+  >}}
+  {{< hextra/feature-card
+    title="OFST"
+    subtitle="OpenFOAM Sharing Tutorials series is coming soon..."
+  >}}
+  {{< hextra/feature-card
+    title="OFSC"
+    subtitle="OpenFOAM Sharing Code series is coming soon..."
+  >}}
+  {{< hextra/feature-card
+    title="OFSR"
+    subtitle="OpenFOAM Sharing Research series is coming soon..."
+  >}}
+  {{< hextra/feature-card
+    title="And Much More..."
+    icon="sparkles"
+    subtitle="More..."
+  >}}
+{{< /hextra/feature-grid >}}
+

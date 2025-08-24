@@ -280,8 +280,9 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "aaeff8ae0d63431b",
+  "active": "6c0b646b069e65ec",
   "lastOpenFiles": [
+    "content/news/_index.md",
     "i18n/en.yaml",
     "i18n/zh-cn copy.yaml",
     "i18n/zh-cn.yaml",
@@ -314,7 +315,6 @@
     "_templates",
     "Home.canvas",
     "aerosand/aerosand.github.io",
-    "aerosand.github.io",
     "aerosand/public/images/logo.svg",
     "aerosand/public/images/logo-dark.svg",
     "aerosand/public/apple-touch-icon.png",
