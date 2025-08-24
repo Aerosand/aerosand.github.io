@@ -109,12 +109,12 @@ params:
 
   navbar:
     displayTitle: true
-    displayLogo: false
+    displayLogo: true
     logo:
-      path: static/favicon.svg
-      dark: static/favicon-dark.svg
-      width: 40
-      height: 20
+      path: /logo.svg
+      dark: /logo-dark.svg
+      width: 20
+      height: 10
       link: /
     width: wide
 
