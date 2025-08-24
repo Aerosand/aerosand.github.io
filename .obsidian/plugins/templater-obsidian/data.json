@@ -1,0 +1,48 @@
+{
+  "command_timeout": 5,
+  "templates_folder": "_templates",
+  "templates_pairs": [
+    [
+      "",
+      ""
+    ]
+  ],
+  "trigger_on_file_creation": true,
+  "auto_jump_to_cursor": true,
+  "enable_system_commands": false,
+  "shell_path": "",
+  "user_scripts_folder": "_templates",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "/",
+      "template": "_templates/0_selectFolderFromName.md"
+    }
+  ],
+  "enable_file_templates": false,
+  "file_templates": [
+    {
+      "regex": ".*",
+      "template": ""
+    }
+  ],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [
+    "_templates/templateHugo.md",
+    "_templates/hugoBadge.md",
+    "_templates/hugoCallout.md",
+    "_templates/hugoCards.md",
+    "_templates/hugoDetails.md",
+    "_templates/hugoFiletree.md",
+    "_templates/hugoJupyter.md",
+    "_templates/hugoPdf.md",
+    "_templates/hugoQr.md",
+    "_templates/hugoSteps.md",
+    "_templates/hugoTabs.md"
+  ],
+  "startup_templates": [
+    ""
+  ],
+  "intellisense_render": 1
+}

@@ -1,0 +1,6 @@
+{
+  "folder": "Self/log",
+  "template": "_templates/templateLog",
+  "format": "YYYY-MM-DD dddd",
+  "autorun": false
+}

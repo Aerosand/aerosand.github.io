@@ -1,0 +1,14 @@
+{
+  "userIgnoreFilters": [
+    "_templates/",
+    "_logs/"
+  ],
+  "newFileLocation": "folder",
+  "newFileFolderPath": "/",
+  "newLinkFormat": "relative",
+  "attachmentFolderPath": "_attachments",
+  "alwaysUpdateLinks": true,
+  "showLineNumber": false,
+  "showInlineTitle": false,
+  "useMarkdownLinks": false
+}
