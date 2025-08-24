@@ -7,17 +7,18 @@ authors:
   - name: Aerosand
     link: https://github.com/aerosand
     image: https://github.com/aerosand.png
-tags: 
+tags:
+  - news
 excludeSearch: false
 toc: true
-weight: 
+weight:
 math: true
-next: 
-prev: 
+next:
+prev:
 comments: true
 sidebar:
   exclude: false
-draft: true
+draft: false
 ---
 
 
