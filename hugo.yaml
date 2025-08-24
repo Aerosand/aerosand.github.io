@@ -183,14 +183,15 @@ params:
 
     # https://giscus.app/
     giscus:
-      repo: imfing/hextra
-      repoId: R_kgDOJ9fJag
+      repo: aerosand/aerosand.github.io
+      repoId: R_kgDOPjTFCw
       category: General
-      categoryId: DIC_kwDOJ9fJas4CY7gW
-      # mapping: pathname
-      # strict: 0
-      # reactionsEnabled: 1
-      # emitMetadata: 0
-      # inputPosition: top
-      # lang: en
-      # theme: noborder_dark
+      categoryId: DIC_kwDOPjTFC84CuiTG
+      mapping: title
+      strict: 0
+      reactionsEnabled: 1
+      emitMetadata: 1
+      inputPosition: top
+      lang: en
+      loading: lazy
+      theme: noborder_dark
