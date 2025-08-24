@@ -16,35 +16,17 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -590,
-                  "y": -434,
-                  "zoom": 0
+                  "x": -56.23846732311921,
+                  "y": -211.68476973088104,
+                  "zoom": -0.8000000000000002
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
-          },
-          {
-            "id": "635d694e1b86b0d7",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Home.canvas",
-                "viewState": {
-                  "x": -458.7248449761551,
-                  "y": -255.88212349036496,
-                  "zoom": -0.8000000000000002
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Home"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -307,7 +289,7 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "635d694e1b86b0d7",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
     "content/docs/ofsb/Untitled.",
     "content/docs/ofsb/Untitled.md",
