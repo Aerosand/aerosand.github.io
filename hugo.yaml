@@ -113,8 +113,8 @@ params:
     logo:
       path: /logo.svg
       dark: /logo-dark.svg
-      width: 20
-      height: 10
+      width: 40
+      height: 20
       link: /
     width: wide
 
