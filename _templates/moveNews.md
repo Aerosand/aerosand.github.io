@@ -1,7 +1,6 @@
 <%-*
-var cleanTitle = tp.user.getTitleSnippet(tp.file.title) 
-var title = `${cleanTitle}`;
-await tp.file.rename(`${title}`);
-myFilePath = "/content/news/" +  `${title}`;
-await tp.file.move(`${myFilePath}`);
+// 直接使用当前文件名
+const title = tp.file.title;
+const myFilePath = "/content/news/" + title;
+await tp.file.move(myFilePath);
 -%>

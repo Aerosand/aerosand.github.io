@@ -1,27 +1,36 @@
-<%*
+<%-*
+// 文件夹路径清理函数
 function cleanFolderPath(path) {
   return path?.trim().replace(/\/+$/, "") ?? "";
 }
 
-// Step 1: 清洗文件名并重命名
-const cleanTitle = tp.user.getTitleSnippet(tp.file.title);
-await tp.file.rename(cleanTitle);
+// 直接使用当前文件名
+const title = tp.file.title;
 
-// Step 2: 选择父目录
-const parentOptions = ["Docs", "News"];
+// 选择父目录
+const parentOptions = ["OFSB", "OFSP", "OFST", "OFSC", "OFSR"];
 const parentChoice = await tp.system.suggester(parentOptions, parentOptions);
 let parentFolder = "";
 
 switch (parentChoice) {
-  case "Docs":
-    parentFolder = "content/docs";
+  case "OFSB":
+    parentFolder = "content/docs/ofsb";
     break;
-  case "News":
-    parentFolder = "content/News";
+  case "OFSP":
+    parentFolder = "content/docs/ofsp";
+    break;
+  case "OFST":
+    parentFolder = "content/docs/ofst";
+    break;
+  case "OFSC":
+    parentFolder = "content/docs/ofsc";
+    break;
+  case "OFSR":
+    parentFolder = "content/docs/ofsr";
     break;
 }
 
-let subFolder = await tp.system.prompt(`Subfolder name under "${parentChoice}" (Enter blank or close):`, "");
+let subFolder = await tp.system.prompt(`在"${parentChoice}"下的子文件夹名称（留空或关闭）：`, "");
 subFolder = cleanFolderPath(subFolder || "");
 
 let finalFolder = parentFolder;
@@ -33,14 +42,14 @@ if (finalFolder) {
   const folderExists = await app.vault.adapter.exists(finalFolder);
   if (!folderExists) {
     await app.vault.createFolder(finalFolder);
-    new Notice("📁 Folder created: " + finalFolder);
+    new Notice("📁 文件夹已创建: " + finalFolder);
   } else {
-    new Notice("📁 Folder existed: " + finalFolder);
+    new Notice("📁 文件夹已存在: " + finalFolder);
   }
 } else {
-  new Notice("📁 Vault root");
+  new Notice("📁 库根目录");
 }
 
-const newPath = finalFolder ? `${finalFolder}/${cleanTitle}` : cleanTitle;
+const newPath = finalFolder ? `${finalFolder}/${title}` : title;
 await tp.file.move(newPath);
 -%>

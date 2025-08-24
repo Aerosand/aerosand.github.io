@@ -4,20 +4,47 @@
     "type": "split",
     "children": [
       {
-        "id": "bf2be26d3262747f",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "aaeff8ae0d63431b",
+            "id": "e7a7b303c61786dc",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Home.canvas",
+                "viewState": {
+                  "x": -590,
+                  "y": -434,
+                  "zoom": 0
+                }
+              },
+              "pinned": true,
+              "icon": "lucide-layout-dashboard",
+              "title": "Home"
+            }
+          },
+          {
+            "id": "635d694e1b86b0d7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "type": "canvas",
+              "state": {
+                "file": "Home.canvas",
+                "viewState": {
+                  "x": -458.7248449761551,
+                  "y": -255.88212349036496,
+                  "zoom": -0.8000000000000002
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Home"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -280,19 +307,29 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "6c0b646b069e65ec",
+  "active": "635d694e1b86b0d7",
   "lastOpenFiles": [
+    "content/docs/ofsb/Untitled.",
+    "content/docs/ofsb/Untitled.md",
+    "Home.canvas",
+    "content/docs/ofsp/量子力学.md",
+    "alog.md",
+    "content/docs/ofsp/Untitled.md",
+    "content/docs/ofsp",
+    "content/docs/ofsb/ .md",
+    "_base/post.base",
+    "_base",
+    "content/docs/ofsb/test.md",
+    "content/news/test.md",
+    "content/docs/ofsb/测试.md",
+    "README.md",
+    "content/docs/ofsb",
+    "content/news/_index.md",
     "public/zh-cn/categories/index.xml",
     "public/zh-cn/llms.txt",
     "public/zh-cn/tags/index.xml",
     "public/zh-cn/tags/index.html",
     "public/zh-cn/tags",
-    "public/zh-cn/index.html",
-    "public/zh-cn.search.min.ab56a95db0578872aef5cc3c7f439c056dba42c40fc48960b644d1829857d986.js",
-    "public/zh-cn.search-data.json",
-    "public/zh-cn/categories/index.html",
-    "public/zh-cn/sitemap.xml",
-    "public/zh-cn/categories",
     "public/images/logo.svg",
     "public/images/logo-dark.svg",
     "public/apple-touch-icon.png",
@@ -301,7 +338,7 @@
     "public/favicon-16x16.png",
     "public/favicon.svg",
     "public/android-chrome-192x192.png",
-    "content/news/_index.md",
+    "content/docs/_index.md",
     "content/news/ .md",
     "content/docs/folder/leaf.md",
     "content/docs/folder/_index.md",
@@ -315,20 +352,8 @@
     "_templates/hugoSteps.md",
     "_templates/hugoQr.md",
     "_templates/hugoPdf.md",
-    "_templates/hugoJupyter.md",
-    "_templates/hugoFiletree.md",
-    "_templates/hugoDetails.md",
-    "_templates/hugoCards.md",
-    "_templates/hugoCallout.md",
-    "_templates/hugoBadge.md",
-    "_templates/1_selectFolderFromClick.md",
-    "_templates/0_selectFolderFromName.md",
-    "Home.canvas",
     "aerosand/public/images/logo.svg",
     "aerosand/public/images/logo-dark.svg",
-    "aerosand/content/ofst/_index.md",
-    "aerosand/content/ofsp/_index.md",
-    "aerosand/content/ofsb/_index.md",
     "Project/OpenFOAM Sharing.canvas",
     "Project/phdProjects.canvas",
     "Project/phdProject.canvas",
