@@ -16,9 +16,9 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": 340,
-                  "y": -370,
-                  "zoom": -0.8974524359169803
+                  "x": 232.90920719509728,
+                  "y": -423.068605757162,
+                  "zoom": -0.5617627062364956
                 }
               },
               "pinned": true,
@@ -118,8 +118,8 @@
             "state": {
               "type": "online.larslockefeer.obsidian-plugin-todo",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "online.larslockefeer.obsidian-plugin-todo"
+              "icon": "checkmark",
+              "title": "Todo"
             }
           },
           {
@@ -301,6 +301,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "alog.md",
+    "Home.canvas",
     "public/css/compiled/main.min.e1c2ce497498dae32ba1d531b3d614a2ef92c34f9982c3f55624d041c430f54d.css",
     "layouts/_default/_markup/render-image.html",
     "layouts/_default/_markup/render-link.html",
@@ -311,7 +313,6 @@
     "layouts/_default/_markup/render-blockquote-regular.html",
     "layouts/_default/wide.html",
     "layouts/_default/_markup",
-    "layouts/_default/term.html",
     "public/images/logo.svg",
     "public/images/logo-dark.svg",
     "public/logo.svg",
@@ -322,7 +323,6 @@
     "public/apple-touch-icon.png",
     "public/android-chrome-512x512.png",
     "public/android-chrome-192x192.png",
-    "Home.canvas",
     "content/about.md",
     "content/docs/ofsp/_index.md",
     "content/docs/ofss/_index.md",
@@ -334,7 +334,6 @@
     "content/news/_index.md",
     "content/docs/ofsb/Untitled.md",
     "content/docs/ofsp/量子力学.md",
-    "alog.md",
     "content/docs/ofsp/Untitled.md",
     "content/docs/ofsb/ .md",
     "content/docs/ofsb/test.md",
