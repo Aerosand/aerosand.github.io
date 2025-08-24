@@ -1,6 +1,6 @@
 ---
 title: Aerosand
-toc: false
+layout: hextra-home
 ---
 
 {{< hextra/hero-badge >}}
