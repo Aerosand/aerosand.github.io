@@ -21,7 +21,7 @@ layout: hextra-home
   {{< hextra/feature-card
     title="OFSB"
     subtitle="OpenFOAM Sharing Basics."
-    link="/ofs/ofsb"
+    link="/docs/ofsb"
     class="hx-aspect-auto md:hx-aspect-[1.1/1] max-md:hx-min-h-[340px]"
     image="images/ofsb.png"
     imageClass="hx-top-[40%] hx-left-[36px] hx-w-[180%] sm:hx-w-[110%] dark:hx-opacity-80"
@@ -30,7 +30,7 @@ layout: hextra-home
   {{< hextra/feature-card
     title="OFSP"
     subtitle="OpenFOAM Sharing Programming."
-    link="/ofs/ofsp"
+    link="/docs/ofsp"
     class="hx-aspect-auto md:hx-aspect-[1.1/1] max-lg:hx-min-h-[340px]"
     image="images/ofsp.png"
     imageClass="hx-top-[40%] hx-left-[36px] hx-w-[180%] sm:hx-w-[110%] dark:hx-opacity-80"
@@ -39,7 +39,7 @@ layout: hextra-home
   {{< hextra/feature-card
     title="OFSS"
     subtitle="OpenFOAM Sharing Solver."
-    link="/ofs/ofss"
+    link="/docs/ofss"
     class="hx-aspect-auto md:hx-aspect-[1.1/1] max-md:hx-min-h-[340px]"
     image="images/ofss.png"
     imageClass="hx-top-[40%] hx-left-[36px] hx-w-[110%] sm:hx-w-[110%] dark:hx-opacity-80"
