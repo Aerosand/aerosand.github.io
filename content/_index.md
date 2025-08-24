@@ -15,16 +15,6 @@ layout: hextra-home
 {{< /hextra/hero-headline >}}
 </div>
 
-<div class="hx-mb-12">
-{{< hextra/hero-subtitle >}}
-  Sharing & Discussions&nbsp;<br class="sm:hx-block hx-hidden" />for numerical calculation, CFD, OpenFOAM and more
-{{< /hextra/hero-subtitle >}}
-</div>
-
-<div class="hx-mb-6">
-{{< hextra/hero-button text="Get Started" link="docs" >}}
-</div>
-
 <div class="hx-mt-6"></div>
 
 {{< hextra/feature-grid >}}
