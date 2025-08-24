@@ -16,17 +16,42 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -56.23846732311921,
-                  "y": -211.68476973088104,
-                  "zoom": -0.8000000000000002
+                  "x": -247.02988631260763,
+                  "y": -287.23197699514947,
+                  "zoom": -1.385873580663585
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
+          },
+          {
+            "id": "61bd322bed7cc10d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/news/Documentation is open.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Documentation is open"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -289,11 +314,13 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "61bd322bed7cc10d",
   "lastOpenFiles": [
+    "Home.canvas",
+    "content/news/Documentation is open.md",
+    "content/news/_index.md",
     "content/docs/ofsb/Untitled.",
     "content/docs/ofsb/Untitled.md",
-    "Home.canvas",
     "content/docs/ofsp/量子力学.md",
     "alog.md",
     "content/docs/ofsp/Untitled.md",
@@ -302,11 +329,10 @@
     "_base/post.base",
     "_base",
     "content/docs/ofsb/test.md",
-    "content/news/test.md",
+    "content/news/Documentation is open.md",
     "content/docs/ofsb/测试.md",
     "README.md",
     "content/docs/ofsb",
-    "content/news/_index.md",
     "public/zh-cn/categories/index.xml",
     "public/zh-cn/llms.txt",
     "public/zh-cn/tags/index.xml",
