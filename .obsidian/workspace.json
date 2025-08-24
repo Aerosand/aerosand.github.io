@@ -16,9 +16,9 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -247.02988631260763,
-                  "y": -287.23197699514947,
-                  "zoom": -1.385873580663585
+                  "x": 924.4923828563122,
+                  "y": -632.1467983430953,
+                  "zoom": -0.052540247330251755
                 }
               },
               "pinned": true,
@@ -215,6 +215,16 @@
             "state": {
               "type": "online.larslockefeer.obsidian-plugin-todo",
               "state": {},
+              "icon": "lucide-ghost",
+              "title": "online.larslockefeer.obsidian-plugin-todo"
+            }
+          },
+          {
+            "id": "7dfe665594be4436",
+            "type": "leaf",
+            "state": {
+              "type": "online.larslockefeer.obsidian-plugin-todo",
+              "state": {},
               "icon": "checkmark",
               "title": "Todo"
             }
@@ -289,8 +299,10 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "6c0b646b069e65ec",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "content/about.md",
+    "Home.canvas",
     "public/docs/ofsp/index.xml",
     "public/docs/ofss/index.xml",
     "public/docs/ofsb/index.xml",
@@ -305,12 +317,10 @@
     "content/docs/ofsb/_index.md",
     "content/news/Documentation is open.md",
     "public/tags/ofsp2026/index.xml",
-    "public/tags/openfoam/index.xml",
     "content/docs/ofsp/03_make.md",
     "content/docs/ofsp/02_helloWorld.md",
     "content/docs/ofsp/01_introduction.md",
     "content/news/_index.md",
-    "Home.canvas",
     "content/docs/ofsb/Untitled.md",
     "content/docs/ofsp/量子力学.md",
     "alog.md",

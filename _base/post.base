@@ -5,3 +5,9 @@ views:
       and:
         - file.inFolder("content")
         - file.name != "_index"
+    order:
+      - file.name
+      - tags
+      - file.folder
+    columnSize:
+      file.name: 433
