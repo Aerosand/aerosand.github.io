@@ -25,33 +25,8 @@
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
-          },
-          {
-            "id": "61bd322bed7cc10d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/news/Documentation is open.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Documentation is open"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -316,22 +291,25 @@
   },
   "active": "6c0b646b069e65ec",
   "lastOpenFiles": [
+    "public/docs/ofsp/index.xml",
+    "public/docs/ofss/index.xml",
+    "public/docs/ofsb/index.xml",
+    "public/docs/ofsp/index.html",
+    "public/docs/ofsb/index.html",
+    "public/docs/ofsb",
+    "public/docs/ofss/index.html",
+    "public/docs/ofss",
+    "content/docs/ofsp/_index.md",
+    "content/docs/ofss/_index.md",
+    "content/docs/ofss",
+    "content/docs/ofsb/_index.md",
+    "content/news/Documentation is open.md",
     "public/tags/ofsp2026/index.xml",
     "public/tags/openfoam/index.xml",
-    "public/docs/ofsp/02_helloworld/index.html",
-    "public/docs/ofsp/02_helloworld",
-    "public/js/mermaid.min.0664267560d2f17d8e4dbaf010b58adfae8b57a7ac7325a11c77b45c24d4fc79.js",
-    "public/tags/ofsp2026/index.html",
-    "public/tags/ofsp2026",
-    "public/tags/openfoam/index.html",
-    "public/tags/openfoam",
-    "public/docs/ofsp/03_make/index.html",
-    "public/docs/ofsp/01_introduction/index.html",
     "content/docs/ofsp/03_make.md",
     "content/docs/ofsp/02_helloWorld.md",
     "content/docs/ofsp/01_introduction.md",
     "content/news/_index.md",
-    "content/news/Documentation is open.md",
     "Home.canvas",
     "content/docs/ofsb/Untitled.md",
     "content/docs/ofsp/量子力学.md",
@@ -358,9 +336,6 @@
     "_templates/templateLog.md",
     "_templates/templateHugo.md",
     "_templates/moveWiki.md",
-    "_templates/movePost.md",
-    "_templates/hugoTabs.md",
-    "_templates/hugoSteps.md",
     "aerosand/public/images/logo.svg",
     "aerosand/public/images/logo-dark.svg",
     "Project/OpenFOAM Sharing.canvas",

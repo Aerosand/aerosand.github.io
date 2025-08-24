@@ -84,9 +84,9 @@ menu:
       name: 2_Programming
       pageRef: /docs/ofsp
       parent: ofs
-    - identifier: ofst
-      name: 3_Tutorial
-      pageRef: /docs/ofst
+    - identifier: ofss
+      name: 3_Solver
+      pageRef: /docs/ofss
       parent: ofs
 
   sidebar:
