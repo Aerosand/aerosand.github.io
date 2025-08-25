@@ -20,14 +20,14 @@ comments: true
 draft: false
 ---
 
-> [!important] Visit https://aerosand.cc for recent updates.
+> [!IMPORTANT] Visit  https://aerosand.cc  for recent updates.
 > 
 
 ## 1. Preliminaries
 
  This series is designed to help the reader bridge the gap between "CFD Theory" and "OpenFOAM Getting Started".
 
-> [!warning] It is recommended to learn the fundamentals of Computational Fluid Dynamics and the Finite Volume Method before starting this series.
+> [!WARNING] It is recommended to learn the fundamentals of Computational Fluid Dynamics and the Finite Volume Method before starting this series.
 > 
 
 ## 2. Introduction
@@ -75,7 +75,7 @@ draft: false
 
  {{% /steps %}}
 
-> [!note] Each section is explained with detailed code and operations.
+> [!NOTE] Each section is explained with detailed code and operations.
 > 
 
 ## 3. Environment and Tools
