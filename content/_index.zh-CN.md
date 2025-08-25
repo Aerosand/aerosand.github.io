@@ -6,7 +6,7 @@ layout: hextra-home
 
 {{< hextra/hero-badge link="https://github.com/aerosand/aerosand.github.io/">}}
   <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
-  <span>Free, open source</span>
+  <span>免费，开源</span>
   {{< icon name="arrow-circle-right" attributes="height=14" >}}
 {{< /hextra/hero-badge >}}
 
@@ -19,12 +19,12 @@ layout: hextra-home
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Free sharing &nbsp;<br class="hx:sm:block hx:hidden" />for OpenFOAM, Calculation and more.
+  分享&nbsp;<br class="hx:sm:block hx:hidden" /> 关于 OpenFOAM，计算和其他相关内容
 {{< /hextra/hero-subtitle >}}
 </div>
 
 <div class="hx:mb-6">
-{{< hextra/hero-button text="Get Started" link="docs" >}}
+{{< hextra/hero-button text="点击开始" link="docs" >}}
 </div>
 
 <div class="hx:mt-6"></div>
