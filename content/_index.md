@@ -3,34 +3,6 @@ title: Aerosand
 layout: hextra-home
 ---
 
-<div class="hx:flex hx:items-center hx:justify-between hx:mt-6 hx:mb-12">
-  <!-- 左侧：文字部分 -->
-  <div>
-    {{< hextra/hero-headline >}}
-      Aerosand&nbsp;<br class="hx:sm:block hx:hidden" />   
-    {{< /hextra/hero-headline >}}
-
-    <div class="hx:mt-4">
-      {{< hextra/hero-subtitle >}}
-        Free sharing &nbsp;<br class="hx:sm:block hx:hidden" />for OpenFOAM, Calculation and more.
-      {{< /hextra/hero-subtitle >}}
-    </div>
-
-    <div class="hx:mt-6">
-      {{< hextra/hero-button text="Get Started" link="docs" >}}
-    </div>
-  </div>
-
-  <!-- 右侧：图片部分 -->
-  <div class="hx:ml-8">
-    <img src="/images/hero.png" alt="Hero Image" class="hx:max-w-xs hx:rounded-2xl hx:shadow-lg" />
-  </div>
-</div>
-
-
-
-
-
 
 {{< hextra/hero-badge link="https://github.com/aerosand/aerosand.github.io/">}}
   <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
