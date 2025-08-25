@@ -27,7 +27,7 @@ draft: false
 
  This series is designed to help the reader bridge the gap between "CFD Theory" and "OpenFOAM Getting Started".
 
-> [warning] It is recommended to learn the fundamentals of Computational Fluid Dynamics and the Finite Volume Method before starting this series.
+> [!warning] It is recommended to learn the fundamentals of Computational Fluid Dynamics and the Finite Volume Method before starting this series.
 > 
 
 ## 2. Introduction
