@@ -1,7 +1,7 @@
 {
 	"nodes":[
 		{"id":"f0ad06e1c3a4e5ec","type":"file","file":"alog.md","x":-820,"y":-460,"width":600,"height":620},
-		{"id":"747cb42495fd82c5","type":"file","file":"_base/post.base","x":680,"y":-900,"width":820,"height":440}
+		{"id":"747cb42495fd82c5","type":"file","file":"_base/posts.base","x":680,"y":-900,"width":820,"height":440}
 	],
 	"edges":[],
 	"metadata":{

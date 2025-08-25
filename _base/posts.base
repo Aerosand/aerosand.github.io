@@ -1,0 +1,15 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.inFolder("content/docs")
+        - file.name != "_index"
+        - file.name != "about"
+    order:
+      - file.name
+      - file.folder
+      - file.tags
+    sort:
+      - property: file.mtime
+        direction: DESC

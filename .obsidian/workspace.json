@@ -16,17 +16,35 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": 232.90920719509728,
-                  "y": -423.068605757162,
-                  "zoom": -0.5617627062364956
+                  "x": 1089.3641862625484,
+                  "y": -692.6524179057295,
+                  "zoom": 0.19999999999999996
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
+          },
+          {
+            "id": "c7e8fe53a815dcf8",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Home.canvas",
+                "viewState": {
+                  "x": 568.1527676828066,
+                  "y": -314.4090423594074,
+                  "zoom": -1.0889670736276882
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Home"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -299,8 +317,11 @@
       "obsidian-shellcommands:Shell commands: Custom variables": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "c7e8fe53a815dcf8",
   "lastOpenFiles": [
+    "_base/posts.base",
+    "Home.canvas",
+    "_base",
     "layouts/_shortcodes/hextra/hero-subtitle.html",
     "layouts/_shortcodes/hextra/hero-section.html",
     "layouts/_shortcodes/hextra/hero-headline.html",
@@ -309,9 +330,6 @@
     "layouts/_shortcodes/hextra/hero-badge.html",
     "layouts/_shortcodes/hextra/feature-grid.html",
     "layouts/_shortcodes/hextra/feature-card.html",
-    "layouts/_shortcodes/filetree/folder.html",
-    "layouts/_shortcodes/filetree/file.html",
-    "layouts/_shortcodes/filetree/container.html",
     "images/openfoam.png",
     "images/ofsp.png",
     "images/ofsb.png",
@@ -322,7 +340,6 @@
     "public/images/ofsp.png",
     "static/images/ofsp.png",
     "public/images/ofsb.png",
-    "Home.canvas",
     "alog.md",
     "content/about.md",
     "content/docs/ofsp/_index.md",
