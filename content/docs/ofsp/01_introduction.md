@@ -2,7 +2,7 @@
 uid: 20250722130605
 title: 01_introduction
 date: 2025-07-22
-update: 2025-07-23
+update: 2025-08-25
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -20,15 +20,15 @@ comments: true
 draft: false
 ---
 
-> [!IMPORTANT] Visit  https://aerosand.cc  for recent updates.
-> 
+> [!IMPORTANT] 
+> Visit  https://aerosand.cc  for recent updates.
 
 ## 1. Preliminaries
 
  This series is designed to help the reader bridge the gap between "CFD Theory" and "OpenFOAM Getting Started".
 
-> [!WARNING] It is recommended to learn the fundamentals of Computational Fluid Dynamics and the Finite Volume Method before starting this series.
-> 
+> [!WARNING] 
+> It is recommended to learn the fundamentals of Computational Fluid Dynamics and the Finite Volume Method before starting this series.
 
 ## 2. Introduction
 
@@ -75,21 +75,19 @@ draft: false
 
  {{% /steps %}}
 
-> [!NOTE] Each section is explained with detailed code and operations.
-> 
+> [!NOTE] 
+> Each section is explained with detailed code and operations.
 
 ## 3. Environment and Tools
 
  Given the environment of OpenFOAM, we have chosen to develop this project in ubuntu 24.04 based on OpenFOAM version 2406, using the vscode tool for convenience.
 
 > [!caution]
-> 
 > - The version of [openfoam.com](http://openfoam.com/) has changed little, and the newer versions are suitable for this series.
 > - The version of [openfoam.org](http://openfoam.org/) has had a major architectural change, and is not recommended as a starting point.
 
 ## 4. Recommendations
 
 > [!tip]
-> 
 > - Suggest readers to follow the discussion of programming operations
 
