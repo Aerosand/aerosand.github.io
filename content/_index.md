@@ -2,32 +2,31 @@
 title: Aerosand
 layout: hextra-home
 ---
+
 {{< hextra/hero-badge >}}
   <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
   <span>Free, open source</span>
   {{< icon name="arrow-circle-right" attributes="height=14" >}}
 {{< /hextra/hero-badge >}}
 
-
-
-<div class="hx-mt-6 hx-mb-6">
+<div class="hx:mt-6 hx:mb-6">
 {{< hextra/hero-headline >}}
-  Aerosand&nbsp;<br class="sm:hx-block hx-hidden" />:
+  Aerosand&nbsp;<br class="hx:sm:block hx:hidden" />   
 {{< /hextra/hero-headline >}}
 </div>
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Free Sharing &nbsp;<br class="hx:sm:block hx:hidden" />for OpenFOAM & numerical calculation and more.
+  Free Sharing &nbsp;<br class="hx:sm:block hx:hidden" />for OpenFOAM, Calculation and more.
 {{< /hextra/hero-subtitle >}}
 </div>
-
 
 <div class="hx:mb-6">
 {{< hextra/hero-button text="Get Started" link="docs" >}}
 </div>
 
-<div class="hx-mt-6"></div>
+<div class="hx:mt-6"></div>
+
 
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
