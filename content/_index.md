@@ -4,12 +4,6 @@ layout: hextra-home
 ---
 
 
-
-
-
-
-
-
 {{< hextra/hero-badge link="https://github.com/aerosand/aerosand.github.io/">}}
   <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
   <span>Free, open source</span>
