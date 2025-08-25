@@ -326,6 +326,8 @@
   },
   "active": "09fadcf9269bbaed",
   "lastOpenFiles": [
+    "content/docs/ofsp/03_make.zh-CN.md",
+    "content/docs/ofsp/02_helloWorld.zh-CN.md",
     "content/news/文档已经上线更新中.zh-CN.md",
     "content/news/文档站已经上线.zh-CN.md",
     "content/news/文档站已经上线.md",
@@ -371,8 +373,6 @@
     "content/news/Documentation is open.md",
     "content/docs/ofsp/03_make.md",
     "content/docs/ofsp/02_helloWorld.md",
-    "content/docs/ofsp/01_introduction.md",
-    "content/news/_index.md",
     "Project/OpenFOAM Sharing.canvas",
     "Project/phdProjects.canvas",
     "Project/phdProject.canvas",
