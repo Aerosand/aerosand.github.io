@@ -16,6 +16,12 @@ layout: hextra-home
 {{< /hextra/hero-headline >}}
 </div>
 
+<div class="hx:mb-12">
+{{< hextra/hero-subtitle >}}
+  Free Sharing &nbsp;<br class="hx:sm:block hx:hidden" />for OpenFOAM & numerical calculation and more.
+{{< /hextra/hero-subtitle >}}
+</div>
+
 
 <div class="hx:mb-6">
 {{< hextra/hero-button text="Get Started" link="docs" >}}
