@@ -22,7 +22,7 @@ layout: hextra-home
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Free Sharing &nbsp;<br class="hx:sm:block hx:hidden" />for OpenFOAM, Calculation and more.
+  Free sharing &nbsp;<br class="hx:sm:block hx:hidden" />for OpenFOAM, Calculation and more.
 {{< /hextra/hero-subtitle >}}
 </div>
 
