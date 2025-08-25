@@ -3,6 +3,41 @@ title: Aerosand
 layout: hextra-home
 ---
 
+{{< hextra/hero-badge link="https://github.com/aerosand/aerosand.github.io/">}}
+  <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
+  <span>Free, open source</span>
+  {{< icon name="arrow-circle-right" attributes="height=14" >}}
+{{< /hextra/hero-badge >}}
+
+<div class="hx:mt-6 hx:grid hx:grid-cols-1 hx:md:grid-cols-2 hx:gap-8 hx:items-center">
+  <!-- 左侧：文字 -->
+  <div>
+    {{< hextra/hero-headline >}}
+      Aerosand&nbsp;<br class="hx:sm:block hx:hidden" />
+    {{< /hextra/hero-headline >}}
+
+    <div class="hx:mt-4">
+      {{< hextra/hero-subtitle >}}
+        Free sharing &nbsp;<br class="hx:sm:block hx:hidden" />for OpenFOAM, Calculation and more.
+      {{< /hextra/hero-subtitle >}}
+    </div>
+
+    <div class="hx:mt-6">
+      {{< hextra/hero-button text="Get Started" link="docs" >}}
+    </div>
+  </div>
+
+  <!-- 右侧：图片 -->
+  <div class="hx:flex hx:justify-center hx:md:justify-end">
+    <img src="/images/openfoam.png" alt="Hero Image"
+         class="hx:w-full hx:max-w-[360px] hx:md:max-w-[460px] hx:rounded-2xl hx:shadow-lg hx:select-none"
+         loading="eager" />
+  </div>
+</div>
+
+
+
+
 
 {{< hextra/hero-badge link="https://github.com/aerosand/aerosand.github.io/">}}
   <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
