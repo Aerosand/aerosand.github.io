@@ -153,7 +153,7 @@ params:
 
   editURL:
     enable: true
-    base: "https://github.com/aerosand/aerosand.github.io/edit/main"
+    base: "https://github.com/aerosand/aerosand.github.io/edit/main/content"
 
   blog:
     list:
