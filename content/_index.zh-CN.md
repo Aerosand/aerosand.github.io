@@ -19,7 +19,7 @@ layout: hextra-home
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  分享&nbsp;<br class="hx:sm:block hx:hidden" /> 关于 OpenFOAM，计算和其他相关内容
+  讨论分享 &nbsp;<br class="hx:sm:block hx:hidden" /> 关于 OpenFOAM，计算和其他相关内容
 {{< /hextra/hero-subtitle >}}
 </div>
 
