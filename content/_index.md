@@ -4,11 +4,16 @@ layout: hextra-home
 ---
 
 
-{{< hextra/hero-badge >}}
+{{< hextra/hero-badge link="https://github.com/aerosand/aerosand.github.io/">}}
   <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
   <span>Free, open source</span>
   {{< icon name="arrow-circle-right" attributes="height=14" >}}
 {{< /hextra/hero-badge >}}
+
+{{< hero-container image="/images/openfoam.png" subtitle="" button_text="查看文档" button_link="docs" >}}
+  HITSZ 自动化课程攻略共享计划
+{{< /hero-container >}}
+
 
 <div class="hx:mt-6 hx:mb-6">
 {{< hextra/hero-headline >}}
