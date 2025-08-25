@@ -301,6 +301,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Home.canvas",
     "layouts/wide.html",
     "layouts/term.html",
     "layouts/taxonomy.html",
@@ -311,9 +312,7 @@
     "layouts/home.html",
     "layouts/hextra-home.html",
     "layouts/docs/single.html",
-    "layouts/docs/list.html",
     "alog.md",
-    "Home.canvas",
     "public/images/logo.svg",
     "public/images/logo-dark.svg",
     "public/logo.svg",

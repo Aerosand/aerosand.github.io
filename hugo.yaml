@@ -107,6 +107,11 @@ menu:
 params:
   description: OpenFOAM, Numerical Calculation from Aerosand.
 
+  banner:
+    key: 'announcement-xxx'
+    message: |
+      🎉 Welcome to Aerosand!.
+
   navbar:
     displayTitle: true
     displayLogo: true
