@@ -11,11 +11,6 @@ layout: hextra-home
 {{< /hextra/hero-badge >}}
 
 
-{{< hero-container image="/images/HITSZOpenAuto.webp" subtitle="" button_text="查看文档" button_link="docs" >}}
-  HITSZ 自动化课程攻略共享计划
-{{< /hero-container >}}
-
-
 <div class="hx:mt-6 hx:mb-6">
 {{< hextra/hero-headline >}}
   Aerosand&nbsp;<br class="hx:sm:block hx:hidden" />   
