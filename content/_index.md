@@ -11,7 +11,7 @@ layout: hextra-home
 {{< /hextra/hero-badge >}}
 
 
-# Aerosand
+## Aerosand
 
 
 <div class="hx:mt-6 hx:mb-6">
