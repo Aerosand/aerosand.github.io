@@ -82,7 +82,7 @@ draft: false
 
  Given the environment of OpenFOAM, we have chosen to develop this project in ubuntu 24.04 based on OpenFOAM version 2406, using the vscode tool for convenience.
 
-> [caution]
+> [!caution]
 > 
 > - The version of [openfoam.com](http://openfoam.com/) has changed little, and the newer versions are suitable for this series.
 > - The version of [openfoam.org](http://openfoam.org/) has had a major architectural change, and is not recommended as a starting point.
@@ -93,11 +93,3 @@ draft: false
 > 
 > - Suggest readers to follow the discussion of programming operations
 
-<aside>
-💡  Welcome to leave comments, feedback, suggestions and comments, sponsorship and reward. Feel free to leave comments, feedback, suggestions, opinions, and donations.
-
-</aside>
-
-![ Alipay](attachment:3be6af9a-4829-4dfd-997e-641dfd055ba9:alipay.jpg)
-
- Alipay
