@@ -340,6 +340,32 @@ Current time step is : 0.2
 
 {{% /steps %}}
 
+### 3.2. c cpp cmake project creator
+
+这是一个基于 cmake 的多文件项目模板
+
+操作和备注如下
+
+{{% steps %}}
+
+#### 新建项目
+
+1. 使用 `F1` 打开快捷命令输入关键词，选择使用 `CMake Project: Create Project`
+2. 在弹出窗口中选择到准备好的空白项目文件夹，并打开
+
+#### 写代码
+
+1. 在 `src/main.cpp` 中开发主函数代码
+2. 在 `include/` 路径下开发头文件的声明
+3. 在 `src/` 路径下开发头文件的定义
+
+#### 编译运行
+
+1. 终端使用命令 `cmake build/` 生成构建系统
+2. 终端使用命令 `make -C build/` 进行项目编译
+3. 终端使用命令 `./build/xxx` 运行该主程序
+
+{{% /steps %}}
 
 
 ## 4. 小结
