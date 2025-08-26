@@ -16,42 +16,17 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": 125.75312716028802,
-                  "y": -127.53163450129196,
-                  "zoom": 0.9595726003274699
+                  "x": 161.00453672427545,
+                  "y": -216.33070152796682,
+                  "zoom": -0.6404273996725304
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
-          },
-          {
-            "id": "12c9fd77f7640352",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/ofs/ofsp/02_helloWorld.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "02_helloWorld"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,13 +76,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/ofs/ofsp/02_helloWorld.md",
+                "file": "Home.canvas",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 02_helloWorld"
+              "title": "Outline of Home"
             }
           },
           {
@@ -120,8 +95,7 @@
               "title": "Web history"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "d5574f3c9c5c4dc4",
@@ -248,7 +222,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/ofs/ofsp/02_helloWorld.md",
+                "file": "Home.canvas",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -276,7 +250,7 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of 02_helloWorld"
+              "title": "Graph of Home"
             }
           }
         ]
@@ -304,31 +278,36 @@
       "cmdr:Shell commands: Execute: hugo": true
     }
   },
-  "active": "eb8d081bc5a1d60b",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "Home.canvas",
+    "public/ofs/ofsp/02_helloworld/index.html",
+    "public/ofs/ofsp/02_helloworld",
+    "public/ofs/ofsp/03_make/index.html",
+    "public/ofs/ofsp/03_make",
+    "public/ofs/ofsb/_index.zh-cn/index.html",
+    "public/ofs/ofsb/_index.zh-cn",
+    "public/about.zh-cn/index.html",
+    "public/about.zh-cn",
+    "public/ofs/ofsp/04_wmake/index.html",
+    "public/ofs/ofsp/04_wmake",
+    "public/news/_index.zh-cn/index.html",
+    "content/ofs/ofsp/05_basicClass.md",
+    "content/ofs/ofsp/04_wmake.md",
+    "content/ofs/ofsp/03_make.md",
     "content/ofs/ofsp/02_helloWorld.md",
+    "content/ofs/ofsp/01_introduction.md",
+    "Home.canvas",
     "content/ofs/ofsp/05_basicClass.zh-CN.md",
     "content/ofs/ofsp/05_wmake2.zh-CN.md",
     "content/ofs/ofsp/04_wmake.zh-CN (Copy).md",
     "content/ofs/ofsp/05_class.zh-CN.md",
-    "public/zh-cn/ofs/ofsp/05_basicclass/index.html",
-    "public/zh-cn/ofs/ofsp/05_basicclass",
-    "public/zh-cn/ofs/ofsp/04_wmake/index.html",
-    "public/zh-cn/ofs/ofsp/04_wmake",
     "_templates/templateHugo.md",
     "content/ofs/ofsp/01_introduction.zh-CN.md",
     "content/news/Documentation is open.md",
-    "_base/ofs-index.base",
-    "_base/news-zh.base",
-    "_base/news-en.base",
     "content/ofs/ofsp/hahahhaha.md.md",
     "content/ofs/_index.zh-CN.md",
     "content/ofs/_index copy.md",
-    "_base/ofs-zh.base",
     "_index.md.md",
-    "public/zh-cn/ofs/index.xml",
-    "public/zh-cn/ofs/ofsp/index.xml",
     "content/docs/ofst/nnnnn.md.md",
     "content/docs/opsppp.md.md",
     "testtest.md.md",
@@ -338,10 +317,6 @@
     "content/docs/ofsp/hahahahaha.md.md",
     "content/docs/ofsp/hahaha.md.md",
     "haha.md.md",
-    "Untitled 1.md",
-    "content/docs/ofsb/haha.md.md",
-    "_templates/0_newnote.md",
-    "_templates/0_.md",
     "images/openfoam.png",
     "images/ofsp.png",
     "images/ofsb.png",

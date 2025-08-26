@@ -1,7 +1,7 @@
 ---
-uid: 20250826195406
+uid: 20250723105353
 title: 02_helloWorld
-date: 2025-08-26
+date: 2025-07-23
 update: 2025-08-26
 authors:
   - name: Aerosand
@@ -12,89 +12,87 @@ tags:
   - OpenFOAM
 excludeSearch: false
 toc: true
-weight:
+weight: 2
 math: true
-next:
-prev:
+next: 
+prev: 
 comments: true
 sidebar:
   exclude: false
 draft: false
 ---
 
-## **0. Preface**
+## 0. 前言
 
-This article discusses the following
+- [ ] 理解 C++ 代码的编译原理
+- [ ] 理解动态库
+- [ ] 完成 helloWorld 的代码运行
 
-- [ ] Understanding how C++ code is compiled
-- [ ] Understanding dynamic libraries
-- [ ] Running the helloWorld program
+## 1. 开始
 
-## **1. Getting Started**
+> [!tip]
+> 对于 OpenFOAM 来说，不管是求解器还是算例，放在任何一个文件夹都可以。放在 `$FOAM_RUN` 路径下也只是为了方便管理。
 
->[!tip]
->For OpenFOAM, any folder is fine, whether it is a solver or an example. Putting it under the `$FOAM_RUN` path is also just for convenience.
+我们约定
 
-Let's agree on
+- `userPath/`：用户指定路径
 
-- `userPath/`: user-specified path
+该路径下再新建例如 `userPath/ofsp/` 文件夹，`ofsp/` 下再新建各个子项目的文件夹。
 
-Under this path, we create a new folder, e.g. `userPath/ofsp/`, and under `ofsp/`, we create folders for the sub-projects.
+例如，
 
-For example
+终端输入命令，新建总项目文件夹
 
-In the terminal, enter the command to create a new master project folder
-
-```
-mkdir /userPath/ofsp
+```terminal {filename="terminal"}
+mkdir /userPath/ofsp  
 ```
 
-> ofsp stands for OpenFoam sharing programming.
+> `ofsp` 即 `OpenFoam sharing programming` 的缩写
 
-You can set `ofsp` as a shortcut command, so that you can jump to the project folder directly after typing `ofsp` in the terminal.
+我们可以将 `ofsp` 设置为快捷命令，这样子在终端输入 `ofsp` 后可以直接跳转到项目文件夹下。
 
-Open the `bashrc` file by typing the command in the terminal.
+终端输入命令，打开 `bashrc` 文件
 
-```
+```terminal {filename="terminal"}
 gedit ~/.bashrc
 ```
 
-At the end of the `bashrc` file, add the following statement
+在 `bashrc` 文件末尾添加以下语句
 
-```
+```bash {fileName="bashrc"}
 alias ofsp='cd /userPath/ofsp'
 alias ofss='cd /userPath/ofss'
 ```
 
-Enter the command in the terminal to enable the shortcut command.
+终端输入命令，使快捷命令生效
 
-```
+```terminal {fileName="terminal"}
 source ~/.bashrc
 ```
 
-## **2. Project**
+## 2. 项目
 
-Create a new folder for the subprojects of this article in the terminal
+通过终端新建本文的子项目的文件夹
 
-Terminal enter the command
+终端输入命令
 
-```
+```terminal {fileName="terminal"}
 ofsp
 mkdir ofsp_021_helloWorld
 code ofsp_021_helloWorld
 ```
 
-After you open a project in vscode, you can use `ctrl + ~` to bring up vscode's terminal console for quick command operations.
+通过 vscode 打开项目后，可以使用 `ctrl + ~` 唤出 vscode 的终端控制台，快捷进行命令操作。
 
-Input the command to create a new file under the project and save it blank.
+终端输入命令，新建项目下文件并空白保存
 
-```
+```terminal {fileName="terminal"}
 code main.cpp Aerosand.cpp Aerosand.h
 ```
 
-Enter `tree` command to view the tree structure of a file.
+终端输入 `tree` 命令，查看文件树状结构
 
-```
+```terminal {fileName="terminal"}
 tree
 .
 ├── Aerosand.cpp
@@ -102,47 +100,48 @@ tree
 └── main.cpp
 ```
 
->[!tip]
->If you can't use the `tree` command, please follow the instructions in the terminal to install `tree`.
+> [!tip]
+> 如果无法使用 `tree` 命令，请按照终端提示安装 `tree` 即可
 
-Let's write the code as follows
+我们分别写入代码，内容如下
 
-Class declaration Class `Aerosand.h` as follows
+类的声明 Class  `Aerosand.h` 如下
 
-```cpp
+```cpp {fileName="/Aerosand.h",linenos=table,linenostart=1}
 #pragma once
 
 class Aerosand
 {
 public:
-    void setLocalTime(double t);
-    double getLocalTime() const;
+    void setLocalTime(double t);
+    double getLocalTime() const;
+
 
 private:
-    double localTime_;
+    double localTime_;
 };
 ```
 
 > [!tip]
-> This is as close as possible to the style of OpenFOAM code, such as the use of camel names for function names and variables, and private member variable names are suffixed with underscores.
+> 这里尽量贴近 OpenFOAM 的代码风格，比如函数名和变量采用驼峰命名，私有成员变量名称尾缀下划线等。
 
-The class definition, `Aerosand.cpp`, is as follows
+类的定义 `Aerosand.cpp` 如下
 
-```cpp
+```cpp {fileName="/Aerosand.cpp",linenos=table}
 #include "Aerosand.h"
 
 void Aerosand::setLocalTime(double t) {
-    localTime_ = t;
+    localTime_ = t;
 }
 
 double Aerosand::getLocalTime() const {
-    return localTime_;
+    return localTime_;
 }
 ```
 
-The main source code `, main.cpp`, looks like this
+主源码 `main.cpp` 如下
 
-```cpp
+```cpp {fileName="/main.cpp", linenos=table}
 #include <iostream>
 
 #include "Aerosand.h"
@@ -151,125 +150,127 @@ using namespace std;
 
 int main()
 {
-    int a = 1;
-    double pi = 3.1415926;
+    int a = 1;
+    double pi = 3.1415926;
 
-    cout << "Hi, OpenFOAM!" << " Here we are." << endl;
-    cout << a << " + " << pi << " = " << a + pi << endl;
-    cout << a << " * " << pi << " = " << a * pi << endl;
+    cout << "Hi, OpenFOAM!" << " Here we are." << endl;
+    cout << a << " + " << pi << " = " << a + pi << endl;
+    cout << a << " * " << pi << " = " << a * pi << endl;
 
-    Aerosand mySolver;
-    mySolver.setLocalTime(0.2);
-    cout << "\\nCurrent time step is : " << mySolver.getLocalTime() << endl;
 
-    return 0;
+    Aerosand mySolver;
+    mySolver.setLocalTime(0.2);
+    cout << "\nCurrent time step is : " << mySolver.getLocalTime() << endl;
+
+    return 0;
 }
 ```
 
-Although we generally refer to the entire process of getting code into a program as "compilation", in fact, on Linux, the "compilation" of a C++ program is divided into four processes.
+虽然我们笼统的把代码到程序的整个过程称为“编译”，实际上，在 Linux 系统下，C++ 程序的“编译”分成四个过程。
 
 ```mermaid
 flowchart LR
-    Preprocessing --> Compile --> Assemble --> Link
+    预处理 --> 编译 --> 汇编 --> 链接
 ```
 
-> [!warning]
-> The paths to the terminal commands discussed in the rest of this article remain unchanged at `ofsp/ofsp_021_helloWorld/`.
+>[!warning]
+>本文后续讨论的终端指令运行路径均留在 `ofsp/ofsp_021_helloWorld/` 不变
 
-## **3. Code Compilation**
 
-### **3.1 Preprocessing**
+## 3. 代码编译
 
-**Preprocessing** is the first stage of the compilation process and occurs before the actual compilation (generation of object code). It is the responsibility of **the Preprocessor** to process the directives in the source code that begin with `#`, also known as **preprocessing directives**.
+### 3.1. 预处理
 
-For example, `#include` will prompt to insert the contents of another file into the current location, `#define` will prompt to replace a macro definition here, etc.
+**预处理 Preprocessing** 是编译过程的第一阶段，发生在真实编译（生成目标代码）之前。它由**预处理器 Preprocessor** 负责处理源代码中以 `#` 开头的指令，这些指令也被称为**预处理指令**。
 
-Generate.
+比如，`#include` 将提示把另一个文件的内容插入到当前位置，`#define` 将提示把宏定义替换到此处等等。
 
-The terminal executes preprocessing by typing the command
+生成。
 
-```
-g++ -E Aerosand.cpp -o Aerosand.i
+终端输入命令，执行预处理
+
+```terminal {fileName="terminal"}
+g++ -E Aerosand.cpp -o Aerosand.i  
 g++ -E main.cpp -o main.i
 ```
 
-where
+其中
 
-- `E` of g++ identifies the preprocessor for preprocessing
-- The `o` (lowercase) in g++ identifies the file to be generated.
+- g++ 的 `-E` 标识预处理器进行预处理
+- g++ 的 `-o` （小写）标识指定生成的文件
 
-On Linux systems, two new files are generated
+在 Linux 系统下生成两个新文件
 
-- `Aerosand.i`
+- `Aerosand.i` 
 - `main.i`
 
-The `.i` suffix indicates **intermediate preprocessing output**.
+后缀 `.i` 表示**中间预处理输出文件 intermediate preprocessing output**。
 
-### **3.2. Compile**
+### 3.2. 编译
 
-**Compile** is the process of converting the preprocessed source code ( `.i` or `.i` files) into assembly code ( `.s` files) by **the compiler Compiler**.
+**编译 Compile** 是**编译器 Compiler** 把预处理后的源代码（`.i` 或 `.i` 文件）转换成汇编代码（`.s` 文件）的过程。
 
-The compiler will perform syntax analysis, semantic analysis, optimization, etc. on the expanded (header files, macros, etc.) source code, and finally generate the transformed code.
+编译器将会对已经展开（头文件、宏等）的源代码进行语法分析、语义分析、优化等工作，最终生成会变代码。
 
-To compile, enter the following command in the terminal
+终端输入命令，执行编译
 
-```
+```terminal {fileName="terminal"}
 g++ -S Aerosand.i -o Aerosand.s
 g++ -S main.i -o main.s
 ```
 
-- The `S` symbol in g++ specifies that the compiler compiles (capital `S` ).
+- g++ 的 `-S` 标识指定编译器进行编译（大写 `S` ）
 
-Generate two new files on Linux
+在 Linux 系统下生成两个新文件
 
-- `Aerosand.s`
+- `Aerosand.s` 
 - `main.s`
 
-The `.s` (lowercase) suffix indicates **source code written in assembly**.
+后缀 `.s`（小写）表示**汇编语言形式的源文件 source code written in assembly**。
 
-### **3.3. Assembly**
+### 3.3. 汇编
 
-**Assemble** is the process by which **the assembler Assembler** converts the `.s` suffixed assembly language source file into **Machine code**, which is output as an **Object file**.
+**汇编 Assemble** 是指**汇编器 Assembler** 将后缀 `.s` 表示的汇编语言形式的源文件转换成**机器指令 Machine code**，输出为**目标文件 Object file**的过程。
 
-The Assembler converts the files from the previous step into human-readable assembly language, and ultimately produces a binary file that is relevant to the machine platform and cannot be run directly, but requires further processing.
+汇编器将上一步的文件转换成人类可读的汇编语言，最终生成的与机器平台相关的二进制文件，不能直接运行，需要进一步处理。
 
-Execute the assembly by typing the command in the terminal
+终端输入命令，执行汇编
 
-```
+```terminal {fileName="terminal"}
 g++ -c Aerosand.s -o Aerosand.o
 g++ -c main.s -o main.o
 ```
 
-- The `c` (lowercase) identifier of g++ specifies the assembler to perform the assembly
+- g++ 的 `-c` （小写）标识指定汇编器进行汇编
 
-Generate two new files under Linux
+在 Linux 系统下生成两个新文件
 
-- `Aerosand.o`
+- `Aerosand.o` 
 - `main.o`
 
-The `.o` (lowercase) suffix indicates the **object file**.
+后缀 `.o`（小写）表示**目标文件 object file**。
 
-### **3.4. Link**
+### 3.4. 链接
 
-**Linking** is the process by which **the linker Linker** combines several object files and system library files into a complete executable program.
+**链接 Link** 是**链接器 Linker** 把多个目标文件和系统库文件组合成一个完整可执行程序的过程。
 
-Although the object file contains machine instructions, it is still not a complete program. The linker will find references to function calls involving "external symbols" and generate an executable binary file.
+目标文件虽然包含机器指令，但仍然不是完整程序，链接器将找到其中函数调用涉及到“外部符号”的引用，生成可执行的二进制文件。
 
-Entering a command in the terminal to perform a direct link
+终端输入命令，执行链接
 
-```
+```terminal {fileName="terminal"}
 g++ Aerosand.o main.o -o main.out
 ```
 
-On a Linux system, a new executable file is eventually created
+在 Linux 系统下最终生成一个可执行的新文件
 
 - `main.out`
 
-The `.out` suffix is not important here. It is fine to leave the executable file unsuffixed in the command that executes the link.
+这里的后缀 `.out` 并不重要。在执行链接的指令中，该执行文件不加任何后缀也可以。
 
-In the terminal, enter the `.` `/main.out` to run the program.
+终端输入 `./main.out` 命令，运行该程序
 
-```
+```terminal {fileName="terminal"}
 ./main.out
 Hi, OpenFOAM! Here we are.
 1 + 3.14159 = 4.14159
@@ -278,95 +279,96 @@ Hi, OpenFOAM! Here we are.
 Current time step is : 0.2
 ```
 
-You can see that the program has run correctly and got the right results.
+可以看到程序已经正常运行，得到了正确的结果。
 
-## **4. Dynamic libraries**
+## 4. 动态库
 
-Even though the above has been done successfully to compile and run the program, we still have to discuss a little more.
+即使上面已经顺利完成了程序的编译和运行，我们仍然要讨论多一些。
 
-When the project has a large number of **classes**, we hope that some **classes** can be fixed to provide a certain "method", this "method" is the formation of a **library** can be reused **Library**. Because the library itself has been compiled, when other projects use the library, the library itself does not need to be "preprocessed", "compiled" and "assembled" again, it can just be linked to the project.
+当项目中有大量**类**的时候，我们希望某些**类**能固定下来提供某种“方法”，这种“方法”就形成一个可以重复使用的**库 Library**。由于库本身已经经过了完整的编译流程，当其他项目使用这个库的时候，库本身无需再次“预处理”，“编译”以及“汇编”，仅仅和这个项目链接即可。
 
-Because static libraries are expensive, waste space, and are difficult to update and maintain, OpenFOAM makes extensive use of dynamic libraries, and we will only use dynamic libraries as an example here.
+因为静态库开销大，浪费空间，更新维护困难，所以 OpenFOAM 大量使用动态库，我们这里也只以动态库为例。
 
-Dynamic libraries are not linked to the target code when **the program is compiled**, but only loaded when **the program is run**. If different programs call the same library, then only one **shareable** instance of the dynamic library is needed in memory, which greatly reduces wasted space. In addition, because dynamic libraries are only loaded at runtime, it is easy to maintain and update the libraries individually.
+动态库在**程序编译**时并不链接到目标代码，而仅仅在**程序运行**时才被链接载入。不同的程序如果调用相同的库，那么内存里只需要一份该动态库的可**共享**实例，这样就大大减少了空间浪费。此外，因为动态库仅在程序运行时才被链接载入，所以库的单独维护更新也十分方便。
 
-The compiler can organize the assembled `.o` object files to form dynamic libraries and generate `.so` files under Linux.
+编译器可以对汇编后的 `.o` 目标文件进行整理形成动态库，在 Linux 系统下生成 `.so` 文件。
 
-To generate a dynamic library, enter the following command in the terminal
+终端输入命令，执行生成动态库
 
-```
+```terminal {fileName="terminal"}
 g++ -shared -fPIC Aerosand.o -o libAerosand.so
 ```
 
-- The `shared` flag of g++ specifies that a dynamic link library is generated.
-- The `fPIC` identifier of g++ specifies the creation of an address-independent compilation program. `f` means file, and `PIC` means position independent code.
-- Dynamic library files begin with `lib`
+- g++ 的 `-shared` 标识指定生成动态链接库
+- g++ 的 `-fPIC` 标识指定创建与地址无关的编译程序，`f` 即 file，`PIC` 即 position independent code
+- 动态库文件以 `lib` 开头
 
-Generate a linkable dynamic library file on Linux systems
+在 Linux 系统下生成一个可链接的动态库文件
 
 - `libAerosand.so`
 
-The `.so` suffix indicates a **shared object**.
+后缀 `.so` 表示**共享目标 shared object**。
 
-## **5. Linking Dynamic Libraries**
+## 5. 链接动态库
 
-Instead of using the direct linking method in Section 3.4 above, we will compile the program by linking the dynamic library.
+我们并不采用上面的 3.4 节的直接链接方式，而是采用链接动态库的方式编译程序。
 
-Input a command into the terminal to delete the compilation result of the previous step.
+终端输入指令，删除上一步的编译结果
 
-```
+```terminal {fileName="terminal"}
 rm main.out
 ```
 
-Input a command to check the original dynamic library link path, and you can find that it is not the local path of the project.
+终端输入命令，查看原本动态库链接路径，可以发现并不是项目本地路径。
 
-```
+```terminal {fileName="terminal"}
 echo $LD_LIBRARY_PATH
 ```
 
-Enter a command in the terminal to temporarily specify the dynamic library path to the current folder.
+终端输入命令，临时指定动态库路径为当前文件夹
 
-```
+```terminal {fileName="terminal"}
 export LD_LIBRARY_PATH=.
 echo $LD_LIBRARY_PATH
 ```
 
 >[!tip]
->- Don't worry, the temporary designation does not affect the environment configuration of OpenFOAM dynamic library path.
->- If you restart your computer and want to run `the main` program again, you have to specify the library path again.
->- Whether you put the new library under this project path or any other path, any project in any location can link to the library, as long as you specify the correct link path. This is also the meaning of dynamic libraries "relatively independent" and "free link"!
+>- 不要担心，临时指定不影响 OpenFOAM 动态库路径的环境配置
+>- 如果重启计算机，想要再次运行 `main` 程序，必须要再次指定动态库路径
+>- 无论是把新开发库放在本项目路径下，或是其他任何路径下，任何位置的项目都可以链接使用这个动态库，只要指定正确的链接路径即可。这也是动态库“相对独立”“自由链接”的意义所在
 
-Enter a command in the terminal to link the library and generate an executable.
+终端输入命令，链接动态库生成可执行文件
 
-```
+```terminal {fileName="terminal"}
 g++ main.o -L. -lAerosand -o main
 ```
 
-- g++'s `L` identifies the path to the specified dynamic library, and the use of `L.` indicates that the dynamic library is in the current path.
-- g++'s `L` identifies the name of the specified dynamic library, and the `lib` field of the dynamic library is omitted.
-- As mentioned earlier, the suffix of the executable program is not important here.
+- g++ 的 `-L` 标识指定的动态库的路径， 使用 `-L.` 表示动态库在当前路径
+- g++ 的 `-l` 标识指定的动态库的名称，使用时省略动态库的 `lib` 字段
+- 如前所述，可执行程序的后缀在这里并不重要
 
-Generate an executable program on Linux
+在 Linux 系统下生成一个可执行程序
 
 - `main`
 
-Summarize the process as follows
+总结整个过程如下
 
 ```mermaid
 flowchart TD
 
-main.cpp -->|Preprocessing| main.i -->|Compile| main.s -->|Assemble| main.o --> linking
-Aerosand.cpp -->|Preprocessing| Aerosand.i -->|Compile| Aerosand.s 
--->|Assemble| Aerosand.o -->|Dynamic Library| Aerosand.so
+main.cpp -->|预处理| main.i -->|编译| main.s -->|汇编| main.o --> 等待链接
+Aerosand.cpp -->|预处理| Aerosand.i -->|编译| Aerosand.s 
+-->|汇编| Aerosand.o -->|动态库| Aerosand.so
 
-linking -->|Link| main
-Aerosand.so -->|Link| main
-
-```
-
-Run the program by typing `.` `/main` to run the program
+等待链接 -->|链接| main
+Aerosand.so -->|链接| main
 
 ```
+
+
+终端输入 `./main` 命令，运行该程序
+
+```terminal {fileName="terminal"}
 ./main
 Hi, OpenFOAM! Here we are.
 1 + 3.14159 = 4.14159
@@ -375,12 +377,13 @@ Hi, OpenFOAM! Here we are.
 Current time step is : 0.2
 ```
 
-You can see that the program is running correctly and you get the correct results.
+可以看到程序已经正常运行，得到了正确的结果。
 
-## **6. Summary**
+## 6. 小结
 
-This article completes the discussion of
+- [x] 理解 C++ 代码的编译原理
+- [x] 理解动态库
+- [x] 完成 helloWorld 的代码运行
 
-- [x] Understanding how C++ code is compiled
-- [x] Understanding dynamic libraries
-- [x] Completing the helloWorld code run
+
+
