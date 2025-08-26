@@ -10,7 +10,7 @@ authors:
 tags:
 excludeSearch: false
 toc: true
-weight:
+weight: 5
 math: true
 next:
 prev:
