@@ -2,7 +2,7 @@
 uid: 20250826161556
 title: 04_wmake
 date: 2025-08-26
-update: 2025-08-26
+update: 2025-08-27
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -173,7 +173,7 @@ OpenFOAM 提供了 Make 文件来帮助开发，其中
 
 文件 `ofsp_041_wmake/Make/files` 内容如下
 
-```cpp {fileName="/Make/files" linenos=table}
+```makefile {fileName="/Make/files" linenos=table}
 Aerosand/Aerosand.C
 ofsp_041_wmake.C
 
@@ -186,7 +186,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_00_helloWorld_wmake
 
 文件 `ofsp_041_wmake/Make/options` 内容如下
 
-```cpp {fileName="/Make/options" linenos=table}
+```makefile {fileName="/Make/options" linenos=table}
 EXE_INC = \
 	-IAerosand
 
@@ -309,7 +309,7 @@ Current time step is : 0.2
 
 文件 `/Aerosand/Make/files` 内容如下
 
-```cpp {fileName="/Aerosand/Make/files"}
+```makefile {fileName="/Aerosand/Make/files"}
 Aerosand.C
 
 LIB = $(FOAM_USER_LIBBIN)/libAerosand
@@ -393,7 +393,7 @@ Aerosand
 
 修改 `/Make/files` 文件
 
-```cpp {fileName="/Make/files"}
+```makefile {fileName="/Make/files"}
 ofsp_041_wmake.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_041_wmake
@@ -401,7 +401,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_041_wmake
 
 修改 `/Make/options` 文件
 
-```cpp {fileName="/Make/options"}
+```makefile {fileName="/Make/options"}
 EXE_INC = \
     -IAerosand/lnInclude
 
