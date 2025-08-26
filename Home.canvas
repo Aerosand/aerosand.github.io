@@ -1,8 +1,10 @@
 {
 	"nodes":[
-		{"id":"747cb42495fd82c5","type":"file","file":"_base/ofs-en.base","x":720,"y":-900,"width":820,"height":440},
-		{"id":"f0ad06e1c3a4e5ec","type":"file","file":"alog.md","x":-80,"y":-900,"width":600,"height":620},
-		{"id":"729caaaff2b9e321","type":"file","file":"_base/ofs-zh.base","x":1660,"y":-900,"width":800,"height":440}
+		{"id":"106d29fdbe0c3905","type":"file","file":"_base/news-en.base","x":-740,"y":-900,"width":540,"height":400},
+		{"id":"265397de3b8d7cf9","type":"file","file":"_base/ofs-index.base","x":-740,"y":-280,"width":520,"height":400},
+		{"id":"747cb42495fd82c5","type":"file","file":"_base/ofs-en.base","x":-130,"y":-280,"width":680,"height":440},
+		{"id":"729caaaff2b9e321","type":"file","file":"_base/ofs-zh.base","x":730,"y":-280,"width":800,"height":440},
+		{"id":"82694a18bd1257fb","type":"file","file":"_base/news-zh.base","x":-100,"y":-900,"width":540,"height":400}
 	],
 	"edges":[],
 	"metadata":{
