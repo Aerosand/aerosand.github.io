@@ -78,15 +78,15 @@ menu:
         icon: github
     - identifier: ofsb
       name: 1_Basics
-      pageRef: /docs/ofsb
+      pageRef: /ofs/ofsb
       parent: ofs
     - identifier: ofsp
       name: 2_Programming
-      pageRef: /docs/ofsp
+      pageRef: /ofs/ofsp
       parent: ofs
     - identifier: ofss
       name: 3_Solver
-      pageRef: /docs/ofss
+      pageRef: /ofs/ofss
       parent: ofs
 
   sidebar:

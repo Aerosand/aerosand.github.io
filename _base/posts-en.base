@@ -6,6 +6,7 @@ views:
         - file.inFolder("content/docs")
         - file.name != "_index"
         - file.name != "about"
+        - '!file.name.contains("zh-CN")'
     order:
       - file.name
       - file.folder

@@ -16,7 +16,7 @@
   "folder_templates": [
     {
       "folder": "/",
-      "template": "_templates/0_selectFolderFromName.md"
+      "template": "_templates/0_newnote.md"
     }
   ],
   "enable_file_templates": false,
