@@ -14,10 +14,12 @@ excludeSearch: false
 toc: true
 weight: 1
 math: true
-next: 
-prev: 
+next:
+prev:
 comments: true
 draft: false
+category:
+  - ofsp2026
 ---
 
 > [!important]
