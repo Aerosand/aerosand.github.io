@@ -1,8 +1,8 @@
 {
 	"nodes":[
-		{"id":"747cb42495fd82c5","type":"file","file":"_base/posts-en.base","x":720,"y":-900,"width":820,"height":440},
+		{"id":"747cb42495fd82c5","type":"file","file":"_base/ofs-en.base","x":720,"y":-900,"width":820,"height":440},
 		{"id":"f0ad06e1c3a4e5ec","type":"file","file":"alog.md","x":-80,"y":-900,"width":600,"height":620},
-		{"id":"729caaaff2b9e321","type":"file","file":"_base/posts-zh.base","x":1760,"y":-900,"width":800,"height":440}
+		{"id":"729caaaff2b9e321","type":"file","file":"_base/ofs-zh.base","x":1660,"y":-900,"width":800,"height":440}
 	],
 	"edges":[],
 	"metadata":{

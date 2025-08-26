@@ -16,9 +16,9 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": 1240,
-                  "y": -590,
-                  "zoom": -0.8753801978585696
+                  "x": 1154.5203690748579,
+                  "y": -439.9143105517524,
+                  "zoom": -0.47538019785856966
                 }
               },
               "pinned": true,
@@ -301,6 +301,9 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "content/ofs/_index.zh-CN.md",
+    "content/ofs/_index copy.md",
+    "_base/ofs-zh.base",
     "Home.canvas",
     "_index.md.md",
     "public/zh-cn/ofs/index.xml",
@@ -312,7 +315,6 @@
     "public/zh-cn/ofs/ofsp/02_helloworld",
     "public/zh-cn/news/page/1/index.html",
     "public/zh-cn/news/文档已经上线更新中/index.html",
-    "public/zh-cn/news/page/1",
     "content/docs/ofst/nnnnn.md.md",
     "content/docs/opsppp.md.md",
     "testtest.md.md",
@@ -336,7 +338,6 @@
     "content/ofs/ofsp/01_introduction.md",
     "content/ofs/ofsp/03_make.zh-CN.md",
     "content/ofs/ofsp/02_helloWorld.zh-CN.md",
-    "content/news/文档已经上线更新中.zh-CN.md",
     "images/openfoam.png",
     "images/ofsp.png",
     "images/ofsb.png",
