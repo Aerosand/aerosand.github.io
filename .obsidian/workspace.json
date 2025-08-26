@@ -299,8 +299,8 @@
       "open-vscode:VSCode": false,
       "cmdr:Templater: Insert templateHugo": false,
       "cmdr:Move current file to another folder": false,
-      "cmdr:Shell commands: Execute: hugo": false,
-      "obsidian-shellcommands:Shell commands: Custom variables": false
+      "cmdr:Shell commands: Execute: hugo": true,
+      "obsidian-shellcommands:Shell commands: Custom variables": true
     }
   },
   "active": "a71cf10365e1d686",
