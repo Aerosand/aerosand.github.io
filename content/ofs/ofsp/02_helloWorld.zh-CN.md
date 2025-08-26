@@ -101,7 +101,7 @@ tree
 
 类的声明 Class  `Aerosand.h` 如下
 
-```cpp {fileName="/Aerosand.h",linenos=table,linenostart=42}
+```cpp {fileName="/Aerosand.h",linenos=table,linenostart=1}
 #pragma once
 
 class Aerosand
