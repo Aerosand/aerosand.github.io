@@ -22,16 +22,22 @@ sidebar:
 draft: false
 ---
 
+## 0. 前言
+
+- [ ] 理解 C++ 代码的编译原理
+- [ ] 理解动态库
+- [ ] 完成 helloWorld 的代码运行
+
 ## 1. 开始
 
-> [!note]
+> [!tip]
 > 对于 OpenFOAM 来说，不管是求解器还是算例，放在任何一个文件夹都可以。放在 `$FOAM_RUN` 路径下也只是为了方便管理。
 
 我们约定
 
 - `userPath/`：用户指定路径
 
-该路径下再新建例如 `userPath/ofsp/` 文件夹，`ofsp/` 下再新建各个子项目
+该路径下再新建例如 `userPath/ofsp/` 文件夹，`ofsp/` 下再新建各个子项目的文件夹。
 
 例如，
 
@@ -51,7 +57,7 @@ mkdir /userPath/ofsp
 gedit ~/.bashrc
 ```
 
-在 `bashrc` 文件末尾添加一下语句
+在 `bashrc` 文件末尾添加以下语句
 
 ```bash {fileName="bashrc"}
 alias ofsp='cd /userPath/ofsp'
@@ -121,7 +127,7 @@ private:
 
 类的定义 `Aerosand.cpp` 如下
 
-```cpp {fileName="/Aerosand.cpp"}
+```cpp {fileName="/Aerosand.cpp",linenos=table}
 #include "Aerosand.h"
 
 void Aerosand::setLocalTime(double t) {
@@ -135,7 +141,7 @@ double Aerosand::getLocalTime() const {
 
 主源码 `main.cpp` 如下
 
-```cpp {fileName="/main.cpp"}
+```cpp {fileName="/main.cpp", linenos=table}
 #include <iostream>
 
 #include "Aerosand.h"
@@ -160,7 +166,7 @@ int main()
 }
 ```
 
-虽然我们笼统的把代码到程序的整个过程称为“编译”，实际上，在 Linux 系统下，C++ 程序的“编译”过程分为四个过程。
+虽然我们笼统的把代码到程序的整个过程称为“编译”，实际上，在 Linux 系统下，C++ 程序的“编译”分成四个过程。
 
 ```mermaid
 flowchart LR
@@ -170,7 +176,10 @@ flowchart LR
 >[!warning]
 >本文后续讨论的终端指令运行路径均留在 `ofsp/ofsp_021_helloWorld/` 不变
 
-## 3. 预处理 
+
+## 3. 代码编译
+
+### 3.1. 预处理
 
 **预处理 Preprocessing** 是编译过程的第一阶段，发生在真实编译（生成目标代码）之前。它由**预处理器 Preprocessor** 负责处理源代码中以 `#` 开头的指令，这些指令也被称为**预处理指令**。
 
@@ -185,9 +194,10 @@ g++ -E Aerosand.cpp -o Aerosand.i
 g++ -E main.cpp -o main.i
 ```
 
-> [!tip]
-> - g++ 的 `-E` 标识预处理器进行预处理
-> - g++ 的 `-o` （小写）标识指定生成的文件
+其中
+
+- g++ 的 `-E` 标识预处理器进行预处理
+- g++ 的 `-o` （小写）标识指定生成的文件
 
 在 Linux 系统下生成两个新文件
 
@@ -196,7 +206,7 @@ g++ -E main.cpp -o main.i
 
 后缀 `.i` 表示**中间预处理输出文件 intermediate preprocessing output**。
 
-## 4. 编译
+### 3.2. 编译
 
 **编译 Compile** 是**编译器 Compiler** 把预处理后的源代码（`.i` 或 `.i` 文件）转换成汇编代码（`.s` 文件）的过程。
 
@@ -209,8 +219,7 @@ g++ -S Aerosand.i -o Aerosand.s
 g++ -S main.i -o main.s
 ```
 
-> [!tip]
-> g++ 的 `-S` 标识指定编译器进行编译（大写 `S` ）
+- g++ 的 `-S` 标识指定编译器进行编译（大写 `S` ）
 
 在 Linux 系统下生成两个新文件
 
@@ -219,7 +228,7 @@ g++ -S main.i -o main.s
 
 后缀 `.s`（小写）表示**汇编语言形式的源文件 source code written in assembly**。
 
-## 5. 汇编
+### 3.3. 汇编
 
 **汇编 Assemble** 是指**汇编器 Assembler** 将后缀 `.s` 表示的汇编语言形式的源文件转换成**机器指令 Machine code**，输出为**目标文件 Object file**的过程。
 
@@ -232,8 +241,7 @@ g++ -c Aerosand.s -o Aerosand.o
 g++ -c main.s -o main.o
 ```
 
->[!tip]
->g++ 的 `-c` （小写）标识指定汇编器进行汇编
+- g++ 的 `-c` （小写）标识指定汇编器进行汇编
 
 在 Linux 系统下生成两个新文件
 
@@ -242,7 +250,7 @@ g++ -c main.s -o main.o
 
 后缀 `.o`（小写）表示**目标文件 object file**。
 
-## 6. 链接
+### 3.4. 链接
 
 **链接 Link** 是**链接器 Linker** 把多个目标文件和系统库文件组合成一个完整可执行程序的过程。
 
@@ -258,7 +266,7 @@ g++ Aerosand.o main.o -o main.out
 
 - `main.out`
 
-这里的后缀 `.out` 并不重要，不加任何后缀也可以。
+这里的后缀 `.out` 并不重要。在执行链接的指令中，该执行文件不加任何后缀也可以。
 
 终端输入 `./main.out` 命令，运行该程序
 
@@ -273,7 +281,7 @@ Current time step is : 0.2
 
 可以看到程序已经正常运行，得到了正确的结果。
 
-## 7. 动态库
+## 4. 动态库
 
 即使上面已经顺利完成了程序的编译和运行，我们仍然要讨论多一些。
 
@@ -291,10 +299,9 @@ Current time step is : 0.2
 g++ -shared -fPIC Aerosand.o -o libAerosand.so
 ```
 
-> [!tip]
-> - g++ 的 `-shared` 标识指定生成动态链接库
-> - g++ 的 `-fPIC` 标识指定创建与地址无关的编译程序，`f` 即 file，`PIC` 即 position independent code
-> - 动态库文件以 `lib` 开头
+- g++ 的 `-shared` 标识指定生成动态链接库
+- g++ 的 `-fPIC` 标识指定创建与地址无关的编译程序，`f` 即 file，`PIC` 即 position independent code
+- 动态库文件以 `lib` 开头
 
 在 Linux 系统下生成一个可链接的动态库文件
 
@@ -302,9 +309,9 @@ g++ -shared -fPIC Aerosand.o -o libAerosand.so
 
 后缀 `.so` 表示**共享目标 shared object**。
 
-## 8. 链接动态库
+## 5. 链接动态库
 
-我们并不采用上面的链接方式，而是采用链接动态库的方式编译程序。
+我们并不采用上面的 3.4 节的直接链接方式，而是采用链接动态库的方式编译程序。
 
 终端输入指令，删除上一步的编译结果
 
@@ -312,17 +319,13 @@ g++ -shared -fPIC Aerosand.o -o libAerosand.so
 rm main.out
 ```
 
-使用 `echo` 命令查看原本动态库链接路径，可以发现并不是项目本地路径。
-
-终端输入命令
+终端输入命令，查看原本动态库链接路径，可以发现并不是项目本地路径。
 
 ```terminal {fileName="terminal"}
 echo $LD_LIBRARY_PATH
 ```
 
-临时指定动态库路径为当前文件夹
-
-终端输入命令
+终端输入命令，临时指定动态库路径为当前文件夹
 
 ```terminal {fileName="terminal"}
 export LD_LIBRARY_PATH=.
@@ -330,7 +333,9 @@ echo $LD_LIBRARY_PATH
 ```
 
 >[!tip]
->不要担心，临时指定不影响 OpenFOAM 动态库路径的环境配置
+>- 不要担心，临时指定不影响 OpenFOAM 动态库路径的环境配置
+>- 如果重启计算机，想要再次运行 `main` 程序，必须要再次指定动态库路径
+>- 无论是把新开发库放在本项目路径下，或是其他任何路径下，任何位置的项目都可以链接使用这个动态库，只要指定正确的链接路径即可。这也是动态库“相对独立”“自由链接”的意义所在
 
 终端输入命令，链接动态库生成可执行文件
 
@@ -338,18 +343,13 @@ echo $LD_LIBRARY_PATH
 g++ main.o -L. -lAerosand -o main
 ```
 
-> [!tip]
-> - g++ 的 `-L` 标识指定的动态库的路径， 使用 `-L.` 表示动态库在当前路径
-> - g++ 的 `-l` 标识指定的动态库的名称，使用时省略动态库的 `lib` 字段
-> - 如前所述，可执行程序的后缀在这里并不重要
+- g++ 的 `-L` 标识指定的动态库的路径， 使用 `-L.` 表示动态库在当前路径
+- g++ 的 `-l` 标识指定的动态库的名称，使用时省略动态库的 `lib` 字段
+- 如前所述，可执行程序的后缀在这里并不重要
 
 在 Linux 系统下生成一个可执行程序
 
 - `main`
-
->[!tip]
->- 前文指定的动态库路径是临时的，如果重启计算机，想要再次运行 `main` 程序，必须要再次指定动态库路径
->- 无论是把新开发库放在本项目路径下，或是其他任何路径下，任何位置的项目都可以链接使用这个动态库，只要指定正确的链接路径即可。这也是动态库“相对独立”“自由链接”的意义所在
 
 总结整个过程如下
 
@@ -365,6 +365,7 @@ Aerosand.so -->|链接| main
 
 ```
 
+
 终端输入 `./main` 命令，运行该程序
 
 ```terminal {fileName="terminal"}
@@ -377,3 +378,12 @@ Current time step is : 0.2
 ```
 
 可以看到程序已经正常运行，得到了正确的结果。
+
+## 6. 小结
+
+- [x] 理解 C++ 代码的编译原理
+- [x] 理解动态库
+- [x] 完成 helloWorld 的代码运行
+
+
+
