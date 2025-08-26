@@ -1,6 +1,6 @@
 ---
 uid: 20250722130605
-title: 01_introduction.zh-CN
+title: 01_introduction
 date: 2025-07-22
 update: 2025-08-26
 authors:
@@ -25,7 +25,7 @@ draft: false
 
 ## 1.前置
 
-本系列旨在帮助读者衔接“CFD 理论”和“OpenFOAM 入门实践”两个部分。
+本系列旨在帮助读者衔接“CFD 基础理论”和“OpenFOAM 入门实践”两个部分。
 
 > [!warning]
 > 建议先学习计算流体力学基础以及有限体积法，之后再开始本系列的学习。
@@ -80,7 +80,7 @@ OpenFOAM 是什么呢？引用 wiki 解释如下
 
 ## 3.环境和工具
 
-鉴于 OpenFOAM 的使用环境，我们选择在 ubuntu 24.04 系统环境中，基于 OpenFOAM 2406 版本进行开发讨论，方便起见使用 vscode 工具。
+鉴于 OpenFOAM 的使用环境，我们选择在 <mark style="background: #FFB86CA6;">ubuntu 24.04</mark> 系统环境中，基于 <mark style="background: #FFB86CA6;">OpenFOAM 2406</mark> 版本进行开发讨论，方便起见使用 vscode 工具。
 
 > [!caution]
 > - openfoam.com 的版本变化较小，较新的版本均适合本系列讨论使用
@@ -91,4 +91,3 @@ OpenFOAM 是什么呢？引用 wiki 解释如下
 
 > [!tip]
 > - 建议读者动手跟随讨论编程操作
-

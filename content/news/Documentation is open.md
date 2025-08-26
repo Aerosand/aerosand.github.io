@@ -2,7 +2,7 @@
 uid: 20250824230025
 title: Documentation is open
 date: 2025-08-24
-update: 2025-08-24
+update: 2025-08-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -23,3 +23,4 @@ draft: false
 
 
 Open Now!
+
