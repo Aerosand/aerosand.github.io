@@ -279,6 +279,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "content/ofs/ofsp/05_wmake2.zh-CN.md",
+    "content/ofs/ofsp/04_wmake.zh-CN (Copy).md",
     "content/ofs/ofsp/05_basicClass.zh-CN.md",
     "content/ofs/ofsp/05_class.zh-CN.md",
     "public/zh-cn/ofs/ofsp/05_basicclass/index.html",
@@ -313,8 +315,6 @@
     "_templates/0_newnote.md",
     "_templates/0_.md",
     "content/docs/ofsp/test.md.md",
-    "content/news/test.md.md",
-    "content/docs/test.md.md",
     "content/news/test.md.md",
     "images/openfoam.png",
     "images/ofsp.png",
