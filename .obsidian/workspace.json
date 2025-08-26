@@ -16,42 +16,17 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": 774.0180744416747,
-                  "y": -137.98593087734815,
-                  "zoom": 0.5595726003274697
+                  "x": 395,
+                  "y": -370,
+                  "zoom": -1.0404273996725302
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
-          },
-          {
-            "id": "a072b081a90da7cf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/ofs/ofsp/01_introduction.zh-CN.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "01_introduction.zh-CN"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -247,7 +222,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/ofs/ofsp/01_introduction.zh-CN.md",
+                "file": "Home.canvas",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -275,7 +250,7 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of 01_introduction.zh-CN"
+              "title": "Graph of Home"
             }
           }
         ]
@@ -302,11 +277,12 @@
       "cmdr:Shell commands: Execute: hugo": true
     }
   },
-  "active": "a072b081a90da7cf",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "_templates/templateHugo.md",
     "Home.canvas",
-    "content/news/Documentation is open.md",
     "content/ofs/ofsp/01_introduction.zh-CN.md",
+    "content/news/Documentation is open.md",
     "_base/ofs-index.base",
     "_base/news-zh.base",
     "_base/news-en.base",
