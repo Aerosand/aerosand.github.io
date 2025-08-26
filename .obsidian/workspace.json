@@ -16,8 +16,8 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": 1324.753040772281,
-                  "y": -382.70656950710395,
+                  "x": 1260.5465615613573,
+                  "y": -487.78144023833113,
                   "zoom": -0.8753801978585697
                 }
               },
@@ -301,10 +301,11 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "content/ofs/ofsp/hahahhaha.md.md",
+    "Home.canvas",
     "content/ofs/_index.zh-CN.md",
     "content/ofs/_index copy.md",
     "_base/ofs-zh.base",
-    "Home.canvas",
     "_index.md.md",
     "public/zh-cn/ofs/index.xml",
     "public/zh-cn/ofs/ofsp/index.xml",
@@ -336,8 +337,6 @@
     "_templates/0_selectFolderFromName copy.md",
     "content/news/Untitled.md",
     "content/ofs/ofsp/01_introduction.md",
-    "content/ofs/ofsp/03_make.zh-CN.md",
-    "content/ofs/ofsp/02_helloWorld.zh-CN.md",
     "images/openfoam.png",
     "images/ofsp.png",
     "images/ofsb.png",

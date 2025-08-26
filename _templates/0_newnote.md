@@ -38,19 +38,19 @@ title = await sanitizeName(title);
 /* ---------- 2. 文件夹选择 ---------- */
 let destFolder = "";
 const firstChoice = await tp.system.suggester(
-  ["Docs（content/docs）","News（content/news）","Root (/)"],
-  ["__DOCS__","content/news","__ROOT__"],
+  ["OFS（content/ofs）","News（content/news）","/"],
+  ["OFS","News","__ROOT__"],
   false,
   "请选择目标文件夹"
 );
 
-if (firstChoice === "__DOCS__") {
+if (firstChoice === "OFS") {
   // 让用户输入子目录名
-  const inputFolder = await tp.system.prompt("Input subfolder（Blank for [content/docs] ）");
+  const inputFolder = await tp.system.prompt("Input subfolder（Blank for [content/ofs] ）");
   if (inputFolder && inputFolder.trim()) {
-    destFolder = `content/docs/${inputFolder.trim()}`;
+    destFolder = `content/ofs/${inputFolder.trim()}`;
   } else {
-    destFolder = "content/docs";
+    destFolder = "content/ofs";
   }
 } else if (firstChoice === "__ROOT__") {
   destFolder = ""; // 根目录
