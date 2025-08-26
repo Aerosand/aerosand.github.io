@@ -2,7 +2,7 @@
 uid: 20250723105353
 title: 02_helloWorld
 date: 2025-07-23
-update: 2025-07-23
+update: 2025-08-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -25,7 +25,7 @@ draft: false
 ## 1. 开始
 
 > [!note]
-> 对于 OpenFOAM 来说，不管是求解器还是算例，放在任何一个文件夹都可以。放在 `$FOAM_RUN` 路径下也是为了方便管理。
+> 对于 OpenFOAM 来说，不管是求解器还是算例，放在任何一个文件夹都可以。放在 `$FOAM_RUN` 路径下也只是为了方便管理。
 
 我们约定
 
@@ -43,7 +43,7 @@ mkdir /userPath/ofsp
 
 > `ofsp` 即 `OpenFoam sharing programming` 的缩写
 
-我们可以将 `ofsp` 设置为快捷命令，终端输入 `ofsp` 后可以直接跳转到项目文件夹下。
+我们可以将 `ofsp` 设置为快捷命令，这样子在终端输入 `ofsp` 后可以直接跳转到项目文件夹下。
 
 终端输入命令，打开 `bashrc` 文件
 
@@ -101,7 +101,7 @@ tree
 
 类的声明 Class  `Aerosand.h` 如下
 
-```cpp {fileName="/Aerosand.h"}
+```cpp {fileName="/Aerosand.h",linenos=table,linenostart=42}
 #pragma once
 
 class Aerosand
