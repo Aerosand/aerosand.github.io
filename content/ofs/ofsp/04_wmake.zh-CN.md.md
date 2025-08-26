@@ -217,21 +217,42 @@ wmake
 第一段是自定义的 Aerosand 类编译得到目标文件 `Aerosand.o` （见输出信息的末尾处）
 
 ```terminal {fileName="terminal"}
-g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate-depth-100  -IAerosand -iquote. -IlnInclude -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -c Aerosand/Aerosand.C -o Make/linux64GccDPInt32Opt/Aerosand/Aerosand.o
+g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall 
+-Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid
+-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate
+-depth-100  -IAerosand -iquote. -IlnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC 
+-c Aerosand/Aerosand.C -o Make/linux64GccDPInt32Opt/Aerosand/Aerosand.o
 ```
 
 第二段是主源码编译得到目标文件 `ofsp_041_wmake.o` （见输出信息的末尾处）
 
 ```terminal {fileName="terminal"}
-g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate-depth-100  -IAerosand -iquote. -IlnInclude -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -c ofsp_041_wmake.C -o Make/linux64GccDPInt32Opt/ofsp_041_wmake.o
+g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall 
+-Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid
+-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate
+-depth-100  -IAerosand -iquote. -IlnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC 
+-c ofsp_041_wmake.C -o Make/linux64GccDPInt32Opt/ofsp_041_wmake.o
 ```
 
 第三段是链接的过程，此处就是上述两个目标文件的直接链接，最终生成可执行文件（见输出信息的末尾处）
 
 ```terminal {fileName="terminal"}
-g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate-depth-100  -IAerosand -iquote. -IlnInclude -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -Xlinker --add-needed -Xlinker --no-as-needed  Make/linux64GccDPInt32Opt/Aerosand/Aerosand.o Make/linux64GccDPInt32Opt/ofsp_041_wmake.o -L/usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib \
+g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall 
+-Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid
+-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate
+-depth-100  -IAerosand -iquote. -IlnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   
+-fPIC -Xlinker --add-needed -Xlinker --no-as-needed  Make/linux64GccDPInt32Opt/Aerosand/Aerosand.o 
+Make/linux64GccDPInt32Opt/ofsp_041_wmake.o 
+-L/usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib \
      -lOpenFOAM -ldl  \
-     -lm -o /home/aerosand/OpenFOAM/aerosand-v2406/platforms/linux64GccDPInt32Opt/bin/ofsp_041_wmake
+     -lm -o /home/aerosand/OpenFOAM/aerosand
+ -v2406/platforms/linux64GccDPInt32Opt/bin/ofsp_041_wmake
 ```
 
 编译的过程文件在 `ofsp_041_wmake/Make/linux64GccDPInt32Opt/` 文件夹下（根据平台可能会有所不同）。编译形成的可执行程序在 `$FOAM_USER_APPBIN` 文件夹下（上文在 `Make/files` 中指定）。
@@ -311,14 +332,29 @@ wmake Aerosand
 第一段是自定义的 Aerosand 库编译得到目标文件 `Aerosand.o` （见输出信息的末尾处）
 
 ```terminal {fileName="terminal"}
-g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate-depth-100   -iquote. -IlnInclude -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -c Aerosand.C -o Make/linux64GccDPInt32Opt/Aerosand.o
+g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall 
+-Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid
+-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate
+-depth-100   -iquote. -IlnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC 
+-c Aerosand.C -o Make/linux64GccDPInt32Opt/Aerosand.o
 ```
 
 第二段将目标文件 `Aerosand.o` 编译成动态库 `Aerosand.so` （见输出信息的末尾处）
 
 ```terminal {fileName="terminal"}
-g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate-depth-100   -iquote. -IlnInclude -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -shared -Xlinker --add-needed -Xlinker --no-as-needed  Make/linux64GccDPInt32Opt/Aerosand.o -L/usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib \
-      -o /home/aerosand/OpenFOAM/aerosand-v2406/platforms/linux64GccDPInt32Opt/lib/libAerosand.so
+g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall 
+-Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid
+-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate
+-depth-100   -iquote. -IlnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -shared 
+-Xlinker --add-needed -Xlinker 
+--no-as-needed  Make/linux64GccDPInt32Opt/Aerosand.o 
+-L/usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib \
+      -o /home/aerosand/OpenFOAM/aerosand
+-v2406/platforms/linux64GccDPInt32Opt/lib/libAerosand.so
 ```
 
 编译的过程文件在 `ofsp_041_wmake/Aerosand/Make/linux64GccDPInt32Opt/` 文件夹下（根据平台可能会有所不同）。编译形成的可执行程序在 `$FOAM_USER_LIBBIN` 文件夹下（上文在 `Make/files` 中指定）。
@@ -406,15 +442,29 @@ wmake
 第一段是主源码编译得到目标文件 `ofsp_041_wmake.o` （见输出信息的末尾处）
 
 ```terminal {fileName="terminal"}
-g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate-depth-100  -IAerosand/lnInclude -iquote. -IlnInclude -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -c ofsp_041_wmake.C -o Make/linux64GccDPInt32Opt/ofsp_041_wmake.o
+g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall 
+-Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid
+-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate
+-depth-100  -IAerosand/lnInclude -iquote. -IlnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC 
+-c ofsp_041_wmake.C -o Make/linux64GccDPInt32Opt/ofsp_041_wmake.o
 ```
 
 第二段链接动态库到应用，并生成可执行文件 `ofsp_041_wmake` （见输出信息的末尾处）
 
 ```terminal {fileName="terminal"}
-g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate-depth-100  -IAerosand/lnInclude -iquote. -IlnInclude -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -Xlinker --add-needed -Xlinker --no-as-needed  Make/linux64GccDPInt32Opt/ofsp_041_wmake.o -L/usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib \
+g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall 
+-Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid
+-offsetof -Wno-attributes -Wno-unknown-pragmas -O3  -DNoRepository -ftemplate
+-depth-100  -IAerosand/lnInclude -iquote. -IlnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
+-I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -Xlinker
+--add-needed -Xlinker --no-as-needed  Make/linux64GccDPInt32Opt/ofsp_041_wmake.o 
+-L/usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib \
     -L/home/aerosand/OpenFOAM/aerosand-v2406/platforms/linux64GccDPInt32Opt/lib -lAerosand -lOpenFOAM -ldl  \
-     -lm -o /home/aerosand/OpenFOAM/aerosand-v2406/platforms/linux64GccDPInt32Opt/bin/ofsp_041_wmake
+     -lm -o /home/aerosand/OpenFOAM/aerosand
+-v2406/platforms/linux64GccDPInt32Opt/bin/ofsp_041_wmake
 ```
 
 同样，编译形成的可执行程序在 `$FOAM_USER_APPBIN` 文件夹下（上文在 `Make/files` 中指定）。
