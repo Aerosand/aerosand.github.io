@@ -106,6 +106,7 @@ menu:
 
 params:
   description: OpenFOAM, Numerical Calculation from Aerosand.
+  externalLinkDecoration: true
 
   banner:
     key: 'announcement-xxx'
