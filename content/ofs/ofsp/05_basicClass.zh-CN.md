@@ -8,6 +8,8 @@ authors:
     link: https://github.com/aerosand
     image: https://github.com/aerosand.png
 tags:
+  - ofsp2026
+  - OpenFOAM
 excludeSearch: false
 toc: true
 weight: 5
@@ -19,7 +21,5 @@ sidebar:
   exclude: false
 draft: false
 ---
-
-
 
 updating
