@@ -16,9 +16,9 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": 1625.2208831099813,
-                  "y": -618.4567822163563,
-                  "zoom": -0.3136291278619574
+                  "x": 1240,
+                  "y": -590,
+                  "zoom": -0.8753801978585696
                 }
               },
               "pinned": true,
@@ -301,8 +301,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "_index.md.md",
     "Home.canvas",
+    "_index.md.md",
     "public/zh-cn/ofs/index.xml",
     "public/zh-cn/ofs/ofsp/index.xml",
     "public/zh-cn/tags/news/index.xml",
