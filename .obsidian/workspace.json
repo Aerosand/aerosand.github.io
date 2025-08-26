@@ -16,17 +16,42 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -570.1462936955124,
-                  "y": -652.8859182081608,
-                  "zoom": -1.0404273996725302
+                  "x": 774.0180744416747,
+                  "y": -137.98593087734815,
+                  "zoom": 0.5595726003274697
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
+          },
+          {
+            "id": "a072b081a90da7cf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/ofs/ofsp/01_introduction.zh-CN.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "01_introduction.zh-CN"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -222,7 +247,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Home.canvas",
+                "file": "content/ofs/ofsp/01_introduction.zh-CN.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -250,7 +275,7 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of Home"
+              "title": "Graph of 01_introduction.zh-CN"
             }
           }
         ]
@@ -277,10 +302,10 @@
       "cmdr:Shell commands: Execute: hugo": true
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "a072b081a90da7cf",
   "lastOpenFiles": [
-    "content/news/Documentation is open.md",
     "Home.canvas",
+    "content/news/Documentation is open.md",
     "content/ofs/ofsp/01_introduction.zh-CN.md",
     "_base/ofs-index.base",
     "_base/news-zh.base",
@@ -315,7 +340,6 @@
     "content/news/test.md.md",
     "content/misc/test.md.md",
     "_templates/0_selectFolderFromName copy.md",
-    "content/news/Untitled.md",
     "images/openfoam.png",
     "images/ofsp.png",
     "images/ofsb.png",
