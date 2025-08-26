@@ -279,6 +279,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "content/ofs/ofsp/05_class.zh-CN.md",
     "public/zh-cn/ofs/ofsp/05_basicclass/index.html",
     "public/zh-cn/ofs/ofsp/05_basicclass",
     "public/zh-cn/ofs/ofsp/04_wmake/index.html",
@@ -297,7 +298,6 @@
     "_index.md.md",
     "public/zh-cn/ofs/index.xml",
     "public/zh-cn/ofs/ofsp/index.xml",
-    "public/zh-cn/tags/news/index.xml",
     "content/docs/ofst/nnnnn.md.md",
     "content/docs/opsppp.md.md",
     "testtest.md.md",
