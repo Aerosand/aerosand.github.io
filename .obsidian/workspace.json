@@ -25,8 +25,33 @@
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
+          },
+          {
+            "id": "e3ba83e2e4b9ca57",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/ofs/ofsp/05_basicClass.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "05_basicClass"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -278,10 +303,10 @@
       "cmdr:Shell commands: Execute: hugo": true
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "e3ba83e2e4b9ca57",
   "lastOpenFiles": [
-    "content/ofs/ofsp/_index.md",
     "Home.canvas",
+    "content/ofs/ofsp/_index.md",
     "content/ofs/ofsp/04_wmake.md",
     "content/news/_index.md",
     "content/ofs/ofsb/_index.md",
