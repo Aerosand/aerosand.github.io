@@ -1,0 +1,142 @@
+.theme-light,
+.theme-dark {
+  --background-primary: #282a36;
+  --background-primary-alt: #44475a;
+  --background-secondary: #44475a;
+  --background-secondary-alt: #282a36;
+  --background-accent: #f8f8f2;
+  /*--background-modifier-border: #f8f8f2;*/
+  --background-modifier-form-field: rgba(0, 0, 0, 0.2);
+  --background-modifier-form-field-highlighted: rgba(0, 0, 0, 0.5);
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
+  --background-modifier-success: #50fa7b; /*no sure*/
+  --background-modifier-error: #3d0000; /*no sure*/
+  --background-modifier-error-rgb: 61, 0, 0;
+  --background-modifier-error-hover: #470000;
+  --background-modifier-cover: rgba(0, 0, 0, 0.6);
+  --text-accent: #ffb86c;
+  --text-accent-hover: #8be9fd;
+  --text-normal: #f8f8f2;
+  --text-muted: #f8f8f2;
+  --text-faint: #bd93f9;
+  --text-highlight-bg: #ff5555;
+  --text-error: #ff79c6;
+  --text-error-hover: #ff79c6;
+  --text-selection: #6272a4; /* Chromium precess this color with alpha channel */
+  --text-on-accent: #bd93f9;
+  --interactive-normal: #ffb86c;
+  --interactive-hover: #ff5555;
+  --interactive-accent: #ffb86c;
+  --interactive-accent-rgb: 123, 108, 217;
+  --interactive-accent-hover: #ff5555;
+  --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2);
+  --scrollbar-bg: rgba(255, 255, 255, 0.05);
+  --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
+
+  --text-title-h1:              #bd93f9;
+  --text-title-h2:              #ff79c6;
+  --text-title-h3:              #ff5555;
+  --text-title-h4:              #ffb86c;
+  --text-title-h5:              #50fa7b;
+  --text-title-h6:              #8be9fd;
+  --inline-code:                #bd93f9;
+  --code-block:                 #8be9fd;
+  --pre-code:                   #44475a;
+  --blockquote-border:          #ffb86c;
+  --vim-cursor:                 #ff5555;
+  --border-color:               #2b2727; /*also like transparent*/
+}
+
+
+.cm-header-2
+{
+  font-weight: 500;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-title-h2);
+}
+
+.cm-header-3
+{
+  font-weight: 500;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-title-h3);
+}
+
+.cm-header-4
+{
+  font-weight: 500;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-title-h4);
+}
+
+.cm-header-5
+{
+  font-weight: 500;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-title-h5);
+}
+
+.cm-header-6
+{
+  font-weight: 500;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-title-h6);
+}
+
+.cm-strong {
+  color: rgb(179, 153, 255, 0.95);
+  font-weight: 700;
+}
+
+.cm-em {
+  color: #b8b894;
+}
+
+.cm-s-obsidian span.cm-hashtag {
+    color: #d669bc;
+    text-decoration: underline;
+}
+
+/**********************/
+/* BOLD AND ITALTICS */
+/**********************/
+
+
+.theme-dark strong {
+    color: rgb(179, 153, 255, 0.95);
+    font-weight: 700;
+}
+  
+.theme-dark em {
+    color: #b8b894;
+}
+
+/**********************/
+/* Graph View */
+/**********************/
+
+.theme-dark .graph-view.color-fill {
+    color: #fcf601;
+}
+.theme-dark .graph-view.color-circle {
+    color: #26798c;
+}
+.theme-dark .graph-view.color-line {
+    color: #26798c;
+}
+
+.theme-dark .graph-view.color-text {
+    color: #cccccc;
+}
+
+.theme-dark .graph-view.color-fill-highlight {
+    color: #26798c;
+}
+.theme-dark .graph-view.color-line-highlight {
+    color: #5dbcd2;
+}

@@ -14,19 +14,44 @@
             "state": {
               "type": "canvas",
               "state": {
-                "file": "Home.canvas",
+                "file": "Home - APS.canvas",
                 "viewState": {
-                  "x": 220,
-                  "y": -60,
-                  "zoom": -1.0887442118300796
+                  "x": 6245.539986077172,
+                  "y": -1934.8194804772295,
+                  "zoom": 0.3668716774647578
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
-              "title": "Home"
+              "title": "Home - APS"
+            }
+          },
+          {
+            "id": "aed2641b1a815627",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project/ofsp/06_vector.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "06_vector"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -38,7 +63,7 @@
       {
         "id": "9a872f1de3cf52d5",
         "type": "tabs",
-        "dimension": 49.6417604912999,
+        "dimension": 48.5310119695321,
         "children": [
           {
             "id": "6c0b646b069e65ec",
@@ -71,21 +96,6 @@
             }
           },
           {
-            "id": "eb8d081bc5a1d60b",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Home.canvas",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of Home"
-            }
-          },
-          {
             "id": "2330cc41eea6ab57",
             "type": "leaf",
             "state": {
@@ -94,13 +104,23 @@
               "icon": "lucide-clock",
               "title": "Web history"
             }
+          },
+          {
+            "id": "2399b8a0e2a411a6",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ]
       },
       {
         "id": "d5574f3c9c5c4dc4",
         "type": "tabs",
-        "dimension": 50.3582395087001,
+        "dimension": 51.4689880304679,
         "children": [
           {
             "id": "e21a634899ec8a4d",
@@ -113,27 +133,17 @@
             }
           },
           {
-            "id": "a206f75ceeeca3b9",
-            "type": "leaf",
-            "state": {
-              "type": "online.larslockefeer.obsidian-plugin-todo",
-              "state": {},
-              "icon": "checkmark",
-              "title": "Todo"
-            }
-          },
-          {
             "id": "96f16f1b49a2dff1",
             "type": "leaf",
             "state": {
               "type": "webviewer",
               "state": {
                 "url": "https://chat.deepseek.com/",
-                "title": "DeepSeek",
+                "title": "DeepSeek - Into the Unknown",
                 "mode": "webview"
               },
               "icon": "globe-2",
-              "title": "DeepSeek"
+              "title": "DeepSeek - Into the Unknown"
             }
           },
           {
@@ -149,12 +159,28 @@
               "icon": "globe-2",
               "title": "ChatGPT"
             }
+          },
+          {
+            "id": "eb8d081bc5a1d60b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Project/ofsp/06_vector.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 06_vector"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 293.5
+    "width": 284.5
   },
   "right": {
     "id": "bcf5455906cfff97",
@@ -181,7 +207,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Home.canvas",
+                "file": "Project/ofsp/02_helloWorld.zh-CN.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +217,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Home"
+              "title": "Backlinks for 02_helloWorld.zh-CN"
             }
           },
           {
@@ -209,7 +235,8 @@
               "title": "Tags"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "ca790a3de457ce4b",
@@ -222,7 +249,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Home.canvas",
+                "file": "Project/ofsp/05_basicClass.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -245,12 +272,12 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.6231035101227123,
+                  "scale": 0.4154023400818081,
                   "close": true
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of Home"
+              "title": "Graph of 05_basicClass"
             }
           }
         ]
@@ -263,6 +290,7 @@
   "left-ribbon": {
     "hiddenItems": {
       "bases:Create new base": true,
+      "templater-obsidian:Templater": true,
       "switcher:Open quick switcher": true,
       "graph:Open graph view": true,
       "canvas:Create new canvas": true,
@@ -270,64 +298,59 @@
       "templates:Insert template": true,
       "command-palette:Open command palette": true,
       "omnisearch:Omnisearch": false,
-      "homepage:Open homepage": false,
-      "templater-obsidian:Templater": true,
-      "open-vscode:VSCode": false,
-      "cmdr:Templater: Insert templateHugo": false,
-      "cmdr:Move current file to another folder": false,
-      "cmdr:Shell commands: Execute: hugo": true
+      "homepage:Open homepage": true,
+      "open-vscode:VSCode": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "aed2641b1a815627",
   "lastOpenFiles": [
-    "_templates/hugoBadge.md",
-    "content/ofs/ofsp/05_basicClass.md",
-    "Home.canvas",
-    "content/ofs/ofsp/_index.md",
-    "content/ofs/ofsp/04_wmake.md",
-    "content/news/_index.md",
-    "content/ofs/ofsb/_index.md",
-    "content/ofs/_index.md",
-    "public/ofs/ofsp/02_helloworld/index.html",
-    "public/ofs/ofsp/02_helloworld",
-    "public/ofs/ofsp/03_make/index.html",
-    "public/ofs/ofsp/03_make",
-    "public/ofs/ofsb/_index.zh-cn/index.html",
-    "public/ofs/ofsb/_index.zh-cn",
-    "public/about.zh-cn/index.html",
-    "public/about.zh-cn",
-    "public/ofs/ofsp/04_wmake/index.html",
-    "public/ofs/ofsp/04_wmake",
-    "content/ofs/ofsp/03_make.md",
-    "content/ofs/ofsp/02_helloWorld.md",
-    "content/ofs/ofsp/01_introduction.md",
-    "content/ofs/ofsp/05_basicClass.zh-CN.md",
-    "content/ofs/ofsp/05_wmake2.zh-CN.md",
-    "content/ofs/ofsp/04_wmake.zh-CN (Copy).md",
-    "content/ofs/ofsp/05_class.zh-CN.md",
-    "_templates/templateHugo.md",
-    "content/ofs/ofsp/01_introduction.zh-CN.md",
-    "content/news/Documentation is open.md",
-    "content/ofs/ofsp/hahahhaha.md.md",
-    "content/ofs/_index.zh-CN.md",
-    "content/ofs/_index copy.md",
-    "_index.md.md",
-    "content/docs/ofst/nnnnn.md.md",
-    "content/docs/opsppp.md.md",
-    "testtest.md.md",
-    "文档_20250826T00340.md.md",
-    "content/docs/ofsp/hahahaha.md.md",
-    "images/openfoam.png",
-    "images/ofsp.png",
-    "images/ofsb.png",
-    "images/cfd.png",
-    "public/images/hextra-search.webp",
-    "public/images/hextra-doc.webp",
-    "public/images/hextra-markdown.webp",
-    "public/images/ofsp.png",
-    "static/images/ofsp.png",
-    "public/images/ofsb.png",
+    "Home - APS.canvas",
+    "Project/ofsp/06_vector.md",
+    "Project/ofsp/05_basicClass.md",
+    "Project/ofsp/06_vector.md.md",
     "Project/OpenFOAM Sharing.canvas",
+    "Project/ofsp/03_make.md",
+    "Project/ofsp/04_wmake.md",
+    "Project/ofsp/02_helloWorld.md",
+    "_templates/hugoSteps.md",
+    "_templates/templateHugo.md",
+    "Project/ofsp/01_introduction.md",
+    "Project/ofsp/02_helloWorld.zh-CN.md",
+    "Project/ofsp/03_make.zh-CN.md",
+    "Project/ofsp/04_wmake.zh-CN.md",
+    "Project/ofsp/05_basicClass.zh-CN.md",
+    "Project/ofsp/01_introduction.zh-CN.md",
+    "_base/ofsp.base",
+    "_base",
+    "Self/log/2025-08-26 Tuesday.md",
+    "Self/log/2025-07-20 Sunday.md",
+    "Self/memo/hahahhaha.md.md",
+    "Project/wiki/hahahhaha.md.md",
+    "_templates/0_newnote.md",
+    "Project/ .md",
+    "aerosand/aerosand.github.io",
+    "aerosand.github.io",
+    "aerosand/public/zh-cn.search.min.ab56a95db0578872aef5cc3c7f439c056dba42c40fc48960b644d1829857d986.js",
+    "aerosand/public/en.search.min.097e3a24da0aba2ac82ef0f53e82e1500343a7126260a0203f3a45bbe0876093.js",
+    "aerosand/public/js/flexsearch.433e941a8a573ebb9931fc16fc75266ab6b93f569ac2fb4f3dc66882e0416f4c.js",
+    "aerosand/public/js/main.min.53d83da93e60b621b8ee8a02e409d394c907c30ef3581b0c22a3b64538457248.js",
+    "aerosand/public/css/compiled/main.min.e99e91226a6be13fe6d284a327f4b3bdc11aaed456924207fffdc9135fffb7f9.css",
+    "aerosand/public/zh-cn.search.js",
+    "aerosand/public/images/logo.svg",
+    "aerosand/public/images/logo-dark.svg",
+    "aerosand/public/apple-touch-icon.png",
+    "aerosand/public/android-chrome-512x512.png",
+    "aerosand/public/favicon-32x32.png",
+    "aerosand/public/favicon-16x16.png",
+    "aerosand/public/favicon.svg",
+    "aerosand/public/android-chrome-192x192.png",
+    "aerosand/content/ofst/_index.md",
+    "aerosand/content/ofsp/_index.md",
+    "aerosand/content/ofsb/_index.md",
+    "aerosand/content/about/_index.md",
+    "aerosand/content/news/_index.md",
+    "aerosand/static/images/hextra-search.webp",
+    "aerosand/static/images/hextra-markdown.webp",
     "Project/phdProjects.canvas",
     "Project/phdProject.canvas",
     "Project/myProjects.canvas"

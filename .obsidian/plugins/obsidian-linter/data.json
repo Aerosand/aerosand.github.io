@@ -70,14 +70,14 @@
       "update-on-file-contents-updated": "after 5 seconds"
     },
     "yaml-title": {
-      "enabled": true,
+      "enabled": false,
       "title-key": "title",
       "mode": "first-h1-or-filename-if-h1-missing"
     },
     "yaml-title-alias": {
       "enabled": false,
       "preserve-existing-alias-section-style": false,
-      "keep-alias-that-matches-the-filename": true,
+      "keep-alias-that-matches-the-filename": false,
       "use-yaml-key-to-keep-track-of-old-filename-or-heading": false,
       "alias-helper-key": "title"
     },

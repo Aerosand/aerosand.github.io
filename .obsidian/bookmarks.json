@@ -8,27 +8,65 @@
     },
     {
       "type": "url",
-      "ctime": 1753022621806,
-      "url": "https://chat.deepseek.com/",
-      "title": "DeepSeek"
-    },
-    {
-      "type": "url",
       "ctime": 1753023851965,
       "url": "https://readpaper.com/home/library",
       "title": "ReadPaper"
     },
     {
       "type": "url",
-      "ctime": 1753073657927,
-      "url": "https://chatgpt.com/",
-      "title": "ChatGPT"
+      "ctime": 1756178041965,
+      "url": "https://www.notion.so/aerosandcn/12c2e7111b08812cab0bf0a289396d82",
+      "title": "notion"
     },
     {
-      "type": "url",
-      "ctime": 1753253015172,
-      "url": "https://aerosand.cc/",
-      "title": "Aerosand"
+      "type": "group",
+      "ctime": 1756176771448,
+      "items": [
+        {
+          "type": "url",
+          "ctime": 1756176584534,
+          "url": "https://imfing.github.io/hextra/versions/latest/docs/",
+          "title": "Hextra docs"
+        },
+        {
+          "type": "url",
+          "ctime": 1756176691095,
+          "url": "https://mioz.life/",
+          "title": "Mioz.Life | 猫酣 zzZ"
+        },
+        {
+          "type": "url",
+          "ctime": 1753253015172,
+          "url": "https://aerosand.cc/",
+          "title": "Aerosand.cc"
+        },
+        {
+          "type": "url",
+          "ctime": 1756176761744,
+          "url": "https://aerosand.cn/",
+          "title": "Aerosand.cn"
+        }
+      ],
+      "title": "Blogs"
+    },
+    {
+      "type": "group",
+      "ctime": 1756176807872,
+      "items": [
+        {
+          "type": "url",
+          "ctime": 1753022621806,
+          "url": "https://chat.deepseek.com/",
+          "title": "DeepSeek"
+        },
+        {
+          "type": "url",
+          "ctime": 1753073657927,
+          "url": "https://chatgpt.com/",
+          "title": "ChatGPT"
+        }
+      ],
+      "title": "AI chat"
     }
   ]
 }

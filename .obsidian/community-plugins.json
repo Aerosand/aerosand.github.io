@@ -6,11 +6,11 @@
   "homepage",
   "calendar",
   "templater-obsidian",
-  "obsidian-plugin-todo",
   "open-vscode",
   "highlightr-plugin",
   "obsidian-hover-editor",
   "advanced-canvas",
-  "cmdr",
-  "OA-file-hider"
+  "OA-file-hider",
+  "obsidian-checklist-plugin",
+  "quickadd"
 ]
