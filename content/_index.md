@@ -21,7 +21,7 @@ update: 2025-08-27
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Free sharing for &nbsp;<br class="hx:sm:block hx:hidden" />OpenFOAM programming, CFD, Numerical calculation and more.
+  Free sharing for &nbsp;<br class="hx:sm:block hx:hidden" />CFD, OpenFOAM programming, Numerical calculation and more.
 {{< /hextra/hero-subtitle >}}
 </div>
 

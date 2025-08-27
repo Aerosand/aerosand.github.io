@@ -25,8 +25,33 @@
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
+          },
+          {
+            "id": "ead1ce9257dddeeb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/_index.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "_index"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -141,13 +166,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Home.canvas",
+                "file": "content/_index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Home"
+              "title": "Outline of _index"
             }
           }
         ],
@@ -277,10 +302,10 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "ead1ce9257dddeeb",
   "lastOpenFiles": [
-    "content/_index.md",
     "Home.canvas",
+    "content/_index.md",
     "Home - APS.canvas",
     "Project/ofsp/06_vector.md",
     "Project/ofsp/05_basicClass.md",
@@ -325,7 +350,6 @@
     "aerosand/content/ofsp/_index.md",
     "aerosand/content/ofsb/_index.md",
     "aerosand/content/about/_index.md",
-    "aerosand/content/news/_index.md",
     "aerosand/static/images/hextra-search.webp",
     "aerosand/static/images/hextra-markdown.webp",
     "Project/phdProjects.canvas",
