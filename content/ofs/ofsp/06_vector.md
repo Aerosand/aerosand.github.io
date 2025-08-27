@@ -98,7 +98,7 @@ typedef Vector<solveScalar> solveVector;
 可以看到，代表不同数据类型的文件夹 `/bools` ， `/complex` ， `/floats` ，`/ints` ，`/lists` 都是 Vector 模板类对不同基本数据类型的 `typedef` ，也就是类型别名。
 
 > [!warning]
-> 同样，我们暂不深究所有的细节。
+> 暂不深究代码的所有细节
 
 ## 2. 源码讨论
 
