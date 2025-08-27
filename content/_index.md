@@ -1,6 +1,8 @@
 ---
 title: Aerosand
 layout: hextra-home
+date: 2025-08-25
+update: 2025-08-27
 ---
 
 
@@ -19,7 +21,7 @@ layout: hextra-home
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Free sharing &nbsp;<br class="hx:sm:block hx:hidden" />for OpenFOAM, Calculation and more.
+  Free sharing for &nbsp;<br class="hx:sm:block hx:hidden" />OpenFOAM programming, CFD, Numerical calculation and more.
 {{< /hextra/hero-subtitle >}}
 </div>
 
