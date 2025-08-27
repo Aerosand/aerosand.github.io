@@ -351,6 +351,7 @@ public:
     typedef Vector<solveScalar> type;
 };
 
+// 暂不深究
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -410,15 +411,15 @@ API 页面 https://api.openfoam.com/2506/VectorI_8H_source.html
      this->v_[Y] = vy;
      this->v_[Z] = vz;
  }
- 
+ // 从三个分量构造
+ // - 直接访问继承自 VectorSpace 的 v_ 数组成员 
  
  template<class Cmpt>
  inline Foam::Vector<Cmpt>::Vector(Istream& is)
  :
      Vector::vsType(is)
  {}
- // 从三个分量构造
- // - 直接访问继承自 VectorSpace 的 v_ 数组成员
+ // 从输入流构造向量
  
  
  // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
@@ -794,7 +795,7 @@ LIB = $(FOAM_USER_LIBBIN)/libAerosand
 
 ```
 
-库 `Make/options` 为空
+开发库没有其他依赖，库 `Make/options` 为空
 
 代码 `ofsp_061_vector.C` 为
 
@@ -847,7 +848,25 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_061_vector
 
 ```
 
-因为我们包含了 `vector.H` ，路径为 `$FOAM_SRC/OpenFOAM/primitives/Vector/floats/vector.H`，由 Make 文件的位置能判断，该文件属于 OpenFOAM 库，路径为 `$FOAM_SRC/OpenFOAM`。
+因为我们包含了 `vector.H` ，路径为 `$FOAM_SRC/OpenFOAM/primitives/Vector/floats/vector.H`。由 Make 文件的位置能判断，该文件属于 OpenFOAM 库，路径为 `$FOAM_SRC/OpenFOAM`。归属关系如下。
+
+```terminal {fileName="terminal"}
+OpenFOAM
+├── lnInclude/
+├── ...
+├── Make
+│   ├── files
+│   └── options
+└── primitives
+	├── ...
+	└── Vector
+		├── ...
+		├── floats
+		│   ├── ...
+		│   └── vector.H
+		├── Vector.H
+		└── VectorI.H
+```
 
 原则上，我们应该在项目 `Make/options` 中包含 OpenFOAM 库。实际上，OpenFOAM 的构建系统（wmake）已经自动处理原生必备库的依赖关系。我们只需要添加第三方库、自己开发的库、某些可选模块的库即可。
 
