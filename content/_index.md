@@ -38,7 +38,7 @@ update: 2025-08-27
     subtitle="OpenFOAM Sharing Basics."
     link="/ofs/ofsb"
     class="hx-aspect-auto md:hx-aspect-[1.1/1] max-md:hx-min-h-[340px]"
-    image="images/ofsb.png"
+    image="/images/ofsb.png"
     imageClass="hx-top-[40%] hx-left-[36px] hx-w-[180%] sm:hx-w-[110%] dark:hx-opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(194,97,254,0.15),hsla(0,0%,100%,0));"
   >}}
@@ -47,7 +47,7 @@ update: 2025-08-27
     subtitle="OpenFOAM Sharing Programming."
     link="/ofs/ofsp"
     class="hx-aspect-auto md:hx-aspect-[1.1/1] max-lg:hx-min-h-[340px]"
-    image="images/ofsp.png"
+    image="/images/ofsp.png"
     imageClass="hx-top-[40%] hx-left-[36px] hx-w-[180%] sm:hx-w-[110%] dark:hx-opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(142,53,74,0.15),hsla(0,0%,100%,0));"
   >}}
@@ -56,7 +56,7 @@ update: 2025-08-27
     subtitle="OpenFOAM Sharing Solver."
     link="/ofs/ofss"
     class="hx-aspect-auto md:hx-aspect-[1.1/1] max-md:hx-min-h-[340px]"
-    image="images/openfoam.png"
+    image="/images/openfoam.png"
     imageClass="hx-top-[40%] hx-left-[36px] hx-w-[180%] sm:hx-w-[110%] dark:hx-opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(221,210,59,0.15),hsla(0,0%,100%,0));"
   >}}
