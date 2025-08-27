@@ -71,7 +71,7 @@ code /usr/lib/openfoam/openfoam2406/src/OpenFOAM/primitives/bools/Switch/Switch.
 
 无论如何，`Switch.H` 部分代码如下
 
-```cpp {fileName="Switch.H",base_url="https://api.openfoam.com/2506/Switch_8H_source.html"}
+```cpp {fileName="Switch.H",url="https://api.openfoam.com/2506/Switch_8H_source.html"}
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
