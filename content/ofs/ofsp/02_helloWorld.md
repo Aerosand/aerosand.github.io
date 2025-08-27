@@ -28,7 +28,7 @@ draft: false
 
 - [ ] 理解 C++ 代码的编译原理
 - [ ] 理解动态库
-- [ ] 编译运行 helloWorld 程序
+- [ ] 编译运行 helloWorld 项目
 
 ## 1. 开始
 
@@ -387,7 +387,7 @@ Current time step is : 0.2
 
 - [x] 理解 C++ 代码的编译原理
 - [x] 理解动态库
-- [x] 编译运行 helloWorld 程序
+- [x] 编译运行 helloWorld 项目
 
 
 

@@ -32,7 +32,7 @@ draft: false
 - [ ] wmake 实现直接链接
 - [ ] wmake 实现动态库链接
 - [ ] 理解 Make 文件
-- [ ] 编译运行 wmake 程序
+- [ ] 编译运行 wmake 项目
 
 ## 1. 理解 wmake
 
@@ -247,7 +247,8 @@ g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall
 -depth-100  -IAerosand -iquote. -IlnInclude 
 -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
 -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   
--fPIC -Xlinker --add-needed -Xlinker --no-as-needed  Make/linux64GccDPInt32Opt/Aerosand/Aerosand.o 
+-fPIC -Xlinker --add-needed -Xlinker --no-as-needed
+Make/linux64GccDPInt32Opt/Aerosand/Aerosand.o 
 Make/linux64GccDPInt32Opt/ofsp_041_wmake.o 
 -L/usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib \
      -lOpenFOAM -ldl  \
@@ -496,5 +497,5 @@ Current time step is : 0.2
 - [x] wmake 实现直接链接
 - [x] wmake 编译动态库
 - [x] 理解 Make 文件
-- [x] 编译运行 wmake 程序
+- [x] 编译运行 wmake 项目
 

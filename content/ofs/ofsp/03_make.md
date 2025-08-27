@@ -34,7 +34,7 @@ draft: false
 
 - [ ] 理解 make 的使用
 - [ ] 编写通用 makefile
-- [ ] 编译运行 make 程序
+- [ ] 编译运行 make 项目
 
 ## 1. 项目
 
@@ -374,5 +374,5 @@ Current time step is : 0.2
 
 - [x] 理解 make 的使用
 - [x] 编写通用 makefile
-- [x] 编译运行 make 程序
+- [x] 编译运行 make 项目
 

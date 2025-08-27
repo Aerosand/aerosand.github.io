@@ -42,7 +42,7 @@ draft: false
 
 可以通过 API 网站直接搜索 `Switch` 关键词找到 Switch Class Reference 页面，该页面提供了 Switch 类的相关内容，包括对应的 Source files 即 `Switch.H` 和 `Switch.C`。
 
-API 页面见 https://api.openfoam.com/2506/Switch_8H_source.html
+API 页面 https://api.openfoam.com/2506/Switch_8H_source.html
 
 也可以通过终端查找打开阅读源码。
 
@@ -114,7 +114,7 @@ SourceFiles
 
 同样可以在网上或是本地找到 label 类的源码。
 
-API 页面见 https://api.openfoam.com/2506/label_8H.html
+API 页面 https://api.openfoam.com/2506/label_8H.html
 
 ```cpp {fileName="label.H"}
 /*
@@ -136,7 +136,7 @@ API 页面见 https://api.openfoam.com/2506/label_8H.html
 
 ## 3. scalar
 
-API 页面见 https://api.openfoam.com/2506/scalar_8H.html
+API 页面 https://api.openfoam.com/2506/scalar_8H.html
 
 ```cpp {filename="scalar.H"}
 /*
@@ -152,7 +152,7 @@ API 页面见 https://api.openfoam.com/2506/scalar_8H.html
 
 ## 4. vector
 
-API 页面见 https://api.openfoam.com/2506/vector_8H.html
+API 页面 https://api.openfoam.com/2506/vector_8H.html
 
 ```cpp {fileName="vector.H"}
 /*
@@ -166,9 +166,12 @@ API 页面见 https://api.openfoam.com/2506/vector_8H.html
 
 可见，vector 类型是由 scalar 构成的向量。该类也定义了向量的数学运算方法。
 
+>[!note]
+>由其他数据类型构成的向量是什么呢？
+
 ## 5. tensor
 
-API 页面见 https://api.openfoam.com/2506/tensor_8H.html
+API 页面 https://api.openfoam.com/2506/tensor_8H.html
 
 ```cpp {fileName="tensor.H"}
 /*
@@ -184,9 +187,12 @@ API 页面见 https://api.openfoam.com/2506/tensor_8H.html
 
 可见，tensor 类型是由 scalar 构成的张量。该类也定义了张量的数学运算方法。
 
+>[!note]
+>由其他数据类型构成的张量是什么呢？
+
 ## 6. dimensionedScalar/Vector/Tensor
 
-以 dimensionedScalar 为例，API 页面见 https://api.openfoam.com/2506/dimensionedScalar_8H_source.html
+以 dimensionedScalar 为例，API 页面 https://api.openfoam.com/2506/dimensionedScalar_8H_source.html
 
 ```cpp {fileName="dimensionedScalar.H"}
 /*
@@ -201,13 +207,13 @@ API 页面见 https://api.openfoam.com/2506/tensor_8H.html
 
 ## 7. scalar/vector/tensorField
 
-以 scalarField 为例，API 页面见 https://api.openfoam.com/2506/scalarField_8H.html
+以 scalarField 为例，API 页面 https://api.openfoam.com/2506/scalarField_8H.html
 
 它们本质上就是 scalar/vector/tensor 类型的包含了对应计算方法的列表值，也就是“场”的数值存储。
 
 ## 8. dimensionSet
 
-API 页面见 https://api.openfoam.com/2506/dimensionSet_8H.html
+API 页面 https://api.openfoam.com/2506/dimensionSet_8H.html
 
 ```cpp {fileName="dimensionSet.H"}
 /*
@@ -273,7 +279,7 @@ API 页面见 https://api.openfoam.com/2506/dimensionSet_8H.html
 
 ## 9. tmp
 
-API 页面见 https://api.openfoam.com/2506/tmp_8H.html
+API 页面 https://api.openfoam.com/2506/tmp_8H.html
 
 ```cpp {fileName="dimensionedScalar.H"}
 /*
@@ -295,7 +301,7 @@ API 页面见 https://api.openfoam.com/2506/tmp_8H.html
 
 ## 10. IOobject
 
-API 页面见 https://api.openfoam.com/2506/IOobject_8H.html
+API 页面 https://api.openfoam.com/2506/IOobject_8H.html
 
 简单来说，该类提供了所有需要在磁盘（作为文件）和内存（作为对象）之间进行读写操作的对象的完整描述和接口。
 
