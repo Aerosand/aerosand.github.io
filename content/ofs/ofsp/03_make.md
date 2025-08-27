@@ -2,7 +2,7 @@
 uid: 20250723185036
 title: 03_make
 date: 2025-07-23
-update: 2025-08-26
+update: 2025-08-27
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -34,7 +34,7 @@ draft: false
 
 - [ ] 理解 make 的使用
 - [ ] 编写通用 makefile
-- [ ] 运行 make 程序
+- [ ] 编译运行 make 程序
 
 ## 1. 项目
 
@@ -374,5 +374,5 @@ Current time step is : 0.2
 
 - [x] 理解 make 的使用
 - [x] 编写通用 makefile
-- [x] 运行 make 程序
+- [x] 编译运行 make 程序
 

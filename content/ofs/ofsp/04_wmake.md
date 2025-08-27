@@ -10,7 +10,6 @@ authors:
 tags:
   - ofsp2026
   - OpenFOAM
-  - test
 excludeSearch: false
 toc: true
 weight: 4
@@ -33,7 +32,7 @@ draft: false
 - [ ] wmake 实现直接链接
 - [ ] wmake 实现动态库链接
 - [ ] 理解 Make 文件
-- [ ] 运行 wmake 程序
+- [ ] 编译运行 wmake 程序
 
 ## 1. 理解 wmake
 
@@ -366,7 +365,7 @@ g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall
 tree $FOAM_USER_LIBBIN
 ```
 
-库内的类可能会有多个，甚至还有其他子库。库编译后会同时在库的目录下生成 `lnInclude` 文件夹，`lnInclude` 包含了该库所有类（/子库）的声明（ `.H` 文件）或者实现 `.C文件` 的快捷方式，方便后续链接的时候可以提供统一路径。可以参考 OpenFOAM 的 `$FOAM_SRC/OpenFOAM` 库，可以看到根目录下有 `lnInclude` 文件夹，其中包含了此库内的所有类（/子库）的快捷方式。
+库内的类可能会有多个，甚至还有其他子库。库编译后会同时在库的路径下生成 `lnInclude` 文件夹，`lnInclude` 包含了该库所有类（/子库）的声明（ `.H` 文件）或者实现 `.C文件` 的软链接目录（暂时可以简单理解成快捷方式），方便后续链接的时候可以提供统一简单路径。可以参考 OpenFOAM 的 `$FOAM_SRC/OpenFOAM` 库，可以看到根目录下有 `lnInclude` 文件夹，其中包含了此库内的所有类（/子库）的快捷方式。
 
 终端输入命令，查看 Aerosand 库编译后的文件结构
 
@@ -463,7 +462,8 @@ g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall
 -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -Xlinker
 --add-needed -Xlinker --no-as-needed  Make/linux64GccDPInt32Opt/ofsp_041_wmake.o 
 -L/usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib \
-    -L/home/aerosand/OpenFOAM/aerosand-v2406/platforms/linux64GccDPInt32Opt/lib -lAerosand -lOpenFOAM -ldl  \
+    -L/home/aerosand/OpenFOAM/aerosand-v2406/platforms/linux64GccDPInt32Opt/lib 
+    -lAerosand -lOpenFOAM -ldl  \
      -lm -o /home/aerosand/OpenFOAM/aerosand
 -v2406/platforms/linux64GccDPInt32Opt/bin/ofsp_041_wmake
 ```
@@ -496,5 +496,5 @@ Current time step is : 0.2
 - [x] wmake 实现直接链接
 - [x] wmake 编译动态库
 - [x] 理解 Make 文件
-- [x] 运行 wmake 程序
+- [x] 编译运行 wmake 程序
 

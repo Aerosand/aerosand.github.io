@@ -16,42 +16,17 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": 199.81344871913058,
-                  "y": -103.96841981412474,
-                  "zoom": 0.9424654342089688
+                  "x": 220,
+                  "y": -60,
+                  "zoom": -1.0887442118300796
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
-          },
-          {
-            "id": "fe84d365ef2f2c48",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/ofs/ofsp/04_wmake.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "04_wmake"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -303,13 +278,14 @@
       "cmdr:Shell commands: Execute: hugo": true
     }
   },
-  "active": "fe84d365ef2f2c48",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "content/ofs/ofsp/_index.md",
     "Home.canvas",
+    "content/ofs/ofsp/04_wmake.md",
     "content/news/_index.md",
     "content/ofs/ofsb/_index.md",
     "content/ofs/_index.md",
-    "content/ofs/ofsp/_index.md",
     "public/ofs/ofsp/02_helloworld/index.html",
     "public/ofs/ofsp/02_helloworld",
     "public/ofs/ofsp/03_make/index.html",
@@ -321,7 +297,6 @@
     "public/ofs/ofsp/04_wmake/index.html",
     "public/ofs/ofsp/04_wmake",
     "content/ofs/ofsp/05_basicClass.md",
-    "content/ofs/ofsp/04_wmake.md",
     "content/ofs/ofsp/03_make.md",
     "content/ofs/ofsp/02_helloWorld.md",
     "content/ofs/ofsp/01_introduction.md",

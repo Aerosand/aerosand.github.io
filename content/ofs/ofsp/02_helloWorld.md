@@ -2,7 +2,7 @@
 uid: 20250723105353
 title: 02_helloWorld
 date: 2025-07-23
-update: 2025-08-26
+update: 2025-08-27
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -24,9 +24,11 @@ draft: false
 
 ## 0. 前言
 
+本文主要讨论如下
+
 - [ ] 理解 C++ 代码的编译原理
 - [ ] 理解动态库
-- [ ] 完成 helloWorld 的代码运行
+- [ ] 编译运行 helloWorld 程序
 
 ## 1. 开始
 
@@ -256,7 +258,7 @@ g++ -c main.s -o main.o
 
 目标文件虽然包含机器指令，但仍然不是完整程序，链接器将找到其中函数调用涉及到“外部符号”的引用，生成可执行的二进制文件。
 
-终端输入命令，执行链接
+终端输入命令，执行直接链接
 
 ```terminal {fileName="terminal"}
 g++ Aerosand.o main.o -o main.out
@@ -381,9 +383,11 @@ Current time step is : 0.2
 
 ## 6. 小结
 
+本文完成讨论
+
 - [x] 理解 C++ 代码的编译原理
 - [x] 理解动态库
-- [x] 完成 helloWorld 的代码运行
+- [x] 编译运行 helloWorld 程序
 
 
 
