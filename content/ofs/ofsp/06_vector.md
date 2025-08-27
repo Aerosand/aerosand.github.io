@@ -851,7 +851,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_061_vector
 因为我们包含了 `vector.H` ，路径为 `$FOAM_SRC/OpenFOAM/primitives/Vector/floats/vector.H`。由 Make 文件的位置能判断，该文件属于 OpenFOAM 库，路径为 `$FOAM_SRC/OpenFOAM`。归属关系如下。
 
 ```terminal {fileName="terminal"}
-OpenFOAM
+$FOAM_SRC/OpenFOAM
 ├── lnInclude/
 ├── ...
 ├── Make
