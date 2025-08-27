@@ -16,17 +16,42 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": 161.00453672427545,
-                  "y": -216.33070152796682,
-                  "zoom": -0.6404273996725304
+                  "x": 199.81344871913058,
+                  "y": -103.96841981412474,
+                  "zoom": 0.9424654342089688
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
+          },
+          {
+            "id": "fe84d365ef2f2c48",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/ofs/ofsp/04_wmake.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "04_wmake"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -278,8 +303,9 @@
       "cmdr:Shell commands: Execute: hugo": true
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "fe84d365ef2f2c48",
   "lastOpenFiles": [
+    "Home.canvas",
     "content/news/_index.md",
     "content/ofs/ofsb/_index.md",
     "content/ofs/_index.md",
@@ -299,7 +325,6 @@
     "content/ofs/ofsp/03_make.md",
     "content/ofs/ofsp/02_helloWorld.md",
     "content/ofs/ofsp/01_introduction.md",
-    "Home.canvas",
     "content/ofs/ofsp/05_basicClass.zh-CN.md",
     "content/ofs/ofsp/05_wmake2.zh-CN.md",
     "content/ofs/ofsp/04_wmake.zh-CN (Copy).md",
@@ -316,7 +341,6 @@
     "testtest.md.md",
     "文档_20250826T00340.md.md",
     "content/docs/ofsp/hahahaha.md.md",
-    "alog.md",
     "images/openfoam.png",
     "images/ofsp.png",
     "images/ofsb.png",
