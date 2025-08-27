@@ -49,8 +49,33 @@
               "icon": "lucide-file",
               "title": "04_wmake"
             }
+          },
+          {
+            "id": "c4a06e4c6193f1b3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/ofs/ofsp/06_vector.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "06_vector"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -165,13 +190,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Home.canvas",
+                "file": "content/ofs/ofsp/06_vector.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Home"
+              "title": "Outline of 06_vector"
             }
           }
         ],
@@ -301,10 +326,10 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "c4a06e4c6193f1b3",
   "lastOpenFiles": [
-    "content/ofs/ofsp/04_wmake.md",
     "Home.canvas",
+    "content/ofs/ofsp/04_wmake.md",
     "content/_index.md",
     "Home - APS.canvas",
     "Project/ofsp/06_vector.md",
@@ -349,7 +374,6 @@
     "aerosand/content/ofst/_index.md",
     "aerosand/content/ofsp/_index.md",
     "aerosand/content/ofsb/_index.md",
-    "aerosand/content/about/_index.md",
     "aerosand/static/images/hextra-search.webp",
     "aerosand/static/images/hextra-markdown.webp",
     "Project/phdProjects.canvas",
