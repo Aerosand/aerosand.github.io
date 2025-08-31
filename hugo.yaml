@@ -2,6 +2,8 @@
 baseURL: "https://aerosand.github.io/"
 title: "Aerosand"
 
+capitalizeListTitles: false
+pluralizeListTitles: true
 enableRobotsTXT: true
 # Parse Git commit
 enableGitInfo: true
