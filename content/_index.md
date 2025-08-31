@@ -1,8 +1,6 @@
 ---
 title: Aerosand
 layout: hextra-home
-date: 2025-08-25
-update: 2025-08-27
 ---
 
 
