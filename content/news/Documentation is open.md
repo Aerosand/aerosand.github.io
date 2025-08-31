@@ -1,6 +1,6 @@
 ---
 uid: 20250824230025
-title: documentation is open
+title: Documentation is open
 date: 2025-08-24
 update: 2025-08-26
 authors:
