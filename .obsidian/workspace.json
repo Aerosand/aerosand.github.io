@@ -16,66 +16,17 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -79.44579762936615,
-                  "y": -112.64331293342461,
-                  "zoom": 0.20000000000000018
+                  "x": 220,
+                  "y": -60,
+                  "zoom": -0.4077694988148046
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
-          },
-          {
-            "id": "84d2688c99281943",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/ofs/ofsp/04_wmake.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "04_wmake"
-            }
-          },
-          {
-            "id": "c4a06e4c6193f1b3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/ofs/ofsp/06_vector.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "06_vector"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -190,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/ofs/ofsp/06_vector.md",
+                "file": "Home.canvas",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 06_vector"
+              "title": "Outline of Home"
             }
           }
         ],
@@ -326,8 +277,14 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "c4a06e4c6193f1b3",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "public/tags/test/index.xml",
+    "public/tags/test/index.html",
+    "public/tags/test",
+    "public/js/main.min.e350447bea55bd69bac4fec13a2a08d0a4f4fb87273d6d2148a0f1b29952d8e5.js",
+    "public/css/compiled/main.min.1bff0a78305fbc14c9a356e9843a7a768499e74621fe744634061d3add8493ce.css",
+    "content/ofs/ofsp/06_vector.md",
     "Home.canvas",
     "content/ofs/ofsp/04_wmake.md",
     "content/_index.md",
@@ -359,10 +316,6 @@
     "aerosand.github.io",
     "aerosand/public/zh-cn.search.min.ab56a95db0578872aef5cc3c7f439c056dba42c40fc48960b644d1829857d986.js",
     "aerosand/public/en.search.min.097e3a24da0aba2ac82ef0f53e82e1500343a7126260a0203f3a45bbe0876093.js",
-    "aerosand/public/js/flexsearch.433e941a8a573ebb9931fc16fc75266ab6b93f569ac2fb4f3dc66882e0416f4c.js",
-    "aerosand/public/js/main.min.53d83da93e60b621b8ee8a02e409d394c907c30ef3581b0c22a3b64538457248.js",
-    "aerosand/public/css/compiled/main.min.e99e91226a6be13fe6d284a327f4b3bdc11aaed456924207fffdc9135fffb7f9.css",
-    "aerosand/public/zh-cn.search.js",
     "aerosand/public/images/logo.svg",
     "aerosand/public/images/logo-dark.svg",
     "aerosand/public/apple-touch-icon.png",
@@ -373,7 +326,6 @@
     "aerosand/public/android-chrome-192x192.png",
     "aerosand/content/ofst/_index.md",
     "aerosand/content/ofsp/_index.md",
-    "aerosand/content/ofsb/_index.md",
     "aerosand/static/images/hextra-search.webp",
     "aerosand/static/images/hextra-markdown.webp",
     "Project/phdProjects.canvas",

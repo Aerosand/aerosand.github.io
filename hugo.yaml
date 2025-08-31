@@ -201,3 +201,8 @@ params:
       lang: en
       loading: lazy
       theme: noborder_dark
+  
+  analytics:
+    unami:
+      serverURL: "https://aerosand.cc"
+      websiteID: "146b7306-3b3c-40ba-b117-57ff6bc52139"
