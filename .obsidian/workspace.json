@@ -279,6 +279,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "static/tensor.cast",
     "public/ofs/ofsp/tensor.cast",
     "content/ofs/ofsp/tensor.cast",
     "assets/tensor.cast",
@@ -290,7 +291,6 @@
     "public/tags/ofsp2025/index.xml",
     "public/tags/test/index.xml",
     "public/ofs/ofsp/index.xml",
-    "public/ofs/ofsb/index.xml",
     "public/images/openfoam.png",
     "public/images/ofsp.png",
     "public/images/ofsb.png",
