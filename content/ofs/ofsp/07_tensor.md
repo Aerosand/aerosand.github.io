@@ -110,7 +110,7 @@ tree
 
 ### 2.2. 开发库
 
-#### 2.2.1. class1
+#### class1
 
 对于第一个类，我们依然使用之前的代码。
 
@@ -146,7 +146,7 @@ double class1::GetLocalTime() const {
 
 ```
 
-#### 2.2.2. class2
+#### class2
 
 对于第二个类，我们尝试通过继承来创建一个新类。
 
@@ -194,7 +194,7 @@ Foam::scalar class2::sum() const
 > [!tip]
 > 注意声明和定义中使用的 scalar 和 vector 都属于 Foam 命名空间，所以需要使用该命名空间。
 
-#### 2.2.3. class3
+#### class3
 
 对于第三个类，我们写一些简单的内容。
 
@@ -225,7 +225,7 @@ void class3::class3Info() const
 
 ```
 
-#### 2.2.4. 库 Make
+#### 库 Make
 
 库 `Make/files` 为
 
@@ -240,7 +240,7 @@ LIB = $(FOAM_USER_LIBBIN)/libAerosand
 
 本开发库没有其他依赖，库 `Make/options` 置空即可。
 
-#### 2.2.5. 库编译
+#### 库编译
 
 终端输入命令，进行库的编译
 
@@ -253,7 +253,7 @@ wmake Aerosand
 
 ### 2.3. 主项目
 
-#### 2.3.1. ofsp_07_tensor.C
+#### ofsp_07_tensor.C
 
 代码 `ofsp_07_tensor.C` 为
 
@@ -353,7 +353,7 @@ int main()
 
 ```
 
-#### 2.3.2. 项目 Make
+#### 项目 Make
 
 项目 `Make/files` 为
 
@@ -380,7 +380,7 @@ EXE_LIBS = \
 
 同样的，`$FOAM_SRC/OpenFOAM` 库已经自动依赖，其中类的使用均无需用户再次链接。
 
-#### 2.3.3. 编译运行
+#### 编译运行
 
 终端输入命令，编译运行该项目
 
