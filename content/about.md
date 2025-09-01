@@ -12,9 +12,4 @@ This is the about page.
 
 
 
-{{% encrypt foo %}}
-
-**Bar!**
-
-{{% /encrypt %}}
 
