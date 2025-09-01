@@ -1,5 +1,5 @@
 ---
-title: 新闻
+title: News
 cascade:
   type: blog
 date: 2025-08-24
