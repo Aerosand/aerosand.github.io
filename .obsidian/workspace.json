@@ -18,7 +18,7 @@
                 "viewState": {
                   "x": 220,
                   "y": -60,
-                  "zoom": -0.614987377844473
+                  "zoom": -0.4077694988148046
                 }
               },
               "pinned": true,
@@ -279,6 +279,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Home.canvas",
     "public/ofs/ofsp2025/index.xml",
     "public/tags/ofsp2025/index.xml",
     "public/tags/test/index.xml",
@@ -289,12 +290,10 @@
     "public/ofs/ofsp/02_helloworld/index.html",
     "public/ofs/ofsp/02_helloworld",
     "public/ofs/ofsp2025/ofsp2025-09/index.html",
-    "public/ofs/ofsp2025/ofsp2025-09",
     "public/images/openfoam.png",
     "public/images/ofsp.png",
     "public/images/ofsb.png",
     "public/images/cfd.png",
-    "Home.canvas",
     "content/ofs/ofsp2025/ofsp2025-10.md",
     "content/ofs/ofsp2025/ofsp2025-06 copy.md",
     "content/ofs/ofsp2025/ofsp2025-09.md",
