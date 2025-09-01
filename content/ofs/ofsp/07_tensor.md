@@ -244,8 +244,6 @@ LIB = $(FOAM_USER_LIBBIN)/libAerosand
 
 终端输入命令，进行库的编译
 
-终端输入命令，进行库的编译
-
 ```terminal {fileName="terminal"}
 wclean Aerosand
 wmake Aerosand
