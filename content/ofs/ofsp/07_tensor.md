@@ -213,7 +213,7 @@ public:
 
 代码 `class3.C` 为
 
-```cpp {fileName="/Aerosand/class3/class3.C}
+```cpp {fileName="/Aerosand/class3/class3.C"}
 #include "class3.H"
 
 #include <iostream>
