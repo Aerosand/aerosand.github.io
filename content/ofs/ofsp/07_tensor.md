@@ -1,0 +1,440 @@
+---
+uid: 20250827192135
+title: 07_tensor
+date: 2025-08-27
+update: 2025-09-01
+authors:
+  - name: Aerosand
+    link: https://github.com/aerosand
+    image: https://github.com/aerosand.png
+tags:
+  - ofsp2026
+  - OpenFOAM
+  - ofsp
+excludeSearch: false
+toc: true
+weight: 7
+math: true
+next:
+prev:
+comments: true
+sidebar:
+  exclude: false
+draft: false
+---
+
+## 0. 前言
+
+上一篇基于 Vector 类讨论了一些代码细节，本文讨论 Tensor 类。
+
+本文主要讨论
+
+- [ ] 讨论 Tensor 类的部分代码实现
+- [ ] 理解多类复杂库的编译和链接
+- [ ] 编译运行 tensor 项目
+
+## 1. Tensor 类
+
+API 页面 https://api.openfoam.com/2506/classFoam_1_1Tensor.html
+
+终端输入命令，本地查找
+
+```terminal {fileName="terminal"}
+find $FOAM_SRC -iname tensor
+```
+
+终端输入命令，打开该类的文件夹
+
+```terminal {fileName="terminal"}
+code $FOAM_SRC/OpenFOAM/primitives/Tensor
+```
+
+该类的文件结构如下
+
+```terminal {fileName="terminal"}
+tree -L 1
+.
+├── bools/
+├── complex/
+├── floats/
+├── ints/
+├── lists/
+├── Vector.H
+└── VectorI.H
+```
+
+查看 `Tensor/Tensor.H`，可以看到该类的实现细节。这里不再逐条阅读。
+
+我们还可以通过 API 或者终端查找阅读相关的类
+
+- `dimensionedTensor`
+- `tensorField`
+
+> [!warning]
+> 暂不深究代码细节，大概了解成员函数的用法即可。
+
+## 2. 项目
+
+终端输入命令，建立本文项目
+
+```terminal {fileName="terminal"}
+ofsp
+mkdir ofsp_07_tensor
+code ofsp_07_tensor
+```
+
+### 2.1. 项目构建
+
+继续使用终端命令或者使用 vscode 界面创建其他文件，最终文件结构如下
+
+```terminal {fileName="terminal"}
+tree
+.
+├── Aerosand
+│   ├── class1
+│   │   ├── class1.C
+│   │   └── class1.H
+│   ├── class2
+│   │   ├── class2.C
+│   │   └── class2.H
+│   └── Make
+│       ├── files
+│       └── options
+├── Make
+│   ├── files
+│   └── options
+└── ofsp_07_tensor.C
+```
+
+注意，开发库的文件结构与前文稍有不同。我们在前文已经可以注意到 OpenFOAM 库下一般有多个子库/类。用户的开发库里同样可能也会由好几个类构成，开发库拥有自己的 Make 文件，用于管理多个类，比如这里 Aerosand 库有 `class1` , `class2` 和 `class3` 三个类。
+
+### 2.2. 开发库
+
+#### 2.2.1. class1
+
+对于第一个类，我们依然使用之前的代码。
+
+代码 `class1.H` 为
+
+```cpp {fileName="/Aerosand/class1/class1.H"}
+#pragma once
+
+class class1
+{
+private:
+    double localTime_;
+
+public:
+    void SetLocalTime(double t);
+    double GetLocalTime() const;
+};
+
+```
+
+代码 `class1.C` 为
+
+```cpp {fileName="/Aerosand/class1/class1.C"}
+#include "class1.H"
+
+void class1::SetLocalTime(double t) {
+    localTime_ = t;
+}
+
+double class1::GetLocalTime() const {
+    return localTime_;
+}
+
+```
+
+#### 2.2.2. class2
+
+对于第二个类，我们尝试通过继承来创建一个新类。
+
+代码 `class2.H` 为
+
+```cpp {fileName="/Aerosand/class2/class2.H"}
+#pragma once
+
+#include "vector.H"
+
+namespace Foam
+{
+
+class class2 : public vector
+{
+public:
+    // 继承构造函数
+    using Foam::vector::vector;
+
+    // 计算分量和
+    Foam::scalar sum() const;
+};
+
+} // namespace Foam
+
+```
+
+代码 `class2.C` 为
+
+```cpp {fileName="/Aerosand/class2/class2.C"}
+#include "class2.H"
+
+namespace Foam
+{
+
+Foam::scalar class2::sum() const
+{
+    return this->x() + this->y() + this->z();
+}
+
+} // namespace Foam
+
+```
+
+> [!tip]
+> 注意声明和定义中使用的 scalar 和 vector 都属于 Foam 命名空间，所以需要使用该命名空间。
+
+#### 2.2.3. class3
+
+对于第三个类，我们写一些简单的内容。
+
+代码 `class3.H` 为
+
+```cpp {fileName="/Aerosand/class3/class3.H"}
+#pragma once
+
+class class3
+{
+public:
+    void class3Info() const;
+};
+
+```
+
+代码 `class3.C` 为
+
+```cpp {fileName="/Aerosand/class3/class3.C}
+#include "class3.H"
+
+#include <iostream>
+
+void class3::class3Info() const 
+{
+    std::cout << "This is class3\n" << std::endl;
+}
+
+```
+
+#### 2.2.4. 库 Make
+
+库 `Make/files` 为
+
+```makefile {fileName="/Aerosand/Make/files"}
+class1/class1.C
+class2/class2.C
+class3/class3.C
+
+LIB = $(FOAM_USER_LIBBIN)/libAerosand
+
+```
+
+本开发库没有其他依赖，库 `Make/options` 置空即可。
+
+#### 2.2.5. 库编译
+
+终端输入命令，进行库的编译
+
+终端输入命令，进行库的编译
+
+```terminal {fileName="terminal"}
+wclean Aerosand
+wmake Aerosand
+```
+
+### 2.3. 主项目
+
+#### 2.3.1. ofsp_07_tensor.C
+
+代码 `ofsp_07_tensor.C` 为
+
+```cpp {fileName="/ofsp_07_tesnsor.C"}
+#include "tensor.H"
+#include "dimensionedTensor.H"
+#include "tensorField.H"
+// 调用 OpenFOAM 的类
+
+#include "class1.H"
+#include "class2.H"
+#include "class3.H"
+// 调用开发库中的类
+
+using namespace Foam;
+
+int main()
+{
+    scalar s(3.14); // scalar类已经被间接包含在 tensor.H 中
+    vector v1(1, 2, 3); // vector类已经被间接包含在 tensor.H 中
+    vector v2(0.5, 1, 1.5);
+    
+    // 下面使用tensor类的成员函数
+    
+    Info<< s << " * " << v1 << " = "  << s * v1 << nl 
+        << "pos(s): " << pos(s) << nl
+        << "asinh(s): " << Foam::asinh(s) << nl
+        << endl;
+
+    tensor T(11, 12, 13, 21, 22, 23, 31, 32, 33);
+    Info<< "T: " << T << nl 
+        << "Txy: " << T.xy() << nl
+        << endl;
+
+    tensor T1(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    tensor T2(1, 2, 3, 1, 2, 3, 1, 2, 3);
+    tensor T3 = T1 + T2;
+    Info<< "T3: " << T3 << nl << endl;
+
+    tensor T4(3, -2, 1, -2, 2, 0, 1, 0, 4);
+    Info<< "T4': " << inv(T4) << nl
+        << "T4' * T4: " << (inv(T4) & T4) << nl
+        << "T4.x(): " << T4.x() << nl
+        << "T4.y(): " << T4.y() << nl
+        << "T4.z(): " << T4.z() << nl
+        << "T4^T: " << T4.T() << nl
+        << "det(T4): " << det(T4) << nl
+        << endl;
+
+	// 下面使用dimensionedTensor类的成员函数
+	
+    dimensionedTensor sigma
+    (
+        "sigma",
+        dimensionSet(1, -2, -2, 0, 0, 0, 0),
+        tensor(1e6, 0, 0, 0, 1e6, 0, 0, 0, 1e6)
+    );
+    Info<< "sigma: " << sigma << nl 
+        << "sigma name: " << sigma.name() << nl
+        << "sigma dimension: " << sigma.dimensions() << nl
+        << "sigma value: " << sigma.value() << nl
+        << "sigma yy value: " << sigma.value().yy() << nl
+        << endl;
+
+	// 下面使用tensorField类的成员函数
+	
+    tensorField tf(2, tensor::one);
+    Info<< "tf: " << tf << endl;
+    tf[0] = tensor(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    tf[1] = T2;
+    Info << "tf: " << tf << nl
+        << "2.0 * tf" << 2.0 * tf << nl
+        << endl;
+
+	label a = 1;
+    scalar pi = 3.1415926;
+    Info<< "Hi, OpenFOAM!" << " Here we are." << nl
+	    << a << " + " << pi << " = " << a + pi << nl
+	    << a << " * " << pi << " = " << a * pi << nl
+	    << endl;
+
+	// class1 构造和输出
+    class1 mySolver;
+    mySolver.SetLocalTime(0.2);
+    Info<< "\nCurrent time step is : " << mySolver.GetLocalTime() << endl;
+	
+	// class2 构造和输出
+	class2 v3(2,4,6); // class2继承了vector的构造函数
+    Info<< "Sum of vector components: " << v3.sum() << endl;
+
+	// class3 构造和输出
+    class3 myMessage;
+    myMessage.class3Info();
+
+    return 0;
+}
+
+```
+
+#### 2.3.2. 项目 Make
+
+项目 `Make/files` 为
+
+```makefile {fileName="/Make/files"}
+ofsp_07_tensor.C
+
+EXE = $(FOAM_USER_APPBIN)/ofsp_07_tensor
+
+```
+
+
+项目 `Make/options` 为
+
+```makefile {fileName="/Make/options"}
+EXE_INC = \
+    -IAerosand/lnInclude
+
+EXE_LIBS = \
+    -L$(FOAM_USER_LIBBIN) \
+    -lAerosand
+
+```
+
+
+同样的，`$FOAM_SRC/OpenFOAM` 库已经自动依赖，其中类的使用均无需用户再次链接。
+
+#### 2.3.3. 编译运行
+
+终端输入命令，编译运行该项目
+
+```terminal {fileName="terminal"}
+wclean
+wmake
+ofsp_07_tensor
+```
+
+运行结果如下
+
+```terminal {fileName="terminal"}
+3.14 * (1 2 3) = (3.14 6.28 9.42)
+pos(s): 1
+asinh(s): 1.86181
+
+T: (11 12 13 21 22 23 31 32 33)
+Txy: 12
+
+T3: (2 4 6 5 7 9 8 10 12)
+
+T4': (1.33333 1.33333 -0.333333 1.33333 1.83333 -0.333333 -0.333333 -0.333333 0.333333)
+T4' * T4: (1 0 0 1.66533e-16 1 0 -5.55112e-17 0 1)
+T4.x(): (3 -2 1)
+T4.y(): (-2 2 0)
+T4.z(): (1 0 4)
+T4^T: (3 -2 1 -2 2 0 1 0 4)
+det(T4): 6
+
+sigma: sigma [1 -2 -2 0 0 0 0] (1e+06 0 0 0 1e+06 0 0 0 1e+06)
+sigma name: sigma
+sigma dimension: [1 -2 -2 0 0 0 0]
+sigma value: (1e+06 0 0 0 1e+06 0 0 0 1e+06)
+sigma yy value: 1e+06
+
+tf: 2{(1 1 1 1 1 1 1 1 1)}
+tf: 2((1 2 3 4 5 6 7 8 9) (1 2 3 1 2 3 1 2 3))
+2.0 * tf2((2 4 6 8 10 12 14 16 18) (2 4 6 2 4 6 2 4 6))
+
+Hi, OpenFOAM! Here we are.
+1 + 3.14159 = 4.14159
+1 * 3.14159 = 3.14159
+
+
+Current time step is : 0.2
+Sum of vector components: 12
+This is class3
+```
+
+## 3. 小结
+
+本文完成讨论
+
+- [x] 讨论 Tensor 类的部分代码实现
+- [x] 理解多类复杂库的编译和链接
+- [x] 编译运行 tensor 项目
+
