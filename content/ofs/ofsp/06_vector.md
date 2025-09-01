@@ -2,7 +2,7 @@
 uid: 20250827141152
 title: 06_vector
 date: 2025-08-27
-update: 2025-08-27
+update: 2025-09-01
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -10,6 +10,7 @@ authors:
 tags:
   - ofsp2026
   - OpenFOAM
+  - ofsp
 excludeSearch: false
 toc: true
 weight: 6
@@ -28,7 +29,7 @@ draft: false
 
 本文主要讨论
 
-- [ ] 联系源码的查阅
+- [ ] 练习源码的查阅
 - [ ] 讨论 vector 类的部分代码实现
 - [ ] 理解原生库的使用
 - [ ] 编译运行 vector 项目
@@ -730,8 +731,8 @@ API 页面 https://api.openfoam.com/2506/VectorI_8H_source.html
 
 ```terminal {fileName="terminal"}
 ofsp
-mkdir ofsp_061_vector
-code ofsp_061_vector
+mkdir ofsp_06_vector
+code ofsp_06_vector
 ```
 
 ### 3.1. 项目构建
@@ -750,8 +751,10 @@ tree
 ├── Make
 │   ├── files
 │   └── options
-└── ofsp_061_vector.C
+└── ofsp_06_vector.C
 ```
+
+### 3.2. 开发库
 
 代码 `Aerosand.H` 为
 
@@ -797,9 +800,18 @@ LIB = $(FOAM_USER_LIBBIN)/libAerosand
 
 开发库没有其他依赖，库 `Make/options` 为空
 
-代码 `ofsp_061_vector.C` 为
+终端输入命令，进行库的编译
 
-```cpp {fileName="/ofsp_061_vector.C"}
+```terminal {fileName="terminal"}
+wclean Aerosand
+wmake Aerosand
+```
+
+### 3.3. 主项目
+
+代码 `ofsp_06_vector.C` 为
+
+```cpp {fileName="/ofsp_06_vector.C"}
 #include <iostream>
 
 #include "Aerosand.H"
@@ -842,9 +854,9 @@ int main()
 项目 `Make/files` 为
 
 ```makefile {fileName="/Make/files"}
-ofsp_061_vector.C
+ofsp_06_vector.C
 
-EXE = $(FOAM_USER_APPBIN)/ofsp_061_vector
+EXE = $(FOAM_USER_APPBIN)/ofsp_06_vector
 
 ```
 
@@ -870,6 +882,9 @@ $FOAM_SRC/OpenFOAM
 
 原则上，我们应该在项目 `Make/options` 中包含 OpenFOAM 库。实际上，OpenFOAM 的构建系统（wmake）已经自动处理原生必备库的依赖关系。我们只需要添加第三方库、自己开发的库、某些可选模块的库即可。
 
+> [!important]
+> `$FOAM_SRC/OpenFOAM` 库已经自动依赖，其中类的使用均无需用户再次链接。
+
 项目 `Make/options` 为
 
 ```makefile {fileName="/Make/options"}
@@ -882,15 +897,14 @@ EXE_LIBS = \
 
 ```
 
-### 3.2. 编译运行
+### 3.4. 编译运行
 
 终端输入命令，编译运行该项目
 
 ```terminal {fileName="terminal"}
-wmake Aerosand
 wclean
 wmake
-ofsp_061_vector
+ofsp_06_vector
 ```
 
 运行结果如下
@@ -916,7 +930,7 @@ Current time step is : 0.2
 
 本文完成讨论
 
-- [x] 联系源码的查阅
+- [x] 练习源码的查阅
 - [x] 讨论 vector 类的部分代码实现
 - [x] 理解原生库的使用
 - [x] 编译运行 vector 项目

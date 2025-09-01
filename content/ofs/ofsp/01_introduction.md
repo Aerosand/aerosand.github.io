@@ -2,7 +2,7 @@
 uid: 20250722130605
 title: 01_introduction
 date: 2025-07-22
-update: 2025-08-26
+update: 2025-09-01
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -10,6 +10,7 @@ authors:
 tags:
   - ofsp2026
   - OpenFOAM
+  - ofsp
 excludeSearch: false
 toc: true
 weight: 1
@@ -25,14 +26,14 @@ category:
 > [!important]
 > 访问 https://aerosand.cc 以获取最近更新。
 
-## 1.前置
+## 0.前置
 
 本系列旨在帮助读者衔接“CFD 基础理论”和“OpenFOAM 入门实践”两个部分。
 
 > [!warning]
 > 建议先学习计算流体力学基础以及有限体积法，之后再开始本系列的学习。
 
-## 2.介绍
+## 1.介绍
 
 OpenFOAM 是什么呢？引用 wiki 解释如下
 
@@ -40,7 +41,7 @@ OpenFOAM 是什么呢？引用 wiki 解释如下
 
 所以我们可以使用 OpenFOAM 来构建基于 C++ 的实现 CFD 等理论的求解器应用。
 
-## 3.路线
+## 2.路线
 
 我们从简单的 C++ 程序实现开始，简单了解编译原理，通过 make 逐渐掌控我们的项目，过渡到了解 OpenFOAM 的 wmake 实现方式，然后认识 OpenFOAM 的基本程序，然后逐渐深入了解 OpenFOAM 的求解器应用细节。
 

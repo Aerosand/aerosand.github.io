@@ -2,7 +2,7 @@
 uid: 20250723105353
 title: 02_helloWorld
 date: 2025-07-23
-update: 2025-08-27
+update: 2025-09-01
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -10,12 +10,13 @@ authors:
 tags:
   - ofsp2026
   - OpenFOAM
+  - ofsp
 excludeSearch: false
 toc: true
 weight: 2
 math: true
-next: 
-prev: 
+next:
+prev:
 comments: true
 sidebar:
   exclude: false
@@ -80,8 +81,8 @@ source ~/.bashrc
 
 ```terminal {fileName="terminal"}
 ofsp
-mkdir ofsp_021_helloWorld
-code ofsp_021_helloWorld
+mkdir ofsp_02_helloWorld
+code ofsp_02_helloWorld
 ```
 
 通过 vscode 打开项目后，可以使用 `ctrl + ~` 唤出 vscode 的终端控制台，快捷进行命令操作。
@@ -176,7 +177,7 @@ flowchart LR
 ```
 
 >[!warning]
->本文后续讨论的终端指令运行路径均留在 `ofsp/ofsp_021_helloWorld/` 不变
+>本文后续讨论的终端指令运行路径均留在 `ofsp/ofsp_02_helloWorld/` 不变
 
 
 ## 3. 代码编译

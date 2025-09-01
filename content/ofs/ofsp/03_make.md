@@ -2,7 +2,7 @@
 uid: 20250723185036
 title: 03_make
 date: 2025-07-23
-update: 2025-08-27
+update: 2025-09-01
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -10,12 +10,13 @@ authors:
 tags:
   - ofsp2026
   - OpenFOAM
+  - ofsp
 excludeSearch: false
 toc: true
 weight: 3
 math: true
-next: 
-prev: 
+next:
+prev:
 comments: true
 sidebar:
   exclude: false
@@ -42,8 +43,8 @@ draft: false
 
 ```terminal {fileName="terminal"}
 ofsp
-mkdir ofsp_031_make
-code ofsp_031_make
+mkdir ofsp_03_make
+code ofsp_03_make
 ```
 
 继续使用终端命令或者使用 vscode 界面创建其他文件，最终文件结构如下
@@ -56,7 +57,7 @@ tree
 │   ├── Aerosand.h
 │   └── makefile
 ├── makefile
-└── ofsp_031_make.cpp
+└── ofsp_03_make.cpp
 ```
 
 >[!tip]
@@ -93,9 +94,9 @@ double Aerosand::getLocalTime() const {
 }
 ```
 
-主源码 `ofsp_031_make.cpp` 需要修改头文件，其他内容不变
+主源码 `ofsp_03_make.cpp` 需要修改头文件，其他内容不变
 
-```cpp {fileName="/ofsp_031_make.cpp",linenos=table}
+```cpp {fileName="/ofsp_03_make.cpp",linenos=table}
 #include <iostream>
 
 #include "Aerosand/Aerosand.h"   // 因为路径变化，需要修改此行

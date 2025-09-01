@@ -279,6 +279,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "content/ofs/ofsp/08_firstApplication.md",
     "assets/runTensor.cast",
     "assets/findTensor.cast",
     "assets/tensor.cast",
@@ -290,7 +291,6 @@
     "public/css/asciinema-player.a6b6bc6257bbf3535eda0de0fff22f2f2ffcee7b40382d51d6cb0677251137f1.css",
     "Home.canvas",
     "public/ofs/ofsp2025/index.xml",
-    "public/tags/ofsp2025/index.xml",
     "public/images/openfoam.png",
     "public/images/ofsp.png",
     "public/images/ofsb.png",
