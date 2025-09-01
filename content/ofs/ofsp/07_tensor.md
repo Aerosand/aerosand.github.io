@@ -61,8 +61,6 @@ tree -L 1
 └── TensorI.H
 ```
 
-{{< asciinema file="findTensor.cast" >}}
-
 查看 `Tensor/Tensor.H`，可以看到该类的实现细节。这里不再逐条阅读。
 
 我们还可以通过 API 或者终端查找阅读相关的类

@@ -463,7 +463,7 @@ int main(int argc, char *argv[])
 
 项目 `Make/files` 为
 
-```makefile {fileName="/Make/files"}
+```makefile {fileName="/Make/files“}
 ofsp_08_firstApp.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_08_firstApp
