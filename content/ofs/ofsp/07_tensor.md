@@ -61,9 +61,11 @@ tree -L 1
 └── TensorI.H
 ```
 
-{{< asciinema file="tensor.cast" >}}
+{{< asciinema file="findTensor.cast" >}}
 
 查看 `Tensor/Tensor.H`，可以看到该类的实现细节。这里不再逐条阅读。
+
+{{< asciinema file="findTensor.cast" >}}
 
 我们还可以通过 API 或者终端查找阅读相关的类
 
@@ -427,6 +429,8 @@ Current time step is : 0.2
 Sum of vector components: 12
 This is class3
 ```
+
+{{< asciinema file="runTensor.cast" >}}
 
 ## 3. 小结
 
