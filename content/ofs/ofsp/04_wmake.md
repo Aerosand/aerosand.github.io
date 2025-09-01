@@ -10,7 +10,6 @@ authors:
 tags:
   - ofsp2026
   - OpenFOAM
-  - test
 excludeSearch: false
 toc: true
 weight: 4
