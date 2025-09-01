@@ -83,15 +83,15 @@ menu:
       params:
         icon: github
     - identifier: ofsb
-      name: 1_Basics
+      name: Basics
       pageRef: /ofs/ofsb
       parent: ofs
     - identifier: ofsp
-      name: 2_Programming
+      name: Programming
       pageRef: /ofs/ofsp
       parent: ofs
     - identifier: ofss
-      name: 3_Solver
+      name: Solver
       pageRef: /ofs/ofss
       parent: ofs
 
