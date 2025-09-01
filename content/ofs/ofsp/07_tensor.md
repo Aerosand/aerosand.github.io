@@ -176,7 +176,7 @@ public:
 
 代码 `class2.C` 为
 
-```cpp {fileName="/Aerosand/class2/class2.C",theme="dark"}
+```cpp {fileName="/Aerosand/class2/class2.C",theme="dracula"}
 #include "class2.H"
 
 namespace Foam
