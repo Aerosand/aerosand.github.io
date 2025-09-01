@@ -725,7 +725,7 @@ API 页面 https://api.openfoam.com/2506/VectorI_8H_source.html
 > [!warning]
 > 上面这些代码讨论主要是为了帮助读者熟悉 C++ 语言在 OpenFOAM 中的使用，克服对 C++ 语言的陌生和恐惧，便于读者理解后续实践的代码。暂时不需要花费更多时间去阅读更多 OpenFOAM 的源代码，也不需要深究代码细节，后续会在 `ofsc` 系列讨论代码。
 
-## 3. 项目
+## 3. 项目构建
 
 终端输入命令，建立本文项目
 
@@ -734,8 +734,6 @@ ofsp
 mkdir ofsp_06_vector
 code ofsp_06_vector
 ```
-
-### 3.1. 项目构建
 
 继续使用终端命令或者使用 vscode 界面创建其他文件，最终文件结构如下
 
@@ -754,7 +752,9 @@ tree
 └── ofsp_06_vector.C
 ```
 
-### 3.2. 开发库
+## 4. 开发库
+
+### 4.1. 库源码
 
 代码 `Aerosand.H` 为
 
@@ -789,6 +789,8 @@ double Aerosand::GetLocalTime() const {
 
 ```
 
+### 4.2. 库 Make
+
 库 `Make/files` 为
 
 ```makefile {fileName="/Aerosand/Make/files"}
@@ -800,6 +802,8 @@ LIB = $(FOAM_USER_LIBBIN)/libAerosand
 
 开发库没有其他依赖，库 `Make/options` 为空
 
+### 4.3. 库编译
+
 终端输入命令，进行库的编译
 
 ```terminal {fileName="terminal"}
@@ -807,7 +811,9 @@ wclean Aerosand
 wmake Aerosand
 ```
 
-### 3.3. 主项目
+## 5. 主项目
+
+### 5.1. 主源码
 
 代码 `ofsp_06_vector.C` 为
 
@@ -850,6 +856,8 @@ int main()
 }
 
 ```
+
+### 5.2. 项目 Make
 
 项目 `Make/files` 为
 
@@ -897,7 +905,7 @@ EXE_LIBS = \
 
 ```
 
-### 3.4. 编译运行
+## 6. 编译运行
 
 终端输入命令，编译运行该项目
 
@@ -926,7 +934,7 @@ Hi, OpenFOAM! Here we are.
 Current time step is : 0.2
 ```
 
-## 4. 小结
+## 7. 小结
 
 本文完成讨论
 

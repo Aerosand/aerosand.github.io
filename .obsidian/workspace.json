@@ -279,6 +279,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "content/ofs/ofsp/08_firstApp.md",
     "content/ofs/ofsp/08_firstApplication.md",
     "assets/runTensor.cast",
     "assets/findTensor.cast",
@@ -319,7 +320,6 @@
     "content/ofs/ofsp (Copy)/05_basicClass.md",
     "content/ofs/ofsp (Copy)/04_wmake.md",
     "content/ofs/ofsp (Copy)/03_make.md",
-    "content/ofs/ofsp (Copy)/02_helloWorld.md",
     "Home - APS.canvas",
     "Project/OpenFOAM Sharing.canvas",
     "aerosand/public/images/logo.svg",

@@ -73,7 +73,7 @@ tree -L 1
 > [!warning]
 > 暂不深究代码细节，大概了解成员函数的用法即可。
 
-## 2. 项目
+## 2. 项目构建
 
 终端输入命令，建立本文项目
 
@@ -82,8 +82,6 @@ ofsp
 mkdir ofsp_07_tensor
 code ofsp_07_tensor
 ```
-
-### 2.1. 项目构建
 
 继续使用终端命令或者使用 vscode 界面创建其他文件，最终文件结构如下
 
@@ -108,9 +106,9 @@ tree
 
 注意，开发库的文件结构与前文稍有不同。我们在前文已经可以注意到 OpenFOAM 库下一般有多个子库/类。用户的开发库里同样可能也会由好几个类构成，开发库拥有自己的 Make 文件，用于管理多个类，比如这里 Aerosand 库有 `class1` , `class2` 和 `class3` 三个类。
 
-### 2.2. 开发库
+## 3. 开发库
 
-#### class1
+### 3.1. class1
 
 对于第一个类，我们依然使用之前的代码。
 
@@ -146,7 +144,7 @@ double class1::GetLocalTime() const {
 
 ```
 
-#### class2
+### 3.2. class2
 
 对于第二个类，我们尝试通过继承来创建一个新类。
 
@@ -194,7 +192,7 @@ Foam::scalar class2::sum() const
 > [!tip]
 > 注意声明和定义中使用的 scalar 和 vector 都属于 Foam 命名空间，所以需要使用该命名空间。
 
-#### class3
+### 3.3. class3
 
 对于第三个类，我们写一些简单的内容。
 
@@ -225,7 +223,7 @@ void class3::class3Info() const
 
 ```
 
-#### 库 Make
+### 3.4. 库 Make
 
 库 `Make/files` 为
 
@@ -240,7 +238,7 @@ LIB = $(FOAM_USER_LIBBIN)/libAerosand
 
 本开发库没有其他依赖，库 `Make/options` 置空即可。
 
-#### 库编译
+### 3.5. 库编译
 
 终端输入命令，进行库的编译
 
@@ -249,9 +247,9 @@ wclean Aerosand
 wmake Aerosand
 ```
 
-### 2.3. 主项目
+## 4. 主项目
 
-#### ofsp_07_tensor.C
+### 4.1. 主源码
 
 代码 `ofsp_07_tensor.C` 为
 
@@ -351,7 +349,7 @@ int main()
 
 ```
 
-#### 项目 Make
+### 4.2. 项目 Make
 
 项目 `Make/files` 为
 
@@ -378,7 +376,7 @@ EXE_LIBS = \
 
 同样的，`$FOAM_SRC/OpenFOAM` 库已经自动依赖，其中类的使用均无需用户再次链接。
 
-#### 编译运行
+## 5. 编译运行
 
 终端输入命令，编译运行该项目
 
@@ -429,7 +427,7 @@ This is class3
 ```
 
 
-## 3. 小结
+## 6. 小结
 
 本文完成讨论
 
