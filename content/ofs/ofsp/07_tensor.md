@@ -61,11 +61,7 @@ tree -L 1
 └── TensorI.H
 ```
 
-{{< asciinema 
-	file="tensor.cast" 
-	autoplay=true loop=true 
-	them="dracula"
->}}
+{{< asciinema file="tensor.cast" >}}
 
 查看 `Tensor/Tensor.H`，可以看到该类的实现细节。这里不再逐条阅读。
 
