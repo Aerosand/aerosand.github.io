@@ -54,14 +54,14 @@ code $FOAM_SRC/OpenFOAM/primitives/Tensor
 ```terminal {fileName="terminal"}
 tree -L 1
 .
-├── bools/
-├── complex/
-├── floats/
-├── ints/
-├── lists/
-├── Vector.H
-└── VectorI.H
+├── floats
+├── ints
+├── lists
+├── Tensor.H
+└── TensorI.H
 ```
+
+{{< asciinema id="asciicast-TANaPmJr6gkpI9peXGAgtQdaj" autoplay=true loop=true >}}
 
 查看 `Tensor/Tensor.H`，可以看到该类的实现细节。这里不再逐条阅读。
 
@@ -176,7 +176,7 @@ public:
 
 代码 `class2.C` 为
 
-```cpp {fileName="/Aerosand/class2/class2.C",theme="dracula"}
+```cpp {fileName="/Aerosand/class2/class2.C"}
 #include "class2.H"
 
 namespace Foam
