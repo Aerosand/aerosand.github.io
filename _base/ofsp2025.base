@@ -1,3 +1,12 @@
 views:
   - type: table
     name: Table
+    filters:
+      and:
+        - file.folder == "content/ofs/ofsp2025"
+        - '!file.name.contains("_index")'
+    order:
+      - file.name
+      - file.mtime
+    columnSize:
+      file.name: 208

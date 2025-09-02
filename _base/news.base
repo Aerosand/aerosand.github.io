@@ -8,6 +8,9 @@ views:
     order:
       - file.name
       - file.tags
+      - file.ctime
     sort:
       - property: file.mtime
         direction: DESC
+    columnSize:
+      file.tags: 188

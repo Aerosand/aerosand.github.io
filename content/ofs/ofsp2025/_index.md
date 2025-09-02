@@ -4,7 +4,7 @@ weight: 50
 prev: 
 next: 
 sidebar:
-  open: true
+  open: false
 date: 2025-07-22
 update: 2025-09-02
 ---

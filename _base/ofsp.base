@@ -12,8 +12,12 @@ views:
       - file.name
       - file.folder
       - file.tags
+      - file.mtime
     sort:
+      - property: file.name
+        direction: ASC
       - property: file.mtime
         direction: DESC
     columnSize:
-      file.name: 296
+      file.name: 212
+      file.tags: 350
