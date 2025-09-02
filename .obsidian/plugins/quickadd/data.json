@@ -50,7 +50,7 @@
       },
       "format": {
         "enabled": true,
-        "format": "{{< cards >}}\n  {{< card \nlink=\"/\" \ntitle=\"Local Image\" \nicon=\"warning\"\ntag=\"tag text\" tagColor=\"red\" \nimage=\"images/space.jpg\" \nsubtitle=\"Image under assets directory, processed by Hugo.\" \nmethod=\"Resize\" options=\"600x q80 webp\" \n>}}\n{{< /cards >}}"
+        "format": "{{< cards >}}\n  {{< card link=\"../callout\" title=\"Card with default tag color\" tag=\"tag text\" >}}\n  {{< card link=\"../callout\" title=\"Card with red tag\" tag=\"tag text\" tagColor=\"red\" >}}\n  {{< card link=\"../callout\" title=\"Card with blue tag\" tag=\"tag text\" tagColor=\"blue\" >}}\n  {{< card link=\"../callout\" title=\"Card with yellow tag\" tag=\"tag text\" tagColor=\"yellow\" tagIcon=\"sparkles\" tagBorder=false >}}\n  {{< card link=\"/\" title=\"Image Card\" image=\"/images/card-image-unprocessed.jpg\" subtitle=\"Image\" tag=\"tag text\" tagColor=\"green\" >}}\n  {{< card link=\"/\" title=\"Image Card\" image=\"images/space.jpg\" subtitle=\"Image\" tag=\"tag text\" tagColor=\"purple\" tagIcon=\"sparkles\" tagBorder=false >}}\n{{< /cards >}}"
       },
       "insertAfter": {
         "enabled": false,
@@ -191,6 +191,41 @@
       "format": {
         "enabled": true,
         "format": "```terminal {fileName=\"terminal\"}\n\n```\n"
+      },
+      "insertAfter": {
+        "enabled": false,
+        "after": "",
+        "insertAtEnd": false,
+        "considerSubsections": false,
+        "createIfNotFound": false,
+        "createIfNotFoundLocation": "top"
+      },
+      "prepend": false,
+      "task": false,
+      "openFile": false,
+      "fileOpening": {
+        "location": "tab",
+        "direction": "vertical",
+        "mode": "default",
+        "focus": true
+      }
+    },
+    {
+      "id": "3c2faa51-440a-4cf4-990a-627b17364381",
+      "name": "card column",
+      "type": "Capture",
+      "command": true,
+      "appendLink": false,
+      "captureTo": "",
+      "captureToActiveFile": true,
+      "createFileIfItDoesntExist": {
+        "enabled": false,
+        "createWithTemplate": false,
+        "template": ""
+      },
+      "format": {
+        "enabled": true,
+        "format": "{{< cards cols=\"1\" >}}\n  {{< card link=\"/\" title=\"Top Card\" >}}\n  {{< card link=\"/\" title=\"Bottom Card\" >}}\n{{< /cards >}}\n\n{{< cards cols=\"2\" >}}\n  {{< card link=\"/\" title=\"Left Card\" >}}\n  {{< card link=\"/\" title=\"Right Card\" >}}\n{{< /cards >}}"
       },
       "insertAfter": {
         "enabled": false,

@@ -11,11 +11,18 @@ update: 2025-09-02
 
 下面开始本系列的讨论。
 
-{{< cards >}}
-  {{< card link="./01_introduction" title="01_introduction" icon="tag" tag="start">}}
-{{< /cards >}}
+## 第一阶段
 
 {{< cards >}}
-  {{< card link="./02_introduction" title="02_introduction" icon="tag" >}}
+  {{< card link="./01_introduction" title="01_introduction" tag="start here" tagColor="red" >}}
+  {{< card link="./02_helloWorld" title="02_helloWorld" >}}
+  {{< card link="./03_make" title="03_make" >}}
+  {{< card link="./04_wmake" title="04_wmake" >}}
+  {{< card link="./05_basicClass" title="05_basicClass" >}}
+  {{< card link="./06_vector" title="06_vector" >}}
+  {{< card link="./07_tensor" title="07_tensor" >}}
+  {{< card link="./08_firstApp" title="08_firstApp" >}}
 {{< /cards >}}
+
+## 第二阶段
 
