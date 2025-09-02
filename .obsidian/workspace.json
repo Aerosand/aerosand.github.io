@@ -32,9 +32,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/ofs/_index.md",
+                "file": "content/ofs/ofst/_index.md.md",
                 "mode": "source",
-                "source": false,
+                "source": true,
                 "backlinks": true,
                 "backlinkOpts": {
                   "collapseAll": false,
@@ -47,7 +47,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "_index"
+              "title": "_index.md"
             }
           }
         ],
@@ -166,13 +166,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/ofs/_index.md",
+                "file": "content/ofs/ofst/_index.md.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _index"
+              "title": "Outline of _index.md"
             }
           }
         ],
@@ -304,8 +304,11 @@
   },
   "active": "9db85579f8ecc656",
   "lastOpenFiles": [
-    "Home.canvas",
+    "content/ofs/ofss/_index.md",
+    "content/ofs/ofst/_index.md.md",
     "content/ofs/_index.md",
+    "content/ofs/ofsb/_index.md",
+    "Home.canvas",
     "content/_index.md",
     "content/ofs/ofsp/_index.md",
     "_base/ofsp.base",
@@ -342,8 +345,6 @@
     "content/ofs/ofsp2025/04_wmake.md",
     "content/ofs/ofsp2025/03_make.md",
     "content/ofs/ofsp2025/02_helloWorld.md",
-    "content/ofs/ofsp2025/01_introduction.md",
-    "content/ofs/ofsp (Copy)/_index.md",
     "Home - APS.canvas",
     "Project/OpenFOAM Sharing.canvas",
     "aerosand/public/images/logo.svg",
