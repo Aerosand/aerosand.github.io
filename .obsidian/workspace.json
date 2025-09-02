@@ -16,9 +16,9 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -2024.2505351996929,
-                  "y": 2002.5641099867378,
-                  "zoom": -0.9999999999999999
+                  "x": -3003.146173415033,
+                  "y": 1771.9070634109132,
+                  "zoom": 1
                 }
               },
               "pinned": true,
@@ -49,9 +49,33 @@
               "icon": "lucide-file",
               "title": "_index"
             }
+          },
+          {
+            "id": "915a438d81f969b2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/ofs/_index.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "_index"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -166,7 +190,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/ofs/ofsp/_index.md",
+                "file": "content/ofs/_index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -302,10 +326,11 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "c06dcdeda69b8770",
+  "active": "915a438d81f969b2",
   "lastOpenFiles": [
-    "Home.canvas",
     "content/ofs/ofsp/_index.md",
+    "content/ofs/_index.md",
+    "Home.canvas",
     "_base/ofsp.base",
     "_base/ofsp2025.base",
     "public/ofs/ofsp/08_firstapp/index.html",
