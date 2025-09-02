@@ -6,7 +6,6 @@ date: 2025-08-26
 update: 2025-09-02
 ---
 
-## OpenFOAM Sharing
 
 {{< cards cols="1" >}}
   {{< card link="./ofsb/_index.md" title="OFSB" tag="#toupdate" tagColor="red">}}
