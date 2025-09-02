@@ -16,42 +16,17 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -3315.6916115596864,
-                  "y": 2106.7972613916836,
-                  "zoom": -0.6780853136795403
+                  "x": -2722.5954013293062,
+                  "y": 1832.9653697758506,
+                  "zoom": 0.5219146863204598
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
-          },
-          {
-            "id": "768b2a34a9af41f9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/ofs/ofsp2025/_index.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "_index"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -166,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/ofs/ofsp2025/_index.md",
+                "file": "Home.canvas",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _index"
+              "title": "Outline of Home"
             }
           }
         ],
@@ -302,8 +277,9 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "768b2a34a9af41f9",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "content/ofs/ofsp2025/_index.md",
     "content/ofs/ofst/_index.md",
     "content/ofs/_index.md",
     "content/ofs/ofss/_index.md",
@@ -341,7 +317,6 @@
     "content/ofs/ofsp2025/ofsp2025-03.md",
     "content/ofs/ofsp2025/ofsp2025-02.md",
     "content/ofs/ofsp2025/ofsp2025-01.md",
-    "content/ofs/ofsp2025/_index.md",
     "content/ofs/ofsp2025/06_vector.md",
     "content/ofs/ofsp2025/05_basicClass.md",
     "Home - APS.canvas",
