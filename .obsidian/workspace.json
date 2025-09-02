@@ -16,9 +16,9 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -3003.146173415033,
-                  "y": 1771.9070634109132,
-                  "zoom": 1
+                  "x": -2873.901904973672,
+                  "y": 1781.841462751975,
+                  "zoom": 0.9219146863204598
                 }
               },
               "pinned": true,
@@ -27,7 +27,7 @@
             }
           },
           {
-            "id": "c06dcdeda69b8770",
+            "id": "9db85579f8ecc656",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -302,12 +302,12 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "c06dcdeda69b8770",
+  "active": "9db85579f8ecc656",
   "lastOpenFiles": [
+    "Home.canvas",
+    "content/ofs/_index.md",
     "content/_index.md",
     "content/ofs/ofsp/_index.md",
-    "content/ofs/_index.md",
-    "Home.canvas",
     "_base/ofsp.base",
     "_base/ofsp2025.base",
     "public/ofs/ofsp/08_firstapp/index.html",
@@ -344,7 +344,6 @@
     "content/ofs/ofsp2025/02_helloWorld.md",
     "content/ofs/ofsp2025/01_introduction.md",
     "content/ofs/ofsp (Copy)/_index.md",
-    "content/ofs/ofsp (Copy)/06_vector.md",
     "Home - APS.canvas",
     "Project/OpenFOAM Sharing.canvas",
     "aerosand/public/images/logo.svg",

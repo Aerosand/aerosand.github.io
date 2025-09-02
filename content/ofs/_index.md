@@ -16,7 +16,7 @@ update: 2025-09-02
 
 ## Year 2025
 
-{{< cards cols="1" >}}
+{{< cards  >}}
   {{< card link="./ofsp2025/" title="ofsp2025" tag="#done" tagColor="yellow">}}
 {{< /cards >}}
 
