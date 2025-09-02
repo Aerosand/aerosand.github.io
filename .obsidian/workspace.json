@@ -16,17 +16,42 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": 220,
-                  "y": -60,
-                  "zoom": -0.4077694988148046
+                  "x": -2024.2505351996929,
+                  "y": 2002.5641099867378,
+                  "zoom": -0.9999999999999999
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
+          },
+          {
+            "id": "c06dcdeda69b8770",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/ofs/ofsp/_index.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "_index"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -141,13 +166,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Home.canvas",
+                "file": "content/ofs/ofsp/_index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Home"
+              "title": "Outline of _index"
             }
           }
         ],
@@ -277,8 +302,12 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "c06dcdeda69b8770",
   "lastOpenFiles": [
+    "Home.canvas",
+    "content/ofs/ofsp/_index.md",
+    "_base/ofsp.base",
+    "_base/ofsp2025.base",
     "public/ofs/ofsp/08_firstapp/index.html",
     "public/ofs/ofsp/08_firstapp",
     "public/ofs/ofsp/08_firstapplication/index.html",
@@ -289,10 +318,6 @@
     "assets/findTensor.cast",
     "assets/tensor.cast",
     "assets",
-    "static/tensor.cast",
-    "public/ofs/ofsp/tensor.cast",
-    "content/ofs/ofsp/tensor.cast",
-    "Home.canvas",
     "public/images/openfoam.png",
     "public/images/ofsp.png",
     "public/images/ofsb.png",
@@ -319,7 +344,6 @@
     "content/ofs/ofsp (Copy)/_index.md",
     "content/ofs/ofsp (Copy)/06_vector.md",
     "content/ofs/ofsp (Copy)/05_basicClass.md",
-    "content/ofs/ofsp (Copy)/04_wmake.md",
     "Home - APS.canvas",
     "Project/OpenFOAM Sharing.canvas",
     "aerosand/public/images/logo.svg",
