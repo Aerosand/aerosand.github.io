@@ -8,10 +8,10 @@ update: 2025-09-02
 
 
 {{< cards cols="1" >}}
-  {{< card link="./ofsb/" title="ofsb" tag="#to-update" tagColor="red">}}
-  {{< card link="./ofsp/" title="ofsp" tag="#updating" tagColor="green">}}
-  {{< card link="./ofss/" title="ofss" tag="#to-update" tagColor="red">}}
-  {{< card link="./ofst/" title="ofst" tag="#to-update" tagColor="red">}}
+  {{< card link="./ofsb/" title="ofsb - basics" tag="#to-update" tagColor="red">}}
+  {{< card link="./ofsp/" title="ofsp - programming" tag="#updating" tagColor="green">}}
+  {{< card link="./ofss/" title="ofss - solver" tag="#to-update" tagColor="red">}}
+  {{< card link="./ofst/" title="ofst - tutorial" tag="#to-update" tagColor="red">}}
 {{< /cards >}}
 
 ## Year 2025
