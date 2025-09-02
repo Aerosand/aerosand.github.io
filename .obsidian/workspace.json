@@ -32,7 +32,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/ofs/ofst/_index.md",
+                "file": "content/ofs/ofsp2025/_index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -166,7 +166,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/ofs/ofst/_index.md",
+                "file": "content/ofs/ofsp2025/_index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -304,6 +304,7 @@
   },
   "active": "768b2a34a9af41f9",
   "lastOpenFiles": [
+    "content/ofs/ofst/_index.md",
     "content/ofs/_index.md",
     "content/ofs/ofss/_index.md",
     "content/ofs/ofsb/_index.md",
@@ -312,7 +313,6 @@
     "public/ofs/ofst/index.xml",
     "public/ofs/ofst/index.html",
     "public/ofs/ofst",
-    "content/ofs/ofst/_index.md",
     "content/_index.md",
     "content/ofs/ofst/_index.md.md",
     "content/ofs/ofsp/_index.md",
