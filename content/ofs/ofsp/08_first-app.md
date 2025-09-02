@@ -2,7 +2,7 @@
 uid: 20250901123439
 title: 08_firstApp
 date: 2025-09-01
-update: 2025-09-01
+update: 2025-09-02
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -31,6 +31,7 @@ draft: false
 
 - [ ] 理解 OpenFOAM 标准应用的文件架构
 - [ ] 认识使用脚本
+- [ ] 认识应用开发测试流程
 - [ ] 调用其他位置的开发库
 - [ ] 编译运行 firstApp 项目
 
@@ -540,8 +541,11 @@ End
 
 本文完成讨论
 
-- [x] 理解 OpenFOAM 标准应用的文件架构
-- [x] 认识使用脚本
-- [x] 调用其他位置的开发库
-- [x] 编译运行 firstApp 项目
+- [ ] 理解 OpenFOAM 标准应用的文件架构
+- [ ] 认识使用脚本
+- [ ] 认识应用开发测试流程
+- [ ] 调用其他位置的开发库
+- [ ] 编译运行 firstApp 项目
+
+
 
