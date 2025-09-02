@@ -13,7 +13,7 @@ tags:
   - OpenFOAM
 excludeSearch: false
 toc: true
-weight:
+weight: 8
 math: true
 next:
 prev:
@@ -73,6 +73,12 @@ foamNewApp ofsp_08_firstApp
 code ofsp_08_firstApp
 ```
 
+### 2.1. 源代码
+
+下面将讨论源代码。
+
+### 2.2. 测试算例
+
 对于不同的求解器，可以拷贝一个对应的原生算例用于测试求解器的开发。对于本项目来说，测试算例仅仅用于通过求解器语法检查。
 
 终端输入命令，拷贝测试算例
@@ -81,7 +87,7 @@ code ofsp_08_firstApp
 cp -r $FOAM_TUTORIALS/incompressible/icoFoam/cavity/cavity debug_case
 ```
 
-## 3. 脚本
+### 2.3. 脚本文件
 
 使用脚本可以方便用户开发测试。以本项目为例，我们新建脚本如下
 
@@ -118,6 +124,97 @@ rm -rf debug_case/log.*
 foamCleanTutorials debug_case
 # 输出信息“清理完成”
 echo "Cleaning done."
+```
+
+### 2.4. 说明文件
+
+为了方便后续阅读、开发和使用，我们还应该准备说明文件。
+
+终端输入命令，新建说明文件
+
+```terminal {fileName="terminal"}
+code README.md
+```
+
+说明文件内容如下
+
+```markdown {fileName="/README.md"}
+## About
+
+这是ofsp系列中，我们创建的第一个OpenFOAM标准应用。
+
+## Bio
+
+- Aerosand @ Aerosand
+
+## Caution
+
+需要使用 OpenFOAM v2406 及更新版本。
+
+## Deploy
+
+准备好环境和所有的文件。
+
+在根目录下执行终端命令
+
+清理并重新编译应用
+
+1. wclean
+2. wmake
+   
+清理并重新计算测试算例
+
+1. ./caseclean
+2. ./caserun
+
+## Entry
+
+@ 20250903
+- 增加清理脚本 ok
+
+@ 20250901
+- 新建应用 ok
+
+```
+
+建议遵循 **A**bout-**B**io-**C**aution-**D**eploy-**E**ntry 的 A-B-C-D-E 原则书写说明文件，尽量表述清楚必要信息。
+
+## 3. 文件结构
+
+可以看到该项目的文件结构如下
+
+终端输入命令
+
+```terminal {fileName="terminal"}
+tree
+.
+├── caseclean
+├── caserun
+├── debug_case
+│   ├── 0
+│   │   ├── p
+│   │   └── U
+│   ├── constant
+│   │   ├── polyMesh
+│   │   │   ├── boundary
+│   │   │   ├── faces
+│   │   │   ├── neighbour
+│   │   │   ├── owner
+│   │   │   └── points
+│   │   └── transportProperties
+│   ├── log.mesh
+│   ├── log.run
+│   └── system
+│       ├── blockMeshDict
+│       ├── controlDict
+│       ├── decomposeParDict
+│       ├── fvSchemes
+│       ├── fvSolution
+│       └── PDRblockMeshDict
+├── Make
+│   ├── files
+│   └── options
+└── ofsp_08_firstApp.C
 ```
 
 ## 4. 测试
@@ -254,98 +351,8 @@ ExecutionTime = 0 s  ClockTime = 0 s
 End
 ```
 
-## 5. 说明文件
 
-为了方便后续阅读、开发和使用，我们还应该准备说明文件。
-
-终端输入命令，新建说明文件
-
-```terminal {fileName="terminal"}
-code README.md
-```
-
-说明文件内容如下
-
-```markdown {fileName="/README.md"}
-## About
-
-这是ofsp系列中，我们创建的第一个OpenFOAM标准应用。
-
-## Bio
-
-- Aerosand @ Aerosand
-
-## Caution
-
-需要使用 OpenFOAM v2406 及更新版本。
-
-## Deploy
-
-准备好环境和所有的文件。
-
-在根目录下执行终端命令
-
-清理并重新编译应用
-
-1. wclean
-2. wmake
-   
-清理并重新计算测试算例
-
-1. ./caseclean
-2. ./caserun
-
-## Entry
-
-@ 20250903
-- 增加清理脚本 ok
-
-@ 20250901
-- 新建应用 ok
-
-```
-
-建议遵循 **A**bout-**B**io-**C**aution-**D**eploy-**E**ntry 的 A-B-C-D-E 原则书写说明文件，尽量表述清楚必要信息。
-
-## 6. 文件结构
-
-清理编译，清理测试算例，可以看到该项目的文件结构如下
-
-终端输入命令
-
-```terminal {fileName="terminal"}
-tree
-.
-├── caseclean
-├── caserun
-├── debug_case
-│   ├── 0
-│   │   ├── p
-│   │   └── U
-│   ├── constant
-│   │   ├── polyMesh
-│   │   │   ├── boundary
-│   │   │   ├── faces
-│   │   │   ├── neighbour
-│   │   │   ├── owner
-│   │   │   └── points
-│   │   └── transportProperties
-│   ├── log.mesh
-│   ├── log.run
-│   └── system
-│       ├── blockMeshDict
-│       ├── controlDict
-│       ├── decomposeParDict
-│       ├── fvSchemes
-│       ├── fvSolution
-│       └── PDRblockMeshDict
-├── Make
-│   ├── files
-│   └── options
-└── ofsp_08_firstApp.C
-```
-
-## 7. 原生主源码
+## 5. 原生主源码
 
 代码 `ofsp_08_firstApp.C` 为
 
@@ -416,11 +423,11 @@ int main(int argc, char *argv[])
 // ************************************************************************* //
 ```
 
-## 8. 使用开发库
+## 6. 使用开发库
 
 在该项目中，我们有选择的使用上一篇讨论所开发的 Aerosand 库中的某个类。
 
-### 8.1. 主源码
+### 6.1. 主源码
 
 代码 `ofsp_08_firstApp.C` 修改为
 
@@ -459,7 +466,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-### 8.2. 项目 Make
+### 6.2. 项目 Make
 
 
 项目 `Make/files` 为
@@ -507,7 +514,7 @@ EXE_LIBS = \
 	- 绝对地址 `-I/usr/lib/openfoam/openfoam2306/src/finiteVolume/lnInclude`
 	- 相对地址 `-I../ofsp_07_tensor/Aerosand/lnInclude`
 
-## 9. 编译运行
+## 7. 编译运行
 
 因为上一篇讨论的 Aerosand 库已经编译成功，这里不用再次编译，直接调用即可。
 
@@ -537,15 +544,15 @@ ExecutionTime = 0.01 s  ClockTime = 0 s
 End
 ```
 
-## 10. 小结
+## 8. 小结
 
 本文完成讨论
 
-- [ ] 理解 OpenFOAM 标准应用的文件架构
-- [ ] 认识使用脚本
-- [ ] 认识应用开发测试流程
-- [ ] 调用其他位置的开发库
-- [ ] 编译运行 firstApp 项目
+- [x] 理解 OpenFOAM 标准应用的文件架构
+- [x] 认识使用脚本
+- [x] 认识应用开发测试流程
+- [x] 调用其他位置的开发库
+- [x] 编译运行 firstApp 项目
 
 
 
