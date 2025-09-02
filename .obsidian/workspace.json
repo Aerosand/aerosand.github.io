@@ -32,9 +32,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/ofs/ofst/_index.md.md",
+                "file": "content/ofs/_index.md",
                 "mode": "source",
-                "source": true,
+                "source": false,
                 "backlinks": true,
                 "backlinkOpts": {
                   "collapseAll": false,
@@ -47,7 +47,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "_index.md"
+              "title": "_index"
             }
           }
         ],
@@ -166,13 +166,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/ofs/ofst/_index.md.md",
+                "file": "content/ofs/_index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _index.md"
+              "title": "Outline of _index"
             }
           }
         ],
@@ -304,12 +304,16 @@
   },
   "active": "9db85579f8ecc656",
   "lastOpenFiles": [
-    "content/ofs/ofss/_index.md",
+    "public/ofs/ofst/index.xml",
+    "public/ofs/ofst/index.html",
+    "public/ofs/ofst",
+    "content/ofs/ofst/_index.md",
+    "content/_index.md",
     "content/ofs/ofst/_index.md.md",
+    "content/ofs/ofss/_index.md",
     "content/ofs/_index.md",
     "content/ofs/ofsb/_index.md",
     "Home.canvas",
-    "content/_index.md",
     "content/ofs/ofsp/_index.md",
     "_base/ofsp.base",
     "_base/ofsp2025.base",
@@ -321,8 +325,6 @@
     "content/ofs/ofsp/08_firstApplication.md",
     "assets/runTensor.cast",
     "assets/findTensor.cast",
-    "assets/tensor.cast",
-    "assets",
     "public/images/openfoam.png",
     "public/images/ofsp.png",
     "public/images/ofsb.png",
@@ -343,8 +345,6 @@
     "content/ofs/ofsp2025/06_vector.md",
     "content/ofs/ofsp2025/05_basicClass.md",
     "content/ofs/ofsp2025/04_wmake.md",
-    "content/ofs/ofsp2025/03_make.md",
-    "content/ofs/ofsp2025/02_helloWorld.md",
     "Home - APS.canvas",
     "Project/OpenFOAM Sharing.canvas",
     "aerosand/public/images/logo.svg",
