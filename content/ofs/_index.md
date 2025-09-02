@@ -6,6 +6,7 @@ date: 2025-08-26
 update: 2025-09-02
 ---
 
+## Year 2026
 
 {{< cards cols="1" >}}
   {{< card link="./ofsb/" title="ofsb - basics" tag="#to-update" tagColor="red">}}

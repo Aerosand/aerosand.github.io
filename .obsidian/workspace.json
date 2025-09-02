@@ -25,8 +25,33 @@
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
+          },
+          {
+            "id": "7ebae9c0c26571ce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/ofs/_index.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "_index"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -141,13 +166,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Home.canvas",
+                "file": "content/ofs/_index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Home"
+              "title": "Outline of _index"
             }
           }
         ],
@@ -277,14 +302,14 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "7ebae9c0c26571ce",
   "lastOpenFiles": [
+    "Home.canvas",
     "content/ofs/ofsp2025/_index.md",
     "content/ofs/ofst/_index.md",
     "content/ofs/_index.md",
     "content/ofs/ofss/_index.md",
     "content/ofs/ofsb/_index.md",
-    "Home.canvas",
     "_templates/0_newnote.md",
     "public/ofs/ofst/index.xml",
     "public/ofs/ofst/index.html",
