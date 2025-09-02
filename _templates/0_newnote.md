@@ -3,9 +3,6 @@
 async function sanitizeName(name) {
   return name.trim().replace(/[\\\/:*?"<>|]/g, " ").replace(/\s+/g, " ").trim();
 }
-function ensureMd(basename) {
-  return basename.toLowerCase().endsWith(".md") ? basename : basename + ".md";
-}
 async function ensureFolder(folder) {
   if (!folder) return "";
   const clean = folder.replace(/\/+$/,"").trim();
@@ -16,11 +13,8 @@ async function ensureFolder(folder) {
 }
 async function uniquePath(path) {
   let p = path; let i = 1;
-  while (await app.vault.adapter.exists(p)) {
-    const dot = p.lastIndexOf(".");
-    const base = dot > -1 ? p.slice(0,dot) : p;
-    const ext  = dot > -1 ? p.slice(dot)  : "";
-    p = `${base} (${i++})${ext}`;
+  while (await app.vault.adapter.exists(p + ".md")) {   // 只判断 .md 文件是否存在
+    p = `${path} (${i++})`;
   }
   return p;
 }
@@ -38,32 +32,27 @@ title = await sanitizeName(title);
 /* ---------- 2. 文件夹选择 ---------- */
 let destFolder = "";
 const firstChoice = await tp.system.suggester(
-  ["OFS（content/ofs）","News（content/news）","/"],
-  ["OFS","News","__ROOT__"],
+  ["ofs","news","/"],
+  ["ofs","news","__ROOT__"],
   false,
-  "请选择目标文件夹"
+  "Please select folder"
 );
 
-if (firstChoice === "OFS") {
-  // 让用户输入子目录名
-  const inputFolder = await tp.system.prompt("Input subfolder（Blank for [content/ofs] ）");
-  if (inputFolder && inputFolder.trim()) {
-    destFolder = `content/ofs/${inputFolder.trim()}`;
-  } else {
-    destFolder = "content/ofs";
-  }
-} else if (firstChoice === "__ROOT__") {
-  destFolder = ""; // 根目录
+if (firstChoice === "ofs") {
+  const inputFolder = await tp.system.prompt("Input subfolder（Blank for [ofs/] ）");
+  destFolder = inputFolder && inputFolder.trim() ? `Project/${inputFolder.trim()}` : "Project";
+} else if (firstChoice === "news") {
+  const inputFolder = await tp.system.prompt("Input subfolder（Blank for [news/] ）");
+  destFolder = inputFolder && inputFolder.trim() ? `Self/${inputFolder.trim()}` : "Self";
 } else {
-  destFolder = firstChoice || "";
+  destFolder = ""; // 根目录
 }
 
 /* ---------- 3. 移动 + 改名 ---------- */
-const basename = ensureMd(title);
-let finalPath = basename; // 默认仅改名
+let finalPath = title; // 注意：不加 .md，交给 Obsidian 自动处理
 if (destFolder) {
   const folder = await ensureFolder(destFolder);
-  finalPath = `${folder}/${basename}`;
+  finalPath = `${folder}/${title}`;
 }
 finalPath = await uniquePath(finalPath);
 await tp.file.move(finalPath);

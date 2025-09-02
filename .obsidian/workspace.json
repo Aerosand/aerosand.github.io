@@ -16,42 +16,17 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -2873.901904973672,
-                  "y": 1781.841462751975,
-                  "zoom": 0.9219146863204598
+                  "x": -3315.6916115596864,
+                  "y": 2106.7972613916836,
+                  "zoom": -0.6780853136795403
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
-          },
-          {
-            "id": "9db85579f8ecc656",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/ofs/_index.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "_index"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -166,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/ofs/_index.md",
+                "file": "Home.canvas",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of _index"
+              "title": "Outline of Home"
             }
           }
         ],
@@ -302,8 +277,10 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "9db85579f8ecc656",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "_templates/0_newnote.md",
+    "content/ofs/_index.md",
     "public/ofs/ofst/index.xml",
     "public/ofs/ofst/index.html",
     "public/ofs/ofst",
@@ -311,7 +288,6 @@
     "content/_index.md",
     "content/ofs/ofst/_index.md.md",
     "content/ofs/ofss/_index.md",
-    "content/ofs/_index.md",
     "content/ofs/ofsb/_index.md",
     "Home.canvas",
     "content/ofs/ofsp/_index.md",
@@ -324,7 +300,6 @@
     "content/ofs/ofsp/08_firstApp.md",
     "content/ofs/ofsp/08_firstApplication.md",
     "assets/runTensor.cast",
-    "assets/findTensor.cast",
     "public/images/openfoam.png",
     "public/images/ofsp.png",
     "public/images/ofsb.png",
