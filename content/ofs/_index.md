@@ -8,10 +8,10 @@ update: 2025-09-02
 
 
 {{< cards cols="1" >}}
-  {{< card link="./ofsb/" title="ofsb" tag="#toupdate" tagColor="red">}}
+  {{< card link="./ofsb/" title="ofsb" tag="#to-update" tagColor="red">}}
   {{< card link="./ofsp/" title="ofsp" tag="#updating" tagColor="green">}}
-  {{< card link="./ofss/" title="ofss" tag="#toupdate" tagColor="red">}}
-  {{< card link="./ofst/" title="ofst" tag="#toupdate" tagColor="red">}}
+  {{< card link="./ofss/" title="ofss" tag="#to-update" tagColor="red">}}
+  {{< card link="./ofst/" title="ofst" tag="#to-update" tagColor="red">}}
 {{< /cards >}}
 
 ## Year 2025
