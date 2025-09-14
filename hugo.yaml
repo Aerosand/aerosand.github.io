@@ -116,8 +116,8 @@ params:
   externalLinkDecoration: true
 
   banner:
-    key: 'announcement-xxx'
-    message: |
+    key: 'announcement'
+    message:
       🎉 Welcome to Aerosand!.
 
   navbar:
