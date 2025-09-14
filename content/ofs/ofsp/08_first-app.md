@@ -2,7 +2,7 @@
 uid: 20250901123439
 title: 08_firstApp
 date: 2025-09-01
-update: 2025-09-02
+update: 2025-09-14
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -167,7 +167,7 @@ code README.md
 1. ./caseclean
 2. ./caserun
 
-## Entry
+## Event
 
 @ 20250903
 - 增加清理脚本 ok
@@ -177,7 +177,7 @@ code README.md
 
 ```
 
-建议遵循 **A**bout-**B**io-**C**aution-**D**eploy-**E**ntry 的 A-B-C-D-E 原则书写说明文件，尽量表述清楚必要信息。
+建议遵循 **A**bout-**B**io-**C**aution-**D**eploy-**E**vent 的 A-B-C-D-E 原则书写说明文件，尽量表述清楚必要信息。
 
 ## 3. 文件结构
 
