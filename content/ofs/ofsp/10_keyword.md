@@ -89,7 +89,7 @@ draft: false
 
 ## 2. 实现按关键词读参
 
-### 2.1. 项目构建
+### 2.1. 项目准备
 
 终端输入命令，建立本项目
 
@@ -310,7 +310,7 @@ EXE_LIBS = \
 
 ### 2.5. 编译运行
 
-我们在该项目的根目录下提供类似 OpenFOAM 字典的文件。`ofspProperties` 文件内容如下（路径为 `/ofsp/ofsp_09_io/ofspProperties`）
+我们在该项目的根目录下提供类似 OpenFOAM 字典的文件。`ofspProperties` 文件内容如下（路径为 `/ofsp/ofsp_10_io/ofspProperties`）
 
 ```cpp {fileName="/ofspProperties"}
 nu                  0.01

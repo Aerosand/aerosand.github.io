@@ -26,3 +26,9 @@ update: 2025-09-02
 
 ## 第二阶段
 
+{{< cards >}}
+  {{< card link="./09_io" title="09_io" tag="start here" tagColor="red" >}}
+  {{< card link="./10_keyword" title="10_keyword" >}}
+  {{< card link="./11_feature" title="11_feature" >}}
+  {{< card link="./12_dictionary" title="12_dictionary" >}}
+{{< /cards >}}
