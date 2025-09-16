@@ -2,7 +2,7 @@
 uid: 20250723185036
 title: 03_make
 date: 2025-07-23
-update: 2025-09-01
+update: 2025-09-16
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -326,7 +326,8 @@ Current time step is : 0.2
 #### 新建项目
 
 1. 使用 `F1` 打开快捷命令输入关键词，选择使用 `Create C++ project`
-2. 在弹出窗口中选择到准备好的空白项目文件夹，并打开
+2. 输入项目名称，新手项目推荐输入 main 
+3. 在弹出窗口中选择到准备好的空白项目文件夹，并打开
 
 #### 写代码
 
