@@ -88,9 +88,7 @@ draft: false
 我们从该流体微团上取一个无穷小的面积单元，该面积单元位置变化后产生的体积变化为
 
 $$
-\begin{align}
-d V &= \vec{U} \cdot d t \cdot d \vec{S}
-\end{align}
+d V = \vec{U} \cdot d t \cdot d \vec{S}
 $$
 
 整个流体微团的体积变化需要在所有面上作积分，即
@@ -98,6 +96,8 @@ $$
 $$
 dV = \iint_{\partial{V}}(\vec{U} d t) \cdot d\vec{S}
 $$
+
+约定使用 $\partial V$ 表示体积 $V$ 的全部表面。
 
 体积变化对时间的变化率为
 
@@ -148,11 +148,194 @@ w = w(x, y, z, t) \\
 \rho = \rho(x, y, z, t)
 \end{cases}$$
 
-在时间 $t_1$时刻，某个流体微团的位置是 $(x_1, y_1, z_1)$
+在时间 $t_1$ 时刻，某个流体微团的位置是 $(x_1, y_1, z_1)$
 
 $$\rho_1 = \rho(x_1, y_1, z_1, t_1)$$
 
-在时间 $t_2$时刻，该流体微团运动到位置 $(x_2, y_2, z_2)$
+在时间 $t_2$ 时刻，该流体微团运动到位置 $(x_2, y_2, z_2)$
 
 $$\rho_2 = \rho(x_2, y_2, z_2, t_2)$$
+
+注意这个过程，流体微团本身因为时间推进，自身属性会变化，这部分称为本地变化（local change）。另一方面，流体单元移动到了不同的位置，位置的变化当然也会对最终呈现出的属性有影响，我们称为对流变化（convective change）。
+
+泰勒展开
+
+$$\rho_2 = \rho_1 + (\frac{\partial \rho}{\partial x})_1(x_2 - x_1) + (\frac{\partial \rho}{\partial y})_1(y_2 - y_1) + (\frac{\partial \rho}{\partial z})_1(z_2 - z_1) + (\frac{\partial \rho}{\partial t})_1(t_2 - t_1)  + (higherOrderTerms)$$
+
+两边都除以 $(t_2 - t_1)$， 忽略高阶项的影响
+
+$$\frac{\rho_2 - \rho_1}{t_2 - t_1} \approx (\frac{\partial \rho}{\partial x})_1\frac{x_2 - x_1}{t_2 - t_1} + (\frac{\partial \rho}{\partial y})_1\frac{y_2 - y_1}{t_2 - t_1} + (\frac{\partial \rho}{\partial z})_1\frac{z_2 - z_1}{t_2 - t_1} + (\frac{\partial \rho}{\partial t})_1$$
+
+这个等式就描述了一个流体微团在某个**时间步长内空间运动**后，密度随时间的变化。
+
+当这个时间步长非常小的时候，有极限
+
+$$\lim_{t_2 \rightarrow t_1} \frac{\rho_2 -\rho_1}{t_2 - t_1} = \frac{D\rho}{Dt}$$
+
+得到密度对时间的全导数。
+
+其他项同样取极限有
+
+$$\begin{aligned}
+\lim_{t_2 \rightarrow t_1} \frac{x_2 -x_1}{t_2 - t_1} &= u \\
+\lim_{t_2 \rightarrow t_1} \frac{y_2 -x_1}{y_2 - t_1} &= v \\
+\lim_{t_2 \rightarrow t_1} \frac{z_2 -x_1}{z_2 - t_1} &= w
+\end{aligned}$$
+
+上面的泰勒展开式可以写成
+
+$$\frac{D\rho}{Dt} = u\frac{\partial \rho}{\partial x} + v\frac{\partial \rho}{\partial y} + w\frac{\partial \rho}{\partial z} + \frac{\partial \rho}{\partial t}$$
+
+这个式子推广开对其他物理量也成立，得到**物质导数**（material substatial）的通用形式
+
+$$\frac{D}{Dt} = u\frac{\partial}{\partial x} + v\frac{\partial }{\partial y} + w\frac{\partial }{\partial z} + \frac{\partial }{\partial t}$$
+
+通过右侧的展开可以看到，物理量对空间变量和时间变量都有变化。
+
+引入微分算子
+
+$$\nabla = \frac{\partial }{\partial x} \vec i + \frac{\partial }{\partial y} \vec j + \frac{\partial }{\partial y} \vec k$$
+
+最终整理为
+
+**物质导数**
+
+$$\frac{D}{Dt} = \frac{\partial }{\partial t} + U \cdot \nabla$$
+
+为了书写方便，约定使用大写的 $U$ 表示速度矢量
+
+- 左侧是拉格朗日描述的数学表达，全导数也被称为拉格朗日导数
+- 右侧展开的两部分是欧拉描述的数学表达，右侧也被也被称为欧拉导数
+
+对于流体微团在空间上从 $P_1$ 移动到 $P_2$ ，时间上 $t_1$ 到 $t_2$，有
+
+$$\frac{DT}{Dt} = \frac{\partial T}{\partial t} + U \cdot \nabla T= \frac{\partial T}{\partial t} + u\frac{\partial T}{\partial x} + v\frac{\partial T}{\partial y} + w\frac{\partial T}{\partial z}$$
+
+- $\partial T/ \partial t$ 无论流体单元怎么移动，它都会因为时间变化而发生自身温度的变化
+- $U\cdot\nabla T$ 因为流体单元在空间移动（“移动”其实不准确，更应该是一种“对流”，“交换”，可以结合下文雷诺输运定理理解），温度发生变化
+
+实际上，物质导数就是数学上全导数应用链式法则的完全展开。
+
+> [!tip]
+> 物质导数某种程度上将欧拉描述和拉格朗日描述联系了起来。
+
+## 4. 雷诺输运定理
+
+> [!tip]
+> 雷诺输运定理是欧拉描述和拉格朗日描述互相联系的另一个表现。
+
+我们假设某个物质体有任意物理量 $B$ ，它的单位质量强度为 $b$ ，也就是有
+
+$$
+b = dB/dm
+$$
+
+在 $t$ 时刻，物质体（黑色线条）和控制体（红色线条）重合，经过 $d t$ 之后，物质体移动到新的位置（蓝色线条）
+
+![雷诺输运定理](https://img.notionusercontent.com/s3/prod-files-secure%2F81cd34b0-7c4c-81c3-ac76-00034cd49f70%2F7a19e893-4d82-4c3d-9935-248c232048f2%2Fimage.png/size/w=2000?exp=1758109339&sig=DZlbUexqDuuhP8q6oGBK32rEKmRYDSvBhT5wHs8XQTA&id=271d34b0-7c4c-80d3-b752-c9151c8da870&table=block&userId=12bd872b-594c-8195-9955-000208c74b78)
+
+在 $t$ 时刻有
+
+$$B(t) = B_I(t) + B_{II}(t)$$
+
+在 $t + d t$ 时刻有
+
+$$B(t+ d t) = B_{II}(t+d t) + B_{III}(t+d t)$$
+
+物理量 $B$ 的变化有
+
+$$\begin{aligned}
+(\frac{dB}{dt})_{MV} &=\lim_{d t \rightarrow 0}\frac{B(t+dt) - B(t)}{dt} \\
+&= \lim_{dt \rightarrow 0}\frac{B_{II}(t+dt) +B_{III}(t+dt)  - B_I(t) - B_{II}(t)}{dt} \\
+&= \lim_{dt \rightarrow 0}\frac{B_{I}(t+dt) + B_{II}(t+dt) - B_I(t) - B_{II}(t)}{dt} \\
+&+ \lim_{dt \rightarrow 0}\frac{B_{III}(t+dt)}{dt} - \lim_{dt \rightarrow 0}\frac{B_{I}(t+dt)}{dt}
+\end{aligned}$$
+
+上式整理合并后，其中的
+
+$$\begin{aligned}
+\lim_{dt \rightarrow 0}\frac{B_{I}(t+dt) + B_{II}(t+dt) - B_I(t) - B_{II}(t)}{dt} &= \lim_{dt \rightarrow 0}\frac{B_{CV}(t+dt) - B_{CV}(t)}{dt} \\
+&= (\frac{dB}{dt})_{CV}
+\end{aligned}$$
+
+余下还有，这两项的差反映了通过边界面的净流量
+
+$$
+\lim_{dt \rightarrow 0}\frac{B_{III}(t+dt)}{dt} - \lim_{dt \rightarrow 0}\frac{B_{I}(t+dt)}{dt} = Flux
+$$
+
+即
+
+$$
+(\frac{dB}{dt})_{MV} = (\frac{dB}{dt})_{CV} + Flux
+$$
+
+总结来说就是：
+
+物理量 $B$ 在物质体内的总变化 = 物理量 $B$ 在控制体内的变化 + 物理量 $B$ 在控制体表面上的净流量
+
+写成数学表达式为
+
+$$(\frac{dB}{dt})_{MV} = \frac{d}{dt}(\int_{V(t)}b\rho dV) + \int_{\partial V(t)}b\rho U_r \cdot \vec n dS$$
+
+我们约定，为了书写方便，无论是体积分还是面积分，后文大多使用单积分符，即 $\iint_{\partial V} \rightarrow\int_{\partial V}$ ，$\iiint_V \rightarrow \int_V$ 。
+
+假设流体的流动速度为 $U(t, \vec x)$ ，控制体表面变形的速度为 $U_{\partial V}(t, \vec x)$ , 流体离开或者进入控制体表面时候的相对速度为 $U_r(t, \vec x) = U(t, \vec x) - U_S(t, \vec x)$。
+
+对于一个位置固定的控制体，没有表面变形，即 $U_{\partial V} = 0$ ，所以 $U_r(t, \vec x) = U(t, \vec x)$
+
+虽然体积和面积分别写成 $V(t),\partial V(t)$ ，但欧拉描述下控制体的体积和面积不随时间变化。
+
+控制体的几何和时间无关，所以有
+
+$$
+\frac{d}{dt}(\int_V b\rho dV) = \int_V \frac{\partial}{\partial t}(b\rho) dV
+$$
+
+
+代入后有
+
+$$
+(\frac{dB}{dt})_{MV} = \int_V \frac{\partial}{\partial t}(b\rho) dV + \int_{\partial V}b\rho U \cdot \vec n dS
+$$
+
+利用散度定理（面积分等于散度的体积分）
+
+$$
+(\frac{dB}{dt})_{MV} = \int_V \frac{\partial}{\partial t}(b\rho) dV + \int_{\partial V}b\rho U \cdot \vec n dS =\int_V \frac{\partial}{\partial t}(b\rho) dV + \int_V \nabla \cdot (\rho U b) dV
+$$
+
+整理为
+
+$$
+(\frac{dB}{dt})_{MV} = \int_V[\frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)]dV
+$$
+
+散度展开
+
+$$
+\begin{aligned} (\frac{dB}{dt})_{MV} &= \int_V[\frac{\partial}{\partial t}(\rho b) + (\rho b \nabla \cdot U + U \cdot\nabla \rho b)]dV \\ &= \int_V[(\frac{\partial}{\partial t}(\rho b) + U\cdot\nabla \rho b) + \rho b \nabla \cdot U]dV \end{aligned}
+$$
+
+利用物质导数，进一步改写为
+
+$$
+\int_V[(\frac{\partial}{\partial t}(\rho b) + U\cdot\nabla \rho b) + \rho b \nabla \cdot U]dV = \int_V[\frac{D}{D t}(\rho b) + \rho b \nabla \cdot U]dV
+$$
+
+最终得到【雷诺输运定理】
+
+$$
+(\frac{dB}{dt})_{MV} = \int_V[\frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)]dV = \int_V[\frac{D}{D t}(\rho b) + \rho b \nabla \cdot U]dV
+$$
+
+> 所以也能得到换算关系 
+> $$
+> \frac{D}{D t}(\rho b) + \rho b \nabla \cdot U = \frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)
+> $$
+> 我们姑且称为【雷诺输运换算】。
+> 
+> 通过换算讨论，我们再次可以感受到，全导 $D/Dt$ 是拉格朗日的。
+
+雷诺输运定理显式的表达了物理量在输运过程中的“守恒”。后文将进一步讨论此“守恒”。
 
