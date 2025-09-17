@@ -35,7 +35,7 @@ layout: hextra-home
      title="CFD"
      subtitle="Computational Fluid Dynamics"
      class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
-     link="/ofs/cfd"
+     link="/cfd"
      image="images/ofsb.png"
      imageClass="hx:top-[40%] hx:left-[24px] hx:w-[180%] hx:sm:w-[110%] hx:dark:opacity-80"
      style="background: radial-gradient(ellipse at 50% 80%,rgba(194,97,254,0.15),hsla(0,0%,100%,0));" 
