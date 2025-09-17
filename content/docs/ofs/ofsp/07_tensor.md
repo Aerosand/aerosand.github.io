@@ -2,7 +2,7 @@
 uid: 20250827192135
 title: 07_tensor
 date: 2025-08-27
-update: 2025-09-01
+update: 2025-09-17
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -71,7 +71,27 @@ tree -L 1
 > [!warning]
 > 暂不深究代码细节，大概了解成员函数的用法即可。
 
-## 2. 项目构建
+
+## 2. OFextension 插件
+
+十分推荐在 vscode 中安装社区插件 `OFextension`。
+
+### 2.1. 配置插件
+
+1. 点击 vscode 左下角小齿轮，打开 `settings`
+2. 搜索栏搜索 `ofextension`
+3. 在 `Ofextension: OFpath` 中设置正确的 OpenFOAM 路径
+4. 使用 vscode 打开用户的开发应用，使用 `F1` 输入 `ofInit` 初始化配置
+
+### 2.2. 插件使用
+
+在项目开发中，例如本文应用，在主源码中输入相关对象，vscode 会自动弹出可选的方法（成员函数）。
+
+而且可以在主源码中选中头文件、类等，右键使用 `Go to Definition` ，`Go to Declaration` 等，直接跳转查看源代码。
+
+非常推荐此插件，十分方便。注意避免在 OpenFOAM 源文件夹下初始化。
+
+## 3. 项目构建
 
 终端输入命令，建立本文项目
 
@@ -104,9 +124,9 @@ tree
 
 注意，开发库的文件结构与前文稍有不同。我们在前文已经可以注意到 OpenFOAM 库下一般有多个子库/类。用户的开发库里同样可能也会由好几个类构成，开发库拥有自己的 Make 文件，用于管理多个类，比如这里 Aerosand 库有 `class1` , `class2` 和 `class3` 三个类。
 
-## 3. 开发库
+## 4. 开发库
 
-### 3.1. class1
+### 4.1. class1
 
 对于第一个类，我们依然使用之前的代码。
 
@@ -142,7 +162,7 @@ double class1::GetLocalTime() const {
 
 ```
 
-### 3.2. class2
+### 4.2. class2
 
 对于第二个类，我们尝试通过继承来创建一个新类。
 
@@ -190,7 +210,7 @@ Foam::scalar class2::sum() const
 > [!tip]
 > 注意声明和定义中使用的 scalar 和 vector 都属于 Foam 命名空间，所以需要使用该命名空间。
 
-### 3.3. class3
+### 4.3. class3
 
 对于第三个类，我们写一些简单的内容。
 
@@ -221,7 +241,7 @@ void class3::class3Info() const
 
 ```
 
-### 3.4. 库 Make
+### 4.4. 库 Make
 
 库 `Make/files` 为
 
@@ -236,7 +256,7 @@ LIB = $(FOAM_USER_LIBBIN)/libAerosand
 
 本开发库没有其他依赖，库 `Make/options` 置空即可。
 
-### 3.5. 库编译
+### 4.5. 库编译
 
 终端输入命令，进行库的编译
 
@@ -245,9 +265,9 @@ wclean Aerosand
 wmake Aerosand
 ```
 
-## 4. 主项目
+## 5. 主项目
 
-### 4.1. 主源码
+### 5.1. 主源码
 
 代码 `ofsp_07_tensor.C` 为
 
@@ -347,7 +367,7 @@ int main()
 
 ```
 
-### 4.2. 项目 Make
+### 5.2. 项目 Make
 
 项目 `Make/files` 为
 
@@ -374,7 +394,7 @@ EXE_LIBS = \
 
 同样的，`$FOAM_SRC/OpenFOAM` 库已经自动依赖，其中类的使用均无需用户再次链接。
 
-## 5. 编译运行
+## 6. 编译运行
 
 终端输入命令，编译运行该项目
 
@@ -425,7 +445,7 @@ This is class3
 ```
 
 
-## 6. 小结
+## 7. 小结
 
 本文完成讨论
 

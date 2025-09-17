@@ -2,7 +2,7 @@
 uid: 20250826161556
 title: 04_wmake
 date: 2025-08-26
-update: 2025-09-01
+update: 2025-09-17
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -168,7 +168,7 @@ OpenFOAM 提供了 Make 文件来帮助开发，其中
 
 ## 3. 直接链接
 
-类似于 `02_helloWorld/3.4.链接` 文中讨论的直接链接，OpenFOAM 也提供类似的实现方式。
+类似于 `02_helloWorld/3.4.链接` 文中讨论的直接链接，OpenFOAM 中也可以实现。
 
 ### 3.1. 配置 Make
 

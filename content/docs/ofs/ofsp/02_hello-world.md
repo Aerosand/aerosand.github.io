@@ -2,7 +2,7 @@
 uid: 20250723105353
 title: 02_helloWorld
 date: 2025-07-23
-update: 2025-09-01
+update: 2025-09-17
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -108,7 +108,7 @@ tree
 
 我们分别写入代码，内容如下
 
-类的声明 Class  `Aerosand.h` 如下
+类的声明 `Aerosand.h` 如下
 
 ```cpp {fileName="/Aerosand.h",linenos=table,linenostart=1}
 #pragma once
@@ -371,8 +371,9 @@ Aerosand.so -->|链接| main
 
 终端输入 `./main` 命令，运行该程序
 
+终端显示内容如下
+
 ```terminal {fileName="terminal"}
-./main
 Hi, OpenFOAM! Here we are.
 1 + 3.14159 = 4.14159
 1 * 3.14159 = 3.14159

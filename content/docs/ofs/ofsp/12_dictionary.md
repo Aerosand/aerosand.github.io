@@ -2,7 +2,7 @@
 uid: 20250916203141
 title: 12_dictionary
 date: 2025-09-16
-update: 2025-09-16
+update: 2025-09-17
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
 
 
     /* 
-    * Reading from the dictionary
+    * About dictionary customProperties
     */
     const word dictName("customProperties"); // 创建word类型对象，用以保存字典名称
     IOobject dictIO // 构造 IOobject 类型对象
@@ -182,6 +182,10 @@ int main(int argc, char *argv[])
             << dictName << exit(FatalError);
     }
     // 如果字典文件在文件头中指定的不是 dictionary 类型，则报错
+
+    /* 
+    * About dictionary myProperties
+    */
 
     dictionary myDictionary;
     myDictionary = IOdictionary(dictIO);
@@ -247,7 +251,7 @@ int main(int argc, char *argv[])
         << endl;
 
     /* 
-    * Writing to files
+    * Write to files
     */
     fileName outputDir = runTime.path()/"processing"; // 创建outputDir变量并赋值路径
     mkDir(outputDir); // 创建上句路径的文件夹

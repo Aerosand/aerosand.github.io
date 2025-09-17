@@ -2,7 +2,7 @@
 uid: 20250722130605
 title: 01_introduction
 date: 2025-07-22
-update: 2025-09-01
+update: 2025-09-17
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -24,7 +24,7 @@ category:
 ---
 
 > [!important]
-> 访问 https://aerosand.cc 以获取最近更新。
+> 访问 https://aerosand.cn 以获取最近更新。
 
 ## 0.前置
 

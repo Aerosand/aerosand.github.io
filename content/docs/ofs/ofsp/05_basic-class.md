@@ -2,7 +2,7 @@
 uid: 20250826191442
 title: 05_basicClass
 date: 2025-08-26
-update: 2025-08-27
+update: 2025-09-17
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -36,7 +36,6 @@ draft: false
 
 - [ ] 查阅 OpenFOAM API 
 - [ ] 认识一些常见的基础类
-
 
 
 ## 1. Switch
@@ -313,7 +312,7 @@ API 页面 https://api.openfoam.com/2506/IOobject_8H.html
 ## 11. 小结
 
 > [!warning]
-> 暂时不用深究这些类定义的技术实现细节，这些细节并不是本系列的重点。过度深挖细节会给初学者带来巨大的困扰，打乱学习进度。
+> 暂时不用深究这些类定义的编程实现细节，这些细节并不是本系列的重点。过度深挖细节会给初学者带来巨大的困扰，打乱学习进度。
 
 本文完成讨论
 
