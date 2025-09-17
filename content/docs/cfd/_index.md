@@ -1,5 +1,6 @@
 ---
 title: CFD
+weight: 1
 cascade:
   type: docs
 date: 2025-08-26

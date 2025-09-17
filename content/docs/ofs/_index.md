@@ -1,5 +1,6 @@
 ---
 title: OpenFOAM Sharing
+weight: 2
 cascade:
   type: docs
 date: 2025-08-26
