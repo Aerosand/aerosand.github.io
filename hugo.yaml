@@ -86,17 +86,29 @@ menu:
       url: "https://github.com/aerosand"
       params:
         icon: github
+    - identifier: cfdb
+      name: Basics
+      pageRef: /docs/cfd/cfdb
+      parent: cfd
+    - identifier: cfdh
+      name: Higher
+      pageRef: /docs/cfd/cfdh
+      parent: cfd
+    - identifier: cfdp
+      name: Programming
+      pageRef: /docs/cfd/cfdp
+      parent: cfd
     - identifier: ofsb
       name: Basics
-      pageRef: /ofs/ofsb
+      pageRef: /docs/ofs/ofsb
       parent: ofs
     - identifier: ofsp
       name: Programming
-      pageRef: /ofs/ofsp
+      pageRef: /docs/ofs/ofsp
       parent: ofs
     - identifier: ofss
       name: Solver
-      pageRef: /ofs/ofss
+      pageRef: /docs/ofs/ofss
       parent: ofs
 
   sidebar:
