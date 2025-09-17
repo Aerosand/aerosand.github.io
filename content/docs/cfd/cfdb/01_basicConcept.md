@@ -88,12 +88,9 @@ draft: false
 我们从该流体微团上取一个无穷小的面积单元，该面积单元位置变化后产生的体积变化为
 
 $$
-\begin{case}
-
-体积变化 &= 速度 \times 时间  \times 底面积 \\
+\begin{align}
 d V &= \vec{U} \cdot d t \cdot d \vec{S}
-
-\end{case}
+\end{align}
 $$
 
 整个流体微团的体积变化需要在所有面上作积分，即
@@ -112,30 +109,23 @@ $$
 
 ​$$
 \frac{dV}{dt} = \iiint_V(\nabla \cdot \vec{U}) dV
-
 $$
 当该流体微团的体积足够小时，物理量的体积分近似等于物理量和该小体积的乘积，即
 
 $$
-
 \frac{dV}{dt} = \iiint_V(\nabla \cdot \vec{U}) dV = (\nabla\cdot\vec{U})V
-
 $$
 
 整理可得
 
 $$
-
 \nabla\cdot\vec{U} = \frac{1}{V} \frac{dV}{dt}
-
 $$
 
 速度矢量的散度计算将得到一个标量，即
 
 $$
-
 \nabla\cdot\vec{U} = \frac{\partial{u}}{\partial{x}}+\frac{\partial{v}}{\partial{y}}+\frac{\partial{w}}{\partial{z}}  = \frac{1}{V} \frac{dV}{dt}
-
 $$
 
 可以看到，速度的散度就是**单位时间单位体积**的流体微团的体积变化。
