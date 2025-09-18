@@ -389,6 +389,8 @@ $$
 ## References
 
 [1] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
+
 [2] The Finite Volume Method in Computational Fluid Dynamics, https://link.springer.com/book/10.1007/978-3-319-16874-6
+
 [3] Computational fluid dynamics : the basics with applications, https://searchworks.stanford.edu/view/2989631
 
