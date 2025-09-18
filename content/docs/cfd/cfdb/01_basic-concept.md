@@ -232,7 +232,7 @@ $$
 
 在 $t$ 时刻，物质体（黑色线条）和控制体（红色线条）重合，经过 $d t$ 之后，物质体移动到新的位置（蓝色线条）
 
-![[ReynoldsTransport.png]]
+![](ReynoldsTransport.png)
 
 在 $t$ 时刻有
 
@@ -331,8 +331,8 @@ $$
 
 > 所以也能得到换算关系 
 > $$
-> \frac{D}{D t}(\rho b) + \rho b \nabla \cdot U = \frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)
-> $$
+ \frac{D}{D t}(\rho b) + \rho b \nabla \cdot U = \frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)
+ $$
 > 我们姑且称为【雷诺输运换算】。
 > 
 > 通过换算讨论，我们再次可以感受到，全导 $D/Dt$ 是拉格朗日的。
