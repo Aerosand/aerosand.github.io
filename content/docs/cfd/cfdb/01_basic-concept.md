@@ -342,7 +342,37 @@ $$
 
 雷诺输运定理显式的表达了物理量在输运过程中的“守恒”。后文将进一步讨论此“守恒”。
 
-## 5. 小结
+## 5. 符号约定
+
+为了方便书写，约定除非特别说明，大写字母根据物理意义一般表示物理量的矢量
+
+例如
+
+- 速度矢量 $U = (U_{x},U_{y},U_{z})$
+- 压力标量 $p$
+- 任一物理量 $\phi,\Phi$
+- 扩散系数 $\Gamma^{\phi}$ ，和物理量 $\phi$ 有关，如非特别说明默认简单写成 $\Gamma$ 
+- 源项 $Q^{\phi}$ ，和物理量 $\phi$ 有关，如非特别说明默认简单写成 $Q$ 
+- 面矢量 $S=(S_{x}, S_{y}, S_{z})$
+
+上下标符号有
+
+- 上标 $t$ 表示当前时间步（已知量），等同于上标 $o$，即旧时间步（old）
+- 上标 $t+1$ 表示新时间步（待求量），等同于上标 $n$ ，即新时间步（new）
+- 上标 $t+n$ 表示依次类推的之后时间步
+- 上标 $*$ 表示基于算法迭代的中间预测值
+- 下标 $P$ 表示当前单元体心（取 Owner 的 O 实在很容易混淆）
+- 下标 $N$ 表示相邻单元体心（Neighbor）
+- 下标 $f$ 表示当前单元和相邻单元之间的界面的面心（face），也模糊表示单元面
+
+网格符号
+
+- 体积 $V$，如单元的总体积 $V_P$  
+- 面积 $\partial{V}$ ，如单元的总面积 $\partial{V_{P}}$
+- 单元界面 $S_{f}$，其面积大小为 $|S_{f}|$
+
+
+## 6. 小结
 
 手推公式非常重要！包括本文开始的理论公式，建议新学习的读者手推两遍以上。
 手推公式非常重要！包括本文开始的理论公式，建议新学习的读者手推两遍以上。
@@ -354,4 +384,11 @@ $$
 - [x] 理解速度散度的物理含义
 - [x] 理解物质导数的物理含义
 - [x] 理解雷诺输运定理及其物理含义
+
+
+## References
+
+[1] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
+[2] The Finite Volume Method in Computational Fluid Dynamics, https://link.springer.com/book/10.1007/978-3-319-16874-6
+[3] Computational fluid dynamics : the basics with applications, https://searchworks.stanford.edu/view/2989631
 
