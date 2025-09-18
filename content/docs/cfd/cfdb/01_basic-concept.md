@@ -230,7 +230,7 @@ $$
 b = dB/dm
 $$
 
-在 $t$ 时刻，物质体（黑色线条）和控制体（红色线条）重合，经过 $d t$ 之后，物质体移动到新的位置（蓝色线条）
+在 $t$ 时刻，物质体（黑色线条）和控制体（红色虚线）重合，经过 $d t$ 之后，物质体移动到新的位置（蓝色线条）
 
 ![|269x258](ReynoldsTransport.png)
 
@@ -242,7 +242,7 @@ $$B(t) = B_I(t) + B_{II}(t)$$
 
 $$B(t+ d t) = B_{II}(t+d t) + B_{III}(t+d t)$$
 
-物理量 $B$ 的变化有
+物理量 $B$ 的变化整理为
 
 $$\begin{aligned}
 (\frac{dB}{dt})_{MV} &=\lim_{d t \rightarrow 0}\frac{B(t+dt) - B(t)}{dt} \\
@@ -251,14 +251,14 @@ $$\begin{aligned}
 &+ \lim_{dt \rightarrow 0}\frac{B_{III}(t+dt)}{dt} - \lim_{dt \rightarrow 0}\frac{B_{I}(t+dt)}{dt}
 \end{aligned}$$
 
-上式整理合并后，其中的
+整理上式，分开合并，其中的
 
 $$\begin{aligned}
 \lim_{dt \rightarrow 0}\frac{B_{I}(t+dt) + B_{II}(t+dt) - B_I(t) - B_{II}(t)}{dt} &= \lim_{dt \rightarrow 0}\frac{B_{CV}(t+dt) - B_{CV}(t)}{dt} \\
 &= (\frac{dB}{dt})_{CV}
 \end{aligned}$$
 
-余下还有，这两项的差反映了通过边界面的净流量
+余下还有两项，其差值反映了通过边界面的净流量
 
 $$
 \lim_{dt \rightarrow 0}\frac{B_{III}(t+dt)}{dt} - \lim_{dt \rightarrow 0}\frac{B_{I}(t+dt)}{dt} = Flux
@@ -274,59 +274,61 @@ $$
 
 物理量 $B$ 在物质体内的总变化 = 物理量 $B$ 在控制体内的变化 + 物理量 $B$ 在控制体表面上的净流量
 
-写成数学表达式为
-
-$$(\frac{dB}{dt})_{MV} = \frac{d}{dt}(\int_{V(t)}b\rho dV) + \int_{\partial V(t)}b\rho U_r \cdot \vec n dS$$
-
 我们约定，为了书写方便，无论是体积分还是面积分，后文大多使用单积分符，即 $\iint_{\partial V} \rightarrow\int_{\partial V}$ ，$\iiint_V \rightarrow \int_V$ 。
 
-假设流体的流动速度为 $U(t, \vec x)$ ，控制体表面变形的速度为 $U_{\partial V}(t, \vec x)$ , 流体离开或者进入控制体表面时候的相对速度为 $U_r(t, \vec x) = U(t, \vec x) - U_S(t, \vec x)$。
+假设流体的流动速度为 $U(t, \vec x)$ ，控制体表面变形的速度为 $U_{\partial V}(t, \vec x)$ , 流体离开或者进入控制体表面时候的相对速度为 $U_r(t, \vec x) = U(t, \vec x) - U_{\partial V}(t, \vec x)$。
 
 对于一个位置固定的控制体，没有表面变形，即 $U_{\partial V} = 0$ ，所以 $U_r(t, \vec x) = U(t, \vec x)$
+
+写成数学表达式为
+
+$$\bigg(\frac{dB}{dt} \bigg)_{MV} = \frac{d}{dt}\bigg(\int_{V(t)}b\rho dV \bigg) + \int_{\partial V(t)}b\rho U_r \cdot \vec n dS$$
 
 虽然体积和面积分别写成 $V(t),\partial V(t)$ ，但欧拉描述下控制体的体积和面积不随时间变化。
 
 控制体的几何和时间无关，所以有
 
 $$
-\frac{d}{dt}(\int_V b\rho dV) = \int_V \frac{\partial}{\partial t}(b\rho) dV
+\frac{d}{dt}\bigg(\int_V b\rho dV \bigg) = \int_V \frac{\partial}{\partial t}(b\rho) dV
 $$
 
 
 代入后有
 
 $$
-(\frac{dB}{dt})_{MV} = \int_V \frac{\partial}{\partial t}(b\rho) dV + \int_{\partial V}b\rho U \cdot \vec n dS
+\bigg(\frac{dB}{dt} \bigg)_{MV} = \int_V \frac{\partial}{\partial t}(b\rho) dV + \int_{\partial V}b\rho U \cdot \vec n dS
 $$
 
 利用散度定理（面积分等于散度的体积分）
 
 $$
-(\frac{dB}{dt})_{MV} = \int_V \frac{\partial}{\partial t}(b\rho) dV + \int_{\partial V}b\rho U \cdot \vec n dS =\int_V \frac{\partial}{\partial t}(b\rho) dV + \int_V \nabla \cdot (\rho U b) dV
+\bigg(\frac{dB}{dt} \bigg)_{MV} = \int_V \frac{\partial}{\partial t}(b\rho) dV + \int_{\partial V}b\rho U \cdot \vec n dS =\int_V \frac{\partial}{\partial t}(b\rho) dV + \int_V \nabla \cdot (b\rho U) dV
 $$
 
 整理为
 
 $$
-(\frac{dB}{dt})_{MV} = \int_V[\frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)]dV
+\bigg(\frac{dB}{dt}\bigg)_{MV} = \int_V\bigg[\frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho Ub) \bigg]dV
 $$
 
 散度展开
 
 $$
-\begin{aligned} (\frac{dB}{dt})_{MV} &= \int_V[\frac{\partial}{\partial t}(\rho b) + (\rho b \nabla \cdot U + U \cdot\nabla \rho b)]dV \\ &= \int_V[(\frac{\partial}{\partial t}(\rho b) + U\cdot\nabla \rho b) + \rho b \nabla \cdot U]dV \end{aligned}
+\begin{aligned}
+\bigg(\frac{dB}{dt} \bigg)_{MV} &= \int_V\bigg[\frac{\partial}{\partial t}(\rho b) + (\rho b \nabla \cdot U + U \cdot\nabla \rho b) \bigg]dV \\ &= \int_V\bigg[\bigg(\frac{\partial}{\partial t}(\rho b ) + U\cdot\nabla \rho b\bigg) + \rho b \nabla \cdot U \bigg]dV
+\end{aligned}
 $$
 
 利用物质导数，进一步改写为
 
 $$
-\int_V[(\frac{\partial}{\partial t}(\rho b) + U\cdot\nabla \rho b) + \rho b \nabla \cdot U]dV = \int_V[\frac{D}{D t}(\rho b) + \rho b \nabla \cdot U]dV
+\int_{V}\bigg[\bigg(\frac{\partial}{\partial t}(\rho b) + U\cdot\nabla \rho b\bigg) + \rho b \nabla \cdot U \bigg]dV = \int_V\bigg[\frac{D}{D t}(\rho b) + \rho b \nabla \cdot U \bigg]dV
 $$
 
-最终得到【雷诺输运定理】
+最终得到【**雷诺输运定理**】
 
 $$
-(\frac{dB}{dt})_{MV} = \int_V[\frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)]dV = \int_V[\frac{D}{D t}(\rho b) + \rho b \nabla \cdot U]dV
+\bigg(\frac{dB}{dt}\bigg)_{MV} = \int_V\bigg[\frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)\bigg]dV = \int_V\bigg[\frac{D}{D t}(\rho b) + \rho b \nabla \cdot U\bigg]dV
 $$
 
 > 所以也能得到换算关系 
@@ -335,7 +337,21 @@ $$
  $$
 > 我们姑且称为【雷诺输运换算】。
 > 
-> 通过换算讨论，我们再次可以感受到，全导 $D/Dt$ 是拉格朗日的。
+> 通过换算讨论，我们再次可以感受到，全导 $D/Dt$ 是拉格朗日描述，展开后是欧拉描述。
+
 
 雷诺输运定理显式的表达了物理量在输运过程中的“守恒”。后文将进一步讨论此“守恒”。
+
+## 5. 小结
+
+手推公式非常重要！包括本文开始的理论公式，建议新学习的读者手推两遍以上。
+手推公式非常重要！包括本文开始的理论公式，建议新学习的读者手推两遍以上。
+手推公式非常重要！包括本文开始的理论公式，建议新学习的读者手推两遍以上。
+
+本文完成讨论
+
+- [x] 理解拉格朗日和欧拉两种描述
+- [x] 理解速度散度的物理含义
+- [x] 理解物质导数的物理含义
+- [x] 理解雷诺输运定理及其物理含义
 
