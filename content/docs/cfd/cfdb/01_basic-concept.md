@@ -232,7 +232,7 @@ $$
 
 在 $t$ 时刻，物质体（黑色线条）和控制体（红色线条）重合，经过 $d t$ 之后，物质体移动到新的位置（蓝色线条）
 
-![|245x258](ReynoldsTransport.png)
+![|269x258](ReynoldsTransport.png)
 
 在 $t$ 时刻有
 
