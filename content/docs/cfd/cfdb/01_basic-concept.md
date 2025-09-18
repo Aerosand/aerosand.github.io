@@ -8,8 +8,8 @@ authors:
     link: https://github.com/aerosand
     image: https://github.com/aerosand.png
 tags:
-  - ofsb
   - cfd
+  - cfdb
 excludeSearch: false
 toc: true
 weight: 1
@@ -33,7 +33,7 @@ draft: false
 - [ ] 理解物质导数的物理含义
 - [ ] 理解雷诺输运定理及其物理含义
 
-## 1. 拉格朗日和欧拉
+## 1. 欧拉和拉格朗日
 
 1755 年，莱昂哈德·欧拉 (Leonhard Euler) 在其著作《流体运动的原理》(Principia motus fluidorum) 中首次系统写出了控制流体运动的偏微分方程，即我们现在所说的 欧拉方程。
 
@@ -53,7 +53,7 @@ draft: false
 > 
 > 欧拉和拉格朗日两种描述让我们想到个体论和整体论，二元对立与统一等等问题的讨论。如何认识这个世界的哲学问题不仅仅是哲学学科的问题，也是社会科学和自然科学共同的问题。
 
-基于欧拉法，被研究的固定区域称为“控制体”（control volume, CV）
+基于欧拉描法，被研究的固定区域称为“控制体”（control volume, CV）
 
 - 控制体空间固定，即控制体的体积是固定的，形状是固定的
 - 控制体物质不固定，即控制体内流体质点不固定，质量不固定
@@ -107,9 +107,10 @@ $$
 
 由散度定理，物理量的面积分等于其散度的体积分。上式的面积分转化为体积分，
 
-​$$
+$$
 \frac{dV}{dt} = \iiint_V(\nabla \cdot \vec{U}) dV
 $$
+
 当该流体微团的体积足够小时，物理量的体积分近似等于物理量和该小体积的乘积，即
 
 $$
@@ -117,6 +118,8 @@ $$
 $$
 
 整理可得
+
+【**速度散度**】
 
 $$
 \nabla\cdot\vec{U} = \frac{1}{V} \frac{dV}{dt}
@@ -160,7 +163,12 @@ $$\rho_2 = \rho(x_2, y_2, z_2, t_2)$$
 
 泰勒展开
 
-$$\rho_2 = \rho_1 + (\frac{\partial \rho}{\partial x})_1(x_2 - x_1) + (\frac{\partial \rho}{\partial y})_1(y_2 - y_1) + (\frac{\partial \rho}{\partial z})_1(z_2 - z_1) + (\frac{\partial \rho}{\partial t})_1(t_2 - t_1)  + (higherOrderTerms)$$
+$$
+\begin{align*}
+\rho_2 = \rho_1 &+ (\frac{\partial \rho}{\partial x})_1(x_2 - x_1) + (\frac{\partial \rho}{\partial y})_1(y_2 - y_1) + (\frac{\partial \rho}{\partial z})_1(z_2 - z_1) \\
+&+ (\frac{\partial \rho}{\partial t})_1(t_2 - t_1)  + (higherOrderTerms)
+\end{align*}
+$$
 
 两边都除以 $(t_2 - t_1)$， 忽略高阶项的影响
 
@@ -198,14 +206,14 @@ $$\nabla = \frac{\partial }{\partial x} \vec i + \frac{\partial }{\partial y} \v
 
 最终整理为
 
-**物质导数**
+【**物质导数**】
 
 $$\frac{D}{Dt} = \frac{\partial }{\partial t} + U \cdot \nabla$$
 
 为了书写方便，约定使用大写的 $U$ 表示速度矢量
 
 - 左侧是拉格朗日描述的数学表达，全导数也被称为拉格朗日导数
-- 右侧展开的两部分是欧拉描述的数学表达，右侧也被也被称为欧拉导数
+- 右侧展开的两部分是欧拉描述的数学表达，右侧的偏导部分也被称为欧拉导数
 
 对于流体微团在空间上从 $P_1$ 移动到 $P_2$ ，时间上 $t_1$ 到 $t_2$，有
 
@@ -270,9 +278,11 @@ $$
 (\frac{dB}{dt})_{MV} = (\frac{dB}{dt})_{CV} + Flux
 $$
 
+下标 $MV$ 表示物质体，下标 $CV$ 表示控制体。
+
 总结来说就是：
 
-物理量 $B$ 在物质体内的总变化 = 物理量 $B$ 在控制体内的变化 + 物理量 $B$ 在控制体表面上的净流量
+**物理量 $B$ 在物质体内的总变化 = 物理量 $B$ 在控制体内的变化 + 物理量 $B$ 在控制体表面上的净流量**
 
 我们约定，为了书写方便，无论是体积分还是面积分，后文大多使用单积分符，即 $\iint_{\partial V} \rightarrow\int_{\partial V}$ ，$\iiint_V \rightarrow \int_V$ 。
 
@@ -291,7 +301,6 @@ $$\bigg(\frac{dB}{dt} \bigg)_{MV} = \frac{d}{dt}\bigg(\int_{V(t)}b\rho dV \bigg)
 $$
 \frac{d}{dt}\bigg(\int_V b\rho dV \bigg) = \int_V \frac{\partial}{\partial t}(b\rho) dV
 $$
-
 
 代入后有
 
@@ -314,9 +323,9 @@ $$
 散度展开
 
 $$
-\begin{aligned}
-\bigg(\frac{dB}{dt} \bigg)_{MV} &= \int_V\bigg[\frac{\partial}{\partial t}(\rho b) + (\rho b \nabla \cdot U + U \cdot\nabla \rho b) \bigg]dV \\ &= \int_V\bigg[\bigg(\frac{\partial}{\partial t}(\rho b ) + U\cdot\nabla \rho b\bigg) + \rho b \nabla \cdot U \bigg]dV
-\end{aligned}
+\begin{aligned} 
+\bigg(\frac{dB}{dt} \bigg)_{MV} &= \int_V\bigg[\frac{\partial}{\partial t}(\rho b) + (\rho b \nabla \cdot U + U \cdot\nabla \rho b) \bigg]dV \\
+&= \int_V\bigg[\bigg(\frac{\partial}{\partial t}(\rho b ) + U\cdot\nabla \rho b\bigg) + \rho b \nabla \cdot U \bigg]dV \end{aligned}
 $$
 
 利用物质导数，进一步改写为
@@ -325,35 +334,34 @@ $$
 \int_{V}\bigg[\bigg(\frac{\partial}{\partial t}(\rho b) + U\cdot\nabla \rho b\bigg) + \rho b \nabla \cdot U \bigg]dV = \int_V\bigg[\frac{D}{D t}(\rho b) + \rho b \nabla \cdot U \bigg]dV
 $$
 
-最终得到【**雷诺输运定理**】
+最终得到
+
+【**雷诺输运定理**】
 
 $$
 \bigg(\frac{dB}{dt}\bigg)_{MV} = \int_V\bigg[\frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)\bigg]dV = \int_V\bigg[\frac{D}{D t}(\rho b) + \rho b \nabla \cdot U\bigg]dV
 $$
 
-> 所以也能得到换算关系 
-> $$
- \frac{D}{D t}(\rho b) + \rho b \nabla \cdot U = \frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)
- $$
-> 我们姑且称为【雷诺输运换算】。
-> 
-> 通过换算讨论，我们再次可以感受到，全导 $D/Dt$ 是拉格朗日描述，展开后是欧拉描述。
+也能得到换算关系 ，姑且称为
 
+【**雷诺输运换算**】
 
-雷诺输运定理显式的表达了物理量在输运过程中的“守恒”。后文将进一步讨论此“守恒”。
+$$
+\frac{D}{D t}(\rho b) + \rho b \nabla \cdot U = \frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)
+$$
+
+通过换算讨论，我们再次可以感受到，全导 D/Dt 是拉格朗日描述，展开后是欧拉描述。
 
 ## 5. 符号约定
 
-为了方便书写，约定除非特别说明，大写字母根据物理意义一般表示物理量的矢量
+为了书写方便，约定除非特别说明，大写字母根据物理意义优先表示物理量的矢量
 
-例如
-
-- 速度矢量 $U = (U_{x},U_{y},U_{z})$
-- 压力标量 $p$
-- 任一物理量 $\phi,\Phi$
-- 扩散系数 $\Gamma^{\phi}$ ，和物理量 $\phi$ 有关，如非特别说明默认简单写成 $\Gamma$ 
-- 源项 $Q^{\phi}$ ，和物理量 $\phi$ 有关，如非特别说明默认简单写成 $Q$ 
-- 面矢量 $S=(S_{x}, S_{y}, S_{z})$
+- 速度矢量 $U=(U_{x},U_{y},U_{z})$
+- 压力标量 $p$
+- 任一物理量 $\phi$
+- 扩散系数 $\Gamma^{\phi}$，和物理量 $\phi$ 有关，如非特别说明默认简单写成 $\Gamma$
+- 源项 $Q^{\phi}$ ，和物理量 $\phi$ 有关，如非特别说明默认简单写成 $Q$
+- 面矢量 $S=(S_{x},S_{y},S_{z})$
 
 上下标符号有
 
@@ -388,9 +396,9 @@ $$
 
 ## References
 
-[1] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
+[1] The Finite Volume Method in Computational Fluid Dynamics, https://link.springer.com/book/10.1007/978-3-319-16874-6
 
-[2] The Finite Volume Method in Computational Fluid Dynamics, https://link.springer.com/book/10.1007/978-3-319-16874-6
+[2] Computational fluid dynamics : the basics with applications, https://searchworks.stanford.edu/view/2989631
 
-[3] Computational fluid dynamics : the basics with applications, https://searchworks.stanford.edu/view/2989631
+[3] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
 
