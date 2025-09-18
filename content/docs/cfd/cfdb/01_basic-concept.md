@@ -2,7 +2,7 @@
 uid: 20250917124422
 title: 01_basicConcept
 date: 2025-09-17
-update: 2025-09-17
+update: 2025-09-18
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -232,7 +232,7 @@ $$
 
 在 $t$ 时刻，物质体（黑色线条）和控制体（红色线条）重合，经过 $d t$ 之后，物质体移动到新的位置（蓝色线条）
 
-![雷诺输运](https://img.notionusercontent.com/s3/prod-files-secure%2F81cd34b0-7c4c-81c3-ac76-00034cd49f70%2F7a19e893-4d82-4c3d-9935-248c232048f2%2Fimage.png/size/w=2000?exp=1758109339&sig=DZlbUexqDuuhP8q6oGBK32rEKmRYDSvBhT5wHs8XQTA&id=271d34b0-7c4c-80d3-b752-c9151c8da870&table=block&userId=12bd872b-594c-8195-9955-000208c74b78)
+![[ReynoldsTransport.png]]
 
 在 $t$ 时刻有
 
