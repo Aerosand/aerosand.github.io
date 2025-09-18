@@ -1,8 +1,8 @@
 ---
 uid: 20250827192135
-title: 07_tensor
+title: 06_tensor
 date: 2025-08-27
-update: 2025-09-17
+update: 2025-09-18
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -13,7 +13,7 @@ tags:
   - ofsp
 excludeSearch: false
 toc: true
-weight: 7
+weight: 6
 math: true
 next:
 prev:

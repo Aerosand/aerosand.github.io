@@ -2,7 +2,7 @@
 uid: 20250901123439
 title: 08_firstApp
 date: 2025-09-01
-update: 2025-09-14
+update: 2025-09-18
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -13,7 +13,7 @@ tags:
   - OpenFOAM
 excludeSearch: false
 toc: true
-weight: 8
+weight: 7
 math: true
 next:
 prev:

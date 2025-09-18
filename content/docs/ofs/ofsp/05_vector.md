@@ -1,8 +1,8 @@
 ---
 uid: 20250827141152
-title: 06_vector
+title: 05_vector
 date: 2025-08-27
-update: 2025-09-01
+update: 2025-09-18
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -13,7 +13,7 @@ tags:
   - ofsp
 excludeSearch: false
 toc: true
-weight: 6
+weight: 5
 math: true
 next:
 prev:

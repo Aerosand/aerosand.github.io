@@ -1,8 +1,8 @@
 ---
 uid: 20250916203141
-title: 12_dictionary
+title: 11_dictionary
 date: 2025-09-16
-update: 2025-09-17
+update: 2025-09-18
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -13,7 +13,7 @@ tags:
   - OpenFOAM
 excludeSearch: false
 toc: true
-weight: 12
+weight: 11
 math: true
 next:
 prev:

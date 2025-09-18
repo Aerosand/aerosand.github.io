@@ -1,8 +1,8 @@
 ---
 uid: 20250826161556
-title: 04_wmake
+title: 03_wmake
 date: 2025-08-26
-update: 2025-09-17
+update: 2025-09-18
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -13,7 +13,7 @@ tags:
   - ofsp
 excludeSearch: false
 toc: true
-weight: 4
+weight: 3
 math: true
 next:
 prev:

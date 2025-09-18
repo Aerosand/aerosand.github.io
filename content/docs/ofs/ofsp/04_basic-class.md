@@ -1,8 +1,8 @@
 ---
 uid: 20250826191442
-title: 05_basicClass
+title: 04_basicClass
 date: 2025-08-26
-update: 2025-09-17
+update: 2025-09-18
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -13,7 +13,7 @@ tags:
   - ofsp
 excludeSearch: false
 toc: true
-weight: 5
+weight: 4
 math: true
 next:
 prev:
