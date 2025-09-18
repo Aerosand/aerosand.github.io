@@ -13,7 +13,7 @@ tags:
   - ofsp
 excludeSearch: false
 toc: true
-weight: 1
+weight: 2
 math: true
 next:
 prev:
@@ -36,18 +36,13 @@ draft: false
 > [!tip]
 > 对于 OpenFOAM 来说，不管是求解器还是算例，放在任何一个文件夹都可以。放在 `$FOAM_RUN` 路径下也只是为了方便管理。
 
-我们约定
 
-- `userPath/`：用户指定路径
-
-该路径下再新建例如 `userPath/ofsp/` 文件夹，`ofsp/` 下再新建各个子项目的文件夹。
-
-例如，
+我们在用户自定义路径下 `.../userPath/` 新建 `ofsp/` 文件夹，并在其中新建各个子项目的文件夹。
 
 终端输入命令，新建总项目文件夹
 
 ```terminal {filename="terminal"}
-mkdir /userPath/ofsp  
+mkdir .../userPath/ofsp  
 ```
 
 > `ofsp` 即 `OpenFoam sharing programming` 的缩写
