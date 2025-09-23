@@ -14,8 +14,8 @@ update: 2025-09-02
 ## 第一阶段
 
 {{< cards >}}
-  {{< card link=".00_introduction" title="01_introduction" tag="start here" tagColor="red" >}}
-  {{< card link=".01_hello-world" title="02_helloWorld" >}}
+  {{< card link="./00_intro-ofsp" title="00_introduction" tag="start here" tagColor="red" >}}
+  {{< card link="./01_hello-world" title="02_helloWorld" >}}
   {{< card link=".02_make" title="03_make" >}}
   {{< card link=".03_wmake" title="04_wmake" >}}
   {{< card link=".04_basic-class" title="05_basicClass" >}}
