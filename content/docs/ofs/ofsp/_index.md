@@ -15,20 +15,20 @@ update: 2025-09-02
 
 {{< cards >}}
   {{< card link="./00_intro-ofsp" title="00_introduction" tag="start here" tagColor="red" >}}
-  {{< card link="./01_hello-world" title="02_helloWorld" >}}
-  {{< card link=".02_make" title="03_make" >}}
-  {{< card link=".03_wmake" title="04_wmake" >}}
-  {{< card link=".04_basic-class" title="05_basicClass" >}}
-  {{< card link=".05_vector" title="06_vector" >}}
-  {{< card link=".06_tensor" title="07_tensor" >}}
-  {{< card link=".07_first-app" title="08_firstApp" >}}
+  {{< card link="./01_hello-world" title="01_helloWorld" >}}
+  {{< card link="./02_make" title="02_make" >}}
+  {{< card link="./03_wmake" title="03_wmake" >}}
+  {{< card link="./04_basic-class" title="04_basicClass" >}}
+  {{< card link="./05_vector" title="05_vector" >}}
+  {{< card link="./06_tensor" title="06_tensor" >}}
+  {{< card link="./07_first-app" title="07_firstApp" >}}
 {{< /cards >}}
 
 ## 第二阶段
 
 {{< cards >}}
-  {{< card link=".08_io" title="09_io" tag="start here" tagColor="red" >}}
-  {{< card link=".09_keyword" title="10_keyword" >}}
-  {{< card link=".10_feature" title="11_feature" >}}
-  {{< card link=".11_dictionary" title="12_dictionary" >}}
+  {{< card link="./08_io" title="08_io" tag="start here" tagColor="red" >}}
+  {{< card link="./09_keyword" title="09_keyword" >}}
+  {{< card link="./10_feature" title="10_feature" >}}
+  {{< card link="./11_dictionary" title="11_dictionary" >}}
 {{< /cards >}}
