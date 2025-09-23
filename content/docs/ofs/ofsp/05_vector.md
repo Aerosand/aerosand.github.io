@@ -2,7 +2,7 @@
 uid: 20250827141152
 title: 05_vector
 date: 2025-08-27
-update: 2025-09-18
+update: 2025-09-23
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -731,8 +731,8 @@ API 页面 https://api.openfoam.com/2506/VectorI_8H_source.html
 
 ```terminal {fileName="terminal"}
 ofsp
-mkdir ofsp_06_vector
-code ofsp_06_vector
+mkdir ofsp_05_vector
+code ofsp_05_vector
 ```
 
 继续使用终端命令或者使用 vscode 界面创建其他文件，最终文件结构如下
@@ -749,7 +749,7 @@ tree
 ├── Make
 │   ├── files
 │   └── options
-└── ofsp_06_vector.C
+└── ofsp_05_vector.C
 ```
 
 ## 4. 开发库
@@ -815,9 +815,9 @@ wmake Aerosand
 
 ### 5.1. 主源码
 
-代码 `ofsp_06_vector.C` 为
+代码 `ofsp_05_vector.C` 为
 
-```cpp {fileName="/ofsp_06_vector.C"}
+```cpp {fileName="/ofsp_05_vector.C"}
 #include <iostream>
 
 #include "Aerosand.H"
@@ -862,9 +862,9 @@ int main()
 项目 `Make/files` 为
 
 ```makefile {fileName="/Make/files"}
-ofsp_06_vector.C
+ofsp_05_vector.C
 
-EXE = $(FOAM_USER_APPBIN)/ofsp_06_vector
+EXE = $(FOAM_USER_APPBIN)/ofsp_05_vector
 
 ```
 
@@ -912,7 +912,7 @@ EXE_LIBS = \
 ```terminal {fileName="terminal"}
 wclean
 wmake
-ofsp_06_vector
+ofsp_05_vector
 ```
 
 运行结果如下

@@ -2,7 +2,7 @@
 uid: 20250826161556
 title: 03_wmake
 date: 2025-08-26
-update: 2025-09-18
+update: 2025-09-23
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -74,8 +74,8 @@ OpenFOAM 约定源文件后缀为 `.C`，头文件后缀为 `.H` 。
 
 ```terminal {fileName="terminal"}
 ofsp
-mkdir ofsp_04_wmake
-code ofsp_04_wmake
+mkdir ofsp_03_wmake
+code ofsp_03_wmake
 ```
 
 继续使用终端命令或者使用 vscode 界面创建其他文件，最终文件结构如下
@@ -89,7 +89,7 @@ tree
 ├── Make
 │   ├── files
 │   └── options
-└── ofsp_04_wmake.C
+└── ofsp_03_wmake.C
 ```
 
 库 Aerosand 的声明 `Aerosand.H` 如下
@@ -128,9 +128,9 @@ double Aerosand::GetLocalTime() const {
 
 ```
 
-应用主源码 `ofsp_04_wmake.C` 如下
+应用主源码 `ofsp_03_wmake.C` 如下
 
-```cpp {fileName="/ofsp_04_wmake.C",linenos=table}
+```cpp {fileName="/ofsp_03_wmake.C",linenos=table}
 #include <iostream>
 
 #include "Aerosand.H"
@@ -172,20 +172,20 @@ OpenFOAM 提供了 Make 文件来帮助开发，其中
 
 ### 3.1. 配置 Make
 
-文件 `ofsp_04_wmake/Make/files` 内容如下
+文件 `ofsp_03_wmake/Make/files` 内容如下
 
 ```makefile {fileName="/Make/files" linenos=table}
 Aerosand/Aerosand.C
-ofsp_04_wmake.C
+ofsp_03_wmake.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_00_helloWorld_wmake
 ```
 
-- 源文件为 `Aerosand.C` 和 `ofsp_04_wmake.C`
+- 源文件为 `Aerosand.C` 和 `ofsp_03_wmake.C`
 - 生成目标文件的位置为 `$(FOAM_USER_APPBIN)`
-- 生成目标文件的名称为 `ofsp_04_wmake`
+- 生成目标文件的名称为 `ofsp_03_wmake`
 
-文件 `ofsp_04_wmake/Make/options` 内容如下
+文件 `ofsp_03_wmake/Make/options` 内容如下
 
 ```makefile {fileName="/Make/options" linenos=table}
 EXE_INC = \
@@ -227,7 +227,7 @@ g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall
 -c Aerosand/Aerosand.C -o Make/linux64GccDPInt32Opt/Aerosand/Aerosand.o
 ```
 
-第二段是主源码编译得到目标文件 `ofsp_04_wmake.o` （见输出信息的末尾处）
+第二段是主源码编译得到目标文件 `ofsp_03_wmake.o` （见输出信息的末尾处）
 
 ```terminal {fileName="terminal"}
 g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall 
@@ -236,7 +236,7 @@ g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall
 -depth-100  -IAerosand -iquote. -IlnInclude 
 -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
 -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC 
--c ofsp_04_wmake.C -o Make/linux64GccDPInt32Opt/ofsp_04_wmake.o
+-c ofsp_03_wmake.C -o Make/linux64GccDPInt32Opt/ofsp_03_wmake.o
 ```
 
 第三段是链接的过程，此处就是上述两个目标文件的直接链接，最终生成可执行文件（见输出信息的末尾处）
@@ -250,14 +250,14 @@ g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall
 -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   
 -fPIC -Xlinker --add-needed -Xlinker --no-as-needed
 Make/linux64GccDPInt32Opt/Aerosand/Aerosand.o 
-Make/linux64GccDPInt32Opt/ofsp_04_wmake.o 
+Make/linux64GccDPInt32Opt/ofsp_03_wmake.o 
 -L/usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib \
      -lOpenFOAM -ldl  \
      -lm -o /home/aerosand/OpenFOAM/aerosand
- -v2406/platforms/linux64GccDPInt32Opt/bin/ofsp_04_wmake
+ -v2406/platforms/linux64GccDPInt32Opt/bin/ofsp_03_wmake
 ```
 
-编译的过程文件在 `ofsp_04_wmake/Make/linux64GccDPInt32Opt/` 文件夹下（根据平台可能会有所不同）。编译形成的可执行程序在 `$FOAM_USER_APPBIN` 文件夹下（上文在 `Make/files` 中指定）。
+编译的过程文件在 `ofsp_03_wmake/Make/linux64GccDPInt32Opt/` 文件夹下（根据平台可能会有所不同）。编译形成的可执行程序在 `$FOAM_USER_APPBIN` 文件夹下（上文在 `Make/files` 中指定）。
 
 终端输入命令，可以找到所有生成成功的可执行程序
 
@@ -272,7 +272,7 @@ tree $FOAM_USER_APPBIN
 终端输入命令
 
 ```terminal {fileName="terminal"}
-ofsp_04_wmake
+ofsp_03_wmake
 ```
 
 可以看到运行结果
@@ -302,7 +302,7 @@ Current time step is : 0.2
 ├── Make
 │   ├── files
 │   └── options
-└── ofsp_04_wmake.C
+└── ofsp_03_wmake.C
 ```
 
 ### 4.1. 库 Make
@@ -359,7 +359,7 @@ g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall
 -v2406/platforms/linux64GccDPInt32Opt/lib/libAerosand.so
 ```
 
-编译的过程文件在 `ofsp_04_wmake/Aerosand/Make/linux64GccDPInt32Opt/` 文件夹下（根据平台可能会有所不同）。编译形成的可执行程序在 `$FOAM_USER_LIBBIN` 文件夹下（上文在 `Make/files` 中指定）。
+编译的过程文件在 `ofsp_03_wmake/Aerosand/Make/linux64GccDPInt32Opt/` 文件夹下（根据平台可能会有所不同）。编译形成的可执行程序在 `$FOAM_USER_LIBBIN` 文件夹下（上文在 `Make/files` 中指定）。
 
 终端输入命令，可以找到所有生成成功的动态库
 
@@ -396,9 +396,9 @@ Aerosand
 修改 `/Make/files` 文件
 
 ```makefile {fileName="/Make/files"}
-ofsp_04_wmake.C
+ofsp_03_wmake.C
 
-EXE = $(FOAM_USER_APPBIN)/ofsp_04_wmake
+EXE = $(FOAM_USER_APPBIN)/ofsp_03_wmake
 ```
 
 修改 `/Make/options` 文件
@@ -441,7 +441,7 @@ wmake
 
 终端输出信息有两段，对应着编译的过程。
 
-第一段是主源码编译得到目标文件 `ofsp_04_wmake.o` （见输出信息的末尾处）
+第一段是主源码编译得到目标文件 `ofsp_03_wmake.o` （见输出信息的末尾处）
 
 ```terminal {fileName="terminal"}
 g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall 
@@ -450,10 +450,10 @@ g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall
 -depth-100  -IAerosand/lnInclude -iquote. -IlnInclude 
 -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
 -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC 
--c ofsp_04_wmake.C -o Make/linux64GccDPInt32Opt/ofsp_04_wmake.o
+-c ofsp_03_wmake.C -o Make/linux64GccDPInt32Opt/ofsp_03_wmake.o
 ```
 
-第二段链接动态库到应用，并生成可执行文件 `ofsp_04_wmake` （见输出信息的末尾处）
+第二段链接动态库到应用，并生成可执行文件 `ofsp_03_wmake` （见输出信息的末尾处）
 
 ```terminal {fileName="terminal"}
 g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall 
@@ -462,12 +462,12 @@ g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall
 -depth-100  -IAerosand/lnInclude -iquote. -IlnInclude 
 -I/usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude 
 -I/usr/lib/openfoam/openfoam2406/src/OSspecific/POSIX/lnInclude   -fPIC -Xlinker
---add-needed -Xlinker --no-as-needed  Make/linux64GccDPInt32Opt/ofsp_04_wmake.o 
+--add-needed -Xlinker --no-as-needed  Make/linux64GccDPInt32Opt/ofsp_03_wmake.o 
 -L/usr/lib/openfoam/openfoam2406/platforms/linux64GccDPInt32Opt/lib \
     -L/home/aerosand/OpenFOAM/aerosand-v2406/platforms/linux64GccDPInt32Opt/lib 
     -lAerosand -lOpenFOAM -ldl  \
      -lm -o /home/aerosand/OpenFOAM/aerosand
--v2406/platforms/linux64GccDPInt32Opt/bin/ofsp_04_wmake
+-v2406/platforms/linux64GccDPInt32Opt/bin/ofsp_03_wmake
 ```
 
 同样，编译形成的可执行程序在 `$FOAM_USER_APPBIN` 文件夹下（上文在 `Make/files` 中指定）。
@@ -477,7 +477,7 @@ g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall
 终端输入命令
 
 ```terminal {fileName="terminal"}
-ofsp_04_wmake
+ofsp_03_wmake
 ```
 
 可以看到运行结果

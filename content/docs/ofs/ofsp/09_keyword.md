@@ -2,7 +2,7 @@
 uid: 20250916165944
 title: 09_keyword
 date: 2025-09-16
-update: 2025-09-18
+update: 2025-09-23
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -95,8 +95,8 @@ draft: false
 
 ```terminal {fileName="terminal"}
 ofsp
-foamNewApp ofsp_10_keyword
-code ofsp_10_keyword
+foamNewApp ofsp_09_keyword
+code ofsp_09_keyword
 ```
 
 为该项目新建文件，最终项目架构如下
@@ -112,7 +112,7 @@ code ofsp_10_keyword
 ├── Make
 │   ├── files
 │   └── options
-├── ofsp_10_keyword.C
+├── ofsp_09_keyword.C
 └── ofspProperties
 ```
 
@@ -256,9 +256,9 @@ wmake IOdictionary
 
 ### 2.3. 主项目
 
-主源码 `ofsp_10_keyword.C` 内容如下
+主源码 `ofsp_09_keyword.C` 内容如下
 
-```cpp {fileName="/ofsp_10_keyword.C"}
+```cpp {fileName="/ofsp_09_keyword.C"}
 #include <iostream>
 #include <fstream>
 
@@ -287,7 +287,7 @@ int main(int argc, char const *argv[])
 
 我们还需要定义项目 Make
 
-文件 `ofsp_10_keyword/Make/files` 内容如下
+文件 `ofsp_09_keyword/Make/files` 内容如下
 
 ```cpp {fileName="/Make/files"}
 ofsp_01_IO_keyword.C
@@ -296,7 +296,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_01_IO_keyword
 
 ```
 
-文件 `ofsp_10_keyword/Make/options` 内容如下
+文件 `ofsp_09_keyword/Make/options` 内容如下
 
 ```cpp {fileName="/Make/options"}
 EXE_INC = \
@@ -310,7 +310,7 @@ EXE_LIBS = \
 
 ### 2.5. 编译运行
 
-我们在该项目的根目录下提供类似 OpenFOAM 字典的文件。`ofspProperties` 文件内容如下（路径为 `/ofsp/ofsp_10_io/ofspProperties`）
+我们在该项目的根目录下提供类似 OpenFOAM 字典的文件。`ofspProperties` 文件内容如下（路径为 `/ofsp/ofsp_09_io/ofspProperties`）
 
 ```cpp {fileName="/ofspProperties"}
 nu                  0.01
@@ -326,7 +326,7 @@ purgeWrite          0
 wclean
 wmake
 
-ofsp_10_keyword
+ofsp_09_keyword
 ```
 
 终端输出内容如下
@@ -356,7 +356,7 @@ deltaT              0.005
 终端输入命令
 
 ```terminal {fileName="terminal"}
-ofsp_10_keyword
+ofsp_09_keyword
 ```
 
 最后的结果是一样的。

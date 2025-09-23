@@ -2,7 +2,7 @@
 uid: 20250901123439
 title: 08_firstApp
 date: 2025-09-01
-update: 2025-09-18
+update: 2025-09-23
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -69,8 +69,8 @@ find $FOAM_SRC -iname fvcfd.h
 
 ```terminal {fileName="terminal"}
 ofsp
-foamNewApp ofsp_08_firstApp
-code ofsp_08_firstApp
+foamNewApp ofsp_07_firstApp
+code ofsp_07_firstApp
 ```
 
 ### 2.1. 源代码
@@ -109,7 +109,7 @@ blockMesh -case debug_case | tee debug_case/log.mesh
 echo "Meshing done."
 
 # 对测试算例运行求解器，并输出日志到测试算例路径下
-ofsp_08_firstApp -case debug_case | tee debug_case/log.run
+ofsp_07_firstApp -case debug_case | tee debug_case/log.run
 ```
 
 脚本 caseclean 主要是负责清理应用到到编译前状态，如果应用要修改，那么测试算例也要还原到运行前的状态，可以写入如下内容
@@ -214,7 +214,7 @@ tree
 ├── Make
 │   ├── files
 │   └── options
-└── ofsp_08_firstApp.C
+└── ofsp_07_firstApp.C
 ```
 
 ## 4. 测试
@@ -256,7 +256,7 @@ Time   : 18:09:17
 Host   : aerosand
 PID    : 200553
 I/O    : uncollated
-Case   : /home/aerosand/github/data_project/openfoam_sharing/ofsp/ofsp_08_firstApp/debug_case
+Case   : /home/aerosand/github/data_project/openfoam_sharing/ofsp/ofsp_07_firstApp/debug_case
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
@@ -330,13 +330,13 @@ Meshing done.
 \*---------------------------------------------------------------------------*/
 Build  : _9bfe8264-20241212 OPENFOAM=2406 patch=241212 version=2406
 Arch   : "LSB;label=32;scalar=64"
-Exec   : ofsp_08_firstApp -case debug_case
+Exec   : ofsp_07_firstApp -case debug_case
 Date   : Sep 01 2025
 Time   : 18:09:17
 Host   : aerosand
 PID    : 200555
 I/O    : uncollated
-Case   : /home/aerosand/github/data_project/openfoam_sharing/ofsp/ofsp_08_firstApp/debug_case
+Case   : /home/aerosand/github/data_project/openfoam_sharing/ofsp/ofsp_07_firstApp/debug_case
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
@@ -354,9 +354,9 @@ End
 
 ## 5. 原生主源码
 
-代码 `ofsp_08_firstApp.C` 为
+代码 `ofsp_07_firstApp.C` 为
 
-```cpp {fileName="/ofsp_08_firstApp.C"}
+```cpp {fileName="/ofsp_07_firstApp.C"}
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -383,7 +383,7 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Application
-    ofsp_08_firstApp
+    ofsp_07_firstApp
 
 Description
 	这部分是 OpenFOAM 的注释内容，提供该应用的必要介绍。
@@ -429,9 +429,9 @@ int main(int argc, char *argv[])
 
 ### 6.1. 主源码
 
-代码 `ofsp_08_firstApp.C` 修改为
+代码 `ofsp_07_firstApp.C` 修改为
 
-```cpp {fileName="/ofsp_08_firstApp.C"}
+```cpp {fileName="/ofsp_07_firstApp.C"}
 #include "fvCFD.H"
 
 #include "class1.H" // 调用我们想要的开发库头文件名称
@@ -472,9 +472,9 @@ int main(int argc, char *argv[])
 项目 `Make/files` 为
 
 ```makefile {fileName="/Make/files"}
-ofsp_08_firstApp.C
+ofsp_07_firstApp.C
 
-EXE = $(FOAM_USER_APPBIN)/ofsp_08_firstApp
+EXE = $(FOAM_USER_APPBIN)/ofsp_07_firstApp
 
 ```
 

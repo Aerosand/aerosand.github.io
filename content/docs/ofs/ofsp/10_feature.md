@@ -2,7 +2,7 @@
 uid: 20250916191753
 title: 10_feature
 date: 2025-09-16
-update: 2025-09-18
+update: 2025-09-23
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -41,8 +41,8 @@ draft: false
 
 ```terminal {fileName="terminal"}
 ofsp
-cp -r ofsp_10_keyword ofsp_11_feature
-code ofsp_11_feature
+cp -r ofsp_10_keyword ofsp_10_feature
+code ofsp_10_feature
 ```
 
 终端输入命令，清理并修改项目
@@ -51,8 +51,8 @@ code ofsp_11_feature
 wclean IOdictionary
 wclean
 
-mv ofsp_10_keyword.C ofsp_11_feature.C
-sed -i s/"10_keyword"/"11_feature"/g Make/files
+mv ofsp_09_keyword.C ofsp_10_feature.C
+sed -i s/"09_keyword"/"10_feature"/g Make/files
 ```
 
 此时的项目文件架构如下
@@ -67,7 +67,7 @@ sed -i s/"10_keyword"/"11_feature"/g Make/files
 ├── Make
 │   ├── files
 │   └── options
-├── ofsp_11_feature.C
+├── ofsp_10_feature.C
 └── ofspProperties
 ```
 
@@ -76,7 +76,7 @@ sed -i s/"10_keyword"/"11_feature"/g Make/files
 ```terminal {fileName="terminal"}
 wmake IOdictionary
 wmake
-ofsp_11_feature
+ofsp_10_feature
 ```
 
 结果显示项目正常。
@@ -217,9 +217,9 @@ Aerosand::IOdictionary::~IOdictionary() // 其实 C++ 会自动关闭
 
 ```
 
-主源码 `ofsp_11_feature.C` ，改进后内容如下
+主源码 `ofsp_10_feature.C` ，改进后内容如下
 
-```cpp {fileName="/ofsp_11_feature.C"}
+```cpp {fileName="/ofsp_10_feature.C"}
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -253,7 +253,7 @@ int main(int argc, char const *argv[])
 
 ### 2.2. 测试
 
-字典文件 `ofspProperties` 内容如下（路径为 `/ofsp/ofsp_11_io/ofspProperties`）
+字典文件 `ofspProperties` 内容如下（路径为 `/ofsp/ofsp_10_io/ofspProperties`）
 
 ```cpp {fileName="/ofspProperties"}
 nu                  0.01
@@ -269,7 +269,7 @@ purgeWrite          0
 wmake IOdictionary
 wmake
 
-ofsp_11_feature
+ofsp_10_feature
 ```
 
 终端输出信息如下

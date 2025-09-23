@@ -2,7 +2,7 @@
 uid: 20250827192135
 title: 06_tensor
 date: 2025-08-27
-update: 2025-09-18
+update: 2025-09-23
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -97,8 +97,8 @@ tree -L 1
 
 ```terminal {fileName="terminal"}
 ofsp
-mkdir ofsp_07_tensor
-code ofsp_07_tensor
+mkdir ofsp_06_tensor
+code ofsp_06_tensor
 ```
 
 继续使用终端命令或者使用 vscode 界面创建其他文件，最终文件结构如下
@@ -119,7 +119,7 @@ tree
 ├── Make
 │   ├── files
 │   └── options
-└── ofsp_07_tensor.C
+└── ofsp_06_tensor.C
 ```
 
 注意，开发库的文件结构与前文稍有不同。我们在前文已经可以注意到 OpenFOAM 库下一般有多个子库/类。用户的开发库里同样可能也会由好几个类构成，开发库拥有自己的 Make 文件，用于管理多个类，比如这里 Aerosand 库有 `class1` , `class2` 和 `class3` 三个类。
@@ -269,9 +269,9 @@ wmake Aerosand
 
 ### 5.1. 主源码
 
-代码 `ofsp_07_tensor.C` 为
+代码 `ofsp_06_tensor.C` 为
 
-```cpp {fileName="/ofsp_07_tesnsor.C"}
+```cpp {fileName="/ofsp_06_tesnsor.C"}
 #include "tensor.H"
 #include "dimensionedTensor.H"
 #include "tensorField.H"
@@ -372,9 +372,9 @@ int main()
 项目 `Make/files` 为
 
 ```makefile {fileName="/Make/files"}
-ofsp_07_tensor.C
+ofsp_06_tensor.C
 
-EXE = $(FOAM_USER_APPBIN)/ofsp_07_tensor
+EXE = $(FOAM_USER_APPBIN)/ofsp_06_tensor
 
 ```
 
@@ -401,7 +401,7 @@ EXE_LIBS = \
 ```terminal {fileName="terminal"}
 wclean
 wmake
-ofsp_07_tensor
+ofsp_06_tensor
 ```
 
 运行结果如下

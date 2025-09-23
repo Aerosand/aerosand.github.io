@@ -2,7 +2,7 @@
 uid: 20250916203141
 title: 11_dictionary
 date: 2025-09-16
-update: 2025-09-18
+update: 2025-09-23
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -43,8 +43,8 @@ OpenFOAM 是怎么实现从文件夹读取和写入的呢？OpenFOAM 的读取�
 
 ```terminal {fileName="terminal"}
 ofsp
-foamNewApp ofsp_12_dictionary
-code ofsp_12_dictionary
+foamNewApp ofsp_11_dictionary
+code ofsp_11_dictionary
 ```
 
 终端输入命令，为项目准备测试算例
@@ -105,7 +105,7 @@ cp -r $FOAM_TUTORIALS/incompressible/icoFoam/cavity/cavity debug_case
 blockMesh -case debug_case | tee debug_case/log.mesh
 echo "Meshing done."
 
-ofsp_12_dictionary -case debug_case | tee debug_case/log.run
+ofsp_11_dictionary -case debug_case | tee debug_case/log.run
 ```
 
 脚本 `caseclean` 主要是负责清理应用到到编译前状态，如果应用要修改，那么测试算例也要还原到运行前的状态，所以暂时写入如下内容
@@ -142,15 +142,15 @@ echo "Cleaning done."
 ├── Make
 │   ├── files
 │   └── options
-├── ofsp_12_dictionary.C
+├── ofsp_11_dictionary.C
 └── README.md
 ```
 
 ## 5. 主源码
 
-主源码 `ofsp_12_dictionary.C` 内容如下
+主源码 `ofsp_11_dictionary.C` 内容如下
 
-```cpp {fileName="/ofsp_12_dictionary.C"}
+```cpp {fileName="/ofsp_11_dictionary.C"}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

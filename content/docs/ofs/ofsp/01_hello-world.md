@@ -2,7 +2,7 @@
 uid: 20250723105353
 title: 01_helloWorld
 date: 2025-07-23
-update: 2025-09-18
+update: 2025-09-23
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -76,8 +76,8 @@ source ~/.bashrc
 
 ```terminal {fileName="terminal"}
 ofsp
-mkdir ofsp_02_helloWorld
-code ofsp_02_helloWorld
+mkdir ofsp_01_helloWorld
+code ofsp_01_helloWorld
 ```
 
 通过 vscode 打开项目后，可以使用 `ctrl + ~` 唤出 vscode 的终端控制台，快捷进行命令操作。
@@ -172,7 +172,7 @@ flowchart LR
 ```
 
 >[!warning]
->本文后续讨论的终端指令运行路径均留在 `ofsp/ofsp_02_helloWorld/` 不变
+>本文后续讨论的终端指令运行路径均留在 `ofsp/ofsp_01_helloWorld/` 不变
 
 
 ## 3. 代码编译
