@@ -2,7 +2,7 @@
 uid: 20250918125401
 title: 02_massConservation
 date: 2025-09-18
-update: 2025-09-18
+update: 2025-09-24
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -12,7 +12,7 @@ tags:
   - cfdb
 excludeSearch: false
 toc: true
-weight: 2
+weight: 3
 math: true
 next:
 prev:
@@ -29,7 +29,7 @@ draft: false
 
 本文主要讨论
 
-- [ ] 质量守恒方程的推导
+- [ ] 连续性方程的推导
 - [ ] 不同形式的转化
 - [ ] 理解数学表达的物理意义
 
@@ -149,9 +149,9 @@ $$\cancel{\frac{D}{Dt}\int_V \rho dV = \int_V \bigg[\frac{\partial \rho}{\partia
 
 ![|389x382](massEqCVelement.png)
 
-在这个无穷小控制体上，速度等物理量作为连续函数，可以进行泰勒展开。
+在这个无穷小控制体微元上，速度等物理量作为连续函数，可以进行泰勒展开。
 
-以 $x$ 方向为例，微元左面的质量通量为
+以 $x$ 方向为例，控制体微元左面的质量通量为
 
 $$
 (\rho u)dydz
@@ -163,7 +163,7 @@ $$
 \rho u + \frac{\partial (\rho u)}{\partial x}dx + \frac{\partial ^2 (\rho u)}{2! \partial x^2}{dx^2} + (higherOrder)
 $$
 
-基于控制体微元的无穷小假定，省去二阶及以上的高阶项，整理为
+基于该控制体微元的无穷小假定，省去二阶及以上的高阶项，整理为
 
 $$
 \bigg[\rho u + \frac{\partial (\rho u)}{\partial x}dx\bigg]dydz
@@ -453,4 +453,6 @@ $$
 
 [2] Computational fluid dynamics : the basics with applications, https://searchworks.stanford.edu/view/2989631
 
-[3] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
+[3] Mathematics, Numerics, Derivations and OpenFOAM®, https://holzmann-cfd.com/community/publications/mathematics-numerics-derivations-and-openfoam-free
+
+[4] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
