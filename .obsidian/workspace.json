@@ -25,8 +25,33 @@
               "icon": "lucide-layout-dashboard",
               "title": "Home"
             }
+          },
+          {
+            "id": "c26dc59a82f4f983",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/docs/cfd/cfdb/07_fvm-basics.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "07_fvm-basics"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -141,13 +166,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Home.canvas",
+                "file": "content/docs/cfd/cfdb/07_fvm-basics.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Home"
+              "title": "Outline of 07_fvm-basics"
             }
           }
         ],
@@ -277,8 +302,9 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "c26dc59a82f4f983",
   "lastOpenFiles": [
+    "Home.canvas",
     "content/docs/cfd/cfdb/_index.md",
     "content/docs/cfd/cfdb/07_fvm-basics.md",
     "content/docs/cfd/cfdb/06_fdm-basics.md",
@@ -288,7 +314,6 @@
     "content/docs/cfd/cfdb/02_mass-conservation.md",
     "content/docs/cfd/cfdb/01_basic-concept.md",
     "content/docs/ofs/ofsp/_index.md",
-    "Home.canvas",
     "public/en.search.min.ab3d9bc2fc711cdaeef14d280549d03b853582b53a653e88283f06b7dc2b028e.js",
     "content/ofs/_index.md",
     "content/ofs/ofsp2025/_index.md",
@@ -319,7 +344,6 @@
     "content/ofs/ofsp2025/ofsp2025-09.md",
     "content/ofs/ofsp2025/ofsp2025-simple-piso-pimple.md",
     "content/ofs/ofsp2025/ofsp2025-08.md",
-    "content/ofs/ofsp2025/ofsp2025-07.md",
     "Home - APS.canvas",
     "Project/OpenFOAM Sharing.canvas",
     "aerosand/public/images/logo.svg",
