@@ -147,7 +147,7 @@ $$\cancel{\frac{D}{Dt}\int_V \rho dV = \int_V \bigg[\frac{\partial \rho}{\partia
 
 假设我们取一个无穷小的控制体微元模型。基于欧拉描述，我们考虑控制体微元系统的**守恒**。
 
-![|389x382](massEqCVelement.png)
+![|389x382](massEqMVelement.png)
 
 在这个无穷小控制体微元上，速度等物理量作为连续函数，可以进行泰勒展开。
 

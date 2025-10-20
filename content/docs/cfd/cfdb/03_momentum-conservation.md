@@ -2,7 +2,7 @@
 uid: 20250918160517
 title: 03_momentumConservation
 date: 2025-09-18
-update: 2025-10-06
+update: 2025-10-20
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -209,7 +209,7 @@ $$\lambda = -\frac{2}{3}\mu$$
 
 $$\bigg(\frac{d(mU)}{dt}\bigg)_{MV}  = \bigg(\int_V \vec{f} dV\bigg)_{MV}$$
 
-此处的作用力包含体积力和表面力。
+此处的作用力 $\vec{f}$ 包含体积力和表面力。
 
 根据【雷诺输运定理】
 
@@ -315,6 +315,32 @@ $$\Sigma =\begin{Bmatrix}
 
 也就是前面说的压力和粘性力。
 
+回忆前文的讨论，矩阵可以分解成体部分和偏部分，有
+
+$$
+\Sigma = \Sigma^{hyd} + \Sigma^{dev} 
+$$
+
+很显然，体部分就是压力矩阵，即
+
+$$
+-p\vec{I} = |\Sigma^{hyd}|\vec{I} = \frac{1}{3}tr(\Sigma)\vec{I}
+$$
+
+进一步的，有
+
+$$
+\Sigma = -p\vec{I} + \underbrace{ \bigg[\Sigma- \frac{1}{3}tr(\Sigma)\vec{I} \bigg]}_{viscous-sress}
+$$
+
+也有
+
+$$
+\Sigma = \frac{1}{3}tr(\Sigma) + dev(\Sigma)
+$$
+
+分析可知，总应力张量的偏部分就是粘性力张量。
+
 所以表面力有
 
 $$\int_{V}\vec f_sdV = \int_{\partial V} \Sigma\cdot \vec n dS$$
@@ -399,7 +425,7 @@ $$\vec f_b = \rho \vec g$$
 
 $$\vec f_b = -2\rho[\omega \times U] - \rho [\omega\times[\omega\times\vec r]] $$
 
-一般来说，重力和向心力都和位置有关，和速度无关，所以会归在压力修正项中。科里奥利力会单独处理。体积力像是还有电磁力电场力等多种类型，需要针对具体问题进行处理，所以下面方程中的体积力不再写成具体形式。
+一般来说，重力和向心力都和位置有关，和速度无关，所以会归在压力修正项中。科里奥利力会单独处理。体积力像是还有电磁力电场力等多种类型，针对具体问题需要增加不同的体积力。下面方程中的体积力只考虑重力。
 
 > [!caution]
 > 当考虑相对压强的时候，上述重力项被约去，由新的重力项代替，详见 interFoam 的讨论，这里暂不深入展开讨论。
@@ -408,11 +434,11 @@ $$\vec f_b = -2\rho[\omega \times U] - \rho [\omega\times[\omega\times\vec r]] $
 
 考虑最一般情况，动量方程守恒型微分形式为
 
-$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + (\nabla\cdot\vec{\tau}) + \vec{f_{b}}$$
+$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + \nabla\cdot\vec{\tau} + \rho\vec{g}$$
 
 在 OpenFOAM 中，一般表示为
 
-$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + (\nabla\cdot rhoR^{eff}) + \vec{f_{b}}$$
+$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + (\nabla\cdot rhoR^{eff}) + \rho\vec{g}$$
 
 流体粘性应力的张量形式
 
@@ -431,7 +457,7 @@ $$rhoR^{eff} =
 代入动量方程守恒型微分形式，得到
 
 $$
-\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + \nabla\cdot[\mu (\nabla      U + (\nabla U)^T)] + \nabla(\lambda\nabla\cdot U) + \vec f_{b} 
+\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + \nabla\cdot[\mu (\nabla      U + (\nabla U)^T)] + \nabla(\lambda\nabla\cdot U) + \rho\vec{g}
 $$
 
 其中
@@ -443,13 +469,13 @@ $$
 整理为
 
 $$
-\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = \nabla\cdot(\mu\nabla U)-\nabla p + \nabla\cdot[\mu (\nabla U)^T] + \nabla(\lambda\nabla\cdot U) + \vec f_{b} 
+\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = \nabla\cdot(\mu\nabla U)-\nabla p + \nabla\cdot[\mu (\nabla U)^T] + \nabla(\lambda\nabla\cdot U) + \rho\vec{g}
 $$
 
-对于更一般的情况，将右边后三项统一为广义源项，整理为
+对于更一般的情况，将右边后四项统一为广义源项，整理为
 
 $$
-\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) - \nabla\cdot(\mu\nabla U) = -\nabla p + Q
+\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) - \nabla\cdot(\mu\nabla U) = Q
 $$
 
 ## 3. 补充讨论
@@ -458,7 +484,7 @@ $$
 
 对于无粘性流动，粘性系数 $\mu=0$ ，动量方程最终简化为
 
-$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + \vec f_{b}$$
+$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + \rho\vec{g}$$
 
 即没有粘性扩散。
 
@@ -470,7 +496,7 @@ $$\nabla\cdot U = 0$$
 
 动量方程简化为
 
-$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + \nabla\cdot[\mu (\nabla      U + (\nabla U)^T)] + \cancel{\nabla(\lambda\nabla\cdot U)} + \vec f_{b} $$
+$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + \nabla\cdot[\mu (\nabla      U + (\nabla U)^T)] + \cancel{\nabla(\lambda\nabla\cdot U)} + \rho\vec{g} $$
 
 对于牛顿流体，有剪切应力 $\vec{\tau}$ 线性相关于形变率 $S$ （矢量）为线性，即
 
@@ -481,10 +507,10 @@ $$
 结合 Boussnesq 假设，密度变化仅仅对浮力起作用，其他项中的密度变化可以忽略，甚至如果这里就是不可压缩流体，则有
 
 $$\begin{align*}
-\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) &=  -\nabla p + \nabla\cdot[\mu (\nabla      U + (\nabla U)^T)] + \cancel{\nabla(\lambda\nabla\cdot U)} + \vec f_{b} \\
-\frac{\partial U}{\partial t} + \nabla \cdot (UU) - \nabla \cdot[\nu(\nabla U + (\nabla U)^{T}]  &= - \frac{1}{\rho} \nabla p + Q \\
-\frac{\partial U}{\partial t} + \nabla \cdot (UU) - \nabla \cdot (2\nu S)  &= - \frac{1}{\rho} \nabla p + Q \\
-\frac{\partial U}{\partial t} + \nabla \cdot (UU) + \nabla \cdot R^{eff}  &= - \frac{1}{\rho} \nabla p + Q
+\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) &=  -\nabla p + \nabla\cdot[\mu (\nabla      U + (\nabla U)^T)] + \cancel{\nabla(\lambda\nabla\cdot U)} + \rho\vec{g} \\
+\frac{\partial U}{\partial t} + \nabla \cdot (UU) - \nabla \cdot[\nu(\nabla U + (\nabla U)^{T}]  &= - \frac{1}{\rho} \nabla p + \rho\vec{g} \\
+\frac{\partial U}{\partial t} + \nabla \cdot (UU) - \nabla \cdot (2\nu S)  &= - \frac{1}{\rho} \nabla p + \rho\vec{g} \\
+\frac{\partial U}{\partial t} + \nabla \cdot (UU) + \nabla \cdot R^{eff}  &= - \frac{1}{\rho} \nabla p + \rho\vec{g}
 \end{align*}$$
 
 如果此时粘性系数 $\mu$ 为常数，动量方程可以进一步简化
@@ -514,11 +540,28 @@ $$
 
 因为流体不可压缩，密度不变，第二项为零，所以动量方程进一步简化为
 
-$$\frac{\partial \rho U}{\partial t} + \nabla \cdot (\rho UU) = -\nabla p + \mu \nabla^2U + \vec f_b$$
+$$\frac{\partial \rho U}{\partial t} + \nabla \cdot (\rho UU) = -\nabla p + \mu \nabla^2U + \rho\vec{g}$$
 
 如果流体没有粘性，粘性项可以进一步省略，即
 
 $$
-\frac{\partial\rho U}{\partial t} + \nabla \cdot (\rho UU) = -\nabla p  + \vec f_{b}
+\frac{\partial\rho U}{\partial t} + \nabla \cdot (\rho UU) = -\nabla p  + \rho\vec{g}
 $$
+
+## 4. 小结
+
+本文完成讨论
+
+- [x] 动量方程的推导
+- [x] 不同角度的推导
+- [x] 理解数学表达的物理意义
+
+## References
+
+[1] The Finite Volume Method in Computational Fluid Dynamics, https://link.springer.com/book/10.1007/978-3-319-16874-6
+
+[2] Computational fluid dynamics : the basics with applications, https://searchworks.stanford.edu/view/2989631
+
+[3] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
+
 

@@ -2,7 +2,7 @@
 uid: 20250917124422
 title: 01_basicConcept
 date: 2025-09-17
-update: 2025-09-18
+update: 2025-10-15
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -377,7 +377,7 @@ $$
 
 - 体积 $V$，如单元的总体积 $V_P$  
 - 面积 $\partial{V}$ ，如单元的总面积 $\partial{V_{P}}$
-- 单元界面 $S_{f}$，其面积大小为 $|S_{f}|$
+- 单元界面矢量 $S_{f}$，其面积大小为 $|S_{f}|$
 
 
 ## 6. 小结
