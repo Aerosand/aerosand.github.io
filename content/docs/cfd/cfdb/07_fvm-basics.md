@@ -725,7 +725,8 @@ $$
 
 $$
 \begin{aligned} 
-\int_{t}^{t+1} \bigg[\int_{V_P}\bigg(\frac{\partial}{\partial t}(\rho \phi)\bigg)dV + \int_{V_P}\bigg(\nabla \cdot (\rho U\phi)\bigg)dV - \int_{V_P}\bigg(\nabla\cdot(\Gamma\nabla\phi)\bigg)dV \bigg]dt= \int_{t}^{t+1}\bigg[\int_{V_P} S_{\phi}dV \bigg]dt
+\int_{t}^{t+1} \bigg[\int_{V_P}\bigg(\frac{\partial}{\partial t}(\rho \phi)\bigg)dV + \int_{V_P}\bigg(\nabla \cdot (\rho U\phi)\bigg)dV &- \int_{V_P}\bigg(\nabla\cdot(\Gamma\nabla\phi)\bigg)dV \bigg]dt\\
+&= \int_{t}^{t+1}\bigg[\int_{V_P} S_{\phi}dV \bigg]dt
 \end{aligned}
 $$
 
