@@ -74,9 +74,9 @@ $$
 $$
 \begin{aligned}
 pdydz - (p+\frac{\partial p}{\partial x}dx)dydz \\
-+ (\tau_{xx}+\frac{\partial\tau_{xx}}{\partial x}dx)dydz - \tau_{xx}dydz \\
-+ (\tau_{yx} + \frac{\partial\tau_{yx}}{\partial y}dy)dxdz- \tau_{yx}dxdz \\
-+ (\tau_{zx} + \frac{\partial\tau_{zx}}{\partial z}dz)dxdy - \tau_{zx}dxdy
++(\tau_{xx}+\frac{\partial\tau_{xx}}{\partial x}dx)dydz - \tau_{xx}dydz \\
++(\tau_{yx} + \frac{\partial\tau_{yx}}{\partial y}dy)dxdz- \tau_{yx}dxdz \\
++(\tau_{zx} + \frac{\partial\tau_{zx}}{\partial z}dz)dxdy - \tau_{zx}dxdy
 \end{aligned}
 $$
 
