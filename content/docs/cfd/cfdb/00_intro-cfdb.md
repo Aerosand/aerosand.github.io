@@ -81,7 +81,6 @@ $$
 
 $$
 \begin{align*}
-
 \frac{\partial u_{i}u_{j}}{\partial x_{i}} &= \sum\limits_{i} \frac{\partial u_{i}u_{j}}{\partial x_{i}} \\
 &= \begin{pmatrix}
 \frac{\partial u_{x}u_{x}}{\partial x} + \frac{\partial u_{y}u_{x}}{\partial y} + \frac{\partial u_{z}u_{x}}{\partial z}\\

@@ -73,17 +73,17 @@ $$
 
 $$
 \begin{aligned}
-  pdydz - (p+\frac{\partial p}{\partial x}dx)dydz \\
-  + (\tau_{xx}+\frac{\partial\tau_{xx}}{\partial x}dx)dydz - \tau_{xx}dydz \\
-  + (\tau_{yx} + \frac{\partial\tau_{yx}}{\partial y}dy)dxdz- \tau_{yx}dxdz \\
-  + (\tau_{zx} + \frac{\partial\tau_{zx}}{\partial z}dz)dxdy - \tau_{zx}dxdy
+pdydz - (p+\frac{\partial p}{\partial x}dx)dydz \\
++ (\tau_{xx}+\frac{\partial\tau_{xx}}{\partial x}dx)dydz - \tau_{xx}dydz \\
++ (\tau_{yx} + \frac{\partial\tau_{yx}}{\partial y}dy)dxdz- \tau_{yx}dxdz \\
++ (\tau_{zx} + \frac{\partial\tau_{zx}}{\partial z}dz)dxdy - \tau_{zx}dxdy
 \end{aligned}
 $$
 
 简化整理有
 
 $$
-- \frac{\partial p}{\partial x}dxdydz + \frac{\partial\tau_{xx}}{\partial x}dxdydz + \frac{\partial\tau_{yx}}{\partial y}dydxdz + \frac{\partial\tau_{zx}}{\partial z}dzdxdy
+-\frac{\partial p}{\partial x}dxdydz + \frac{\partial\tau_{xx}}{\partial x}dxdydz +\frac{\partial\tau_{yx}}{\partial y}dydxdz + \frac{\partial\tau_{zx}}{\partial z}dzdxdy
 $$
 
 考虑上微元受到的体积力

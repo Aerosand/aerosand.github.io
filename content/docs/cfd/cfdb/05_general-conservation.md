@@ -140,7 +140,7 @@ $$\frac{\partial}{\partial t}(\rho \phi) + \nabla \cdot (\rho U\phi) = \nabla\cd
 
 从左至右，我们依次称为：时间项（瞬态项）、对流项、扩散项、源项。
 
-## 3. 小结
+## 2. 小结
 
 到此为止，流体动力学的基本方程已经大体讨论结束。
 
