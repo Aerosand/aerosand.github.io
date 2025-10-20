@@ -692,9 +692,9 @@ $$
 
 $$
 \begin{align*}
-\int_{V_{P}}\nabla pdV&= \int_{\partial V_{P}}pdS\\
-&= \sum_{f}p_{f}S_{f}\\
-&= \sum_fp^t_{f}S_{f}
+\int_{V_{P}}\nabla pdV &= \int_{\partial V_{P}}pdS \\
+&= \sum_{f}p_{f}S_{f} \\
+&= \sum_{f}p_{f}^{t}S_{f}
 \end{align*}
 $$
 
@@ -737,7 +737,6 @@ $$\begin{aligned}
 &= \int_{t}^{t+1}\bigg[SuV_{P}+ SpV_P\phi_{P}\bigg]dt
 \end{aligned}
 $$
-
 进一步代入有
 
 $$\begin{aligned}
