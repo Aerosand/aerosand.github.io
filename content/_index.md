@@ -24,8 +24,8 @@ layout: hextra-home
 </div>
 
 <div class="hx:mb-6">
-{{< hextra/hero-button text="Home page" link="https://aerosand.cn" >}}
-{{< hextra/hero-button text="Get Started" link="docs" >}}
+{{< hextra/hero-button style="border-radius: 8px;" text="Home page" link="https://aerosand.cn" >}}
+{{< hextra/hero-button style="border-radius: 8px;" text="Get Started" link="docs" >}}
 </div>
 
 <div class="hx:mt-6"></div>
