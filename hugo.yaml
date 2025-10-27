@@ -65,6 +65,10 @@ menu:
     - identifier: ofs
       name: OFS
       weight: 2
+    - identifier: docs
+      name: Docs
+      pageRef: /docs
+      weight: 95
     - identifier: news
       name: News
       pageRef: /news
