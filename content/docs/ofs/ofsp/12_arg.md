@@ -1,6 +1,6 @@
 ---
 uid: 20251020195957
-title: 12_args
+title: 12_arg
 date: 2025-10-20
 update: 2025-11-04
 authors:
