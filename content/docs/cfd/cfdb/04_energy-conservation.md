@@ -2,7 +2,7 @@
 uid: 20251006112434
 title: 04_energyConservation
 date: 2025-10-06
-update: 2025-10-14
+update: 2025-10-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -400,4 +400,8 @@ $$\frac{\partial}{\partial t}(\rho c_pT) + \nabla\cdot(\rho c_p U T) = \nabla\cd
 
 [2] Computational fluid dynamics : the basics with applications, https://searchworks.stanford.edu/view/2989631
 
-[3] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
+[3] Mathematics, Numerics, Derivations and OpenFOAM®, https://holzmann-cfd.com/community/publications/mathematics-numerics-derivations-and-openfoam-free
+
+[4] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
+
+

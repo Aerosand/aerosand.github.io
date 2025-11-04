@@ -2,7 +2,7 @@
 uid: 20251015163537
 title: 07_fvmBasics
 date: 2025-10-15
-update: 2025-10-20
+update: 2025-10-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -892,4 +892,14 @@ ddtSchemes
 - [x] 有限体积法基础
 - [x] 了解四大项的离散
 - [x] 了解离散方程与 OpenFOAM 代码的部分对应
+
+## References
+
+[1] The Finite Volume Method in Computational Fluid Dynamics, https://link.springer.com/book/10.1007/978-3-319-16874-6
+
+[2] Computational fluid dynamics : the basics with applications, https://searchworks.stanford.edu/view/2989631
+
+[3] Mathematics, Numerics, Derivations and OpenFOAM®, https://holzmann-cfd.com/community/publications/mathematics-numerics-derivations-and-openfoam-free
+
+[4] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
 

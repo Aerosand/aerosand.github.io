@@ -2,7 +2,7 @@
 uid: 20251015133057
 title: 06_fdmBasics
 date: 2025-10-15
-update: 2025-10-15
+update: 2025-10-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -373,4 +373,14 @@ $$
 - [x] 复习泰勒展开
 - [x] 熟悉有限差分法基础
 - [x] 了解 FDM 的应用
+
+## References
+
+[1] The Finite Volume Method in Computational Fluid Dynamics, https://link.springer.com/book/10.1007/978-3-319-16874-6
+
+[2] Computational fluid dynamics : the basics with applications, https://searchworks.stanford.edu/view/2989631
+
+[3] Mathematics, Numerics, Derivations and OpenFOAM®, https://holzmann-cfd.com/community/publications/mathematics-numerics-derivations-and-openfoam-free
+
+[4] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
 

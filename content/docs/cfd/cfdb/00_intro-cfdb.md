@@ -2,7 +2,7 @@
 uid: 20250918162728
 title: 00_intro-cfdb
 date: 2025-09-18
-update: 2025-10-20
+update: 2025-10-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -241,5 +241,7 @@ $$
 
 [2] Computational fluid dynamics : the basics with applications, https://searchworks.stanford.edu/view/2989631
 
-[3] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
+[3] Mathematics, Numerics, Derivations and OpenFOAM®, https://holzmann-cfd.com/community/publications/mathematics-numerics-derivations-and-openfoam-free
+
+[4] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
 

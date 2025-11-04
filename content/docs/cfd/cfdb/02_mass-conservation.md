@@ -2,7 +2,7 @@
 uid: 20250918125401
 title: 02_massConservation
 date: 2025-09-18
-update: 2025-09-24
+update: 2025-10-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -456,3 +456,6 @@ $$
 [3] Mathematics, Numerics, Derivations and OpenFOAM®, https://holzmann-cfd.com/community/publications/mathematics-numerics-derivations-and-openfoam-free
 
 [4] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
+
+
+
