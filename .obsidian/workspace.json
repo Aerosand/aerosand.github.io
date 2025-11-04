@@ -16,9 +16,9 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -3120.8659658795114,
-                  "y": 2083.1471744353275,
-                  "zoom": -1.971535152324726
+                  "x": -3013.1853392924177,
+                  "y": 1424.2776462568286,
+                  "zoom": 0.1605070203268334
                 }
               },
               "pinned": true,
@@ -27,31 +27,19 @@
             }
           },
           {
-            "id": "c26dc59a82f4f983",
+            "id": "4db60b2a149dcc2c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "content/docs/cfd/cfdb/07_fvm-basics.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
+                "file": "_base/cfdb.base",
+                "viewName": "Table"
               },
-              "icon": "lucide-file",
-              "title": "07_fvm-basics"
+              "icon": "lucide-table",
+              "title": "cfdb"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -114,8 +102,24 @@
               "icon": "checkmark",
               "title": "Todo List"
             }
+          },
+          {
+            "id": "eb8d081bc5a1d60b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Home.canvas",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Home"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       },
       {
         "id": "d5574f3c9c5c4dc4",
@@ -159,28 +163,12 @@
               "icon": "globe-2",
               "title": "ChatGPT"
             }
-          },
-          {
-            "id": "eb8d081bc5a1d60b",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "content/docs/cfd/cfdb/07_fvm-basics.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of 07_fvm-basics"
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 284.5
+    "width": 249.5
   },
   "right": {
     "id": "bcf5455906cfff97",
@@ -302,11 +290,12 @@
       "open-vscode:VSCode": false
     }
   },
-  "active": "c26dc59a82f4f983",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "_base/cfdb.base",
     "Home.canvas",
-    "content/docs/cfd/cfdb/_index.md",
     "content/docs/cfd/cfdb/07_fvm-basics.md",
+    "content/docs/cfd/cfdb/_index.md",
     "content/docs/cfd/cfdb/06_fdm-basics.md",
     "content/docs/cfd/cfdb/05_general-conservation.md",
     "content/docs/cfd/cfdb/04_energy-conservation.md",
@@ -332,7 +321,6 @@
     "public/ofs/ofsp/08_firstapp/index.html",
     "public/ofs/ofsp/08_firstapp",
     "public/ofs/ofsp/08_firstapplication/index.html",
-    "public/ofs/ofsp/08_firstapplication",
     "content/ofs/ofsp/08_firstApp.md",
     "content/ofs/ofsp/08_firstApplication.md",
     "public/images/openfoam.png",
