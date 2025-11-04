@@ -2,7 +2,7 @@
 uid: 20250916203141
 title: 11_dictionary
 date: 2025-09-16
-update: 2025-09-23
+update: 2025-11-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -52,6 +52,26 @@ code ofsp_11_dictionary
 ```terminal {fileName="terminal"}
 cp -r $FOAM_TUTORIALS/incompressible/icoFoam/cavity/cavity debug_case
 ```
+
+终端输入命令，测试初始求解器
+
+```terminal {fileName="terminal"}
+wmake
+ofsp_11_dictionary -case debug_case
+```
+
+终端输出如下，
+
+```terminal {fileName="terminal"}
+Create time
+
+
+ExecutionTime = 0 s  ClockTime = 0 s
+
+End
+```
+
+上面的输出信息即说明初始求解器没有问题，可以在此基础上进行开发。
 
 ## 2. 说明文件
 
@@ -117,6 +137,13 @@ rm -rf debug_case/log.*
 foamCleanTutorials debug_case
 echo "Cleaning done."
 ```
+
+终端输入命令，给脚本权限
+
+```terminal {fileName="terminal"}
+chmod +x caserun caseclean
+```
+
 
 ## 4. 文件结构
 
