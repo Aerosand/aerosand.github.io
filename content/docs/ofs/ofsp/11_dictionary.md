@@ -2,7 +2,7 @@
 uid: 20250916203141
 title: 11_dictionary
 date: 2025-09-16
-update: 2025-11-04
+update: 2025-11-05
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -304,7 +304,7 @@ int main(int argc, char *argv[])
 
 ```
 
-## 6. 字典文件
+## 6. 提供字典
 
 提供字典文件 `debug_case/constant/customProperties`，该字典没有读取写入操作，所以只需要写上正确的文件头，内容留空处理。
 
