@@ -2,7 +2,7 @@
 uid: 20250916191753
 title: 10_feature
 date: 2025-09-16
-update: 2025-09-23
+update: 2025-11-12
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -22,6 +22,9 @@ sidebar:
   exclude: false
 draft: false
 ---
+> [!important]
+> 访问 https://aerosand.cn 以获取最近更新。
+
 
 ## 0. 前言
 

@@ -22,6 +22,10 @@ sidebar:
   exclude: false
 draft: false
 ---
+> [!important]
+> 访问 https://aerosand.cn 以获取最近更新。
+
+
 ## 0. 前言
 
 OpenFOAM 的很多应用都可以通过命令行来给定运行参数。虽然用户有时候会觉得有些陌生，但是用好命令行可以高效灵活的处理各种问题。

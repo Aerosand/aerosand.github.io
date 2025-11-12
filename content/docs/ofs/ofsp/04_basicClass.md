@@ -2,7 +2,7 @@
 uid: 20250826191442
 title: 04_basicClass
 date: 2025-08-26
-update: 2025-11-04
+update: 2025-11-12
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -22,6 +22,9 @@ sidebar:
   exclude: false
 draft: false
 ---
+> [!important]
+> 访问 https://aerosand.cn 以获取最近更新。
+
 
 ## 0. 前言
 
