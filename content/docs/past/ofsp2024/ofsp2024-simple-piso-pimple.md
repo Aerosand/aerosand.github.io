@@ -1,25 +1,33 @@
 ---
-uid: 20250827141152
-title: ofsp2025-simple-piso-pimple
-date: 2025-08-27
-update: 2025-08-27
-authors:
-  - name: Aerosand
-    link: https://github.com/aerosand
-    image: https://github.com/aerosand.png
+title: OpenFOAM基础算法 SIMPLE & PISO & PIMPLE
+date: 2023-05-11-Thursday 15:10:00
+updated: 2024-05-15-Wednesday 15:55:00
+abbrlink: 20230511151000
 tags:
-  - ofsp2025
   - OpenFOAM
-excludeSearch: false
-toc: true
-weight: 9
-math: true
-next:
-prev:
+  - OFalgorithm
+  - ofsp2024
+categories:
+  - OpenFOAM
+keywords: 
+description: OpenFOAM 中的 SIMPLE，PISO，PIMPLE 算法
+top_img: 0img/openfoam.png
+cover: 0img/openfoam.png
 comments: true
-sidebar:
-  exclude: false
-draft: false
+toc: true
+toc_number: true
+toc_style_simple: false
+copyright: true
+copyright_author: Aerosand
+copyright_author_href: https://aerosand.cn
+copyright_url: https://aerosand.cn
+copyright_info: 此文章版权归aerosand.cn所有，如有转载，请注明来自原作者
+mathjax: true
+katex: true
+highlight_shrink: false
+aside: true
+swiper_index: 
+sticky:
 ---
 
 > 参考：
@@ -36,7 +44,7 @@ draft: false
 > 感谢原作者们的无私引路和宝贵工作。
 
 
-我们首先回忆一下基本方程 
+我们首先回忆一下基本方程 （[CFD理论基础00 基本方程 | 𝓐𝓮𝓻𝓸𝓼𝓪𝓷𝓭 (aerosand.cn)](https://aerosand.cn/posts/20230529141915/)）
 
 基本方程为
 
