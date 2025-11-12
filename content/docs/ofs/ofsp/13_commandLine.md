@@ -528,8 +528,7 @@ tolerance  1e-6;
 终端输入命令，运行该项目
 
 ```terminal {fileName="terminal"}
-ofsp_13_commandLine -case debug_case/ o2 2 -dict ./debug_case/co
-nstant/myDict -debug
+ofsp_13_commandLine -case debug_case/ o2 2 -dict ./debug_case/constant/myDict -nPrecision 16 -debug
 ```
 
 终端输出如下
@@ -550,6 +549,8 @@ Dictionary from "./debug_case/constant/myDict"
     mathLib   : Eigen
     tolerance : 1e-06
 
+
+Setting nPrecision to 16
 
 Debug mode enabled
 
