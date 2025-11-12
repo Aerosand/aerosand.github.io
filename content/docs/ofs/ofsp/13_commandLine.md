@@ -309,7 +309,7 @@ int main(int argc, char *argv[])
 {
     argList::addNote
     (
-        "Program for command line @Aerosand\n"
+        "Program for command line @ Aerosand\n"
         "Solver setup:\n"
         "   Accuracy     - o1, o2, o3\n"
         "   Acceleration - 1, 2, 3\n"
@@ -387,7 +387,7 @@ int main(int argc, char *argv[])
 {
     argList::addNote
     (
-        "Program for command line @Aerosand\n"
+        "Program for command line @ Aerosand\n"
         "Solver setup:\n"
         "   Accuracy     - o1, o2, o3\n"
         "   Acceleration - 1, 2, 3\n"

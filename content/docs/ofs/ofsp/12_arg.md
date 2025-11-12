@@ -2,7 +2,7 @@
 uid: 20251020195957
 title: 12_arg
 date: 2025-10-20
-update: 2025-11-04
+update: 2025-11-12
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -375,7 +375,7 @@ using namespace std;
 // 函数-显示帮助信息
 void displayHelp(const string& programName) {
     cout << "Usage: " << programName << " [OPTIONS] <filename> [mode]" << endl;
-    cout << "A simple file read/write utility @Aerosand" << endl << endl;
+    cout << "A simple file read/write utility @ Aerosand" << endl << endl;
     cout << "Arguments:" << endl;
     cout << "  filename          Name of the file to read/write" << endl;
     cout << "  mode              Operation mode: read or write (default: read)" << endl << endl;
@@ -394,7 +394,7 @@ void displayHelp(const string& programName) {
 
 // 函数-显示版本信息
 void displayVersion() {
-    cout << "Version v1.0 @Aerosand" << endl;
+    cout << "Version v1.0 @ Aerosand" << endl;
     cout << "This is a ofsp program from Aerosand" << endl;
 }
 
@@ -553,7 +553,7 @@ make
 
 ```terminal {fileName="terminal"}
 Usage: ./output/main [OPTIONS] <filename> [mode]
-A simple file read/write utility @Aerosand
+A simple file read/write utility @ Aerosand
 
 Arguments:
   filename          Name of the file to read/write
@@ -582,7 +582,7 @@ Examples:
 终端输出如下
 
 ```terminal {fileName="terminal"}
-Version v1.0 @Aerosand
+Version v1.0 @ Aerosand
 This is a ofsp program from Aerosand
 ```
 
