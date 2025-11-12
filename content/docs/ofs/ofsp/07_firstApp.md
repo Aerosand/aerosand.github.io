@@ -550,7 +550,16 @@ ExecutionTime = 0.01 s  ClockTime = 0 s
 End
 ```
 
-## 8. 小结
+## 8. 配置 vscode
+
+通过配置 vscode，可以在 vscode 中实现代码提示、跳转，从而更高效的理解代码。
+
+1. 下载 OFextension 插件
+2. 按照 OFextension 插件说明配置 OpenFOAM 路径
+3. 在个人项目中使用 `ofinit` 初始化项目
+4. 项目代码即可跳转
+
+## 9. 小结
 
 本文完成讨论
 
