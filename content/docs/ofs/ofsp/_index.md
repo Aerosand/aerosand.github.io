@@ -14,7 +14,7 @@ update: 2025-09-02
 ## 第一阶段
 
 {{< cards >}}
-  {{< card link="./00_intro-ofsp" title="00_introduction" tag="start here" tagColor="red" >}}
+  {{< card link="./00_intro-ofsp" title="00_introduction" tag="start here" tagColor="green" >}}
   {{< card link="./01_hello-world" title="01_helloWorld" >}}
   {{< card link="./02_make" title="02_make" >}}
   {{< card link="./03_wmake" title="03_wmake" >}}
@@ -27,7 +27,7 @@ update: 2025-09-02
 ## 第二阶段
 
 {{< cards >}}
-  {{< card link="./08_io" title="08_io" tag="start here" tagColor="red" >}}
+  {{< card link="./08_io" title="08_io" tag="start here" tagColor="green" >}}
   {{< card link="./09_keyword" title="09_keyword" >}}
   {{< card link="./10_feature" title="10_feature" >}}
   {{< card link="./11_dictionary" title="11_dictionary" >}}
