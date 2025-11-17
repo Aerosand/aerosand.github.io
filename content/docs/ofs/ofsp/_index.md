@@ -32,4 +32,7 @@ update: 2025-09-02
   {{< card link="./10_feature" title="10_feature" >}}
   {{< card link="./11_dictionary" title="11_dictionary" >}}
   {{< card link="./12_arg" title="12_arg" >}}
+  {{< card link="./13_commandLine" title="13_commandLine" >}}
+  {{< card link="./14_time" title="14_time" >}}
+  {{< card link="./15_mesh" title="15_mesh" >}}
 {{< /cards >}}
