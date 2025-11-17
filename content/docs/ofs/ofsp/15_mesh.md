@@ -2,7 +2,7 @@
 uid: 20251112184331
 title: 15_mesh
 date: 2025-11-12
-update: 2025-11-12
+update: 2025-11-17
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -884,4 +884,9 @@ End
 到此为止，必备头文件 setRootCase.H，createTime.H，createMesh.H 全部已经讨论清楚。
 
 本文完成讨论
+
+- [x] 了解和网格相关的类
+- [x] 理解 createMesh.H 头文件
+- [x] 练习网格相关的方法
+- [x] 编译运行 mesh 项目
 
