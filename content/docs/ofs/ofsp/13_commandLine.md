@@ -35,14 +35,12 @@ draft: false
 
 本文主要讨论
 
-- [ ] 理解 setRootCase.H 文件的作用
-- [ ] 理解 argList 类
+- [ ] 理解 setRootCase.H 头文件
+- [ ] 了解 argList 类
 - [ ] 开发用户自定义命令行参数
 - [ ] 编译运行 commandLine 项目
 
 ## 1. 项目准备
-
-打开 vscode 软件。
 
 终端输入命令，建立项目
 
@@ -51,6 +49,7 @@ ofsp
 foamNewApp ofsp_13_commandLine
 cd ofsp_13_commandLine
 cp -r $FOAM_TUTORIALS/incompressible/icoFoam/cavity/cavity debug_case
+code .
 ```
 
 终端输入命令，测试初始求解器
@@ -114,7 +113,27 @@ find $FOAM_SRC -iname setRootCase.H
 
 使用 vscode 可以直接点击终端输出的文件路径打开该文件。
 
-代码具体为
+在 vscode 中可以通过 OFextension 直接跳转打开该文件。
+
+为了方便理解，我们查阅一下 OpenFOAM 2.0x 版本的代码，
+
+Github 仓库文件链接如下 https://github.com/OpenFOAM/OpenFOAM-2.0.x/blob/master/src/OpenFOAM/include/setRootCase.H
+
+代码如下
+
+```cpp {fileName="setRootCase.H"}
+//
+// setRootCase.H
+// ~~~~~~~~~~~~~
+
+    Foam::argList args(argc, argv);
+    if (!args.checkRootCase())
+    {
+        Foam::FatalError.exit();
+    }
+```
+
+现代版本的代码具体如下
 
 ```cpp {fileName="setRootCase.H"}
 // Construct from (int argc, char* argv[]),
@@ -151,6 +170,8 @@ if (!args.checkRootCase())
 ## 3. argList类
 
 类 `Foam::argList`是 OpenFOAM 中的基础类，具有很多的成员数据和成员方法。我们大概挑几处代码作为切入点简单了解一下 `argList` 类。
+
+API 页面 https://api.openfoam.com/2506/argList_8H.html
 
 我们可以通过终端查找该文件
 
@@ -568,7 +589,8 @@ End
 
 本文主要讨论
 
-- [x] 理解 setRootCase.H 文件的作用
-- [x] 理解 argList 类
+- [x] 理解 setRootCase.H 头文件
+- [x] 了解 argList 类
 - [x] 开发用户自定义命令行参数
 - [x] 编译运行 commandLine 项目
+
