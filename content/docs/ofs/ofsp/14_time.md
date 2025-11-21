@@ -2,7 +2,7 @@
 uid: 20251112144059
 title: 14_time
 date: 2025-11-12
-update: 2025-11-12
+update: 2025-11-21
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -73,7 +73,7 @@ code caserun caseclean
 
 脚本 caserun 负责应用编译成功之后，调试算例的运行，内容如下
 
-```cpp {fileName="caserun"}
+```bash {fileName="caserun"}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -95,7 +95,7 @@ $appName -case debug_case | tee debug_case/log.run
 
 脚本 caseclean 负责清理调试算例，还原到初始状态，内容如下
 
-```cpp {fileName="caseclean"}
+```bash {fileName="caseclean"}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------

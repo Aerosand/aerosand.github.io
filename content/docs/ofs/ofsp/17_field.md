@@ -2,7 +2,7 @@
 uid: 20251117135613
 title: 17_field
 date: 2025-11-17
-update: 2025-11-17
+update: 2025-11-21
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -429,7 +429,7 @@ int main(int argc, char *argv[])
 
 脚本 caserun 修改为
 
-```cpp {fileName="caserun"}
+```bash {fileName="caserun"}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -479,7 +479,7 @@ $appName | tee log.run
 
 脚本 caseclean 修改为
 
-```cpp {fileName="caseclean"}
+```bash {fileName="caseclean"}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -729,6 +729,8 @@ End
 
 ```cpp {fileName="debug_case/system/controlDict"}
 ...
+endTime         0.5;
+
 deltaT          0.005;
 
 writeControl    timeStep;
