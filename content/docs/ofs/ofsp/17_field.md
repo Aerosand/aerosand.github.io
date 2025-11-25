@@ -2,7 +2,7 @@
 uid: 20251117135613
 title: 17_field
 date: 2025-11-17
-update: 2025-11-21
+update: 2025-11-25
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -750,3 +750,6 @@ writeInterval   20;
 - [x] 理解场的代码结构
 - [x] 理解场的计算参与
 - [x] 编译运行 field 项目
+
+![|567x562](https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11)
+
