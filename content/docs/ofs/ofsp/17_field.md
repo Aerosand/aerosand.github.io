@@ -2,7 +2,7 @@
 uid: 20251117135613
 title: 17_field
 date: 2025-11-17
-update: 2025-11-25
+update: 2025-11-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -22,6 +22,9 @@ sidebar:
   exclude: false
 draft: false
 ---
+> [!important]
+> 访问 https://aerosand.cn 以获取最近更新。
+
 ## 0. 前言
 
 回忆前文，我们已经讨论了输入输出、命令行参数、时间和网格。OpenFOAM 的计算绝大多数是基于物理场的，本项目开始讨论 OpenFOAM 中的“场”。

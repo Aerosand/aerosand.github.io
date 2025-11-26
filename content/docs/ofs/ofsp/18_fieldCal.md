@@ -22,6 +22,9 @@ sidebar:
   exclude: false
 draft: false
 ---
+> [!important]
+> 访问 https://aerosand.cn 以获取最近更新。
+
 ## 0. 前言
 
 基于前面的讨论，我们练习一个简单场计算的案例。

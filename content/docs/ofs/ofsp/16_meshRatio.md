@@ -2,7 +2,7 @@
 uid: 20251117115757
 title: 16_meshRatio
 date: 2025-11-17
-update: 2025-11-25
+update: 2025-11-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -22,6 +22,9 @@ sidebar:
   exclude: false
 draft: false
 ---
+> [!important]
+> 访问 https://aerosand.cn 以获取最近更新。
+
 ## 0. 前言
 
 我们基于前文对网格的讨论，来尝试一个计算网格参数的应用，便于读者练习和理解网格以及 OpenFOAM 项目流程。

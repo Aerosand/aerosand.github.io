@@ -22,6 +22,9 @@ sidebar:
   exclude: false
 draft: false
 ---
+> [!important]
+> 访问 https://aerosand.cn 以获取最近更新。
+
 ## 0. 前言
 
 通过前面两个阶段的讨论，我们已经大概熟悉了 OpenFOAM 中数值应用的架构，熟悉了数值计算的关键要素（时间、网格、场），也熟悉了一些编程的语法、一些工作流程。下面我们使用所掌握的工具，尝试写一个最简单的 OpenFOAM 求解器（不涉及数值算法）。
