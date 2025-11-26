@@ -32,10 +32,10 @@ update: 2025-09-02
   {{< card link="./10_feature" title="10_feature" >}}
   {{< card link="./11_dictionary" title="11_dictionary" >}}
   {{< card link="./12_arg" title="12_arg" >}}
-  {{< card link="./13_commandLine" title="13_commandLine" >}}
+  {{< card link="./13_commandline" title="13_commandLine" >}}
   {{< card link="./14_time" title="14_time" >}}
   {{< card link="./15_mesh" title="15_mesh" >}}
-  {{< card link="./16_meshRatio" title="16_meshRatio" >}}
+  {{< card link="./16_meshratio" title="16_meshRatio" >}}
   {{< card link="./17_field" title="17_field" >}}
-  {{< card link="./18_fieldCal" title="18_fieldCal" >}}
+  {{< card link="./18_fieldcal" title="18_fieldCal" >}}
 {{< /cards >}}
