@@ -8,9 +8,9 @@ authors:
     link: https://github.com/aerosand
     image: https://github.com/aerosand.png
 tags:
-  - ofsp
   - ofsp2026
   - OpenFOAM
+  - ofsp
 excludeSearch: false
 toc: true
 weight: 8
@@ -550,16 +550,7 @@ ExecutionTime = 0.01 s  ClockTime = 0 s
 End
 ```
 
-## 8. 配置 vscode
-
-通过配置 vscode，可以在 vscode 中实现代码提示、跳转，从而更高效的理解代码。
-
-1. 下载 OFextension 插件
-2. 按照 OFextension 插件说明配置 OpenFOAM 路径
-3. 在个人项目中使用 `ofinit` 初始化项目
-4. 项目代码即可跳转
-
-## 9. 小结
+## 8. 小结
 
 本文完成讨论
 
@@ -576,7 +567,7 @@ End
 >[!tip]
 >希望这里的分享可以对坚持、热爱又勇敢的您有所帮助。 
 >
->如果这里的分享对您有帮助，您的赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。 
+>如果这里的分享对您有帮助，您的评论、转发和赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。 
 >
 >赞助打赏时的信息和留言将用于展示和感谢。
 
