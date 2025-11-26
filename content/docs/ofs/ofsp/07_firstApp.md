@@ -2,7 +2,7 @@
 uid: 20250901123439
 title: 07_firstApp
 date: 2025-09-01
-update: 2025-11-25
+update: 2025-11-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -474,7 +474,7 @@ int main(int argc, char *argv[])
 
 项目 `Make/files` 为
 
-```makefile {fileName="/Make/files"}
+```wmake {fileName="/Make/files"}
 ofsp_07_firstApp.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_07_firstApp
@@ -486,7 +486,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_07_firstApp
 
 项目 `Make/options` 为
 
-```makefile {fileName="/Make/options"}
+```wmake {fileName="/Make/options"}
 EXE_INC = \
     -I$(LIB_SRC)/finiteVolume/lnInclude \
     -I$(LIB_SRC)/meshTools/lnInclude \

@@ -2,7 +2,7 @@
 uid: 20250916165944
 title: 09_keyword
 date: 2025-09-16
-update: 2025-11-25
+update: 2025-11-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -241,7 +241,7 @@ std::string Aerosand::IOdictionary::lookup(const std::string& keyword)
 
 文件 `IOdictionary/Make/files` 内容如下
 
-```cpp {fileName="/IOdictionary/Make/files"}
+```wmake {fileName="/IOdictionary/Make/files"}
 IOdictionary.C
 
 LIB = $(FOAM_USER_LIBBIN)/libIOdictionary
@@ -292,7 +292,7 @@ int main(int argc, char const *argv[])
 
 文件 `ofsp_09_keyword/Make/files` 内容如下
 
-```cpp {fileName="/Make/files"}
+```wmake {fileName="/Make/files"}
 ofsp_01_IO_keyword.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_01_IO_keyword
@@ -301,7 +301,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_01_IO_keyword
 
 文件 `ofsp_09_keyword/Make/options` 内容如下
 
-```cpp {fileName="/Make/options"}
+```wmake {fileName="/Make/options"}
 EXE_INC = \
     -IIOdictionary/lnInclude
 

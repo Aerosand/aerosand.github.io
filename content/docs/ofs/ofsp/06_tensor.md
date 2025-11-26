@@ -2,7 +2,7 @@
 uid: 20250827192135
 title: 06_tensor
 date: 2025-08-27
-update: 2025-11-25
+update: 2025-11-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -248,7 +248,7 @@ void class3::class3Info() const
 
 库 `Make/files` 为
 
-```makefile {fileName="/Aerosand/Make/files"}
+```wmake {fileName="/Aerosand/Make/files"}
 class1/class1.C
 class2/class2.C
 class3/class3.C
@@ -374,7 +374,7 @@ int main()
 
 项目 `Make/files` 为
 
-```makefile {fileName="/Make/files"}
+```wmake {fileName="/Make/files"}
 ofsp_06_tensor.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_06_tensor
@@ -384,7 +384,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_06_tensor
 
 项目 `Make/options` 为
 
-```makefile {fileName="/Make/options"}
+```wmake {fileName="/Make/options"}
 EXE_INC = \
     -IAerosand/lnInclude
 

@@ -81,7 +81,7 @@ code .
 
 前处理 casepre 如下
 
-```cpp {fileName="casepre"}
+```bash {fileName="casepre"}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -114,7 +114,7 @@ echo "\n>>>>>>>>>>>>> Mesh done.\n"
 
 计算处理 caserun 如下
 
-```cpp {fileName="caserun"}
+```bash {fileName="caserun"}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -140,7 +140,7 @@ $appName | tee log.run
 
 后处理 casepost 如下
 
-```cpp {fileName="casepost"}
+```bash {fileName="casepost"}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -153,7 +153,7 @@ paraFoam
 
 计算清理 caseclean 如下
 
-```cpp {fileName="caseclean"}
+```bash {fileName="caseclean"}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -494,6 +494,8 @@ gamma           1.0;
 为数值计算项指定离散格式，检查保证有以下指定
 
 ```cpp {fileName="debug_case/system/fvSchemes"}
+...
+
 ddtSchemes
 {
     default         Euler;
@@ -513,6 +515,8 @@ laplacianSchemes
     default         Gauss linear orthogonal;
     laplacian(gamma,A)  Gauss linear orthogonal; // 如果没有default指定
 }
+
+...
 ```
 
 具体指定背后的数学物理是什么，暂不深究。
@@ -522,6 +526,7 @@ laplacianSchemes
 为线性代数系统指定代数求解器，检查保证有以下指定
 
 ```cpp {fileName="debug_case/system/fvSolution"}
+...
 solvers
 {
 	...    
@@ -533,6 +538,7 @@ solvers
         relTol          0.05;
     }
 }
+...
 ```
 
 具体指定背后的数学物理是什么，暂不深究。

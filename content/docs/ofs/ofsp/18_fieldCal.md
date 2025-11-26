@@ -2,7 +2,7 @@
 uid: 20251125114545
 title: 18_fieldCal
 date: 2025-11-25
-update: 2025-11-25
+update: 2025-11-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -723,7 +723,7 @@ void calculateVelocity(const fvMesh& mesh, volVectorField& U, word pName)
 
 开发库 Make/files 内容为
 
-```cpp {fileName="calculateVelocityPressure/Make/files"}
+```wmake {fileName="calculateVelocityPressure/Make/files"}
 calculateVelocityPressure.C
 
 LIB = $(FOAM_USER_LIBBIN)/libcalculateVelocityPressure
@@ -732,7 +732,7 @@ LIB = $(FOAM_USER_LIBBIN)/libcalculateVelocityPressure
 
 开发库 Make/options 内容为
 
-```cpp {fileName="calculateVelocityPressure/Make/options"}
+```wmake {fileName="calculateVelocityPressure/Make/options"}
 EXE_INC = \
     -I$(LIB_SRC)/finiteVolume/lnInclude \
     -I$(LIB_SRC)/meshTools/lnInclude
@@ -837,7 +837,7 @@ int main(int argc, char *argv[])
 
 项目 Make/files 内容为
 
-```cpp {fileName="Make/files"}
+```wmake {fileName="Make/files"}
 ofsp_18_fieldCal.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_18_fieldCal
@@ -846,7 +846,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_18_fieldCal
 
 项目 Make/options 内容为
 
-```cpp {fileName="Make/options"}
+```wmake {fileName="Make/options"}
 EXE_INC = \
     -I$(LIB_SRC)/finiteVolume/lnInclude \
     -I$(LIB_SRC)/meshTools/lnInclude \

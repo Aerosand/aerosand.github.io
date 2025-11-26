@@ -2,7 +2,7 @@
 uid: 20250827141152
 title: 05_vector
 date: 2025-08-27
-update: 2025-11-25
+update: 2025-11-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -796,7 +796,7 @@ double Aerosand::GetLocalTime() const {
 
 库 `Make/files` 为
 
-```makefile {fileName="/Aerosand/Make/files"}
+```wmake {fileName="/Aerosand/Make/files"}
 Aerosand.C
 
 LIB = $(FOAM_USER_LIBBIN)/libAerosand
@@ -864,7 +864,7 @@ int main()
 
 项目 `Make/files` 为
 
-```makefile {fileName="/Make/files"}
+```wmake {fileName="/Make/files"}
 ofsp_05_vector.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_05_vector
@@ -898,7 +898,7 @@ $FOAM_SRC/OpenFOAM
 
 项目 `Make/options` 为
 
-```makefile {fileName="/Make/options"}
+```wmake {fileName="/Make/options"}
 EXE_INC = \
     -IAerosand/lnInclude
 
