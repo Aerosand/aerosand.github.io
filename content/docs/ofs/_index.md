@@ -16,9 +16,9 @@ update: 2025-09-02
   {{< card link="./ofst/" title="ofst - tutorial" tag="#to-update" tagColor="red">}}
 {{< /cards >}}
 
-## Year 2025
+## Year 2024
 
 {{< cards  >}}
-  {{< card link="./ofsp2024/" title="ofsp2024" tag="#done" tagColor="yellow">}}
+  {{< card link="../past/ofsp2024/" title="ofsp2024" tag="#done" tagColor="yellow">}}
 {{< /cards >}}
 
