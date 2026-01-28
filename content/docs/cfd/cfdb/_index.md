@@ -11,7 +11,7 @@ update: 2025-10-20
 
 
 {{< cards >}}
-  {{< card link="./00_intro-cfdb" title="00_intro-cfdb" tag="start here" tagColor="red" >}}
+  {{< card link="./00_intro-cfdb" title="00_intro-cfdb" tag="start here" tagColor="green" >}}
   {{< card link="./01_basic-concept" title="01_basicConcept" >}}
   {{< card link="./02_mass-conservation" title="02_massConservation" >}}
   {{< card link="./03_momentum-conservation" title="03_momentumConservation" >}}

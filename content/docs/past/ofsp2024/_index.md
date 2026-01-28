@@ -10,7 +10,7 @@ update: 2025-09-02
 ---
 
 {{< cards >}}
-  {{< card link="./ofsp2024-00" title="ofsp2024-00" tag="start here" tagColor="red" >}}
+  {{< card link="./ofsp2024-00" title="ofsp2024-00" tag="start here" tagColor="green" >}}
   {{< card link="./ofsp2024-01" title="ofsp2024-01" >}}
   {{< card link="./ofsp2024-02" title="ofsp2024-02" >}}
   {{< card link="./ofsp2024-03" title="ofsp2024-03" >}}
