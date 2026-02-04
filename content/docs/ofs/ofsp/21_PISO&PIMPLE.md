@@ -1,6 +1,6 @@
 ---
 uid: 20260126161556
-title: "21"
+title: "PISO&PIMPLE"
 date: 2026-01-26
 update: 2026-02-04
 authors:
