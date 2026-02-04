@@ -40,3 +40,11 @@ update: 2025-09-02
   {{< card link="./18_fieldcal" title="18_fieldCal" >}}
   {{< card link="./19_firstsol" title="19_firstSol" >}}
 {{< /cards >}}
+
+
+## 第三阶段
+
+{{< cards >}}
+  {{< card link="./20_SIMPLE" title="20_SIMPLE" tag="start here" tagColor="green" >}}
+  {{< card link="./21_PISO&PIMPLE" title="21_PISO&PIMPLE" >}}
+{{< /cards >}}
