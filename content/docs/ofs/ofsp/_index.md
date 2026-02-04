@@ -14,7 +14,9 @@ update: 2025-09-02
 ## 第一阶段
 
 - 编译原理
-- OpenFOAM应用
+- 基础类
+- 开发库
+- OpenFOAM 应用
 
 {{< cards >}}
   {{< card link="./00_ofspintro" title="00_ofspIntro" tag="start here" tagColor="green" >}}
@@ -30,8 +32,8 @@ update: 2025-09-02
 ## 第二阶段
 
 - 数据交互
-- 基础类
-- 求解器结构
+- 时间 & 网格 & 场
+- OpenFOAM 求解器
 
 {{< cards >}}
   {{< card link="./08_io" title="08_io" tag="start here" tagColor="green" >}}
@@ -52,7 +54,7 @@ update: 2025-09-02
 ## 第三阶段
 
 - 基础算法 SIMPLE & PISO & PIMPLE
-- 基础求解器
+- OpenFOAM 求解器
 
 {{< cards >}}
   {{< card link="./20_SIMPLE" title="20_SIMPLE" tag="start here" tagColor="green" >}}
