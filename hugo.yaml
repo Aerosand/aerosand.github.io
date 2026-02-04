@@ -230,6 +230,6 @@ params:
   
   analytics:
     umami:
-      serverURL: "https://aerosand.cc"
+      serverURL: "https://cloud.umami.is/script.js"
       websiteID: "146b7306-3b3c-40ba-b117-57ff6bc52139"
 

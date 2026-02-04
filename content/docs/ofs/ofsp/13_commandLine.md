@@ -2,7 +2,7 @@
 uid: 20251104124420
 title: 13_commandLine
 date: 2025-11-04
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -121,7 +121,7 @@ Github 仓库文件链接如下 https://github.com/OpenFOAM/OpenFOAM-2.0.x/blob/
 
 代码如下
 
-```cpp {fileName="setRootCase.H"}
+```cpp {fileName="setRootCase.H",linenos=table,linenostart=1}
 //
 // setRootCase.H
 // ~~~~~~~~~~~~~
@@ -135,7 +135,7 @@ Github 仓库文件链接如下 https://github.com/OpenFOAM/OpenFOAM-2.0.x/blob/
 
 现代版本的代码具体如下
 
-```cpp {fileName="setRootCase.H"}
+```cpp {fileName="setRootCase.H",linenos=table,linenostart=1}
 // Construct from (int argc, char* argv[]),
 // - use argList::argsMandatory() to decide on checking command arguments.
 // - check validity of the options
@@ -181,7 +181,7 @@ find $FOAM_SRC -iname argList.H
 
 打开该类的声明 `argList.H`，内容如下
 
-```cpp {fileName="argList.H"}
+```cpp {fileName="argList.H",linenos=table,linenostart=1}
 ...
 class argList
 {
@@ -206,7 +206,7 @@ public:
 
 关于成员函数 `checkRootCase()`的实现，需要去看同目录下的类的定义，即 `argList.C` 文件，摘取部分内容如下
 
-```cpp {fileName="argList.C"}
+```cpp {fileName="argList.C",linenos=table,linenostart=1}
 ...
 bool Foam::argList::checkRootCase() const // 函数返回布尔类型
 {
@@ -257,7 +257,7 @@ bool Foam::argList::checkRootCase() const // 函数返回布尔类型
 
 在主函数上修改
 
-```cpp {fileName="ofsp_13_commandLine/ofsp_13_commandLine.C"}
+```cpp {fileName="ofsp_13_commandLine/ofsp_13_commandLine.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -325,7 +325,7 @@ Arch:  LSB;label=32;scalar=64
 
 在主函数上修改
 
-```cpp {fileName="ofsp_13_commandLine/ofsp_13_commandLine.C"}
+```cpp {fileName="ofsp_13_commandLine/ofsp_13_commandLine.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -403,7 +403,7 @@ End
 
 在主函数上修改
 
-```cpp {fileName="ofsp_13_commandLine/ofsp_13_commandLine.C"}
+```cpp {fileName="ofsp_13_commandLine/ofsp_13_commandLine.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -532,7 +532,7 @@ int main(int argc, char *argv[])
 
 自定义字典如下
 
-```cpp {fileName="/debug_case/constant/myDict"}
+```cpp {fileName="/debug_case/constant/myDict",linenos=table,linenostart=1}
 FoamFile
 {
     version     2.0;

@@ -2,7 +2,7 @@
 uid: 20251117135613
 title: 17_field
 date: 2025-11-17
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -57,7 +57,7 @@ code .
 
 再次摘阅如下
 
-```cpp {fileName="dimensionSets.C"}
+```cpp {fileName="dimensionSets.C",linenos=table,linenostart=1}
 const dimensionSet dimless;
 
 const dimensionSet dimMass(1, 0, 0, 0, 0, 0, 0);
@@ -110,7 +110,7 @@ find $FOAM_SRC -iname dimensionedType.H
 
 找到并摘取其中的构造函数如下
 
-```cpp {fileName="dimensionedType.H"}
+```cpp {fileName="dimensionedType.H",linenos=table,linenostart=1}
 template<class Type>
 class dimensioned
 {
@@ -134,7 +134,7 @@ public:
 
 相应的，在 OpenFOAM 代码中可以看到如下类似的构造
 
-```cpp
+```cpp {linenos=table,linenostart=1}
 dimensionedScalar airPressure
 (
 	"airPressure",
@@ -146,7 +146,7 @@ dimensionedScalar airPressure
 
 在 dimensionedType.H 中也定义了配套的成员函数，比如
 
-```cpp {fileName="dimensionedType.H"}
+```cpp {fileName="dimensionedType.H",linenos=table,linenostart=1}
 ...
 	//- Return const reference to value.
 	const Type& value() const noexcept { return value_; }
@@ -170,7 +170,7 @@ maxP = max(airPressure.value());
 
 我们会注意到 OpenFOAM 中有典型的语句如下
 
-```cpp
+```cpp {linenos=table,linenostart=1}
 ...
     Info<< "Reading fieldp\\n" << endl;
     volScalarField p
@@ -253,7 +253,7 @@ find $FOAM_SRC -iname GeometricField.H
 
 摘取类的主要结构和几个常用构造函数如下
 
-```cpp {fileName="GeometricField.H"}
+```cpp {fileName="GeometricField.H",linenos=table,linenostart=1}
 ...
 template<class Type, template<class> class PatchField, class GeoMesh>
 class GeometricField
@@ -300,7 +300,7 @@ public:
 
 上述构造函数，对应实际的场的构造，分别举例如下
 
-```cpp
+```cpp {linenos=table,linenostart=1}
 ...
 	Info<< "Creating field light pressure\\n" << endl;
 	volScalarField lightP
@@ -361,7 +361,7 @@ public:
 
 主源码 ofsp_17_field.C 内容如下
 
-```cpp {fileName="ofsp_17_field/ofsp_17_field.C"}
+```cpp {fileName="ofsp_17_field/ofsp_17_field.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -434,7 +434,7 @@ int main(int argc, char *argv[])
 
 脚本 caserun 修改为
 
-```bash {fileName="caserun"}
+```bash {fileName="caserun",linenos=table,linenostart=1}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -484,7 +484,7 @@ $appName | tee log.run
 
 脚本 caseclean 修改为
 
-```bash {fileName="caseclean"}
+```bash {fileName="caseclean",linenos=table,linenostart=1}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -540,7 +540,7 @@ End
 
 主源码修改如下
 
-```cpp {fileName="ofsp_17_filed/ofsp_17_field.C"}
+```cpp {fileName="ofsp_17_filed/ofsp_17_field.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -659,7 +659,7 @@ debug_case/
 
 主源码修改为
 
-```cpp {fileName="ofsp_17_field/ofsp_17_field.C"}
+```cpp {fileName="ofsp_17_field/ofsp_17_field.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -736,7 +736,7 @@ End
 
 字典 controlDict 的部分参数如下（每 `0.005*20 = 0.1` 写入一次）
 
-```cpp {fileName="debug_case/system/controlDict"}
+```cpp {fileName="debug_case/system/controlDict",linenos=table,linenostart=1}
 ...
 endTime         0.5;
 

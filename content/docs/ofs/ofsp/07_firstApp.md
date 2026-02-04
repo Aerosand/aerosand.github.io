@@ -2,7 +2,7 @@
 uid: 20250901123439
 title: 07_firstApp
 date: 2025-09-01
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -102,7 +102,7 @@ code caserun caseclean
 
 脚本 caserun 主要是负责应用编译成功后，测试算例的运行，可以写入如下内容
 
-```bash {fileName="/caserun"}
+```bash {fileName="/caserun",linenos=table,linenostart=1}
 #!/bin/bash
 # 首行告诉系统使用bash解释器执行脚本
 
@@ -117,7 +117,7 @@ ofsp_07_firstApp -case debug_case | tee debug_case/log.run
 
 脚本 caseclean 主要是负责清理应用到到编译前状态，如果应用要修改，那么测试算例也要还原到运行前的状态，可以写入如下内容
 
-```bash {fileName="/caseclean"}
+```bash {fileName="/caseclean",linenos=table,linenostart=1}
 #!/bin/bash
 
 # 删除测试算例中所有的日志文件
@@ -359,7 +359,7 @@ End
 
 代码 `ofsp_07_firstApp.C` 为
 
-```cpp {fileName="/ofsp_07_firstApp.C"}
+```cpp {fileName="/ofsp_07_firstApp.C",linenos=table,linenostart=1}
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -434,7 +434,7 @@ int main(int argc, char *argv[])
 
 代码 `ofsp_07_firstApp.C` 修改为
 
-```cpp {fileName="/ofsp_07_firstApp.C"}
+```cpp {fileName="/ofsp_07_firstApp.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 #include "class1.H" // 调用我们想要的开发库头文件名称

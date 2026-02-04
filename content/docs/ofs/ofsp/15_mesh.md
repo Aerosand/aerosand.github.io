@@ -2,7 +2,7 @@
 uid: 20251112184331
 title: 15_mesh
 date: 2025-11-12
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -70,7 +70,7 @@ find $FOAM_SRC -iname primitiveMesh.H
 
 我们大概挑几处代码作为切入点简单了解一下 primitiveMesh 类。
 
-```cpp {fileName="primitiveMesh.H"}
+```cpp {fileName="primitiveMesh.H",linenos=table,linenostart=1}
 class primitiveMesh
 {
 ...
@@ -115,7 +115,7 @@ find $FOAM_SRC -iname polyMesh.H
 
 我们大概挑几处代码作为切入点简单了解一下 polyMesh 类。
 
-```cpp {fileName="polyMesh.H"}
+```cpp {fileName="polyMesh.H",linenos=table,linenostart=1}
 ...
 class polyMesh
 :
@@ -153,7 +153,7 @@ find $FOAM_SRC -iname IOobject.H
 
 大概挑几处代码作为切入点简单了解一下 IOobject 类。
 
-```cpp {fileName="IOobject.H"}
+```cpp {fileName="IOobject.H",linenos=table,linenostart=1}
 ...
 class IOobject
 :
@@ -186,7 +186,7 @@ public:
 
 修改主源码如下
 
-```cpp {fileName="ofsp_15_mesh/ofsp_15_mesh.C"}
+```cpp {fileName="ofsp_15_mesh/ofsp_15_mesh.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -264,7 +264,7 @@ find $FOAM_SRC -iname fvMesh.H
 
 大概挑几处代码作为切入点简单了解一下 fvMesh 类。
 
-```cpp {fileName="fvMesh.H"}
+```cpp {fileName="fvMesh.H",linenos=table,linenostart=1}
 ...
 class fvMesh
 :
@@ -293,7 +293,7 @@ public:
 
 主源码修改为
 
-```cpp {fileName="ofsp_15_mesh/ofsp_15_mesh.C"}
+```cpp {fileName="ofsp_15_mesh/ofsp_15_mesh.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -367,7 +367,7 @@ Github 仓库文件链接如下 https://github.com/OpenFOAM/OpenFOAM-2.0.x/blob/
 
 代码内容如下
 
-```cpp {fileName="createMesh.H"}
+```cpp {fileName="createMesh.H",linenos=table,linenostart=1}
 //
 // createMesh.H
 // ~~~~~~~~~~~~
@@ -392,7 +392,7 @@ Github 仓库文件链接如下 https://github.com/OpenFOAM/OpenFOAM-2.0.x/blob/
 
 现代版本的代码如下
 
-```cpp {fileName="createMesh.H"}
+```cpp {fileName="createMesh.H",linenos=table,linenostart=1}
 Foam::autoPtr<Foam::fvMesh> meshPtr(nullptr);
 // 创建自动指针，用来管理 fvMesh
 
@@ -479,7 +479,7 @@ Foam::fvMesh& mesh = meshPtr();
 
 主源码修改如下
 
-```cpp {fileName="ofsp_15_mesh/ofsp_15_mesh.C"}
+```cpp {fileName="ofsp_15_mesh/ofsp_15_mesh.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 #include "IOmanip.H" // 输出格式控制
@@ -587,7 +587,7 @@ int main(int argc, char *argv[])
 
 为了方便结果显示，修改调试算例 debug_case/system/blockMeshDict 中设置的网格划分数量
 
-```cpp {fileName="debug_case/system/blockMeshDict"}
+```cpp {fileName="debug_case/system/blockMeshDict",linenos=table,linenostart=1}
 ...
 blocks
 (
@@ -678,7 +678,7 @@ End
 
 主源码修改为
 
-```cpp {fileName="ofsp_15_mesh/ofsp_15_mesh.C"}
+```cpp {fileName="ofsp_15_mesh/ofsp_15_mesh.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

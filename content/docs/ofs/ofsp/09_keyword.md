@@ -2,7 +2,7 @@
 uid: 20250916165944
 title: 09_keyword
 date: 2025-09-16
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -49,7 +49,7 @@ draft: false
 
 在 `laplacianFoam/createFields.H` 文件中可以看到以下语句
 
-```cpp {fileName="laplacianFoam/createFields.H"}
+```cpp {fileName="laplacianFoam/createFields.H",linenos=table,linenostart=1}
 ....
 
     Info<< "Reading transportProperties\n" << endl;
@@ -139,7 +139,7 @@ double viscosity = ofspProperties.lookup("nu"); // 类的实体可以使用方�
 
 类的声明 `IOdictionary.H` 内容如下
 
-```cpp {fileName="/IOdictionary/IOdictionary.H"}
+```cpp {fileName="/IOdictionary/IOdictionary.H",linenos=table,linenostart=1}
 #pragma once
 
 #include <iostream>
@@ -182,7 +182,7 @@ public:
 
 类的定义 `IOdictionary.C` 内容如下
 
-```cpp {fileName="/IOdictionary/IOdictionary.C"}
+```cpp {fileName="/IOdictionary/IOdictionary.C",linenos=table,linenostart=1}
 #include "IOdictionary.H"
 
 // Constructor
@@ -261,7 +261,7 @@ wmake IOdictionary
 
 主源码 `ofsp_09_keyword.C` 内容如下
 
-```cpp {fileName="/ofsp_09_keyword.C"}
+```cpp {fileName="/ofsp_09_keyword.C",linenos=table,linenostart=1}
 #include <iostream>
 #include <fstream>
 

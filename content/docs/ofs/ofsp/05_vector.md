@@ -2,7 +2,7 @@
 uid: 20250827141152
 title: 05_vector
 date: 2025-08-27
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -81,7 +81,7 @@ typedef Vector<label> labelVector;
 
 进入 `Vector/floats` 文件夹，查看 `Vector/floats/vector.H` 代码
 
-```cpp {fileName="Vector/floats/vector.H"}
+```cpp {fileName="Vector/floats/vector.H",linenos=table,linenostart=1}
 ...
 //! \class Foam::floatVector
 //! \brief A Vector of values with float precision
@@ -115,7 +115,7 @@ API 页面 https://api.openfoam.com/2506/Vector_8H_source.html
 >[!tip]
 >API 的代码页可以点击跳转到不同的头文件、类、函数等。
 
-```cpp {fileName="Vector/Vector.H"}
+```cpp {fileName="Vector/Vector.H",linenos=table,linenostart=1}
 #ifndef Foam_Vector_H
 #define Foam_Vector_H
 // 预处理指令，防止头文件被重复包含
@@ -378,7 +378,7 @@ API 页面 https://api.openfoam.com/2506/VectorI_8H_source.html
 
 查阅 `Vector/VectorI.H` 代码
 
-```cpp {fileName="Vector/VectorI.H"}
+```cpp {fileName="Vector/VectorI.H",linenos=table,linenostart=1}
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
  
  template<class Cmpt>
@@ -761,7 +761,7 @@ tree
 
 代码 `Aerosand.H` 为
 
-```cpp {fileName="/Aerosand/Aerosand.H"}
+```cpp {fileName="/Aerosand/Aerosand.H",linenos=table,linenostart=1}
 #pragma once
 
 class Aerosand
@@ -779,7 +779,7 @@ private:
 
 代码 `Aerosand.C` 为
 
-```cpp {fileName="/Aerosand/Aerosand.C"}
+```cpp {fileName="/Aerosand/Aerosand.C",linenos=table,linenostart=1}
 #include "Aerosand.H"
 
 void Aerosand::SetLocalTime(double t) {
@@ -796,7 +796,7 @@ double Aerosand::GetLocalTime() const {
 
 库 `Make/files` 为
 
-```wmake {fileName="/Aerosand/Make/files"}
+```wmake {fileName="/Aerosand/Make/files",linenos=table,linenostart=1}
 Aerosand.C
 
 LIB = $(FOAM_USER_LIBBIN)/libAerosand
@@ -820,7 +820,7 @@ wmake Aerosand
 
 代码 `ofsp_05_vector.C` 为
 
-```cpp {fileName="/ofsp_05_vector.C"}
+```cpp {fileName="/ofsp_05_vector.C",linenos=table,linenostart=1}
 #include <iostream>
 
 #include "Aerosand.H"
@@ -864,7 +864,7 @@ int main()
 
 项目 `Make/files` 为
 
-```wmake {fileName="/Make/files"}
+```wmake {fileName="/Make/files",linenos=table,linenostart=1}
 ofsp_05_vector.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_05_vector
@@ -898,7 +898,7 @@ $FOAM_SRC/OpenFOAM
 
 项目 `Make/options` 为
 
-```wmake {fileName="/Make/options"}
+```wmake {fileName="/Make/options",linenos=table,linenostart=1}
 EXE_INC = \
     -IAerosand/lnInclude
 

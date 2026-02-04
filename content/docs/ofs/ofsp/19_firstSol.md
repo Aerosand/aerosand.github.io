@@ -2,7 +2,7 @@
 uid: 20251125190436
 title: 19_firstSol
 date: 2025-11-25
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -33,11 +33,11 @@ draft: false
 
 $$\frac{\partial}{\partial t}(\rho \phi) + \nabla \cdot (\rho U\phi) = \nabla\cdot(\Gamma\nabla\phi) + S_{\phi}$$
 
-为了避免未知量和 OpenFOAM 中常见的通量 phi 误会，我们使用 A 表示待求物理场。
+我们使用 $\phi$ 表示待求物理场，注意不要和 OpenFOAM 中常见的通量 phi 误会。
 
 为了简单起见，我们考虑如下控制方程
 
-$$\frac{\partial}{\partial t}A + \nabla\cdot(UA) - \nabla\cdot(\Gamma\nabla A)=0$$
+$$\frac{\partial}{\partial t}\phi + \nabla\cdot(U\phi) - \nabla\cdot(\gamma\nabla \phi)=0$$
 
 可见，这是一个瞬态不可压无源输运问题。
 
@@ -67,7 +67,7 @@ code .
 为了进一步方便测试算例，我们将脚本分成四个部分
 
 - 前处理 casepre
-	- 备份恢复初始条件
+	- 备份和恢复初始条件
 	- 划分网格（可选）
 	- 设置区域（可选）
 	- 等等
@@ -77,14 +77,15 @@ code .
 	- 计算结果后处理（可选）
 	- 计算结果可视化
 - 计算清理 caseclean
-	- 清理测试算例，并还原到初始状态
+	- 清理测试算例
+	- 还原算例到初始状态
 
 > [!note]
 > 后续脚本非特别说明，暂时直接拷贝此版本即可。
 
 前处理 casepre 如下
 
-```bash {fileName="casepre"}
+```bash {fileName="casepre",linenos=table,linenostart=1}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -117,7 +118,7 @@ echo "\n>>>>>>>>>>>>> Mesh done.\n"
 
 计算处理 caserun 如下
 
-```bash {fileName="caserun"}
+```bash {fileName="caserun",linenos=table,linenostart=1}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -143,7 +144,7 @@ $appName | tee log.run
 
 后处理 casepost 如下
 
-```bash {fileName="casepost"}
+```bash {fileName="casepost",linenos=table,linenostart=1}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -156,7 +157,7 @@ paraFoam
 
 计算清理 caseclean 如下
 
-```bash {fileName="caseclean"}
+```bash {fileName="caseclean",linenos=table,linenostart=1}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -178,7 +179,7 @@ echo "\n>>>>>>>>>>>>> Cleaning done.\n"
 
 场的接入 createFields.H 如下
 
-```cpp {fileName="createFields.H"}
+```cpp {fileName="createFields.H",linenos=table,linenostart=1}
 Info<< "Reading transportProperties\n" << endl;
 IOdictionary transportProperties
 (
@@ -196,7 +197,7 @@ Info<< "Reading diffusivity\n" << endl;
 dimensionedScalar gamma("gamma",dimViscosity,transportProperties);
 
 
-Info<< "Reading field A\n" << endl;
+Info<< "Reading field A\n" << endl; // 引入待求的物理场量，比如 A
 volScalarField A
 (
     IOobject
@@ -234,7 +235,7 @@ volVectorField U
 
 主源码 ofsp_19_firstSol.C 如下
 
-```cpp {fileName="ofsp_19_firstSol.C"}
+```cpp {fileName="ofsp_19_firstSol.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -258,7 +259,7 @@ int main(int argc, char *argv[])
         - fvm::laplacian(gamma,A)
     );
 
-    A.write(); // 写出计算值 场A
+    A.write(); // 写出计算后的物理场量A
 
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -276,7 +277,7 @@ int main(int argc, char *argv[])
 
 可以看到数学方程和编程语言的对应，即
 
-$$\frac{\partial}{\partial t}A + \nabla\cdot(UA) - \nabla\cdot(\Gamma\nabla A)=0$$
+$$\frac{\partial}{\partial t}A + \nabla\cdot(UA) - \nabla\cdot(\gamma\nabla A)=0$$
 
 对应于
 
@@ -302,7 +303,7 @@ find $FOAM_SRC -iname fvmddt.c
 
 为了帮助理解，从代码声明 fvmDdt.C 中摘取几处代码简单讨论如下（不建议继续深究代码，代码挖的太深无益于主要学习的推进）
 
-```cpp {fileName="$FOAM_SRC//finiteVolume/finiteVolume/fvm/fvmDdt.C"}
+```cpp {fileName="$FOAM_SRC//finiteVolume/finiteVolume/fvm/fvmDdt.C",linenos=table,linenostart=1}
 namespace Foam // 属于命名空间 Foam
 {
 
@@ -346,7 +347,7 @@ find $FOAM_SRC -iname fvmdiv.C
 
 为了帮助理解，从代码声明 fvmDiv.C 中摘取几处代码简单讨论如下（不建议继续深究代码，代码挖的太深无益于主要学习的推进）
 
-```cpp {fileName="$FOAM_SRC/finiteVolume/finiteVolume/fvm/fvmDiv.C"}
+```cpp {fileName="$FOAM_SRC/finiteVolume/finiteVolume/fvm/fvmDiv.C",linenos=table,linenostart=1}
 ...
 
 // 对应 fvm::div(phi,A)
@@ -380,7 +381,7 @@ find $FOAM_SRC -iname fvlaplacian.C
 
 同样的，摘取部分代码如下
 
-```cpp {fileName="$FOAM_SRC/finiteVolume/finiteVolume/fvm/fvmLaplacian.C"}
+```cpp {fileName="$FOAM_SRC/finiteVolume/finiteVolume/fvm/fvmLaplacian.C",linenos=table,linenostart=1}
 ...
 
 // 对应 fvm::laplacian(gamma,A)
@@ -446,7 +447,7 @@ $$
 
 为项目提供初始场A，如下
 
-```cpp {fileName="debug_case/0.org/A"}
+```cpp {fileName="debug_case/0.org/A",linenos=table,linenostart=1}
 FoamFile
 {
     version     2.0;
@@ -496,7 +497,7 @@ gamma           1.0;
 
 为数值计算项指定离散格式，检查保证有以下指定
 
-```cpp {fileName="debug_case/system/fvSchemes"}
+```cpp {fileName="debug_case/system/fvSchemes",linenos=table,linenostart=1}
 ...
 
 ddtSchemes
@@ -528,7 +529,7 @@ laplacianSchemes
 
 为线性代数系统指定代数求解器，检查保证有以下指定
 
-```cpp {fileName="debug_case/system/fvSolution"}
+```cpp {fileName="debug_case/system/fvSolution",linenos=table,linenostart=1}
 ...
 solvers
 {
@@ -568,13 +569,13 @@ wmake
 
 在一个与 cavity 算例相同的方形容器中，对于速度场来说，上边界有速度 $U_{x}=1m/s$ ，其他边界为固定边界（无法向速度交换）。对于某种无单位的A场来说，内计算域为500，上边界为100，其他边界为0。考虑以下数学物理方程描述的瞬态不可压无源输运问题。
 
-$$\frac{\partial}{\partial t}A + \nabla\cdot(UA) - \nabla\cdot(\Gamma\nabla A)=0$$
+$$\frac{\partial}{\partial t}A + \nabla\cdot(UA) - \nabla\cdot(\gamma\nabla A)=0$$
 
 ### 6.2. 求解器
 
 求解器主源码如下
 
-```cpp {fileName="ofsp_19_firstSol.C"}
+```cpp {fileName="ofsp_19_firstSol.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -620,9 +621,11 @@ int main(int argc, char *argv[])
 
 ### 6.3. 测试算例
 
-我们继续使用前面的测试算例的字典文件（包括网格）。不过为了能够在可视化的计算结果中看到明显变化，需要调整控制计算的字典
+我们继续使用前面的测试算例的文件（包括初始条件、边界条件、网格字典、输运属性）。
 
-```cpp {fileName="debug_case/system/controlDict"}
+不过为了能够在可视化的计算结果中看到明显变化，需要调整控制计算的字典
+
+```cpp {fileName="debug_case/system/controlDict",linenos=table,linenostart=1}
 ...
 
 endTime         0.01;
@@ -652,7 +655,7 @@ wmake
 
 一些读者可能注意到，我们留下了很多的问题。比如，
 
-- 为什么在散度计算中，使用的是 phi 而不是公式中的 U 呢？
+- 为什么在散度计算中，使用的是通量 phi 而不是公式中的 U 呢？
 
 简单来说，如果我们学习过有限体积法，可以理解在 FVM 中，真正守恒的是通量，这也是 FVM 的核心和优势。
 

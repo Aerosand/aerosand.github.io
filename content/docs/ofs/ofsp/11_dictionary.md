@@ -2,7 +2,7 @@
 uid: 20250916203141
 title: 11_dictionary
 date: 2025-09-16
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -122,7 +122,7 @@ End
 
 脚本 `caserun` 主要是负责应用编译成功后，调试算例的运行，暂时写入如下内容
 
-```bash {fileName="/caserun"}
+```bash {fileName="/caserun",linenos=table,linenostart=1}
 #!/bin/bash
 
 blockMesh -case debug_case | tee debug_case/log.mesh
@@ -133,7 +133,7 @@ ofsp_11_dictionary -case debug_case | tee debug_case/log.run
 
 脚本 `caseclean` 主要是负责清理应用到到编译前状态，如果应用要修改，那么测试算例也要还原到运行前的状态，所以暂时写入如下内容
 
-```bash {fileName="/caseclean"}
+```bash {fileName="/caseclean",linenos=table,linenostart=1}
 #!/bin/bash
 
 rm -rf debug_case/log.*
@@ -180,7 +180,7 @@ chmod +x caserun caseclean
 
 主源码 `ofsp_11_dictionary.C` 内容如下
 
-```cpp {fileName="/ofsp_11_dictionary.C"}
+```cpp {fileName="/ofsp_11_dictionary.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -311,7 +311,7 @@ int main(int argc, char *argv[])
 
 提供字典文件 `debug_case/constant/customProperties`，该字典没有读取写入操作，所以只需要写上正确的文件头，内容留空处理。
 
-```cpp {fileName="/debug_case/constant/customProperties"}
+```cpp {fileName="/debug_case/constant/customProperties",linenos=table,linenostart=1}
 FoamFile
 {
     version     2.0;
@@ -327,7 +327,7 @@ FoamFile
 
 字典文件 `debug_case/constant/myProperties` ，内容如下
 
-```cpp {fileName="/debug_case/constant/myProperties"}
+```cpp {fileName="/debug_case/constant/myProperties",linenos=table,linenostart=1}
 FoamFile
 {
     version     2.0;
@@ -420,7 +420,7 @@ End
 
 另外算例文件夹下有了一个新建文件夹 `debug_case/processing/`，路径下的 `myOutPut.dat` 内容如下
 
-```cpp {fileName="/debug_case/processing/myOutPut.dat"}
+```cpp {fileName="/debug_case/processing/myOutPut.dat",linenos=table,linenostart=1}
 processing/myOutPut.dat
 0 1 2 3 ...
 

@@ -2,7 +2,7 @@
 uid: 20250827192135
 title: 06_tensor
 date: 2025-08-27
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -135,7 +135,7 @@ tree
 
 代码 `class1.H` 为
 
-```cpp {fileName="/Aerosand/class1/class1.H"}
+```cpp {fileName="/Aerosand/class1/class1.H",linenos=table,linenostart=1}
 #pragma once
 
 class class1
@@ -152,7 +152,7 @@ public:
 
 代码 `class1.C` 为
 
-```cpp {fileName="/Aerosand/class1/class1.C"}
+```cpp {fileName="/Aerosand/class1/class1.C",linenos=table,linenostart=1}
 #include "class1.H"
 
 void class1::SetLocalTime(double t) {
@@ -171,7 +171,7 @@ double class1::GetLocalTime() const {
 
 代码 `class2.H` 为
 
-```cpp {fileName="/Aerosand/class2/class2.H"}
+```cpp {fileName="/Aerosand/class2/class2.H",linenos=table,linenostart=1}
 #pragma once
 
 #include "vector.H"
@@ -195,7 +195,7 @@ public:
 
 代码 `class2.C` 为
 
-```cpp {fileName="/Aerosand/class2/class2.C"}
+```cpp {fileName="/Aerosand/class2/class2.C",linenos=table,linenostart=1}
 #include "class2.H"
 
 namespace Foam
@@ -219,7 +219,7 @@ Foam::scalar class2::sum() const
 
 代码 `class3.H` 为
 
-```cpp {fileName="/Aerosand/class3/class3.H"}
+```cpp {fileName="/Aerosand/class3/class3.H",linenos=table,linenostart=1}
 #pragma once
 
 class class3
@@ -232,7 +232,7 @@ public:
 
 代码 `class3.C` 为
 
-```cpp {fileName="/Aerosand/class3/class3.C"}
+```cpp {fileName="/Aerosand/class3/class3.C",linenos=table,linenostart=1}
 #include "class3.H"
 
 #include <iostream>
@@ -248,7 +248,7 @@ void class3::class3Info() const
 
 库 `Make/files` 为
 
-```wmake {fileName="/Aerosand/Make/files"}
+```wmake {fileName="/Aerosand/Make/files",linenos=table,linenostart=1}
 class1/class1.C
 class2/class2.C
 class3/class3.C
@@ -274,7 +274,7 @@ wmake Aerosand
 
 代码 `ofsp_06_tensor.C` 为
 
-```cpp {fileName="/ofsp_06_tesnsor.C"}
+```cpp {fileName="/ofsp_06_tesnsor.C",linenos=table,linenostart=1}
 #include "tensor.H"
 #include "dimensionedTensor.H"
 #include "tensorField.H"
@@ -374,7 +374,7 @@ int main()
 
 项目 `Make/files` 为
 
-```wmake {fileName="/Make/files"}
+```wmake {fileName="/Make/files",linenos=table,linenostart=1}
 ofsp_06_tensor.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_06_tensor
@@ -384,7 +384,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_06_tensor
 
 项目 `Make/options` 为
 
-```wmake {fileName="/Make/options"}
+```wmake {fileName="/Make/options",linenos=table,linenostart=1}
 EXE_INC = \
     -IAerosand/lnInclude
 

@@ -2,7 +2,7 @@
 uid: 20251112144059
 title: 14_time
 date: 2025-11-12
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -73,7 +73,7 @@ code caserun caseclean
 
 脚本 caserun 负责应用编译成功之后，调试算例的运行，内容如下
 
-```bash {fileName="caserun"}
+```bash {fileName="caserun",linenos=table,linenostart=1}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -95,7 +95,7 @@ $appName -case debug_case | tee debug_case/log.run
 
 脚本 caseclean 负责清理调试算例，还原到初始状态，内容如下
 
-```bash {fileName="caseclean"}
+```bash {fileName="caseclean",linenos=table,linenostart=1}
 #!/bin/sh
 cd "${0%/*}" || exit 1                              # Run from this directory
 #------------------------------------------------------------------------------
@@ -136,7 +136,7 @@ find $FOAM_SRC -iname createTime.H
 
 代码具体为
 
-```cpp {fileName="createTime.H"}
+```cpp {fileName="createTime.H",linenos=table,linenostart=1}
 Foam::Info<< "Create time\n" << Foam::endl;
 // 普通的输出语句
 
@@ -161,7 +161,7 @@ find $FOAM_SRC -iname Time.H
 
 打开 Time.H ，内容如下
 
-```cpp {fileName="Time.H"}
+```cpp {fileName="Time.H",linenos=table,linenostart=1}
 ...
 class Time
 :
@@ -260,7 +260,7 @@ public:
 
 主函数修改如下
 
-```cpp {fileName="ofsp_14_time/ofsp_14_time.C"}
+```cpp {fileName="ofsp_14_time/ofsp_14_time.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

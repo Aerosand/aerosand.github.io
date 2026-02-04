@@ -2,7 +2,7 @@
 uid: 20250826191442
 title: 04_basicClass
 date: 2025-08-26
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -74,7 +74,7 @@ code /usr/lib/openfoam/openfoam2406/src/OpenFOAM/primitives/bools/Switch/Switch.
 
 无论如何，`Switch.H` 部分代码如下（点击代码块名称可以跳转源码）
 
-```cpp {fileName="Switch.H",base_url="https://api.openfoam.com/2506/Switch_8H_source.html"}
+```cpp {fileName="Switch.H",base_url="https://api.openfoam.com/2506/Switch_8H_source.html",linenos=table,linenostart=1}
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -246,7 +246,7 @@ API 页面 https://api.openfoam.com/2506/dimensionSet_8H.html
 
 通过 API 页面可以看到该类直接或者间接包含的文件。可以在源码定义中提供了很多实用的单位组合。
 
-```cpp {fileName="dimensionSets.C"}
+```cpp {fileName="dimensionSets.C",linenos=table,linenostart=1}
 ...
  const dimensionSet dimless;
  

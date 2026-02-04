@@ -2,7 +2,7 @@
 uid: 20251125114545
 title: 18_fieldCal
 date: 2025-11-25
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -67,7 +67,7 @@ code debug_case/0/T
 
 修改后得到的温度场文件为
 
-```cpp {fileName="debug_case/0/T"}
+```cpp {fileName="debug_case/0/T",linenos=table,linenostart=1}
 FoamFile
 {
     version     2.0;
@@ -109,7 +109,7 @@ boundaryField
 
 主源码修改为
 
-```cpp {fileName="ofsp_18_fieldCal.C"}
+```cpp {fileName="ofsp_18_fieldCal.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -269,6 +269,7 @@ int main(int argc, char *argv[])
             );
         }
 
+		// 假装计算速度场
         U = fvc::grad(p) * dimensionedScalar("tmp",dimTime,1.0); // 求 U 场
         // 额外乘以一个含单位临时量 tmp ，保证两边结果单位相同
 
@@ -406,7 +407,7 @@ tree -L 1
 
 场接入文件 createFields.H 为
 
-```cpp {fielName="createFields.H"}
+```cpp {fielName="createFields.H",linenos=table,linenostart=1}
 Info<< "Reading transportProperties\n" << endl;
     IOdictionary transportProperties
     (
@@ -526,7 +527,7 @@ Info<< "Reading transportProperties\n" << endl;
 
 自定义方法 calculatePressure.H 为
 
-```cpp {fileName="calculatePressure.H"}
+```cpp {fileName="calculatePressure.H",linenos=table,linenostart=1}
 scalar calculatePressure(scalar t, vector x, vector x0, scalar scale)
 {
     scalar r(mag(x - x0) / scale);
@@ -544,7 +545,7 @@ scalar calculatePressure(scalar t, vector x, vector x0, scalar scale)
 
 主源码整理为
 
-```cpp {fileName="ofsp_18_fieldCal.C"}
+```cpp {fileName="ofsp_18_fieldCal.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 #include  "calculatePressure.H"
@@ -663,7 +664,7 @@ foamNewApp calculateVelocityPressure
 
 开发库声明 calculateVelocityPressure.H 为
 
-```cpp {fileName="calculateVelocityPressure.H"}
+```cpp {fileName="calculateVelocityPressure.H",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 scalar computeR(const fvMesh& mesh, volScalarField& r, dimensionedVector x0);
@@ -677,7 +678,7 @@ void computeVelocity(const fvMesh& mesh, volVectorField& U, word pName = "p");
 
 开发库定义 calculateVelocityPressure.C 为
 
-```cpp {fileName="calculateVelocityPressure.C"}
+```cpp {fileName="calculateVelocityPressure.C",linenos=table,linenostart=1}
 #include "calculateVelocityPressure.H"
 
 scalar calculateR(const fvMesh& mesh, volScalarField& r, dimensionedVector x0)
@@ -726,7 +727,7 @@ void calculateVelocity(const fvMesh& mesh, volVectorField& U, word pName)
 
 开发库 Make/files 内容为
 
-```wmake {fileName="calculateVelocityPressure/Make/files"}
+```wmake {fileName="calculateVelocityPressure/Make/files",linenos=table,linenostart=1}
 calculateVelocityPressure.C
 
 LIB = $(FOAM_USER_LIBBIN)/libcalculateVelocityPressure
@@ -735,7 +736,7 @@ LIB = $(FOAM_USER_LIBBIN)/libcalculateVelocityPressure
 
 开发库 Make/options 内容为
 
-```wmake {fileName="calculateVelocityPressure/Make/options"}
+```wmake {fileName="calculateVelocityPressure/Make/options",linenos=table,linenostart=1}
 EXE_INC = \
     -I$(LIB_SRC)/finiteVolume/lnInclude \
     -I$(LIB_SRC)/meshTools/lnInclude
@@ -766,7 +767,7 @@ wmake calculateVelocityPressure
 
 主源码 ofsp_18_fieldCal.C 修改为
 
-```cpp {fileName="ofsp_18_fieldCal.C"}
+```cpp {fileName="ofsp_18_fieldCal.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 #include "calculateVelocityPressure.H"
@@ -840,7 +841,7 @@ int main(int argc, char *argv[])
 
 项目 Make/files 内容为
 
-```wmake {fileName="Make/files"}
+```wmake {fileName="Make/files",linenos=table,linenostart=1}
 ofsp_18_fieldCal.C
 
 EXE = $(FOAM_USER_APPBIN)/ofsp_18_fieldCal
@@ -849,7 +850,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_18_fieldCal
 
 项目 Make/options 内容为
 
-```wmake {fileName="Make/options"}
+```wmake {fileName="Make/options",linenos=table,linenostart=1}
 EXE_INC = \
     -I$(LIB_SRC)/finiteVolume/lnInclude \
     -I$(LIB_SRC)/meshTools/lnInclude \

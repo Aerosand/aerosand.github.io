@@ -2,7 +2,7 @@
 uid: 20251020195957
 title: 12_arg
 date: 2025-10-20
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -166,7 +166,7 @@ int main(int argc, char **argv) {}
 
 主源码 `src/main.cpp` 如下所示
 
-```cpp {fileName="/src/main.cpp"}
+```cpp {fileName="/src/main.cpp",linenos=table,linenostart=1}
 #include <iostream>
 
 int main(int argc, char *argv[])
@@ -231,7 +231,7 @@ blockMesh -case debug_case
 
 主源码 `src/main.cpp` 如下所示
 
-```cpp {fileName="/src/main.cpp"}
+```cpp {fileName="/src/main.cpp",linenos=table,linenostart=1}
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -369,7 +369,7 @@ This is a ofsp test.
 
 主源码 `src/main.cpp` 如下所示
 
-```cpp {fileName="/src/main.cpp"}
+```cpp {fileName="/src/main.cpp",linenos=table,linenostart=1}
 #include <iostream>
 #include <fstream>
 #include <string>

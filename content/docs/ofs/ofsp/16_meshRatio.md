@@ -2,7 +2,7 @@
 uid: 20251117115757
 title: 16_meshRatio
 date: 2025-11-17
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -56,7 +56,7 @@ code .
 
 主源码修改为
 
-```cpp {fileName="ofsp_16_meshRatio/ofsp_16_meshRatio.C"}
+```cpp {fileName="ofsp_16_meshRatio/ofsp_16_meshRatio.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -149,7 +149,7 @@ List 类的 append 方法虽然方便，但是效率很低，因为每一次向 
 
 改进后主源码如下
 
-```cpp {fileName="ofsp_16_meshRatio/ofsp_16_meshRatio.C"}
+```cpp {fileName="ofsp_16_meshRatio/ofsp_16_meshRatio.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -234,7 +234,7 @@ End
 
 主源码如下
 
-```cpp {fileName="ofsp_16_meshRatio/ofsp_16_meshRatio.C"}
+```cpp {fileName="ofsp_16_meshRatio/ofsp_16_meshRatio.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -320,7 +320,7 @@ End
 
 为测试算例提供字典 /ofsp_16_meshRatio/debug_case/system/volumeRatioDict ，内容如下
 
-```cpp {fileName="ofsp_16_meshRatio/debug_case/system/volumeRatioDict"}
+```cpp {fileName="ofsp_16_meshRatio/debug_case/system/volumeRatioDict",linenos=table,linenostart=1}
 FoamFile
 {
     version     2.0;
@@ -343,7 +343,7 @@ maxRatio 1.2;
 
 主源码如下
 
-```cpp {fileName="ofsp_16_meshRatio/ofsp_16_meshRatio.C"}
+```cpp {fileName="ofsp_16_meshRatio/ofsp_16_meshRatio.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

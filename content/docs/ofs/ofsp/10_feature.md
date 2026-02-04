@@ -2,7 +2,7 @@
 uid: 20250916191753
 title: 10_feature
 date: 2025-09-16
-update: 2025-11-26
+update: 2026-02-04
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -92,7 +92,7 @@ ofsp_10_feature
 
 类的声明 `IOdictionary.H` ，改进后内容如下
 
-```cpp {fileName="/IOdictionary/IOdictionary.H"}
+```cpp {fileName="/IOdictionary/IOdictionary.H",linenos=table,linenostart=1}
 #pragma once
 
 #include <iostream>
@@ -198,7 +198,7 @@ T Aerosand::IOdictionary::lookup(const std::string& keyword)
 
 类的定义 `IOdictionary.C`，改进后内容如下
 
-```cpp {fileName="/IOdictionary/IOdictionary.C"}
+```cpp {fileName="/IOdictionary/IOdictionary.C",linenos=table,linenostart=1}
 #include "IOdictionary.H"
 
 // Constructor
@@ -222,7 +222,7 @@ Aerosand::IOdictionary::~IOdictionary() // 其实 C++ 会自动关闭
 
 主源码 `ofsp_10_feature.C` ，改进后内容如下
 
-```cpp {fileName="/ofsp_10_feature.C"}
+```cpp {fileName="/ofsp_10_feature.C",linenos=table,linenostart=1}
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -320,7 +320,7 @@ deltaT             0.005; // we can change deltaT
 
 类的声明 `IOdictionary.H` ，进一步改进后内容如下
 
-```cpp {fileName="/IOdictionary/IOdictionary.H"}
+```cpp {fileName="/IOdictionary/IOdictionary.H",linenos=table,linenostart=1}
 #pragma once
 
 #include <iostream>
@@ -460,7 +460,7 @@ T Aerosand::IOdictionary::lookup(const std::string& keyword)
 
 类的定义 `IOdictionary.C`，改进后内容如下
 
-```cpp {fileName="/IOdictionary/IOdictionary.C"}
+```cpp {fileName="/IOdictionary/IOdictionary.C",linenos=table,linenostart=1}
 #include "IOdictionary.H"
 
 // Constructor
@@ -498,7 +498,7 @@ Aerosand::IOdictionary::~IOdictionary() // 其实 C++ 会自动关闭
 
 修改本地字典 `ofspProperties` 内容如下
 
-```cpp {fileName="/ofspProperties"}
+```cpp {fileName="/ofspProperties",linenos=table,linenostart=1}
 // This is ofspProperties.
 
 nu                  0.02; // see the difference
