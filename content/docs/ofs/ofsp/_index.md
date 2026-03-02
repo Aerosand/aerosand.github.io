@@ -58,5 +58,5 @@ update: 2025-09-02
 
 {{< cards >}}
   {{< card link="./20_simple" title="20_SIMPLE" tag="start here" tagColor="green" >}}
-  {{< card link="./21_piso&pimple" title="21_PISO&PIMPLE" >}}
+  {{< card link="./21_pisopimple" title="21_PISO&PIMPLE" >}}
 {{< /cards >}}
