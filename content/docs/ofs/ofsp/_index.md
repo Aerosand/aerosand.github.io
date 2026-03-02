@@ -57,6 +57,6 @@ update: 2025-09-02
 - OpenFOAM 求解器
 
 {{< cards >}}
-  {{< card link="./20_SIMPLE" title="20_SIMPLE" tag="start here" tagColor="green" >}}
-  {{< card link="./21_PISO&PIMPLE" title="21_PISO&PIMPLE" >}}
+  {{< card link="./20_simple" title="20_SIMPLE" tag="start here" tagColor="green" >}}
+  {{< card link="./21_piso&pimple" title="21_PISO&PIMPLE" >}}
 {{< /cards >}}
