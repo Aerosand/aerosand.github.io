@@ -2,7 +2,7 @@
 uid: 20250722130605
 title: 00_ofspIntro
 date: 2025-07-22
-update: 2026-03-12
+update: 2026-01-26
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -40,20 +40,6 @@ OpenFOAM 是什么呢？引用 wiki 解释如下
 > OpenFOAM (for "Open-source Field Operation And Manipulation") is a C++ toolbox for the development of customized numerical solvers, and pre-/post-processing utilities for the solution of continuum mechanics problems, most prominently including computational fluid dynamics (CFD).
 
 所以我们可以使用 OpenFOAM 来构建基于 C++ 的实现 CFD 等理论的求解器应用。
-
-本系列参考、受鼓励或受启发于大量的开源代码、文献和书籍。在开始前，本系列必须对这些作者表示由衷的感谢和敬意。
-
-- The Finite Volume Method in Computational Fluid Dynamics: An Advanced Introduction with OpenFOAM® and Matlab
-- https://github.com/UnnamedMoose/BasicOpenFOAMProgrammingTutorials
-- https://www.topcfd.cn/simulation/solve/openfoam/openfoam-program/
-- https://www.tfd.chalmers.se/~hani/kurser/OS_CFD/
-- https://github.com/ParticulateFlow/OSCCAR-doc/blob/master/openFoamUserManual_PFM.pdf
-- https://www.youtube.com/watch?v=KB9HhggUi_E&ab_channel=UCLOpenFOAMWorkshop
-- http://dyfluid.com/#
-- https://journal.openfoam.com/index.php/ofj/issue/archive
-- https://www.wolfdynamics.com/our-services/training/openfoam-intro-training.html?id=50
-- https://www.fluiddynamics.at/downloads/basic-openfoam-programming
-
 
 ## 2. 路线
 
