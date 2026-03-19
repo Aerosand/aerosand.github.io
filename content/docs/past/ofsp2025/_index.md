@@ -1,5 +1,5 @@
 ---
-title: ofsp
+title: ofsp2025
 weight: 2
 prev: /docs/guide/diagrams
 next: /docs/guide/shortcodes/callout
