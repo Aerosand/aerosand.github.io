@@ -13,7 +13,7 @@ tags:
   - ofsp2026
 excludeSearch: false
 toc: true
-weight:
+weight: 24
 math: true
 next:
 prev:
