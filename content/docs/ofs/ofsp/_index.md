@@ -6,10 +6,14 @@ next: /docs/guide/shortcodes/callout
 sidebar:
   open: false
 date: 2025-07-22
-update: 2025-09-02
+update: 2026-03-21
 ---
 
 下面开始本系列的讨论。
+
+{{< cards >}}
+  {{< card link="./00_ofspintro" title="00_ofspIntro" tag="start here" tagColor="green" >}}
+{{< /cards >}}
 
 ## 第一阶段
 
@@ -19,8 +23,7 @@ update: 2025-09-02
 - OpenFOAM 应用
 
 {{< cards >}}
-  {{< card link="./00_ofspintro" title="00_ofspIntro" tag="start here" tagColor="green" >}}
-  {{< card link="./01_helloworld" title="01_helloWorld" >}}
+  {{< card link="./01_helloworld" title="01_helloWorld" tag="start here" tagColor="green" >}}
   {{< card link="./02_make" title="02_make" >}}
   {{< card link="./03_wmake" title="03_wmake" >}}
   {{< card link="./04_basicclass" title="04_basicClass" >}}
@@ -53,10 +56,23 @@ update: 2025-09-02
 
 ## 第三阶段
 
-- 基础算法 SIMPLE & PISO & PIMPLE
-- OpenFOAM 求解器
+- 基础算法 SIMPLE
+- 基础算法 PISO
+- 基础算法 PIMPLE
+- OpenFOAM 实现
 
 {{< cards >}}
-  {{< card link="./20_simple" title="20_SIMPLE" tag="start here" tagColor="green" >}}
-  {{< card link="./21_pisopimple" title="21_PISO&PIMPLE" >}}
+  {{< card link="./20_simple" title="20_simple" tag="start here" tagColor="green" >}}
+  {{< card link="./21_simplesol" title="21_simpleSol" >}}
+  {{< card link="./22_piso" title="22_pisoSol" >}}
+  {{< card link="./23_pisosol" title="23_pisoSol" >}}
+  {{< card link="./24_pimple" title="24_pimple" >}}
+  {{< card link="./25_pimplesol" title="21_pimpleSol" >}}
 {{< /cards >}}
+
+## 结语
+
+{{< cards >}}
+  {{< card link="./26_epilogue" title="26_epilogue" tag="start here" tagColor="green" >}}
+{{< /cards >}}
+

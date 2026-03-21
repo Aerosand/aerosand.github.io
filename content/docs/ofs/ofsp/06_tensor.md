@@ -2,7 +2,7 @@
 uid: 20250827192135
 title: 06_tensor
 date: 2025-08-27
-update: 2026-02-04
+update: 2026-03-20
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -93,6 +93,10 @@ tree -L 1
 而且可以在主源码中选中头文件、类等，右键使用 `Go to Definition` ，`Go to Declaration` 等，直接跳转查看源代码。
 
 非常推荐此插件，十分方便。注意避免在 OpenFOAM 源文件夹下初始化。
+
+> [!warning]
+> 注意有时候跳转的源代码并不是正确指向，要注意分辨。
+
 
 ## 3. 项目构建
 

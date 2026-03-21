@@ -2,7 +2,7 @@
 uid: 20251125190436
 title: 19_firstSol
 date: 2025-11-25
-update: 2026-02-04
+update: 2026-03-19
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -211,7 +211,7 @@ volScalarField A
     mesh
 );
 
-Info<< "Reading field U\n" << endl;
+Info<< "Reading field U\n" << endl; // 速度场
 volVectorField U
 (
     IOobject
@@ -289,19 +289,19 @@ $$\frac{\partial}{\partial t}A + \nabla\cdot(UA) - \nabla\cdot(\gamma\nabla A)=0
 
 ### 3.1. 时间项
 
-时间项的构造显然是使用了函数 ddt()
+时间项的构造显然是使用了函数 `ddt()`
 
 ```cpp
 fvm::ddt(A)
 ```
 
-我们查找这个函数（或者通过 OFextension 插件直接访问代码）
+我们查找这个函数（或者通过 `OFextension` 插件直接访问代码）
 
 ```terminal {fileName="terminal"}
 find $FOAM_SRC -iname fvmddt.c
 ```
 
-为了帮助理解，从代码声明 fvmDdt.C 中摘取几处代码简单讨论如下（不建议继续深究代码，代码挖的太深无益于主要学习的推进）
+为了帮助理解，从代码声明 `fvmDdt.C` 中摘取几处代码简单讨论如下（不建议继续深究代码，代码挖的太深无益于主要学习的推进）
 
 ```cpp {fileName="$FOAM_SRC//finiteVolume/finiteVolume/fvm/fvmDdt.C",linenos=table,linenostart=1}
 namespace Foam // 属于命名空间 Foam
@@ -329,23 +329,23 @@ ddt // 函数名称
 ...
 ```
 
-我们了解了此函数的形参类型，也明白了返回的是 fvMatrix 类型的变量，数学上对应的是和待求量A相关的矩阵。
+我们了解了此函数的形参类型，也明白了返回的是 `fvMatrix` 类型的变量，数学上对应的是和待求量A相关的矩阵。
 
 ### 3.2. 对流项
 
-对流项的构造使用了函数 div()
+对流项的构造使用了函数 `div()`
 
 ```cpp
 fvm::div(phi,A)
 ```
 
-我们查找这个函数（或者通过 OFextension 插件直接访问代码）
+我们查找这个函数（或者通过 `OFextension` 插件直接访问代码）
 
 ```terminal {fileName="terminal"}
 find $FOAM_SRC -iname fvmdiv.C
 ```
 
-为了帮助理解，从代码声明 fvmDiv.C 中摘取几处代码简单讨论如下（不建议继续深究代码，代码挖的太深无益于主要学习的推进）
+为了帮助理解，从代码声明 `fvmDiv.C` 中摘取几处代码简单讨论如下（不建议继续深究代码，代码挖的太深无益于主要学习的推进）
 
 ```cpp {fileName="$FOAM_SRC/finiteVolume/finiteVolume/fvm/fvmDiv.C",linenos=table,linenostart=1}
 ...
@@ -367,13 +367,13 @@ div // 函数名
 
 ```
 
-我们了解了此函数的形参类型，也明白了返回的是 fvMatrix 类型的变量，数学上对应的是和待求量A相关的矩阵。
+我们了解了此函数的形参类型，也明白了返回的是 `fvMatrix` 类型的变量，数学上对应的是和待求量A相关的矩阵。
 
 ### 3.3. 扩散项
 
-扩散项的构造使用了函数 laplacian() 
+扩散项的构造使用了函数 `laplacian()` 
 
-我们查找这个函数（或者通过 OFextension 插件直接访问代码，不再赘述）
+我们查找这个函数（或者通过 `OFextension` 插件直接访问代码，不再赘述）
 
 ```terminal {fileName="terminal"}
 find $FOAM_SRC -iname fvlaplacian.C
@@ -414,7 +414,7 @@ laplacian // 函数名
 ...
 ```
 
-同样的，我们了解了此函数的形参类型，也明白了返回的是 fvMatrix 类型的变量，数学上对应的是和待求量A相关的矩阵。
+同样的，我们了解了此函数的形参类型，也明白了返回的是 `fvMatrix` 类型的变量，数学上对应的是和待求量A相关的矩阵。
 
 ### 3.4. 方程求解
 
@@ -426,7 +426,7 @@ $$
 
 对流项和扩散项的矩阵相加，构成了待求左侧项，因为没有源项，所以右侧项置空为零，可以缺省不写。
 
-对流项和扩散项组建在一起，并通过 solve() 函数进行求解
+对流项和扩散项组建在一起，并通过 `solve()` 函数进行求解
 
 ```cpp
     solve // 求解控制方程
