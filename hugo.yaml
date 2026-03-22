@@ -254,5 +254,5 @@ params:
 
 
   archives:
-    section: news
+    section: "docs,news"
     dateFormat: "Jan 02"
