@@ -214,13 +214,13 @@ params:
 
   page:
     # full (100%), wide (90rem), normal (80rem)
-    width: wide
+    width: normal
     contextMenu:
       enable: true
-      link:
+      links:
         - name: "Ask DeepSeek"
           url: "https://chat.deepseek.com"
-          icon: "deepseek"
+          icon: "chat"
     # tabs:
     #   sync: true
 
