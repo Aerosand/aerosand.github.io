@@ -169,9 +169,10 @@ params:
     displayPoweredBy: false
     width: normal
 
-  # Display the last modification date
+  # Display the last modification info
   displayUpdatedDate: true
   dateFormat: "January 2, 2006"
+  displayUpdatedAuthor: true
 
   # Search
   # flexsearch is enabled by default
@@ -213,12 +214,12 @@ params:
 
   page:
     # full (100%), wide (90rem), normal (80rem)
-    width: normal
-    contexMenu:
+    width: wide
+    contextMenu:
       enable: true
       link:
         - name: "Ask DeepSeek"
-          url: "https://chat.deepseek.com/?content={markdown_url}"
+          url: "https://chat.deepseek.com"
           icon: "deepseek"
     # tabs:
     #   sync: true
@@ -251,4 +252,3 @@ params:
   imageZoom:
     enable: true
 
-  displayUpdatedAuthor: true
