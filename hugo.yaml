@@ -254,5 +254,5 @@ params:
 
 
   archives:
-    section: blog
+    section: docs
     dateFormat: "Jan 02"
