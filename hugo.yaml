@@ -73,9 +73,9 @@ menu:
       name: News
       pageRef: /news
       weight: 95
-    - identifier: tags
-      name: Tags
-      pageRef: /tags
+    - identifier: more
+      name: More
+      pageRef: /more
       weight: 96
     - identifier: about
       name: About
@@ -114,6 +114,14 @@ menu:
       name: Solver
       pageRef: /docs/ofs/ofss
       parent: ofs
+    - identifier: tags
+      name: Tags
+      pageRef: /tags
+      parent: more
+    - identifier: archives
+      name: Archives
+      pageRef: /archives
+      parent: more
 
   sidebar:
     - identifier: more
@@ -244,4 +252,3 @@ params:
     enable: true
 
   displayUpdatedAuthor: true
-  
