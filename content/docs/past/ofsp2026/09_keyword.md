@@ -9,7 +9,7 @@ authors:
     image: https://github.com/aerosand.png
 tags:
   - ofsp
-  - ofsp2025
+  - ofsp2026
   - OpenFOAM
 excludeSearch: false
 toc: true

@@ -2,14 +2,14 @@
 uid: 20251104124420
 title: 13_commandLine
 date: 2025-11-04
-update: 2026-02-04
+update: 2026-03-19
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
     image: https://github.com/aerosand.png
 tags:
   - ofsp
-  - ofsp2025
+  - ofsp2026
   - OpenFOAM
 excludeSearch: false
 toc: true
@@ -166,6 +166,33 @@ if (!args.checkRootCase())
 #include "foamDlOpenLibs.H"
 // 兼容相关，暂不深究
 ```
+
+很多求解器中也使用功能增强后的 `setRootCaseLists.H` ，其代码如下
+
+```cpp {fileName="setRootCaseLists.H"}
+// This is setRootCase, but with additional solver-related listing
+
+#include "setRootCaseListOptions.H"
+// 向求解器添加一系列用于查询和列表的命令行选项
+
+#include "setRootCase.H" // 原始版本
+
+#include "setRootCaseListOutput.H"
+// 程序启动时，检查用户是否使用了这些选项，并执行相应的输出操作（例如，列出信息后退出程序）
+
+```
+
+该头文件既保持了基础功能的简洁性，又为需要使用这些高级功能的求解器（如后处理工具）提供了灵活的扩展能力。
+
+比如，可以在终端中使用求解器和添加的命令行选项，如下
+
+```terminal {fileName="terminal"}
+simpleFoam -listSwitches
+```
+
+可以看到终端给出了所有的调试/优化开关。
+
+读者可以自行探索阅读代码中提供的命令行选项。
 
 ## 3. argList类
 
@@ -583,7 +610,63 @@ End
 ```
 
 
-## 7. 小结
+## 7. 其他命令行
+
+求解器头文件中还常见 `postProcess.H` 。该头文件主要用于在求解器或实用程序中集成**后处理功能**。它的核心作用是允许用户在模拟运行期间或之后，计算并输出额外的派生场（如涡量、流函数、梯度等），而无需单独运行后处理工具。
+
+例如，可以在计算结束后，终端输入命令如下
+
+```terminal {fileName="terminal"}
+postProcess -func vorticity
+```
+
+这样可基于已保存的时间步计算涡量场，无需修改代码。
+
+另外也可以在 `controlDict` 中增加 `functions` 模块，如
+
+```cpp {fileName="controlDict"}
+...
+functions
+{
+    vorticity
+    {
+        type    vorticity;
+        libs    (fieldFunctionObjects);
+    }
+}
+```
+
+这样可以使得求解器在每个写入时间步都会计算并输出涡量场。
+
+另外，求解器头文件还常见 `addCheckCaseOptions.H` ，代码如下
+
+```cpp {fileName="addCheckCaseOptions.H"}
+Foam::argList::addDryRunOption
+(
+    "Check case set-up only using a single time step"
+);
+Foam::argList::addBoolOption
+(
+    "dry-run-write",
+    "Check case set-up and write only using a single time step"
+);
+```
+
+该头文件向求解器添加额外的标准命令行选项，主要用于检查算例设置的完整性而无需完整运行模拟。
+
+例如，终端输入命令
+
+```terminal {fileName="terminal"}
+simpleFoam -case debug_case -dry-run
+// 仅检查算例设置，不运行求解
+
+simpleFoam -case debug_case -dry-run-write
+// 检查算例设置并写入初始场
+```
+
+这些命令使用户能够快速发现设置错误，避免在完整运行到中途才发现问题。
+
+## 8. 小结
 
 本文一步一步讨论了 OpenFOAM 中命令行参数可能有的功能。虽然本文项目只是简单演示，相信读者可以在此讨论基础之上，理解 OpenFOAM 中的命令行参数，并为以后的自开发提供一些想法。
 
