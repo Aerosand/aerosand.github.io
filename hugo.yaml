@@ -252,3 +252,7 @@ params:
   imageZoom:
     enable: true
 
+
+  archives:
+    section: 
+    dateFormat: "Jan 02"
