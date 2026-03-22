@@ -28,5 +28,7 @@ github.com/imfing/hextra v0.11.2-0.20260202204306-6d613d28a364 h1:t7UNC7n9T8gpO0
 github.com/imfing/hextra v0.11.2-0.20260202204306-6d613d28a364/go.mod h1:cEfel3lU/bSx7lTE/+uuR4GJaphyOyiwNR3PTqFTXpI=
 github.com/imfing/hextra v0.12.0 h1:f6y35hW/WDJEcx9S0dOmbICOBxYE0PmP6IJFsTUgVyY=
 github.com/imfing/hextra v0.12.0/go.mod h1:YAv8XRNSmcqjieFwI7fVQK1AoY2Do+45DO9HGqxSGu4=
+github.com/imfing/hextra v0.12.1 h1:3t1n0bmJbDzSTVfht93UDcfF1BXMRjeFojA071ri2l8=
+github.com/imfing/hextra v0.12.1/go.mod h1:vi+yhpq8YPp/aghvJlNKVnJKcPJ/VyAEcfC1BSV9ARo=
 github.com/twbs/icons v1.13.1 h1:6bmNXvoeIbvjFWjfbjXg5JGbelLD1haIsMaEIzE9UZI=
 github.com/twbs/icons v1.13.1/go.mod h1:GnRlymgVWp5iVJCMa0Me5b6tFyGpVc2bSxPMRGIJmyA=
