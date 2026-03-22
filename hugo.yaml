@@ -254,5 +254,5 @@ params:
 
 
   archives:
-    section: 
+    section: blog
     dateFormat: "Jan 02"
