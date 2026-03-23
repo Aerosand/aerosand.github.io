@@ -22,14 +22,13 @@ outputs:
 defaultContentLanguage: en
 languages:
   en:
-    languageName: English
+    contentDir: content/en
+    label: English
     weight: 1
-    title: Aerosand
-  zh-cn:
-    languageName: 简体中文
-    languageCode: zh-CN
+  zh:
+    contentDir: content/zh
+    label: 简体中文
     weight: 2
-    title: Aerosand
 
 module:
 #  hugoVersion:
