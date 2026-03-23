@@ -30,6 +30,8 @@ languages:
     label: 简体中文
     weight: 2
 
+translationKey: about
+
 module:
 #  hugoVersion:
 #    extended: true
