@@ -37,7 +37,7 @@ layout: hextra-home
      subtitle="Computational Fluid Dynamics"
      class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
      link="/docs/cfd"
-     image="images/ofsb.png"
+     image="/images/ofsb.png"
      imageClass="hx:top-[40%] hx:left-[24px] hx:w-[180%] hx:sm:w-[110%] hx:dark:opacity-80"
      style="background: radial-gradient(ellipse at 50% 80%,rgba(194,97,254,0.15),hsla(0,0%,100%,0));" 
   >}}
@@ -55,7 +55,7 @@ layout: hextra-home
     subtitle="OpenFOAM Sharing Programming."
     link="/docs/ofs/ofsp"
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
-    image="images/ofsp.png"
+    image="/images/ofsp.png"
     imageClass="hx:top-[40%] hx:left-[24px] hx:w-[180%] hx:sm:w-[110%] hx:dark:opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(142,53,74,0.15),hsla(0,0%,100%,0));"
   >}}

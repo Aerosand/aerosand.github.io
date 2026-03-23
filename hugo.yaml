@@ -20,18 +20,18 @@ outputs:
   section: [html, rss, markdown]
 
 defaultContentLanguage: en
-languages:
-  en:
-    languageName: English
-    contentDir: content/en
-    weight: 1
-    title: Aerosand
-  zh-CN:
-    languageName: 简体中文
-    languageCode: zh-CN
-    contentDir: content/zh
-    weight: 2
-    title: Aerosand
+# languages:
+#   en:
+#     languageName: English
+#     contentDir: content/en
+#     weight: 1
+#     title: Aerosand
+#   zh-CN:
+#     languageName: 简体中文
+#     languageCode: zh-CN
+#     contentDir: content/zh
+#     weight: 2
+#     title: Aerosand
 
 module:
 #  hugoVersion:
