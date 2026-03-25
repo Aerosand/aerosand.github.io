@@ -19,7 +19,7 @@ layout: hextra-home
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  免费教程, 培训, 分享 &nbsp;<br class="hx:sm:block hx:hidden" />CFD、OpenFOAM 和数值计算等等.
+  免费教程、练习、分享 &nbsp;<br class="hx:sm:block hx:hidden" />CFD、OpenFOAM 和数值计算等等.
 {{< /hextra/hero-subtitle >}}
 </div>
 
@@ -34,7 +34,7 @@ layout: hextra-home
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
      title="CFD"
-     subtitle="计算流动动力学"
+     subtitle="计算流体动力学"
      class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
      link="/docs/cfd"
      image="/images/ofsb.png"
