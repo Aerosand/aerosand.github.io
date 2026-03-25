@@ -110,15 +110,31 @@ OpenFOAM 是什么呢？引用 wiki 解释如下
 > - 建议读者动手跟随讨论编程操作
 
 
-## 支持我们
+## 支持我们 Support us
 
 >[!tip]
 >希望这里的分享可以对坚持、热爱又勇敢的您有所帮助。 
+>Hopefully, the sharing here can be helpful to you.
 >
->如果这里的分享对您有帮助，您的评论、转发和赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。 
+>如果这里的分享对您有帮助，您的赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。
+>If you found the content helpful, your support would go a long way toward ensuring updates, corrections, refinements, and improvements to this series and future ones. These efforts will also greatly benefit new readers.
 >
 >赞助打赏时的信息和留言将用于展示和感谢。
+>The information and messages provided when making a donation will be displayed to acknowledge your contribution.
 
 {{< cards >}}
-  {{< card link="/" title="支持我们" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝AliPay" >}}
+  {{< card link="/" title="支持Support" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝AliPay" >}}
 {{< /cards >}}
+
+
+> 声明：
+> Notice: 
+> 
+> Copyright @ 2026 Aerosand
+> 
+> 代码（源文件、脚本等）: MIT 协议
+> 课程（文本、文档等）：CC BY 4.0 协议
+> 
+> Code (source files, scripts, etc.): MIT License
+> Course materials (text, documents, etc.): CC BY 4.0 License
+
