@@ -2,7 +2,7 @@
 uid: 20250723185036
 title: 02_make
 date: 2025-07-23
-update: 2025-11-26
+update: 2026-03-25
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -22,27 +22,30 @@ sidebar:
   exclude: false
 draft: false
 ---
+
 > [!important]
-> 访问 https://aerosand.cn 以获取最近更新。
+> 访问 [https://aerosand.cc](https://aerosand.cc/) 以获取最近更新。
+> Visit [https://aerosand.cc](https://aerosand.cc/) for the latest updates.
 
 
-## 0. 前言
+## 0. Preface
 
-上一篇讨论的编译过程虽然清晰，但是一步一步的执行十分繁琐
+Although the compilation process discussed in the previous section is conceptually clear, executing it step by step is rather tedious and inefficient in practice.
 
-为了简化项目编译的同时兼顾理解编译细节，我们采用 make 工具来管理我们的开发项目。很多项目也会使用 cmake 工具。cmake 更加简洁高效，不过本质上也是基于 makefile 的。
+In order to simplify project compilation while still preserving a clear understanding of the underlying compilation mechanisms, we introduce the `make` utility to manage the development workflow. Many modern projects also employ `cmake`, which offers a more concise and efficient interface; however, it is fundamentally still built upon `makefile`.
 
-我们可以为项目提供 makefile 文件，在 makefile 中描述所有执行步骤。这样只需要简单执行 makefile 文件就可以编译整个项目，大大方便调试运行。此外，在之前的项目里，所有代码文件都放在一起，十分不方便，所以我们对代码进行架构管理。
+By providing a `makefile` for the project, all compilation steps can be explicitly described. Consequently, the entire project can be built through a single command, significantly improving both debugging efficiency and execution convenience. Furthermore, since all source files in previous examples were placed within a single
+directory---resulting in poor organization---we now introduce a structured project architecture.
 
-本文主要讨论如下
+This section focuses on the following objectives:
 
-- [ ] 理解 make 的使用
-- [ ] 编写通用 makefile
-- [ ] 编译运行 make 项目
+- [ ] Understanding the usage of `make`
+- [ ] Writing a general and reusable `makefile`
+- [ ] Compiling and executing a project managed by `make`
 
-## 1. 项目
+## 1. Project
 
-终端输入命令，建立本文项目
+Execute the following commands in the terminal to create the project:
 
 ```terminal {fileName="terminal"}
 ofsp
@@ -50,7 +53,7 @@ mkdir ofsp_02_make
 code ofsp_02_make
 ```
 
-继续使用终端命令或者使用 vscode 界面创建其他文件，最终文件结构如下
+Continue using either terminal commands or the VS Code interface to create the remaining files. The final project structure is as follows:
 
 ```terminal {fileName="terminal"}
 tree
@@ -64,9 +67,9 @@ tree
 ```
 
 >[!tip]
->此时可以认为我们建立了一个库 Aerosand，其中包含一个同名的类 Aerosand
+>At this stage, the directory `Aerosand` can be regarded as a library that contains a class of the same name.
 
-类 Aerosand 的**声明 Declaration** `Aerosand.h`，内容不变
+The **declaration** of class `Aerosand` in `Aerosand.h` remains unchanged:
 
 ```cpp {fileName="/Aersoand/Aerosand.h",linenos=table}
 #pragma once
@@ -83,7 +86,7 @@ private:
 };
 ```
 
-类 Aerosand 的**定义 Definition** `Aerosand.cpp`，内容不变
+The **definition** of class `Aerosand` in `Aerosand.cpp` remains unchanged:
 
 ```cpp {fileName="/Aerosand/Aerosand.cpp",linenos=table}
 #include "Aerosand.h"
@@ -97,12 +100,12 @@ double Aerosand::getLocalTime() const {
 }
 ```
 
-主源码 `ofsp_02_make.cpp` 需要修改头文件，其他内容不变
+The main source file `ofsp_02_make.cpp` requires a modification to the header file path; the rest of the content remains unchanged:
 
 ```cpp {fileName="/ofsp_02_make.cpp",linenos=table}
 #include <iostream>
 
-#include "Aerosand/Aerosand.h"   // 因为路径变化，需要修改此行
+#include "Aerosand/Aerosand.h"   // Modified due to path change
 
 using namespace std;
 
@@ -126,24 +129,24 @@ int main()
 
 ## 2. make
 
-自动化构建工具 make 可以根据 makefile 中的规则自动完成源代码的编译、链接过程。
+The automated build tool `make` can automatically perform the compilation and linking process based on the rules defined in a Makefile.
 
-makefile 文件一般的基本格式为
+The basic format of a Makefile is as follows:
 
 ```makefile {fileName="makefile"}
 <target>:  <support>
 	<command>
 ```
 
-需要注意的是，当我们运行 `make` 命令的时候，它会尝试构建第一个目标以及它的依赖。所以原则上，makefile 除第一目标之外的其他目标顺序并不重要。如果 make 在构建的过程中发现某个目标缺少依赖，则会在 makefile 中寻求此依赖的构建。
+It is important to note that when we run the `make` command, it attempts to build the first target and its dependencies. In principle, the order of targets other than the first does not matter. If `make` finds that a target lacks a dependency during the build process, it will look for a rule to build that dependency elsewhere in the Makefile.
 
-当然，需要同时构建多个目标时，比较好的做法是使用 `all` 作为默认目标。
+When multiple targets need to be built simultaneously, it is good practice to use `all` as the default target.
 
-### 2.1. 库的 makefile
+### 2.1. Makefile for the Library
 
-基于前文对 C++ 项目编译原理的过程的讨论，我们可以为库 Aerosand 提供 makefile 文件，直白的给出编译命令
+Based on the discussion of the C++ compilation process in the previous section, we can provide a Makefile for the `Aerosand` library, directly specifying the compilation commands.
 
-注意，如果文件内容如下
+Note that if the file content is as follows:
 
 ```makefile {fileName="/Aerosand/makefile",linenos=table}
 Aerosand.o: Aerosand.cpp
@@ -153,9 +156,9 @@ libAerosand.so: Aerosand.o
 	g++ -shared -fPIC Aerosand.o -o libAerosand.so 
 ```
 
-则第一目标错误，执行 `make` 后，仅 `Aerosand.o` 生成，而无法得到动态库。
+The first target is incorrect; running `make` will only generate `Aerosand.o` and will not produce the dynamic library.
 
-调整脚本中命令的顺序，可以编译成功的写法为
+By adjusting the order of the rules, a successful compilation can be achieved:
 
 ```makefile {fileName="/Aerosand/makefile",linenos=table}
 libAerosand.so: Aerosand.o
@@ -165,14 +168,14 @@ Aerosand.o: Aerosand.cpp
 	g++ -c -fPIC Aerosand.cpp -o Aerosand.o
 ```
 
-终端输入命令，成功生成动态库，
+Run the following command in the terminal to successfully generate the dynamic library:
 
 ```terminal {fileName="terminal"}
 cd Aerosand
 make
 ```
 
-当前文件夹的文件结构如下
+The file structure of the current directory is as follows:
 
 ```terminal {fileName="terminal"}
 tree
@@ -184,11 +187,11 @@ tree
 └── makefile
 ```
 
-可以看到动态库 `libAerosand.so` 已经成功生成。
+The dynamic library `libAerosand.so` has been successfully generated.
 
-### 2.2. 库编译的优化
+### 2.2. Optimizing the Library Makefile
 
-如前讨论目标顺序问题，当构建目标繁多的时候，为了提高效率，便于维护，我们需要更好的组织 makefile 文件。优化 makefile 写法如下
+As discussed regarding target order, when there are many build targets, it is necessary to better organize the Makefile to improve efficiency and maintainability. An optimized Makefile is as follows:
 
 ```makefile {fileName="/Aerosand/makefile",linenos=table}
 # Compiler and flags
@@ -221,37 +224,37 @@ clean:
 ```
 
 > [!tip]
-> `.PHONY` 是 makefile 中的一个特殊声明，用于告诉 Make 某些目标**不是实际的文件名**，而是**伪目标**（Phony Targets）。这是 makefile 中非常重要且常用的功能，优点如下
-> - 防止与真实文件冲突
-> - 提高性能
-> - 向其他阅读者明确表达意图
+> `.PHONY` is a special declaration in Makefiles used to tell `make` that a target is **not an actual file**, but rather a **phony target**. This is a very important and commonly used feature with the following advantages:
+> - Prevents conflicts with real files
+> - Improves performance
+> - Clearly conveys intent to other readers
 > 
-> 使用 makefile 自动变量如下
-> - `$^` 表示所有依赖项
-> - `$@` 表示目标文件
-> - `$<` 表示第一个依赖项
+> The following automatic variables are used in the Makefile:
+> - `$^` represents all dependencies
+> - `$@` represents the target file
+> - `$<` represents the first dependency
 
-希望读者不要对 makefile 的写法感到担心，文件中大量采用了宏变量，可以让脚本更加具有通用性。陌生的语法大概知道可以这么使用即可，不需要花费更多的时间了解原因和原理。
+Readers should not be overly concerned with the syntax of the Makefile. The extensive use of macros and variables makes the script more generic. For unfamiliar syntax, it is sufficient to know that it can be used in this way; there is no need to spend excessive time understanding the underlying reasons and principles.
 
-这里给出必要的解释如下
+A brief explanation is provided as follows:
 
-- 第一段和第二段定义了一些宏变量，方便后续脚本的书写
-- 第三段和第四段使用宏变量实现了编译命令，调换这两段的先后顺序并不影响编译结果
-- 第五段明确了第一目标，定义了 `make all` 命令，可以实现完整编译
-- 第六段定义了 `make clean` 命令，可以实现代码清理
+- The first and second sections define macro variables to facilitate subsequent script writing.
+- The third and fourth sections implement compilation commands using these macros; the order of these two sections does not affect the compilation result.
+- The fifth section explicitly defines the first target, defining the `make all` command to perform a complete compilation.
+- The sixth section defines the `make clean` command to clean up build artifacts.
 
-终端输入命令，完成库的编译
+Run the following command in the terminal to compile the library:
 
 ```terminal {fileName="terminal"}
 make clean
 make all
 ```
 
-与上一节的最终效果一样，动态库得到顺利编译生成。
+The final result is the same as in the previous section, and the dynamic library is successfully compiled and generated.
 
-### 2.3 项目的 makefile
+### 2.3. Makefile for the Project
 
-有了前面讨论的经验，我们直接给出项目的 makefile 如下
+Building on the previous discussion, we directly provide the Makefile for the project as follows:
 
 ```makefile {fileName="/makefile",linenos=table}
 # Compiler and flags
@@ -294,9 +297,9 @@ clean:
 	$(RM) $(OUTPUT) $(OBJECTS)
 ```
 
-相较于前一个 makefile 文件，这里多出了链接动态库的语句，其实也很是直白简单。
+Compared to the previous Makefile, this one includes statements for linking the dynamic library, which is straightforward.
 
-终端输入命令，完成代码编译
+Run the following commands in the terminal to compile the code:
 
 ```terminal {fileName="terminal"}
 cd ..
@@ -305,7 +308,7 @@ make all
 make run
 ```
 
-运行结果如下
+The output is as follows:
 
 ```terminal {fileName="terminal"}
 Hi, OpenFOAM! Here we are.
@@ -316,80 +319,96 @@ Current time step is : 0.2
 ```
 
 
-## 3. vscode 插件
+## 3. VS Code Extensions
 
 ### 3.1. C/C++ Project Generator
 
-对于一般的 C++ 项目，可以使用 vscode 的插件 `C/C++ Project Generator`，这是一个基于 makefile 的多文件项目模版。
+For general C++ projects, the VS Code extension `C/C++ Project Generator` can be used. It provides a multi-file project template based on Makefile.
 
-操作和备注如下
-
-{{% steps %}}
-
-#### 新建项目
-
-1. 使用 `F1` 打开快捷命令输入关键词，选择使用 `Create C++ project`
-2. 输入项目名称
-3. 在弹出窗口中选择新项目的父目录，并打开
-
-#### 写代码
-
-1. 在 `src/main.cpp` 中开发主函数代码
-2. 在 `include/` 路径下开发头文件的声明
-3. 在 `src/` 路径下开发头文件的定义
-
-#### 编译运行
-
-1. 终端使用命令 `make` 编译此项目，`make run` 编译并运行，`make clean` 清理项目
-2. 终端使用命令 `./output/main` 直接运行该主程序
-
-{{% /steps %}}
-
-### 3.2. c cpp cmake project creator
-
-这是一个基于 cmake 的多文件项目模板
-
-操作和备注如下
+Operations and notes are as follows:
 
 {{% steps %}}
 
-#### 新建项目
+#### Create a New Project
 
-1. 使用 `F1` 打开快捷命令输入关键词，选择使用 `CMake Project: Create Project`
-2. 在弹出窗口中选择到准备好的空白项目文件夹，并打开
+1. Press `F1` to open the command palette, enter the keyword, and select `Create C++ project`.
+2. Enter the project name.
+3. In the pop-up window, select the parent directory for the new project, and open it.
 
-#### 写代码
+#### Write Code
 
-1. 在 `src/main.cpp` 中开发主函数代码
-2. 在 `include/` 路径下开发头文件的声明
-3. 在 `src/` 路径下开发头文件的定义
+1. Develop the main function code in `src/main.cpp`.
+2. Write header file declarations in the `include/` directory.
+3. Write header file definitions in the `src/` directory.
 
-#### 编译运行
+#### Compile and Run
 
-1. 终端使用命令 `cmake build/` 生成构建系统
-2. 终端使用命令 `make -C build/` 进行项目编译
-3. 终端使用命令 `./build/xxx` 运行该主程序
+1. Use the command `make` in the terminal to compile the project; `make run` to compile and run; `make clean` to clean the project.
+2. Use the command `./output/main` in the terminal to run the main program directly.
+
+{{% /steps %}}
+
+### 3.2. C Cpp CMake Project Creator
+
+This is a multi-file project template based on CMake.
+
+Operations and notes are as follows:
+
+{{% steps %}}
+
+#### Create a New Project
+
+1. Press `F1` to open the command palette, enter the keyword, and select `CMake Project: Create Project`.
+2. In the pop-up window, navigate to the prepared empty project folder and open it.
+
+#### Write Code
+
+1. Develop the main function code in `src/main.cpp`.
+2. Write header file declarations in the `include/` directory.    
+3. Write header file definitions in the `src/` directory.
+
+#### Compile and Run
+
+1. Use the command `cmake build/` in the terminal to generate the build system.
+2. Use the command `make -C build/` in the terminal to compile the project.
+3. Use the command `./build/xxx` in the terminal to run the main program.
 
 {{% /steps %}}
 
 
-## 4. 小结
+## 4. Summary
 
-本文完成讨论
+This section has completed the following discussions:
 
-- [x] 理解 make 的使用
-- [x] 编写通用 makefile
-- [x] 编译运行 make 项目
+- [x] Understanding the usage of `make`
+- [x] Writing a general and reusable `makefile`
+- [x] Compiling and executing a project managed by `make`
 
-## 支持我们
+
+## 支持我们 Support us
 
 >[!tip]
 >希望这里的分享可以对坚持、热爱又勇敢的您有所帮助。 
+>Hopefully, the sharing here can be helpful to you.
 >
->如果这里的分享对您有帮助，您的评论、转发和赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。 
+>如果这里的分享对您有帮助，您的评论或赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。
+>If you find this content helpful, your comments or donations would be greatly appreciated. Your support helps ensure the ongoing updates, corrections, refinements, and improvements to this and future series, ultimately benefiting new readers as well.
 >
 >赞助打赏时的信息和留言将用于展示和感谢。
+>The information and message provided during donation will be displayed as an acknowledgment of your support.
 
 {{< cards >}}
-  {{< card link="/" title="支持我们" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝AliPay" >}}
+  {{< card link="/" title="支持Support" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝AliPay" >}}
 {{< /cards >}}
+
+
+> Copyright @ 2026 Aerosand
+> 
+> - 课程（文本、图片等）：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+> - OpenFOAM 开发代码：[GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
+> - 其他代码：[MIT License](https://opensource.org/licenses/MIT)
+> 
+> - Course (text, images, etc.): [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+> - Code derived from OpenFOAM: [GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
+> - Other code: [MIT License](https://opensource.org/licenses/MIT)
+

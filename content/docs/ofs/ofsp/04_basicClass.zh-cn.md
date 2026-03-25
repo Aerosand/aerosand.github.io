@@ -28,52 +28,53 @@ draft: false
 > Visit [https://aerosand.cc](https://aerosand.cc/) for the latest updates.
 
 
-## 0. Preface
+## 0. 前言
 
-We have already explored native C++ implementations, Make-based implementations, and OpenFOAM’s `wmake` implementation. Before officially delving into OpenFOAM development, it is necessary to gain a basic understanding of common classes in OpenFOAM to facilitate their use.
+前面我们已经了解了 C++ 原生实现、make 实现以及 OpenFOAM 的 wmake 实现。在正式进入到 OpenFOAM 实现之前，我们有必要稍微了解一点 OpenFOAM 中常见的类，以方便使用。
 
-We can refer to the official API at https://api.openfoam.com/2506/ for detailed information.
+我们可以通过官方 API  https://api.openfoam.com/2506/ 进行查询。
 
 > [!tip]
-> Changing the version number at the end of the URL allows access to the API for the corresponding version.
+> 改变上面网址的末尾版本号，可以打开对应版本的 API。
 
-This section primarily discusses:
+本文主要讨论
 
-- [ ] Navigating the OpenFOAM API
-- [ ] Understanding some common basic classes
+- [ ] 查阅 OpenFOAM API 
+- [ ] 认识一些常见的基础类
 
 
 ## 1. Switch
 
-You can search for the keyword `Switch` directly through the API website to access the Switch Class Reference page, which provides relevant information about the Switch class, including the corresponding Source files: `Switch.H` and `Switch.C`.
+可以通过 API 网站直接搜索 `Switch` 关键词找到 Switch Class Reference 页面，该页面提供了 Switch 类的相关内容，包括对应的 Source files 即 `Switch.H` 和 `Switch.C`。
 
-API page: [https://api.openfoam.com/2506/Switch_8H.html](https://api.openfoam.com/2506/Switch_8H.html)
+API 页面 https://api.openfoam.com/2506/Switch_8H.html
 
-You can also locate and read the source code via the terminal.
+也可以通过终端查找打开阅读源码。
 
-Run the following command to find the source location:
+
+终端输入命令，查找源码位置
 
 ```terminal {fileName="terminal"}
 find $FOAM_SRC -iname switch.H
 ```
 
-The terminal output for the corresponding version is as follows:
+终端输出对应版本下的查找结果
 
 ```terminal {fileName="terminal"}
 /usr/lib/openfoam/openfoam2406/src/OpenFOAM/primitives/bools/Switch/Switch.H
 /usr/lib/openfoam/openfoam2406/src/OpenFOAM/lnInclude/Switch.H
 ```
 
-Based on the discussion in the previous section, we can copy the correct path and read the source code locally using VS Code:
+基于上一篇的讨论，我们复制正确的路径，可以通过 vscode 本地阅读源码
 
 ```terminal {fileName="terminal"}
 code /usr/lib/openfoam/openfoam2406/src/OpenFOAM/primitives/bools/Switch/Switch.H
 ```
 
 > [!tip]
-> Use `Ctrl + Shift + C` and `Ctrl + Shift + V` for copy-paste operations in the terminal.
+> 终端里的复制粘贴请使用 `ctrl + shift + c/v`
 
-In any case, part of the `Switch.H` source code is as follows (click the code block title to jump to the source code):
+无论如何，`Switch.H` 部分代码如下（点击代码块名称可以跳转源码）
 
 ```cpp {fileName="Switch.H",base_url="https://api.openfoam.com/2506/Switch_8H_source.html",linenos=table,linenostart=1}
 /*---------------------------------------------------------------------------*\
@@ -111,15 +112,15 @@ SourceFiles
 ...
 ```
 
-According to the Description, `Switch` is a wrapper around the `bool` type, serving similar judgment functionality as `bool`.
+根据描述 Description 可以知道 Switch 是对 bool 类型的封装，起到和 bool 类型类似的判断功能。
 
-We will not delve deeper into the detailed code definitions at this point.
+更深入的代码定义，我们暂不深究。
 
 ## 2. label
 
-Similarly, the source code for the `label` class can be found online or locally.
+同样可以在网上或是本地找到 label 类的源码。
 
-API page: [https://api.openfoam.com/2506/label_8H.html](https://api.openfoam.com/2506/label_8H.html)
+API 页面 https://api.openfoam.com/2506/label_8H.html
 
 ```cpp {fileName="label.H"}
 /*
@@ -135,13 +136,13 @@ API page: [https://api.openfoam.com/2506/label_8H.html](https://api.openfoam.co
 ```
 
 
-Based on the source code description, the `label` type is either `int32_t` or `int64_t`, depending on the definition of the preprocessor macro `WM_LABEL_SIZE`.
+根据源码描述，label 类型为 int32_t 或 int64_t，具体取决于预处理器宏 WM_LABEL_SIZE 的定义。
 
-Simply put, `label` can be understood as a wrapper around the `int` type.
+简单可以理解 label 实际上是对 int 类型的封装。
 
 ## 3. scalar
 
-API page: [https://api.openfoam.com/2506/scalar_8H.html](https://api.openfoam.com/2506/scalar_8H.html)
+API 页面 https://api.openfoam.com/2506/scalar_8H.html
 
 ```cpp {filename="scalar.H"}
 /*
@@ -153,11 +154,11 @@ API page: [https://api.openfoam.com/2506/scalar_8H.html](https://api.openfoam.c
 */
 ```
 
-According to the source code description, the `scalar` type can be understood as a wrapper around floating-point types, equivalent to `float` or `double` depending on the usage context.
+根据源码描述，scalar 类型可以理解为浮点类型的封装，根据不同使用方式等同于 float 或者 double。
 
 ## 4. vector
 
-API page: [https://api.openfoam.com/2506/vector_8H.html](https://api.openfoam.com/2506/vector_8H.html)
+API 页面 https://api.openfoam.com/2506/vector_8H.html
 
 ```cpp {fileName="vector.H"}
 /*
@@ -169,14 +170,14 @@ API page: [https://api.openfoam.com/2506/vector_8H.html](https://api.openfoam.c
 */
 ```
 
-Thus, the `vector` type is a vector composed of `scalar` values. This class also defines mathematical operations for vectors.
+可见，vector 类型是由 scalar 构成的向量。该类也定义了向量的数学运算方法。
 
->[!question]
->What about vectors composed of other data types?
+>[!note]
+>由其他数据类型构成的向量是什么呢？
 
 ## 5. tensor
 
-API page: [https://api.openfoam.com/2506/tensor_8H.html](https://api.openfoam.com/2506/tensor_8H.html)
+API 页面 https://api.openfoam.com/2506/tensor_8H.html
 
 ```cpp {fileName="tensor.H"}
 /*
@@ -190,14 +191,14 @@ API page: [https://api.openfoam.com/2506/tensor_8H.html](https://api.openfoam.c
 */
 ```
 
-Thus, the `tensor` type is a tensor composed of `scalar` values. This class also defines mathematical operations for tensors.
+可见，tensor 类型是由 scalar 构成的张量。该类也定义了张量的数学运算方法。
 
->[!question]
->What about tensors composed of other data types?
+>[!note]
+>由其他数据类型构成的张量是什么呢？
 
 ## 6. dimensionedScalar/Vector/Tensor
 
-Taking `dimensionedScalar` as an example, the API page is: [https://api.openfoam.com/2506/dimensionedScalar_8H_source.html](https://api.openfoam.com/2506/dimensionedScalar_8H_source.html)
+以 dimensionedScalar 为例，API 页面 https://api.openfoam.com/2506/dimensionedScalar_8H_source.html
 
 ```cpp {fileName="dimensionedScalar.H"}
 /*
@@ -208,17 +209,17 @@ Taking `dimensionedScalar` as an example, the API page is: [https://api.openf
 */
 ```
 
-These are scalars, vectors, and tensors that incorporate OpenFOAM’s unit system and corresponding computational methods.
+可见，这些是具有 OpenFOAM 单位系统的包含对应计算方法的标量、向量、张量。
 
 ## 7. scalar/vector/tensorField
 
-Taking `scalarField` as an example, the API page is: [https://api.openfoam.com/2506/scalarField_8H.html](https://api.openfoam.com/2506/scalarField_8H.html)
+以 scalarField 为例，API 页面 https://api.openfoam.com/2506/scalarField_8H.html
 
-These are essentially list values (i.e., field data storage) of `scalar`/`vector`/`tensor` types, with corresponding computational methods.
+它们本质上就是 scalar/vector/tensor 类型的包含了对应计算方法的列表值，也就是“场”的数值存储。
 
 ## 8. dimensionSet
 
-API page: [https://api.openfoam.com/2506/dimensionSet_8H.html](https://api.openfoam.com/2506/dimensionSet_8H.html)
+API 页面 https://api.openfoam.com/2506/dimensionSet_8H.html
 
 ```cpp {fileName="dimensionSet.H"}
 /*
@@ -243,9 +244,9 @@ API page: [https://api.openfoam.com/2506/dimensionSet_8H.html](https://api.open
 */
 ```
 
-This class defines the unit system for basic types, enabling rigorous dimensional checking during algebraic computations.
+该类规定了基础类型的单位系统，可以在代数计算中进行严格的单位检查。
 
-Through the API page, you can see the files directly or indirectly included by this class. The source code provides many practical unit combinations:
+通过 API 页面可以看到该类直接或者间接包含的文件。可以在源码定义中提供了很多实用的单位组合。
 
 ```cpp {fileName="dimensionSets.C",linenos=table,linenostart=1}
 ...
@@ -280,11 +281,11 @@ Through the API page, you can see the files directly or indirectly included by t
 ...
 ```
 
-These predefined unit combinations will frequently appear in future programming practice.
+这个预设单位组合会经常出现在以后的编程实践中。
 
 ## 9. tmp
 
-API page: [https://api.openfoam.com/2506/tmp_8H.html](https://api.openfoam.com/2506/tmp_8H.html)
+API 页面 https://api.openfoam.com/2506/tmp_8H.html
 
 ```cpp {fileName="dimensionedScalar.H"}
 /*
@@ -302,28 +303,27 @@ API page: [https://api.openfoam.com/2506/tmp_8H.html](https://api.openfoam.com/
 */
 ```
 
-This class is a smart pointer template class implemented by OpenFOAM, commonly used for automatically managing the lifecycle of temporary objects. Its primary purpose is to optimize performance by avoiding unnecessary copying of large data (e.g., physical fields with massive data volumes).
+该类是 OpenFOAM 实现的、常见用于自动管理临时对象生命周期的智能指针模板类。主要目的是优化性能，避免不必要的大型数据（比如巨大数据量的物理场）拷贝。
 
 ## 10. IOobject
 
-API page: [https://api.openfoam.com/2506/IOobject_8H.html](https://api.openfoam.com/2506/IOobject_8H.html)
+API 页面 https://api.openfoam.com/2506/IOobject_8H.html
 
-In simple terms, this class provides a complete description and interface for objects that need to be read from or written to disk (as files) and memory (as objects).
+简单来说，该类提供了所有需要在磁盘（作为文件）和内存（作为对象）之间进行读写操作的对象的完整描述和接口。
 
-In CFD simulations, thousands of variables (fields, boundary conditions, model parameters, etc.) need to be read from dictionary files or written to disk as results. This class addresses input/output issues by encapsulating all these miscellaneous tasks into a unified class.
+在 CFD 模拟中，有成千上万的变量（场、边界条件、模型参数等）需要从字典文件中读取，或者将计算结果写入磁盘。该类通过将所有这些杂事封装到一个统一的类中来解决输入输出问题。
 
-We will continue to use this class in practice in the following sections.
+以后我们将在实践中不断使用该类。
 
-## 11. Summary
+## 11. 小结
 
 > [!warning]
-> For now, there is no need to delve deeply into the programming implementation details of these class definitions, as such details are not the focus of this series. Overly deep exploration can cause significant confusion for beginners and disrupt the learning pace.
+> 暂时不用深究这些类定义的编程实现细节，这些细节并不是本系列的重点。过度深挖细节会给初学者带来巨大的困扰，打乱学习进度。
 
-This section has completed the following discussions:
+本文完成讨论
 
-- [x] Navigating the OpenFOAM API
-- [x] Understanding some common basic classes
-
+- [x] 查阅 OpenFOAM API 
+- [x] 认识一些常见的基础类
 
 
 ## 支持我们 Support us

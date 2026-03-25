@@ -28,22 +28,22 @@ category:
 > Visit [https://aerosand.cc](https://aerosand.cc/) for the latest updates.
 
 
-## 0. Preface
+## 0. 前言
 
-This series is designed to help readers connect the two sections of "CFD Fundamentals" and "OpenFOAM Introductory Practice".
+本系列旨在帮助读者衔接“CFD 基础理论”和“OpenFOAM 入门实践”两个部分。
 
 > [!warning]
-> It is recommended to learn the basics of computational fluid mechanics and the finite volume method before starting this series.
+> 建议先学习计算流体力学基础以及有限体积法，之后再开始本系列的学习。
 
-## 1. Introduction 
+## 1. 介绍
 
-What is OpenFOAM? According to the explanation from Wikipedia:
+OpenFOAM 是什么呢？引用 wiki 解释如下
 
 > OpenFOAM (for "Open-source Field Operation And Manipulation") is a C++ toolbox for the development of customized numerical solvers, and pre-/post-processing utilities for the solution of continuum mechanics problems, most prominently including computational fluid dynamics (CFD).
 
-Therefore, OpenFOAM can be used to build solver applications—implemented in C++—for theories such as computational fluid dynamics (CFD).
+所以我们可以使用 OpenFOAM 来构建基于 C++ 的实现 CFD 等理论的求解器应用。
 
-This series draws inspiration from, is encouraged by, or is informed by a substantial body of open-source code, literature, and books. Before proceeding, it is essential to express sincere gratitude and respect to these authors. The following is an incomplete list.
+本系列参考、受鼓励或受启发于大量的开源代码、文献和书籍。在开始前，本系列必须对这些作者们表示由衷的感谢和敬意。以下为不完整列表。
 
 - The Finite Volume Method in Computational Fluid Dynamics: An Advanced Introduction with OpenFOAM® and Matlab
 - https://github.com/UnnamedMoose/BasicOpenFOAMProgrammingTutorials
@@ -57,59 +57,60 @@ This series draws inspiration from, is encouraged by, or is informed by a substa
 - https://www.fluiddynamics.at/downloads/basic-openfoam-programming
 
 
-## 2. Roadmap
+## 2. 路线
 
-We begin with the implementation of a simple C++ program to gain a basic understanding of compilation principles. Through the use of `make`, we gradually take control of our project and transition to exploring the `wmake` approach used in OpenFOAM. From there, we become familiar with the fundamental structure of OpenFOAM programs and progressively delve into the details of solver implementations within OpenFOAM.
+我们从简单的 C++ 程序实现开始，简单了解编译原理，通过 make 逐渐掌控我们的项目，过渡到了解 OpenFOAM 的 wmake 实现方式，然后认识 OpenFOAM 的基本程序，然后逐渐深入了解 OpenFOAM 的求解器应用细节。
 
 {{% steps %}}
 
-### Compilation Principles
+### 编译原理
 
-1. Compilation of C++ Programs
-2. Managing Program Compilation with `make`
-3. Managing Program Compilation with `wmake`
-4. Building OpenFOAM Applications
+1. C++ 程序的编译
+2. make 管理程序编译
+3. wmake 管理程序编译
+4. OpenFOAM 应用构建
 
-### Data Interaction
+### 数据交互
 
-1. Input and Output
-2. Command-Line Arguments
+1. 输入输出
+2. 命令行参数
 
-### Basic Classes
+### 基础类
 
-1. Time
-2. Mesh
-3. Field
+1. 时间
+2. 网格
+3. 场
 
-### Solvers
+### 求解器
 
-1. Development Libraries
-2. The First Solver
+1. 开发库
+2. 第一个求解器
 
-### A First Look at Algorithms
+### 算法初见
 
-1. SIMPLE, PISO & PIMPLE Algorithms
-2. SIMPLE, PISO & PIMPLE Solvers
+1. SIMPLE & PISO & PIMPLE 算法
+2. SIMPLE 求解器
 
 {{% /steps %}}
 
 > [!note]
-> Each section provides detailed code and operation explanations.
+> 每个部分都会有详细的代码和操作解释。
 
 
-## 3. Environment and Tools
+## 3. 环境和工具
 
-Given the operating environment of OpenFOAM, we choose to conduct development and discussions within a Linux system environment, based on OpenFOAM version 2406 (or later). For convenience, we will use Visual Studio Code (VS Code) as our development tool.
+鉴于 OpenFOAM 的使用环境，我们选择在 <mark style="background: #FFB86CA6;">ubuntu 24.04</mark> 系统环境中，基于 <mark style="background: #FFB86CA6;">OpenFOAM 2406</mark> 版本进行开发讨论，方便起见使用 vscode 工具。
 
 > [!caution]
-> - The version evolution from openfoam.com involves relatively minor changes, and newer versions remain suitable for the discussions in this series.
-> - The version architecture from openfoam.org has undergone significant modifications and is therefore not recommended for beginners.
+> - openfoam.com 的版本变化较小，较新的版本均适合本系列讨论使用
+> - openfoam.org 的版本架构大改，暂不推荐入门
 
 
-## 4. Recommendations
+## 4. 建议
 
 > [!tip]
-> - It is recommended that readers actively follow along with the programming operations as they are discussed.
+> - 建议读者动手跟随讨论编程操作
+
 
 
 ## 支持我们 Support us

@@ -14,20 +14,18 @@ update: 2026-03-25
 > Visit [https://aerosand.cc](https://aerosand.cc/) for the latest updates.
 
 
-
-
-Let's start the discussion of this series.
+下面开始本系列的讨论。
 
 {{< cards >}}
   {{< card link="./00_ofspintro" title="00_ofspIntro" tag="start here" tagColor="green" >}}
 {{< /cards >}}
 
-## Stage 1
+## 第一阶段
 
-- Compilation Principle
-- Basic Classes
-- Development Libraries
-- OpenFOAM Applications
+- 编译原理
+- 基础类
+- 开发库
+- OpenFOAM 应用
 
 {{< cards >}}
   {{< card link="./01_helloworld" title="01_helloWorld" tag="start here" tagColor="green" >}}
@@ -39,11 +37,11 @@ Let's start the discussion of this series.
   {{< card link="./07_firstapp" title="07_firstApp" >}}
 {{< /cards >}}
 
-## Stage 2
+## 第二阶段
 
-- Data Interaction
-- Time & Mesh & Field
-- OpenFOAM Solver
+- 数据交互
+- 时间 & 网格 & 场
+- OpenFOAM 求解器
 
 {{< cards >}}
   {{< card link="./08_io" title="08_io" tag="start here" tagColor="green" >}}
@@ -61,12 +59,12 @@ Let's start the discussion of this series.
 {{< /cards >}}
 
 
-## Stage 2
+## 第三阶段
 
-- Basic Algorithm SIMPLE
-- Basic Algorithm PISO
-- Basic Algorithm PIMPLE
-- OpenFOAM implementation
+- 基础算法 SIMPLE
+- 基础算法 PISO
+- 基础算法 PIMPLE
+- OpenFOAM 实现
 
 {{< cards >}}
   {{< card link="./20_simple" title="20_simple" tag="start here" tagColor="green" >}}
@@ -77,7 +75,7 @@ Let's start the discussion of this series.
   {{< card link="./25_pimplesol" title="21_pimpleSol" >}}
 {{< /cards >}}
 
-## Epilogue
+## 结语
 
 {{< cards >}}
   {{< card link="./26_epilogue" title="26_epilogue" tag="start here" tagColor="green" >}}

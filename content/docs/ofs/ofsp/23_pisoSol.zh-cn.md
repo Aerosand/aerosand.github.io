@@ -1,8 +1,8 @@
 ---
-uid: 20260321180844
-title: 25_pimpleSol
-date: 2026-03-21
-update: 2026-03-21
+uid: 20260320181145
+title: 23_pisoSol
+date: 2026-03-20
+update: 2026-03-25
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -13,7 +13,7 @@ tags:
   - ofsp2026
 excludeSearch: false
 toc: true
-weight: 26
+weight: 24
 math: true
 next:
 prev:
@@ -24,18 +24,19 @@ draft: false
 ---
 
 > [!important]
-> 访问 https://aerosand.cn 以获取最近更新。
+> 访问 [https://aerosand.cc](https://aerosand.cc/) 以获取最近更新。
+> Visit [https://aerosand.cc](https://aerosand.cc/) for the latest updates.
 
 
 ## 0. 前言
 
-在上一篇讨论中，我们详细讨论了 PIMPLE 算法，也粗略看了 OpenFOAM 中 PIMPLE 算法主框架的代码片段。
+在上一篇讨论中，我们详细讨论了 PISO 算法，也粗略看了 OpenFOAM 中 PISO 算法主框架的代码片段。
 
 这里，我们将基于对算法的讨论，进行代码实现，理解一些代码的使用。
 
 本文主要讨论
 
-- [ ] PIMPLE算法实现
+- [ ] PISO算法实现
 - [ ] 计算 cavity 算例
 
 ## 1. 控制方程
@@ -66,8 +67,8 @@ $$\frac{\partial U}{\partial t} + \nabla \cdot (UU) = \nabla\cdot(\nu\nabla U)-\
 
 ```terminal {fileName="terminal"}
 ofsp
-foamNewApp ofsp_25_pimpleSol
-cd ofsp_25_pimpleSol
+foamNewApp ofsp_23_pisoSol
+cd ofsp_21_pisoSol
 cp -r $FOAM_TUTORIALS/incompressible/icoFoam/cavity/cavity debug_case
 code .
 ```
@@ -79,7 +80,7 @@ code .
 ```markdown {fileName="README.md"}
 ## About
 
-简单复现 PIMPLE 算法的求解器。
+简单复现 PISO 算法的求解器。
 
 ## Bio
 
@@ -180,13 +181,14 @@ runApplication $(getApplication)
 
 ### 3.1. 主源码
 
-考虑 `24_pimple` 中的讨论，在主源码中实现 PIMPLE 算法主要框架
+考虑 `22_piso` 中的讨论，在主源码中实现 PISO 算法主要框架
 
-```cpp {fileName="ofsp_25_pimpleSol.C",linenos=table,linenostart=1}
+```cpp {fileName="ofsp_23_pisoSol.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
-#include "pimpleControl.H" // 包含pimple算法控制的头文件
+#include "pisoControl.H" // 包含piso算法控制的头文件
 // 该头文件属于finiteVolume库，无需为 Make 指定额外链接
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -194,20 +196,18 @@ int main(int argc, char *argv[])
 {
     argList::addNote
     (
-        "Aerosand: a test solver for PIMPLE algorithm."
+        "Aerosand: a test solver for PISO algorithm."
     );
 
-    #include "postProcess.H"
+    #include "postProcess.H" // 参考 13_commandLine，不再赘述
 
-    #include "addCheckCaseOptions.H"
-    #include "setRootCaseLists.H"
+    #include "addCheckCaseOptions.H" // 参考 13_commandLine，不再赘述
+    #include "setRootCaseLists.H" // 参考 13_commandLine，不再赘述
     #include "createTime.H"
-
     #include "createMesh.H"
-
     #include "createControl.H"
+    #include "createFields.H" // 用户指定场的接入
 
-    #include "createFields.H"
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -215,21 +215,17 @@ int main(int argc, char *argv[])
 
     while (runTime.loop()) // 时间推进
     {
-
         Info<< "Time = " << runTime.timeName() << nl << endl;
 
-        // --- Pressure-velocity PIMPLE corrector loop
-        while (pimple.loop()) // PIMPLE外循环
+        // Pressure-velocity PISO corrector
         {
+            #include "UEqn.H" // 求解动量预测方程
 
-            #include "UEqn.H"
-
-            // --- Pressure corrector loop
-            while (pimple.correct()) // PIMPLE内循环
+            // --- PISO loop
+            while (piso.correct()) // PISO循环，内循环
             {
-                #include "pEqn.H"
+                #include "pEqn.H" // 多次进行压力动量修正
             }
-
         }
 
         runTime.write();
@@ -248,7 +244,7 @@ int main(int argc, char *argv[])
 
 ### 3.2. 场的接入
 
-场的接入 `createFields.H` 和之前的求解器一样，具体如下
+场的接入 `createFields.H` 和 `0fsp_21_simpleSol` 一样，具体如下
 
 ```cpp {fileName="createFields.H",linenos=table,linenostart=1}
 /*
@@ -330,19 +326,21 @@ setRefCell(p, piso.dict(), pRefCell, pRefValue);
 ```cpp {fileName="UEqn.H",base_url="https://aerosand.cc",linenos=table,linenostart=1}
 // Momentum predictor
 
-tmp<fvVectorMatrix> tUEqn // 使用OpenFOAM临时对象类tmp构建方程矩阵，方便以后内存管理
-(
-    fvm::ddt(U) 
-  + fvm::div(phi, U)
-  - fvm::laplacian(nu, U) // 扩散项
-);
-fvVectorMatrix& UEqn = tUEqn.ref();
+  fvVectorMatrix UEqn
+  (
+      fvm::ddt(U) // 瞬态项
+    + fvm::div(phi, U) // 对流项
+    - fvm::laplacian(nu, U) // 扩散项
+  );
+  // 不包括压力梯度
 
-UEqn.relax();
+  UEqn.relax(); // 方程松弛
 
-solve(UEqn == -fvc::grad(p)); // 完整求解动量方程
+  solve(UEqn == -fvc::grad(p));
 
 ```
+
+关于动量方程的松弛，后续会进行讨论。读者后续可以将该松弛代码注释，比较计算差别。
 
 
 ### 3.4. 压力动量修正
@@ -350,32 +348,41 @@ solve(UEqn == -fvc::grad(p)); // 完整求解动量方程
 压力动量修正在 `pEqn.H` 中，代码如下
 
 ```cpp {fileName="pEqn.H",base_url="https://aerosand.cc",linenos=table,linenostart=1}
-volScalarField rAU(1.0/UEqn.A()); // A^-1
-volVectorField HbyA(rAU*UEqn.H()); // HbyA
-surfaceScalarField phiHbyA("phiHbyA", fvc::flux(HbyA)); // phiHbyA
+{
+    volScalarField rAU(1.0/UEqn.A()); // A^-1 
+    volVectorField HbyA(rAU*UEqn.H()); // HbyA
+    surfaceScalarField phiHbyA // phiHbyA
+	(
+	    "phiHbyA",
+	    fvc::flux(HbyA)
+	);
 
-tmp<volScalarField> rAtU(rAU); // 临时对象，方便以后内存管理
+    fvScalarMatrix pEqn
+    (
+        fvm::laplacian(rAU, p) == fvc::div(phiHbyA)
+    );
+	// 压力修正方程
+	// 同样的，fvm离散返回一个矩阵，离散操作对象是参数p，p也就是待求未知量
+	// fvc离散返回一个场，作为方程的已知量
 
-fvScalarMatrix pEqn // 压力修正方程
-(
-    fvm::laplacian(rAtU(), p) == fvc::div(phiHbyA)
-);
 
-pEqn.setReference(pRefCell, pRefValue); // 设置压力参考
+    pEqn.setReference(pRefCell, pRefValue); // 设置压力参考
 
-pEqn.solve(); // 求解压力修正方程
+    pEqn.solve(); // 求解压力修正方程
 
-p.relax(); // 场量松弛，后续会继续讨论
+	// 无需压力松弛
 
-// Momentum corrector
-
-U = HbyA - rAtU*fvc::grad(p); // 动量修正
+    // Momentum corrector // 动量修正
+    U = HbyA - rAU*fvc::grad(p); // 求解得到修正速度
+    
+    // 修正后的压力和速度，重新参与下一次的PISO循环，直到满足次数后，进入时间循环
+}
 
 ```
 
 
 > [!tip]
-> 注意，为了方便理解，这里同样没有进行非正交修正。因为后面使用的 cavity 算例网格简单，所以也没有什么影响。
+> 注意，为了方便理解，这里没有进行非正交修正。因为后面使用的 cavity 算例网格简单，所以也没有什么影响。
 
 ### 3.5. 项目Make
 
@@ -422,7 +429,7 @@ wmake
 
 ```cpp {fileName="controlDict",base_url="https://aerosand.cc",linenos=table,linenostart=1}
 ...
-application     ofsp_25_pimpleSol;
+application     ofsp_23_pisoSol;
 ...
 endTime         1.0; // 延长时间，比较是否松弛的计算效果
 // 如果不进行松弛，计算可能会在一段时间后发散终止
@@ -447,6 +454,7 @@ solvers
         $p;
         relTol          0;
     }
+    // 因为PISO算法有内循环，最后一次的压力修正需要验证压力是否收敛
 
     U
     {
@@ -455,54 +463,14 @@ solvers
         tolerance       1e-05;
         relTol          0;
     }
-    
-	"(U|k|epsilon)Final"
-    {
-        $U;
-        relTol          0;
-    }
-    // 因为PIMPLE存在外循环，最后一次的动量预测需要验证速度是否收敛
 }
 
-PIMPLE // PIMPLE算法的控制字典
+PISO // 指定 PISO 算法的字典参数
 {
-    // 基础循环控制
-    nOuterCorrectors         2;          // 外循环次数（PIMPLE 特有）
-    nCorrectors              2;          // 内循环（PISO corrector）次数
-    nNonOrthogonalCorrectors 0;          // 非正交修正次数
-    
-    // 残差控制（用于提前退出外循环）
-    residualControl
-    {
-        p
-        {
-            tolerance       1e-4;        // 绝对残差阈值
-            relTol          0;           // 相对残差阈值（0 表示不启用）
-        }
-        U
-        {
-            tolerance       1e-4;
-            relTol          0;
-        }
-    }
-    
-    // 压力参考
-    pRefCell                0;           // 参考压力所在的网格单元编号
-    pRefValue               0;           // 参考压力值（通常为 0）
-}
-
-// 松弛因子（通常在 PIMPLE 字典外部）
-relaxationFactors
-{
-    fields
-    {
-        p                   0.3;         // 压力场的松弛因子
-    }
-    equations
-    {
-        U                   0.7;         // 速度方程的松弛因子
-        ".*"                1;           // 其他方程不松弛（正则表达式匹配）
-    }
+    nCorrectors     2;
+    nNonOrthogonalCorrectors 0; // 非正交修正相关，其实我们没有涉及这部分
+    pRefCell        0;
+    pRefValue       0;
 }
 ```
 
@@ -535,29 +503,40 @@ paraFoam -case debug_case
 
 ## 4. 小结
 
-通过求解器项目的实现和讨论，相信我们现在应该对 PIMPLE 算法和求解器实现有了较为全面的理解。
+通过求解器项目的实现和讨论，相信我们现在应该对 PISO 算法和求解器实现有了较为全面的理解。
 
-回顾这几篇算法讨论，我们大概讨论清楚了各种算法的主要思路和简单版本的代码实现。压力速度耦合的思想几乎贯穿了OpenFOAM中各种类型的计算流体动力学求解器。很多情况都是基于这些主要算法进行拓展的。
-
-读者在自动调整代码的时候，比对原生求解器，探索原生求解器其他代码语句，会发现很多被我们讨论所精简掉的内容。
-
-一方面，为了方便理解算法主要思路，我们避免对其他内容的涉及。不用担心，以后我们都会一一讨论解释。另一方面，我们使用 cavity 算例作为调试算例，较为简单，即使没有“边界条件约束”、“一致性检查”等等，也可以计算得到可用的结果。
+下一篇，我们将讨论 PIMPLE 算法。
 
 本文完成讨论
 
-- [x] PIMPLE算法实现
+- [x] PISO算法实现
 - [x] 计算 cavity 算例
 
 
-## 支持我们
+## 支持我们 Support us
 
 >[!tip]
 >希望这里的分享可以对坚持、热爱又勇敢的您有所帮助。 
+>Hopefully, the sharing here can be helpful to you.
 >
->如果这里的分享对您有帮助，您的评论、转发和赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。 
+>如果这里的分享对您有帮助，您的评论或赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。
+>If you find this content helpful, your comments or donations would be greatly appreciated. Your support helps ensure the ongoing updates, corrections, refinements, and improvements to this and future series, ultimately benefiting new readers as well.
 >
 >赞助打赏时的信息和留言将用于展示和感谢。
+>The information and message provided during donation will be displayed as an acknowledgment of your support.
 
 {{< cards >}}
-  {{< card link="/" title="支持我们" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝AliPay" >}}
+  {{< card link="/" title="支持Support" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝AliPay" >}}
 {{< /cards >}}
+
+
+> Copyright @ 2026 Aerosand
+> 
+> - 课程（文本、图片等）：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+> - OpenFOAM 开发代码：[GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
+> - 其他代码：[MIT License](https://opensource.org/licenses/MIT)
+> 
+> - Course (text, images, etc.): [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+> - Code derived from OpenFOAM: [GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
+> - Other code: [MIT License](https://opensource.org/licenses/MIT)
+

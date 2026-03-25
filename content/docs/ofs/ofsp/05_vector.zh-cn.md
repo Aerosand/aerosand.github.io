@@ -29,34 +29,34 @@ draft: false
 
 
 
-## 0. Preface
+## 0. 前言
 
-In the previous section, we briefly reviewed several common basic classes. This section attempts to discuss some details of the `vector` class to help readers become familiar with the development process, tool usage, and compilation principles.
+上一篇浏览了几个常见的基础类，本文尝试讨论 vector 类的部分细节，帮助读者熟悉开发流程、工具使用、编译原理。
 
-This section primarily discusses:
+本文主要讨论
 
-- [ ] Practicing source code navigation
-- [ ] Discussing parts of the implementation of the `vector` class
-- [ ] Understanding the use of native libraries
-- [ ] Compiling and running a `vector` project
+- [ ] 练习源码的查阅
+- [ ] 讨论 vector 类的部分代码实现
+- [ ] 理解原生库的使用
+- [ ] 编译运行 vector 项目
 
-## 1. Vector Class
+## 1. Vector 类
 
-API page: [https://api.openfoam.com/2506/classFoam_1_1Vector.html](https://api.openfoam.com/2506/classFoam_1_1Vector.html)
+API 页面 https://api.openfoam.com/2506/classFoam_1_1Vector.html
 
-Run the following command in the terminal to search locally:
+终端输入命令，本地查找
 
 ```terminal {fileName="terminal"}
 find $FOAM_SRC -iname vector
 ```
 
-Run the following command to open the class folder:
+终端输入命令，打开该类的文件夹
 
 ```terminal {fileName="terminal"}
 code $FOAM_SRC/OpenFOAM/primitives/Vector
 ```
 
-The file structure of this class is as follows:
+该类的文件结构如下
 
 ```terminal {fileName="terminal"}
 tree -L 1
@@ -70,11 +70,11 @@ tree -L 1
 └── VectorI.H
 ```
 
-Reading the code description in `Vector.H`, we learn that this class is a template class for 3D Vectors. It inherits from the `VectorSpace` class and adds encapsulation for 3-component construction, component element interfaces, dot product, cross product, and other methods.
+阅读 `Vector.H` 的代码描述可知，该类是 3D Vector 的模板类，继承自 VectorSpace 类并添加封装了 3 分量的构造、分量元素的接口函数、点积和叉积的等方法。
 
-Specifically for the code in `Vector.H`, simple methods are implemented directly in the code, while complex methods extensively use inline functions to improve code performance. OpenFOAM specifically provides the `VectorI.H` file for implementing inline functions.
+具体到 `Vector.H` 的代码，简单方法在代码中直接实现，复杂方法则大量使用内联函数（inline function）以提高代码性能。OpenFOAM 特别提供 `VectorI.H` 文件来写内联函数的实现。
 
-Enter the `Vector/int` folder and examine the code in `Vector/ints/labelVector.H`:
+进入 `Vector/int` 文件夹，查看 `Vector/ints/labelVector.H` 代码
 
 ```cpp {filName="Vector/ints/labelVector.H"}
 ...
@@ -82,7 +82,7 @@ typedef Vector<label> labelVector;
 ...
 ```
 
-Enter the `Vector/floats` folder and examine the code in `Vector/floats/vector.H`:
+进入 `Vector/floats` 文件夹，查看 `Vector/floats/vector.H` 代码
 
 ```cpp {fileName="Vector/floats/vector.H",linenos=table,linenostart=1}
 ...
@@ -102,97 +102,97 @@ typedef Vector<solveScalar> solveVector;
 ...
 ```
 
-It can be seen that the folders representing different data types (`/bools`, `/complex`, `/floats`, `/ints`, `/lists`) are all `typedef` aliases (type aliases) of the `Vector` template class for different basic data types.
+可以看到，代表不同数据类型的文件夹 `/bools` ， `/complex` ， `/floats` ，`/ints` ，`/lists` 都是 Vector 模板类对不同基本数据类型的 `typedef` ，也就是类型别名。
 
 > [!warning]
-> Do not delve into all the details of the code at this stage.
+> 暂不深究代码的所有细节
 
-## 2. Source Code Discussion
+## 2. 源码讨论
 
-### 2.1. Declaration
+### 2.1. 声明
 
-Let us examine the code in `Vector/Vector.H` section by section.
+查阅 `Vector/Vector.H` 代码，我们分段讨论
 
-API page: [https://api.openfoam.com/2506/Vector_8H_source.html](https://api.openfoam.com/2506/Vector_8H_source.html)
+API 页面 https://api.openfoam.com/2506/Vector_8H_source.html
 
 >[!tip]
->On the API code page, you can click to jump to different header files, classes, functions, etc.
+>API 的代码页可以点击跳转到不同的头文件、类、函数等。
 
 ```cpp {fileName="Vector/Vector.H",linenos=table,linenostart=1}
 #ifndef Foam_Vector_H
 #define Foam_Vector_H
-// Preprocessor directive to prevent multiple inclusions of the header file
+// 预处理指令，防止头文件被重复包含
 
-#include "contiguous.H" // Provides functionality for type contiguity checking
-#include "VectorSpace.H" // Base class
+#include "contiguous.H" // 提供类型连续性检查的功能
+#include "VectorSpace.H" // 基类
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-namespace Foam // Namespace
+namespace Foam // 命名空间
 {
 
 // Forward Declarations
-template<class T> class List; // Forward declaration
-// Declares the List template class, which may be used later without needing the full header file
+template<class T> class List; // 前向声明
+// 声明了 List 模板类，后续可能会用到，但暂时不用提供完整头文件
 
 /*---------------------------------------------------------------------------*\
                            Class Vector Declaration
 \*---------------------------------------------------------------------------*/
 
 template<class Cmpt>
-class Vector // Definition of the Vector template class
+class Vector // 定义 Vector 模板类
 :
-    public VectorSpace<Vector<Cmpt>, Cmpt, 3> // Inherits from base class, 3-dimensional vector space
+    public VectorSpace<Vector<Cmpt>, Cmpt, 3> // 继承自基类，3维向量空间
 {
 public:
 
-    // Typedefs // Define type aliases
+    // Typedefs // 定义类型别名
 
         //- Equivalent type of labels used for valid component indexing
         typedef Vector<label> labelType;
-        // Uses label type for components
+        // 使用 label 类型作为分量
 
 
     // Member Constants
 
         //- Rank of Vector is 1
-        static constexpr direction rank = 1; // Defines rank as first-order
+        static constexpr direction rank = 1; // 定义秩为一阶
 
 
     //- Component labeling enumeration
-    enum components { X, Y, Z }; // Enumeration corresponding to vector components
+    enum components { X, Y, Z }; // 枚举对应向量的分量
 
 
     // Generated Methods
 
         //- Default construct
-        Vector() = default; // Default constructor
+        Vector() = default; // 默认构造
 
         //- Copy construct
-        Vector(const Vector&) = default; // Copy constructor
+        Vector(const Vector&) = default; // 拷贝构造
 
         //- Copy assignment
-        Vector& operator=(const Vector&) = default; // Copy assignment operator
+        Vector& operator=(const Vector&) = default; // 拷贝赋值
 
 
     // Constructors
 
         //- Construct initialized to zero
-        inline Vector(const Foam::zero); // Constructor initializing to zero
+        inline Vector(const Foam::zero); // 置零构造
 
         //- Copy construct from VectorSpace of the same rank
         template<class Cmpt2>
         inline Vector(const VectorSpace<Vector<Cmpt2>, Cmpt2, 3>& vs);
-        // Constructs a vector from a VectorSpace with different component types
+        // 从另一种分量类型的向量空间构造向量
 
         //- Construct from three components
         inline Vector(const Cmpt& vx, const Cmpt& vy, const Cmpt& vz);
-        // Constructs a vector directly from three component values
+        // 从三个分量值直接构造向量
 
         //- Construct from Istream
         inline explicit Vector(Istream& is);
-        // Constructs a vector by reading from an input stream
-        // The explicit keyword prevents implicit conversions
+        // 从输入流读取并构造向量
+        // explicit 关键字防止隐式转换
 
 
     // Member Functions
@@ -208,8 +208,8 @@ public:
         //- Access to the vector z component
         const Cmpt& z() const noexcept { return this->v_[Z]; }
         
-        // Uses enumeration values X, Y, Z as indices to access the v_ array in the base class
-        // noexcept indicates that these functions do not throw exceptions
+        // 使用枚举值 X, Y, Z 作为索引访问基类的 v_ 数组
+        // noexcept 表示这些函数不会抛出异常
 
         //- Access to the vector x component
         Cmpt& x() noexcept { return this->v_[X]; }
@@ -220,7 +220,7 @@ public:
         //- Access to the vector z component
         Cmpt& z() noexcept { return this->v_[Z]; }
         
-        // Declares non-const member functions for accessing and modifying vector components
+        // 声明非常量成员函数，用于访问和修改向量的分量
 
 
     // Vector Operations
@@ -230,55 +230,55 @@ public:
         (
             const Foam::UList<Vector<Cmpt>>&  /* (unused) */
         ) const noexcept;
-        // Defined in the inline file
-        // Returns the vector itself (useful for point types)
-        // The parameter is unused but retained for interface consistency
+        // 定义在内联函数中
+        // 返回向量本身（对于点类型很有用）
+        // 参数未使用，但为了接口一致性而保留
 
         //- The length (L2-norm) of the vector
         inline scalar mag() const;
-        // Defined in the inline file
-        // Returns the magnitude (length) of the vector
+        // 定义在内联函数中
+        // 返回向量的模（长度）
 
         //- The length (L2-norm) squared of the vector.
         inline scalar magSqr() const;
-        // Defined in the inline file
-        // Returns the squared magnitude of the vector (avoids square root operation, improving performance)
+        // 定义在内联函数中
+        // 返回向量模的平方（避免开方运算，提高性能）
 
         //- The L2-norm distance from another vector.
         //- The mag() of the difference.
         inline scalar dist(const Vector<Cmpt>& v2) const;
-        // Defined in the inline file
-        // Returns the distance to another vector
+        // 定义在内联函数中
+        // 返回与另一个向量的距离
 
         //- The L2-norm distance squared from another vector.
         //- The magSqr() of the difference.
         inline scalar distSqr(const Vector<Cmpt>& v2) const;
-        // Defined in the inline file
-        // Returns the squared distance to another vector
+        // 定义在内联函数中
+        // 返回与另一个向量距离的平方
 
         //- Inplace normalise the vector by its magnitude
         //  For small magnitudes (less than ROOTVSMALL) set to zero.
         //  Will not be particularly useful for a vector of labels
         inline Vector<Cmpt>& normalise(const scalar tol = ROOTVSMALL);
-        // Defined in the inline file
-        // Normalizes the vector (converts to a unit vector)
-        // The tol parameter is a tolerance for handling very small vectors
+        // 定义在内联函数中
+        // 将向量归一化（转换为单位向量）
+        // tol 参数是一个容差值，用于处理非常小的向量
 
         //- Inplace removal of components that are collinear to the given
         //- unit vector.
         inline Vector<Cmpt>& removeCollinear(const Vector<Cmpt>& unitVec);
-        // Defined in the inline file
-        // Removes components collinear with the given unit vector
+        // 定义在内联函数中
+        // 移除与给定单位向量共线的分量
 
         //- Scalar-product of \c this with another Vector.
         inline Cmpt inner(const Vector<Cmpt>& v2) const;
-        // Defined in the inline file
-        // Returns the dot product (inner product) with another vector
+        // 定义在内联函数中
+        // 返回与另一个向量的点积（内积）
 
         //- Cross-product of \c this with another Vector.
         inline Vector<Cmpt> cross(const Vector<Cmpt>& v2) const;
-        // Defined in the inline file
-        // Returns the cross product (outer product) with another vector
+        // 定义在内联函数中
+        // 返回与另一个向量的叉积（外积）
 
 
     // Comparison Operations
@@ -289,8 +289,8 @@ public:
             const Vector<Cmpt>& a,
             const Vector<Cmpt>& b
         );
-        // Defined in the inline file
-        // Compares two vectors lexicographically in the order X → Y → Z
+        // 定义在内联函数中
+        // 按 X→Y→Z 的字典序比较两个向量
 
         //- Lexicographically compare \em a and \em b with order (y:z:x)
         static inline bool less_yzx
@@ -298,8 +298,8 @@ public:
             const Vector<Cmpt>& a,
             const Vector<Cmpt>& b
         );
-        // Defined in the inline file
-        // Compares two vectors lexicographically in the order Y → Z → X
+        // 定义在内联函数中
+        // 按 Y→Z→X 的字典序比较两个向量
 
         //- Lexicographically compare \em a and \em b with order (z:x:y)
         static inline bool less_zxy
@@ -307,29 +307,29 @@ public:
             const Vector<Cmpt>& a,
             const Vector<Cmpt>& b
         );
-        // Defined in the inline file
-        // Compares two vectors lexicographically in the order Z → X → Y
+        // 定义在内联函数中
+        // 按 Z→X→Y 的字典序比较两个向量
 };
 
 
 // * * * * * * * * * * * * * * * * * Traits  * * * * * * * * * * * * * * * * //
 
-// Type traits, not to be delved into at this stage
+// 类型特性,暂不深究
 
 //- Data are contiguous if component type is contiguous
 template<class Cmpt>
 struct is_contiguous<Vector<Cmpt>> : is_contiguous<Cmpt> {};
-// If the component type Cmpt is contiguous, then Vector<Cmpt> is also contiguous
+// 如果分量类型 Cmpt 是连续的，则 Vector<Cmpt> 也是连续的
 
 //- Data are contiguous label if component type is label
 template<class Cmpt>
 struct is_contiguous_label<Vector<Cmpt>> : is_contiguous_label<Cmpt> {};
-// If the component type Cmpt is label and contiguous, then Vector<Cmpt> is also
+// 如果分量类型 Cmpt 是 label 类型且连续，则 Vector<Cmpt> 也是
 
 //- Data are contiguous scalar if component type is scalar
 template<class Cmpt>
 struct is_contiguous_scalar<Vector<Cmpt>> : is_contiguous_scalar<Cmpt> {};
-// If the component type Cmpt is scalar and contiguous, then Vector<Cmpt> is also
+// 如果分量类型 Cmpt 是 scalar 类型且连续，则 Vector<Cmpt> 也是
 
 
 template<class Cmpt>
@@ -358,7 +358,7 @@ public:
     typedef Vector<solveScalar> type;
 };
 
-// Not to be delved into at this stage
+// 暂不深究
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -373,13 +373,13 @@ public:
 #endif
 ```
 
-### 2.2. Inline
+### 2.2. 内联
 
-Many method definitions are in the inline file.
+很多方法的定义在内联文件中
 
-API page: [https://api.openfoam.com/2506/VectorI_8H_source.html](https://api.openfoam.com/2506/VectorI_8H_source.html)
+API 页面 https://api.openfoam.com/2506/VectorI_8H_source.html
 
-Examine the code in `Vector/VectorI.H`:
+查阅 `Vector/VectorI.H` 代码
 
 ```cpp {fileName="Vector/VectorI.H",linenos=table,linenostart=1}
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
@@ -389,8 +389,8 @@ Examine the code in `Vector/VectorI.H`:
  :
      Vector::vsType(Zero)
  {}
- // Constructor initializing to zero
- // - Passes the Zero constant
+ // 置零构造
+ // - 传入 Zero 常量
  
  
  template<class Cmpt>
@@ -402,8 +402,8 @@ Examine the code in `Vector/VectorI.H`:
  :
      Vector::vsType(vs)
  {}
- // Template constructor
- // - Constructs from a VectorSpace with different component types
+ // 模板构造函数
+ // - 从不同分量类型的向量构造
  
  
  template<class Cmpt>
@@ -418,15 +418,15 @@ Examine the code in `Vector/VectorI.H`:
      this->v_[Y] = vy;
      this->v_[Z] = vz;
  }
- // Constructor from three components
- // - Directly accesses the v_ array member inherited from VectorSpace 
+ // 从三个分量构造
+ // - 直接访问继承自 VectorSpace 的 v_ 数组成员 
  
  template<class Cmpt>
  inline Foam::Vector<Cmpt>::Vector(Istream& is)
  :
      Vector::vsType(is)
  {}
- // Constructor constructing a vector from an input stream
+ // 从输入流构造向量
  
  
  // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
@@ -439,7 +439,7 @@ Examine the code in `Vector/VectorI.H`:
  {
      return *this;
  }
- // Directly returns a reference to the current object (*this)
+ // 直接返回当前对象的引用（*this）
  
  
  template<class Cmpt>
@@ -452,8 +452,8 @@ Examine the code in `Vector/VectorI.H`:
        + Foam::magSqr(this->z())
      );
  }
- // Computes the squared magnitude of the vector
- // - Uses OpenFOAM's magSqr() function to compute the square of each component
+ // 计算向量模的平方
+ // - 使用 OpenFOAM 的 magSqr() 函数计算各分量的平方
  
  
  template<class Cmpt>
@@ -461,8 +461,8 @@ Examine the code in `Vector/VectorI.H`:
  {
      return ::sqrt(this->magSqr());
  }
- // Computes the magnitude of the vector
- // - First computes the squared magnitude, then takes the square root using the standard sqrt function
+ // 计算向量模
+ // - 先计算模的平方，然后调用标准库的 sqrt 函数开方
  
  
  template<class Cmpt>
@@ -475,8 +475,8 @@ Examine the code in `Vector/VectorI.H`:
        + Foam::magSqr(v2.z() - this->z())
      );
  }
- // Computes the squared distance to another vector
- // - Computes the sum of squares of the differences of each component
+ // 计算与另一向量距离的平方
+ // - 计算各分量差值的平方和
  
  
  template<class Cmpt>
@@ -484,8 +484,8 @@ Examine the code in `Vector/VectorI.H`:
  {
      return ::sqrt(this->distSqr(v2));
  }
- // Computes the distance to another vector
- // - First computes the squared distance, then takes the square root
+ // 计算与另一向量距离
+ // - 先计算距离平方，然后开方
  
  
  template<class Cmpt>
@@ -507,11 +507,11 @@ Examine the code in `Vector/VectorI.H`:
  
      return *this;
  }
- // Vector normalization
- // - Uses #ifdef __clang__ and the volatile keyword to prevent overly aggressive optimization by the Clang compiler
- // - If the magnitude is less than the tolerance tol, sets the vector to zero
- // - Otherwise, divides the vector by its magnitude to make it a unit vector
- // - Returns a reference to the current object
+ // 向量归一化
+ // - 使用 #ifdef __clang__ 和 volatile 关键字防止 Clang 编译器进行过于激进的优化
+ // - 如果模长小于容差值 tol，则将向量设为零向量
+ // - 否则，将向量除以其模长，使其成为单位向量
+ // - 返回当前对象的引用
  
  
  template<class Cmpt>
@@ -521,10 +521,10 @@ Examine the code in `Vector/VectorI.H`:
      *this -= (*this & unitVec) * unitVec;
      return *this;
  }
- // Removes components collinear with the given unit vector
- // - Computes the projection of the current vector onto the given unit vector direction
- // - Subtracts this projection component from the current vector
- // - Returns a reference to the current object
+ // 移除与给定单位向量共线分量
+ // - 计算当前向量在给定单位向量方向上的投影
+ // - 从当前向量中减去这个投影分量
+ // - 返回当前对象的引用
  
  
  // * * * * * * * * * * * * * * * Member Operations * * * * * * * * * * * * * //
@@ -536,8 +536,8 @@ Examine the code in `Vector/VectorI.H`:
  
      return (v1.x()*v2.x() + v1.y()*v2.y() + v1.z()*v2.z());
  }
- // Computes the dot product (inner product)
- // - Computes the sum of the products of the corresponding components of the two vectors
+ // 计算点积（内积）
+ // - 计算两个向量各分量乘积的和
  
  
  template<class Cmpt>
@@ -553,9 +553,9 @@ Examine the code in `Vector/VectorI.H`:
          (v1.x()*v2.y() - v1.y()*v2.x())
      );
  }
- // Computes the cross product (outer product)
- // - Computes the components of the resulting vector according to the cross product formula
- // - Returns a new Vector object
+ // 计算叉积（外积）
+ // - 按照叉积公式计算新向量的各分量
+ // - 返回一个新的 Vector 对象
  
  
  // * * * * * * * * * * * * * Comparison Operations * * * * * * * * * * * * * //
@@ -582,10 +582,10 @@ Examine the code in `Vector/VectorI.H`:
          )
      );
  }
- // Lexicographically compares two vectors in the order X → Y → Z
- // - First compares the X component; if not equal, returns the result
- // - If the X components are equal, compares the Y component
- // - If the Y components are also equal, compares the Z component
+ // 按 X→Y→Z 字典序比较两个向量
+ // - 先比较 X 分量，如果不等则返回结果
+ // - 如果 X 分量相等，则比较 Y 分量
+ // - 如果 Y 分量也相等，则比较 Z 分量
  
  
  template<class Cmpt>
@@ -610,7 +610,7 @@ Examine the code in `Vector/VectorI.H`:
          )
      );
  }
- // Lexicographically compares two vectors in the order Y → Z → X
+ // 按 Y→Z→X 字典序比较两个向量
  
  
  template<class Cmpt>
@@ -635,7 +635,7 @@ Examine the code in `Vector/VectorI.H`:
          )
      );
  }
- // Lexicographically compares two vectors in the order Z → X → Y
+ // 按 Z→X→Y 字典序比较两个向量
  
  
  // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -663,10 +663,10 @@ Examine the code in `Vector/VectorI.H`:
          onet*a.z() + t*b.z()
      );
  }
- // Linear interpolation function
- // - Computes the linear interpolation result of two vectors
- // - t is the interpolation parameter, in the range [0, 1]
- // - When t=0, returns a; when t=1, returns b; intermediate values return a linear combination of the two
+ // 线性插值函数
+ // - 计算两个向量的线性插值结果
+ // - t 是插值参数，取值范围 [0, 1]
+ // - 当 t=0 时返回 a，t=1 时返回 b，中间值则返回两者的线性组合
  
  
  // * * * * * * * * * * * * * * * Global Operators  * * * * * * * * * * * * * //
@@ -682,8 +682,8 @@ Examine the code in `Vector/VectorI.H`:
  
      typedef scalar type;
  };
- // Type trait for the specialized inner product of Vector<Cmpt> and scalar
- // - Defines the result type of the inner product as scalar
+ // 为 Vector<Cmpt> 和 scalar 的特化内积类型特征
+ // - 定义内积结果为 scalar 类型
  
  
  template<class Cmpt>
@@ -691,8 +691,8 @@ Examine the code in `Vector/VectorI.H`:
  {
      return v1.inner(v2);
  }
- // Overload of the dot product operator
- // - Calls the inner member function to compute the dot product
+ // 点积运算符的重载
+ // - 调用 inner 成员函数计算点积
  
  
  template<class Cmpt>
@@ -700,8 +700,8 @@ Examine the code in `Vector/VectorI.H`:
  {
      return v1.cross(v2);
  }
- // Overload of the cross product operator
- // - Calls the cross member function to compute the cross product
+ // 叉积运算符的重载
+ // - 调用 cross 成员函数计算叉积
  
  
  template<class Cmpt>
@@ -709,17 +709,17 @@ Examine the code in `Vector/VectorI.H`:
  {
      return Vector<Cmpt>(s*v.x(), s*v.y(), s*v.z());
  }
- // Overload of the scalar-vector multiplication operator (scalar first)
- // - Multiplies each component of the vector by the scalar
- // - Returns a new vector
+ // 标量与向量乘法运算符的重载（标量在前）
+ // - 将向量的每个分量乘以标量
+ // - 返回新的向量
  
  template<class Cmpt>
  inline Vector<Cmpt> operator*(const Vector<Cmpt>& v, const Cmpt& s)
  {
      return s*v;
  }
- // Overload of the vector-scalar multiplication operator (scalar second)
- // - Achieves commutativity by calling the previous implementation
+ // 向量与标量乘法运算符的重载（标量在后）
+ // - 通过调用前面的实现，确保乘法可交换
  
  
  
@@ -729,11 +729,11 @@ Examine the code in `Vector/VectorI.H`:
 ```
 
 > [!warning]
-> The above code discussion is primarily intended to help readers become familiar with the use of C++ in OpenFOAM, overcome any strangeness or fear of the C++ language, and facilitate understanding of the code in subsequent practical sections. There is no need to spend additional time reading more OpenFOAM source code at this stage, nor to delve into code details. This will be covered in the `ofsc` series later.
+> 上面这些代码讨论主要是为了帮助读者熟悉 C++ 语言在 OpenFOAM 中的使用，克服对 C++ 语言的陌生和恐惧，便于读者理解后续实践的代码。暂时不需要花费更多时间去阅读更多 OpenFOAM 的源代码，也不需要深究代码细节，后续会在 `ofsc` 系列讨论代码。
 
-## 3. Project Setup
+## 3. 项目构建
 
-Run the following commands in the terminal to create the project for this section:
+终端输入命令，建立本文项目
 
 ```terminal {fileName="terminal"}
 ofsp
@@ -741,7 +741,7 @@ mkdir ofsp_05_vector
 code ofsp_05_vector
 ```
 
-Continue using terminal commands or the VS Code interface to create additional files. The final file structure is as follows:
+继续使用终端命令或者使用 vscode 界面创建其他文件，最终文件结构如下
 
 ```terminal {fileName="terminal"}
 tree
@@ -758,11 +758,11 @@ tree
 └── ofsp_05_vector.C
 ```
 
-## 4. Development Library
+## 4. 开发库
 
-### 4.1. Library Source Code
+### 4.1. 库源码
 
-The code in `Aerosand.H` is:
+代码 `Aerosand.H` 为
 
 ```cpp {fileName="/Aerosand/Aerosand.H",linenos=table,linenostart=1}
 #pragma once
@@ -780,7 +780,7 @@ private:
 
 ```
 
-The code in `Aerosand.C` is:
+代码 `Aerosand.C` 为
 
 ```cpp {fileName="/Aerosand/Aerosand.C",linenos=table,linenostart=1}
 #include "Aerosand.H"
@@ -795,9 +795,9 @@ double Aerosand::GetLocalTime() const {
 
 ```
 
-### 4.2. Library Makefile
+### 4.2. 库 Make
 
-The library `Make/files` is:
+库 `Make/files` 为
 
 ```wmake {fileName="/Aerosand/Make/files",linenos=table,linenostart=1}
 Aerosand.C
@@ -806,22 +806,22 @@ LIB = $(FOAM_USER_LIBBIN)/libAerosand
 
 ```
 
-The development library has no other dependencies; the library `Make/options` is left empty.
+开发库没有其他依赖，库 `Make/options` 为空
 
-### 4.3. Library Compilation
+### 4.3. 库编译
 
-Run the following commands in the terminal to compile the library:
+终端输入命令，进行库的编译
 
 ```terminal {fileName="terminal"}
 wclean Aerosand
 wmake Aerosand
 ```
 
-## 5. Main Project
+## 5. 主项目
 
-### 5.1. Main Source Code
+### 5.1. 主源码
 
-The code in `ofsp_05_vector.C` is:
+代码 `ofsp_05_vector.C` 为
 
 ```cpp {fileName="/ofsp_05_vector.C",linenos=table,linenostart=1}
 #include <iostream>
@@ -841,9 +841,9 @@ int main()
         << "distance:  " << v1.dist(v2) << nl
         << "normalise: " << v1.normalise(1e-6) << nl
         << "inner product: " << v1.inner(v2) << nl
-        << "inner product: " << (v1 & v2) << nl // Parentheses used to improve operator precedence
+        << "inner product: " << (v1 & v2) << nl // 使用括号提高计算优先级
         << "cross product: " << v1.cross(v2) << nl
-        << "cross product: " << (v1^v2) << nl // Parentheses used to improve operator precedence
+        << "cross product: " << (v1^v2) << nl // 使用括号提高计算优先级
         << endl;
 
 	label a = 1;
@@ -863,9 +863,9 @@ int main()
 
 ```
 
-### 5.2. Project Makefile
+### 5.2. 项目 Make
 
-The project `Make/files` is:
+项目 `Make/files` 为
 
 ```wmake {fileName="/Make/files",linenos=table,linenostart=1}
 ofsp_05_vector.C
@@ -874,7 +874,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_05_vector
 
 ```
 
-Because we included `vector.H`, whose path is `$FOAM_SRC/OpenFOAM/primitives/Vector/floats/vector.H`, we can determine from the Makefile location that this file belongs to the OpenFOAM library at `$FOAM_SRC/OpenFOAM`. The affiliation is as follows:
+因为我们包含了 `vector.H` ，路径为 `$FOAM_SRC/OpenFOAM/primitives/Vector/floats/vector.H`。由 Make 文件的位置能判断，该文件属于 OpenFOAM 库，路径为 `$FOAM_SRC/OpenFOAM`。归属关系如下。
 
 ```terminal {fileName="terminal"}
 $FOAM_SRC/OpenFOAM
@@ -894,12 +894,12 @@ $FOAM_SRC/OpenFOAM
 		└── VectorI.H
 ```
 
-In principle, we should include the OpenFOAM library in the project `Make/options`. In practice, OpenFOAM’s build system (`wmake`) automatically handles the dependencies of essential built-in libraries. We only need to add third-party libraries, self-developed libraries, and libraries for certain optional modules.
+原则上，我们应该在项目 `Make/options` 中包含 OpenFOAM 库。实际上，OpenFOAM 的构建系统（wmake）已经自动处理原生必备库的依赖关系。我们只需要添加第三方库、自己开发的库、某些可选模块的库即可。
 
 > [!important]
-> The `$FOAM_SRC/OpenFOAM` library is automatically included as a dependency; any classes used from it do not require the user to link again.
+> `$FOAM_SRC/OpenFOAM` 库已经自动依赖，其中类的使用均无需用户再次链接。
 
-The project `Make/options` is:
+项目 `Make/options` 为
 
 ```wmake {fileName="/Make/options",linenos=table,linenostart=1}
 EXE_INC = \
@@ -911,9 +911,9 @@ EXE_LIBS = \
 
 ```
 
-## 6. Compilation and Execution
+## 6. 编译运行
 
-Run the following commands in the terminal to compile and run the project:
+终端输入命令，编译运行该项目
 
 ```terminal {fileName="terminal"}
 wclean
@@ -921,7 +921,7 @@ wmake
 ofsp_05_vector
 ```
 
-The output is as follows:
+运行结果如下
 
 ```terminal {fileName="terminal"}
 3.14 * (1 2 3) = (3.14 6.28 9.42)
@@ -940,14 +940,14 @@ Hi, OpenFOAM! Here we are.
 Current time step is : 0.2
 ```
 
-## 7. Summary
+## 7. 小结
 
-This section has completed the following discussions:
+本文完成讨论
 
-- [ ] Practicing source code navigation
-- [ ] Discussing parts of the implementation of the `vector` class
-- [ ] Understanding the use of native libraries
-- [ ] Compiling and running a `vector` project
+- [x] 练习源码的查阅
+- [x] 讨论 vector 类的部分代码实现
+- [x] 理解原生库的使用
+- [x] 编译运行 vector 项目
 
 ## 支持我们 Support us
 
