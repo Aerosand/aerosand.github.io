@@ -127,14 +127,12 @@ OpenFOAM 是什么呢？引用 wiki 解释如下
 {{< /cards >}}
 
 
-> 声明：
-> Notice: 
-> 
+
 > Copyright @ 2026 Aerosand
 > 
-> 代码（源文件、脚本等）: MIT 协议
-> 课程（文本、文档等）：CC BY 4.0 协议
+> - 代码（源文件、脚本等）: MIT 协议
+> - 课程（文本、文档等）：CC BY 4.0 协议
 > 
-> Code (source files, scripts, etc.): MIT License
-> Course materials (text, documents, etc.): CC BY 4.0 License
+> - Code (source files, scripts, etc.): MIT License
+> - Course materials (text, documents, etc.): CC BY 4.0 License
 
