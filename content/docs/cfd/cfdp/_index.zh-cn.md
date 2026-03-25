@@ -11,5 +11,5 @@ update: 2025-09-02
 
 
 {{< cards >}}
-  {{< card link="" title="Updating..." tag="#to-update"  tagColor="red" >}}
+  {{< card link="" title="等待更新" tag="#to-update"  tagColor="red" >}}
 {{< /cards >}}
