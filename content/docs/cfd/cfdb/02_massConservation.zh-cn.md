@@ -2,7 +2,7 @@
 uid: 20250918125401
 title: 02_massConservation
 date: 2025-09-18
-update: 2025-10-26
+update: 2026-03-27
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -21,6 +21,8 @@ sidebar:
   exclude: false
 draft: false
 ---
+
+
 ## 0. 前言
 
 质量守恒方程，也称为连续性方程，本质是质量守恒。
@@ -459,3 +461,21 @@ $$
 
 
 
+## 支持我们
+
+>[!tip]
+>希望这里的分享可以对坚持、热爱又勇敢的您有所帮助。
+>
+>如果这里的分享对您有帮助，您的评论或赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。
+>
+>赞助打赏时的信息和留言将用于展示和感谢。
+
+{{< cards >}}
+  {{< card link="/" title="支持" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝" >}}
+{{< /cards >}}
+
+> Copyright @ 2026 Aerosand
+>
+> - 课程（文本、图片等）：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+> - OpenFOAM 开发代码：[GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
+> - 其他代码：[MIT License](https://opensource.org/licenses/MIT)

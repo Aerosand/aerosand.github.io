@@ -2,7 +2,7 @@
 uid: 20251015163537
 title: 07_fvmBasics
 date: 2025-10-15
-update: 2025-10-26
+update: 2026-03-27
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -21,6 +21,8 @@ sidebar:
   exclude: false
 draft: false
 ---
+
+
 ## 0. 前言
 
 有限体积法（FVM）基于通量守恒，使得每个控制体都满足物理量守恒（在后续讨论中会逐渐了解），非常适合流体和传热等相关问题的数值计算。FVM 的构造相对简单，精度一般满足要求，推荐 CFD 入门的学习。
@@ -266,8 +268,8 @@ $$
 \begin{aligned}
 \int_{V_{P}}\nabla\cdot(\rho U\phi)dV &= \int_{\partial V_{P}}(\rho U\phi)\cdot d S \\
 &= \sum\limits_{f}\int_{f}(\rho U\phi) \cdot d S\\
-&\approx \sum\limits_{f}(\rho U\phi)_{f}\cdot S_{f} \\
-&=  \sum\limits_{f}F^{C}_{f}\cdot S_{f}
+&\approx \sum\limits_{f}(\rho U\phi)_{f}\cdot S_{f} =  \sum\limits_{f}F^{C}_{f}\cdot S_{f} \\
+&= \sum\limits_{f}(\rho U_{f}\cdot S_{f})\phi_{f} =  \sum\limits_{f}F_{f}\phi_{f}
 \end{aligned}
 $$
 
@@ -300,7 +302,7 @@ $$
 对于数值计算网格来说，当网格很小的时候，一点近似足够，即
 
 $$
-\int _{f}(\rho U\phi)_{f}\cdot dS \approx (\rho U\phi)_{f}\cdot S_{f}
+\int _{f}(\rho U\phi)_{f}\cdot dS \approx (\rho U\phi)_{f}\cdot S_{f} = \sum\limits_{f}(\rho U_{f}\cdot S_{f})\phi_{f}
 $$
 
 需要注意的是，这一点取在离散面的中心上。
@@ -308,20 +310,34 @@ $$
 结合上面的讨论，扩散项的半离散近似最终为
 
 $$
-\int_{V_{P}}\nabla\cdot (\rho U\phi)dV  \approx \sum\limits_{f}(\rho U\phi)_{f}\cdot S_{f} =  \sum\limits_{f}F^{C}_{f}\cdot S_{f}
+\int_{V_{P}}\nabla\cdot (\rho U\phi)dV  \approx \sum\limits_{f}(\rho U\phi)_{f}\cdot S_{f} =  \sum\limits_{f}F^{C}_{f}\cdot S_{f} = \sum\limits_{f}F_{f}\phi_{f}
 $$
 
->[!tip]
->有人可能对点乘的面矢量的位置有疑问。实际上，向量点乘满足交换律，所以位置在前后都可以。
-
-其中，$F^{C}$ 是质量通量，也称为对流通量
+其中，$F^{C}$ 称为对流通量（矢量），反映了对流的物理本质。
 
 $$
 F^{C}_{f} = (\rho U\phi)_{f}
 $$
 
+如果其中的 $\phi=U$ ，则
+
+$$
+F^{C}_{f} = (\rho U U)_{f}
+$$
+
+这里 $F^{C}$ 也称为动量通量。
+
+而 $F_{f}$ 称为质量通量（标量），
+
+$$
+F_{f} = \rho U_{f}\cdot S_{f}
+$$
+
+质量通量反映了对流过程中更基本的物理守恒本质。
+
 >[!tip]
->以后中间的推导过程适当省略。
+>有人可能对点乘的面矢量的位置有疑问。实际上，向量点乘满足交换律，所以位置在前后都可以。
+
 
 总的来说，对流项就是物理量随着质量输运的变化，数学上具体表现为截面上物理量乘以截面上的质量通量。
 
@@ -622,13 +638,13 @@ snGradSchemes
 对于正交影响的部分来说，如果按距离插值（书写简单起见）
 
 $$
-(\nabla \phi)_{f}\cdot\vec{\Delta} = |\vec{\Delta}|\frac{\phi_{N}- \phi_{P}}{|\vec{d}|}
+(\nabla \phi)_{f}\cdot\vec{\Delta} = \frac{\phi_{N}- \phi_{P}}{|\vec{d}|}\cdot \vec{\Delta}
 $$
 
 最终形式为
 
 $$
-(\nabla \phi)_{f}\cdot S_{f} = |\vec{\Delta}|\frac{\phi_{N}- \phi_{P}}{|\vec{d}|} + (\nabla \phi)_{f}\cdot\vec{k}
+(\nabla \phi)_{f}\cdot S_{f} = \frac{\phi_{N}- \phi_{P}}{|\vec{d}|}\cdot \vec{\Delta} + (\nabla \phi)_{f}\cdot\vec{k}
 $$
 
 上式 RHS 第二项面上的梯度计算可以参考前文，按体积插值得到。
@@ -645,7 +661,7 @@ $$
 \begin{align*}
 -\int_{V_{P}}\nabla\cdot (\Gamma \nabla \phi)dV &=  -\int_{\partial V_{P}}(\Gamma\nabla \phi)\cdot dS \\
 &\approx -\sum_{f}(\Gamma\nabla \phi)_f\cdot S_{f} \\
-&=  -\sum_{f}\Gamma_{f}\bigg[|\vec{\Delta}|\frac{\phi_{N} - \phi_{P}}{|\vec{d}|} + (\nabla \phi)_f\cdot\vec k\bigg]
+&=  -\sum_{f}\Gamma_{f}\bigg[\frac{\phi_{N} - \phi_{P}}{|\vec{d}|}\cdot\vec{\Delta} + (\nabla \phi)_f\cdot\vec k\bigg]
 \end{align*}
 $$
 
@@ -867,7 +883,220 @@ ddtSchemes
 }
 ```
 
-## 7. 小结
+
+## 7. 边界条件
+
+我们分成数值边界（numerical boundary conditions）和物理边界（physical boundary conditions）进行讨论。
+
+### 7.1. 数值边界
+
+数值边界有两种基本类型
+
+- Dirichlet (fixed value of variable to the boundary)（指定边界上变量的值）
+- Neumann (fixed gradient of variable normal to the boundary)（指定边界上变量的法向梯度值）
+
+此外可能还会出现这两种基础类型的不同混合形式。
+
+这些类型需要在线性代数系统求解之前，应用到代数系统中。
+
+**非正交性**
+
+在正式将数值边界条件应用到线性代数系统之前，我们需要考察一下网格非正交性带来的影响。
+
+对于一个边界控制体，控制体体中心点还是 $P$ ，边界面中心点是 $b$ ，体中心点到边界面中心点的向量为 $\vec d$ ，因为非正交性，体中心点到边界面的法向向量为 $\vec{d}_{n}$ 。
+
+如果还是对面矢量 $\vec{S}$ 作分解 $\vec{S} = \vec{\Delta} + \vec{k}$ ，因为边界面之外不存在邻单元，我们简单认为 $\vec{\Delta}$ 和 $\vec{S}$  相同。
+
+$$
+\vec{d}_{n}= \frac{\vec{S}}{|\vec{S}|}\frac{\vec{d}\cdot{S}}{|\vec{S}|}
+$$
+
+此时不再使用非正交修正项 $\vec{k}$ 。
+
+我们也可以继续使用非正交修正项，以提高离散精度。
+
+**Fixed Value BC**
+
+也就是在边界面上
+
+$$
+\phi_f = \phi_b
+$$
+对流项和扩散项都处理该值。
+
+对于对流项来说
+
+$$
+\int_{V_{P}}\nabla\cdot(\rho U\phi)dV = \sum\limits_fF_{f}\phi_{f}
+$$
+
+所以当面求和遍历到边界面时，应该直接替换为定值
+
+$$
+F_{f}\phi_{f} = F_b\phi_b
+$$
+
+对于扩散项来说
+
+$$
+-\int_{V_{P}}\nabla\cdot(\Gamma \nabla\phi)dV = -\sum_{f}(\Gamma\nabla \phi)_{f}\cdot S_{f}
+$$
+
+在计算 $(\nabla \phi)_{f}\cdot S_{f}$  时，也需要使用定值
+
+$$\begin{aligned}
+(\nabla \phi)_{f}\cdot S_{f} &= |\vec{\Delta}|\frac{\phi_{N}- \phi_{P}}{|\vec{d}|} + \cancel{\vec{k}\cdot(\nabla\phi)_{f}} \\
+&= |\vec{S}|\frac{\phi_{b}- \phi_{P}}{|\vec{d}_{n}|}
+\end{aligned}$$
+
+**Fixed Gradient BC**
+
+也就是在边界上
+
+$$
+\bigg(\frac{\vec S}{|\vec S|}\cdot \nabla \phi\bigg)_{b} = g_{b}
+$$
+
+对于对流项来说
+
+梯度可以反推计算
+
+$$\begin{aligned}
+\phi_{b} &= \phi_{P} + \vec d_{n}\cdot (\nabla\phi) \\
+&= \phi_{P} + |\vec d_{n}|g_{b}
+\end{aligned}$$
+
+得到定值再代入即可。
+
+注意，因为网格的非正交性， $\vec{d}_{n}$ 并不是完全指向边界面中心点，所以 Fixed Gradient BC 的计算是一阶精度的。我们可以增加非正交修正项来提高精度。
+
+对于扩散项来说
+
+面上的梯度直接代入计算
+
+$$
+-\int_{V_{P}}\nabla\cdot(\Gamma \nabla\phi)dV = -\sum_{f}(\Gamma\nabla \phi)_{f}\cdot S_{f}
+$$
+
+当面求和遍历到边界面时，
+
+$$
+\sum_{f}(\Gamma\nabla \phi)_{f}\cdot S_{f}= \Gamma_{b}|S|g_b
+$$
+
+### 7.2. 物理边界
+
+**不可压缩流动**
+
+- Inlet BC
+	- velocity: fixed value
+	- pressure: fixed gradient zero
+- Outlet BC
+	- 速度可以从相邻单元映射过来，并缩放以满足整体连续性
+		- 压力指定为零梯度
+		- 可能导致不稳定
+	- 速度可以指定为零梯度
+		- 压力采用固定值
+		- 通过压力方程保证整体质量守恒
+- Symmetry plane BC
+	- 边界上的法向梯度都为零
+- Impermeable no-slip walls
+	- 流体在壁面上的速度等于壁面本身的速度
+	- 通过固定壁面的通量为零
+	- 压力梯度为零
+
+**可压缩流动**
+
+基本思路是一样的，但是跨音速和超音速的情况比较特殊。
+
+湍流的边界条件也比较特殊，这些都需要特别的查询专业资料。
+
+## 8. 代数系统
+
+无论如何，离散方程组最后都能整理为
+
+$$
+a_P\phi_{P}^{n}+\sum\limits_{N}a_{N}\phi_{N}^{n} = R_{P}
+$$
+
+- 对流项考虑 CD / UD / BD 等插值格式
+- 扩散项考虑梯度插值计算和非正教修正
+- 源项线性化
+
+对于每一个控制体都会有这么一个本地组装的离散方程，形成一个线性代数系统
+
+$$
+[A]\bigg[\phi\bigg] = [R]
+$$
+
+- 矩阵 $[A]$ 是一个稀疏矩阵，$a_P$ 在对角线上，$a_N$ 在对角线旁。
+- 矩阵 $\bigg[\phi\bigg]$ 是所有计算域内控制体的待求体中心值形成的向量
+- 矩阵 $[R]$ 是源项向量，包含所有不含 $\phi$ 的项、含有 $\phi$ 旧时间步的所有项
+- 系数 $a_P$ 部分既有来自时间项，也来自对流项扩散项，也来自源项的线性部
+- 系数 $a_N$ 部分来自每一项计算中涉及到的邻单元部分
+
+当这个线性代数系统被求解后，我们就获得了新时间步下的物理场 $\phi$（网格单元中心值）。
+
+现有的代数解法分成直接法和迭代法。通常来说，当矩阵规模增大的时候，迭代法更加经济，但是也对矩阵的特性有一些要求。
+
+### 8.1. 矩阵性质
+
+上面的 LHS 矩阵是稀疏的，大多数的矩阵元素都等于零，如果求解器可以利用稀疏特性，将大大降低计算机的内存需求。
+
+当对角线上元素等于非对角线上元素之和，称为 diagnally equal 。对角线元素大于非对角线元素值和的时候，称为 diagnal dominance ，即对角占优。至少有一行满足对角占优的矩阵称为对角占优矩阵。
+
+迭代法需求矩阵的对角占优来保证收敛。
+
+源项的离散和对角占有有直接关系。
+
+回忆 RHS 的源项线性化如下
+
+$$
+S_{\phi}(\phi) = Su + Sp\phi
+$$
+
+如果 $S_{p} < 0$ ，移项到 LHS 的时候，增加了 LHS 的矩阵对角占优，也就增加了迭代计算收敛性。
+
+如果 $S_{p}> 0$ ，移项到 LHS 的时候，减小了 LHS 的矩阵对角占优，也减弱了计算收敛性，这个时候应该把它显式离散，留在 RHS。
+
+对流项的离散格式都可以看成是 UD 格式的升级。离散的时候，可以选择性的进行隐式离散（留在 LHS 矩阵）或者显式离散（留在 RHS 矩阵）。
+
+扩散项的离散在正交网格下生成 diagonally equal 矩阵，但是网格的非正交性破坏了这点，也破坏了有界性。一般来说，扩散项的非正交修正部分与隐式部分（正交影响部分，离散到 LHS）相比较小。所以正交影响部分隐式处理，留在 RHS，生成 diagonally equal 矩阵。而非正交修正部分则显式处理，移到 RHS，加入广义源项。 如果非正交影响较大，则需要加入非正交修正器，额外使用迭代来计算非正交修正项，每次迭代都要更新非正交修正项，直到误差满足要求。 这些分开的隐式显式的处理只能提高矩阵性质，并不能保证有界性。 
+
+### 8.2. 欠松弛
+
+实践证明，源项的线性部分和时间项能实际上可以加强 LHS 矩阵的对角占优性质。
+
+在稳态计算中，没有时间项离散对 LHS 矩阵对角占优性质的加强，可以使用欠松弛技术。
+
+考虑离散后得到的线性代数系统
+
+$$
+a_P\phi_{P}^{n}+\sum\limits_{N}a_{N}\phi_{N}^{n} = R_{P}
+$$
+
+为该式增加人工项
+
+$$
+a_P\phi_{P}^{n}+ \bigg(\frac{1-\alpha}{\alpha}a_P\phi_{P}^{n}\bigg) + \sum\limits_{N}a_{N}\phi_{N}^{n} = R_{P} + \bigg(\frac{1-\alpha}{\alpha}a_P\phi_{P}^{0}\bigg)
+$$
+
+- $0<\alpha\leq 1$ 是欠松弛因子
+- 当问题达到稳态结果的时候，$\phi_{P}^{n} = \phi_{P}^{0}$ 
+
+上式整理为
+
+$$
+\frac{a_P}{\alpha}\phi_{P}^{n}+\sum\limits_{N}a_{N}\phi_{N}^{n} = R_{P} + \bigg(\frac{1-\alpha}{\alpha}a_P\phi_{P}^{0}\bigg)
+$$
+
+因为 $\alpha$ 是小于 1 的，所以上式的对角元素 $\alpha_P$ 的系数得到了放大，也就是增加了对角占优性质。
+
+### 8.3. 代数系统求解
+
+可以使用 CG 方法等算法进行代数求解，暂不展开。
+
+## 9. 小结
 
 在上述讨论中，我们讨论了有限体积法的基本思想，包括四大项的基本离散。相信读者能梳理出从连续的控制方程，到离散的离散方程，到求解线性代数方程组，这个完整的数值过程。更复杂的情况暂不深究。
 
@@ -879,7 +1108,11 @@ ddtSchemes
 其实并不是，可以梳理如下
 
 | 位置                     | 作用对象     | 具体含义        |
-| ---------------------- | -------- | ----------- |
+| ---
+
+> [!important]
+> 访问 [https://aerosand.cc](https://aerosand.cc/) 以获取最近更新。
+------------------- | -------- | ----------- |
 | `interpolationSchemes` | 所有面上的物理量 | 全局默认的线性插值   |
 | `gradSchemes`          | 梯度计算中的面值 | 梯度特定项的线性插值  |
 | `divSchemes`           | 对流项中的面值  | 对流项特定项的线性插值 |
@@ -903,3 +1136,21 @@ ddtSchemes
 
 [4] Notes on Computational Fluid Dynamics: General Principles, https://doc.cfd.direct/notes/cfd-general-principles/
 
+## 支持我们
+
+>[!tip]
+>希望这里的分享可以对坚持、热爱又勇敢的您有所帮助。
+>
+>如果这里的分享对您有帮助，您的评论或赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。
+>
+>赞助打赏时的信息和留言将用于展示和感谢。
+
+{{< cards >}}
+  {{< card link="/" title="支持" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝" >}}
+{{< /cards >}}
+
+> Copyright @ 2026 Aerosand
+>
+> - 课程（文本、图片等）：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+> - OpenFOAM 开发代码：[GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
+> - 其他代码：[MIT License](https://opensource.org/licenses/MIT)

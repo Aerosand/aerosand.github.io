@@ -1,8 +1,7 @@
 ---
-uid: 20250918160517
 title: 03_momentumConservation
 date: 2025-09-18
-update: 2025-10-26
+update: 2026-03-27
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -21,6 +20,8 @@ sidebar:
   exclude: false
 draft: false
 ---
+
+
 ## 0. 前言
 
 虽然现在人们把问题所对应的质量、动量和能量方程组的求解统称为求解 Navier-Stokes 方程，但是狭义上的 NS 方程特指动量方程。
@@ -65,9 +66,9 @@ $$
 物质体微元的受力可以分成 2 部分
 
 - 体积力，直接作用在整个物质体微元的体积上，与体积（质量）有紧密关系的超距离作用力，比如重力、电磁力等
-- 表面力，直接作用在物质体微元的表面，与面积有紧密关系的接触作用力，只有两个来源即：外部流体包围产生的压力，外部流体推拉摩擦产生的粘性力（正应力切应力）
+- 表面力，直接作用在物质体微元的表面，与面积有紧密关系的接触作用力，只有两个来源即：外部流体包围产生的压力，外部流体推拉摩擦产生的粘性力（粘性正应力、粘性切应力）
 
-正应力和切应力都依赖于流体的速度梯度，和形变的速率成正比。应力越大，形变的速度越快。大多数粘性流动中，正应力都比切应力小的多，乃至可以忽略不计，当法向速度梯度很大时 (例如激波内部)，正应力就变得重要。我们约定用 $\tau_{ij}$ 表示 **作用在垂直于 $i$ 轴的平面沿着 $j$ 方向的应力**上。
+正应力和切应力都依赖于流体的速度梯度，和形变的速率成正比。应力越大，形变的速度越快。大多数粘性流动中，粘性正应力都比粘性切应力小的多，乃至可以忽略不计。当法向速度梯度很大时 (例如激波内部)，正应力就变得重要。我们约定用 $\tau_{ij}$ 表示 **作用在垂直于 $i$ 轴的平面沿着 $j$ 方向的粘性应力**。
 
 在 $x$ 方向上的表面力有
 
@@ -86,17 +87,17 @@ $$
 -\frac{\partial p}{\partial x}dxdydz + \frac{\partial\tau_{xx}}{\partial x}dxdydz +\frac{\partial\tau_{yx}}{\partial y}dydxdz + \frac{\partial\tau_{zx}}{\partial z}dzdxdy
 $$
 
-考虑上微元受到的体积力
+考虑上微元受到的体积力（重力）为
 
 $$
 \rho f_{x}dxdydz
 $$
 
-我们分析出图中 $x$ 方向的所有力，有
+我们分析出图中 $x$ 方向的所有力 $F_{x}$ 为
 
 $$
 \begin{align*}
-F_{x} &= \bigg(- \frac{\partial p}{\partial x}+\frac{\partial\tau_{xx}}{\partial x}+\frac{\partial\tau_{yx}}{\partial y}+\frac{\partial\tau_{zx}}{\partial z} + f_{x} \bigg)dxdydz
+F_{x} &= \bigg(- \frac{\partial p}{\partial x}+\frac{\partial\tau_{xx}}{\partial x}+\frac{\partial\tau_{yx}}{\partial y}+\frac{\partial\tau_{zx}}{\partial z} + \rho f_{x} \bigg)dxdydz
 \end{align*}
 $$
 
@@ -115,7 +116,13 @@ $$
 可以得到 $x$ 方向上的动量方程为
 
 $$
-\rho\frac{Du}{Dt} = -\frac{\partial p}{\partial x} + \frac{\partial\tau_{xx}}{\partial x} + \frac{\partial\tau_{yx}}{\partial y} + \frac{\partial\tau_{zx}}{\partial z} + \rho f_{x}
+\rho\frac{Du}{Dt} dxdydz= \bigg(- \frac{\partial p}{\partial x}+\frac{\partial\tau_{xx}}{\partial x}+\frac{\partial\tau_{yx}}{\partial y}+\frac{\partial\tau_{zx}}{\partial z} + \rho f_{x} \bigg)dxdydz
+$$
+
+整理后为
+
+$$
+\rho\frac{Du}{Dt} = - \frac{\partial p}{\partial x}+\frac{\partial\tau_{xx}}{\partial x}+\frac{\partial\tau_{yx}}{\partial y}+\frac{\partial\tau_{zx}}{\partial z} + \rho f_{x}
 $$
 
 同样在 $y$ 和 $z$ 方向上有
@@ -128,11 +135,11 @@ $$
 \rho\frac{Dw}{Dt} = -\frac{\partial p}{\partial z} + \frac{\partial\tau_{xz}}{\partial x} + \frac{\partial\tau_{yz}}{\partial y} + \frac{\partial\tau_{zz}}{\partial z} + \rho f_{z}
 $$
 
-根据上一节的推导有【物质导数】
+根据上一节的推导【物质导数】即
 
 $$\rho\frac{Db}{Dt} = \rho\frac{\partial b}{\partial t} + \rho U\cdot \nabla b = \frac{\partial (\rho b)}{\partial t} + \nabla \cdot (\rho Ub)$$
 
-处理动量方程，有
+带入整理动量方程，以 $x$ 方向为例有
 
 $$
 \rho\frac{Du}{Dt} = \rho\frac{\partial u}{\partial t} + \rho U \cdot \nabla u = \frac{\partial (\rho u)}{\partial t} + \nabla \cdot (\rho u U)
@@ -158,7 +165,7 @@ $$
 
 以 $x$ 方向为例，展开左侧第一项的微分，第二项的算子，有
 
-$$(\rho\frac{\partial u}{\partial t} + u\frac{\partial \rho}{\partial t}) + u\nabla\cdot \rho U + \rho U \cdot \nabla u $$
+$$\bigg(\rho\frac{\partial u}{\partial t} + u\frac{\partial \rho}{\partial t}\bigg) + \bigg( u\nabla\cdot \rho U + \rho U \cdot \nabla u \bigg)$$
 
 根据之前讨论的守恒型微分形式的连续性方程，有
 
@@ -167,7 +174,6 @@ $$
 $$
 
 所以 NS 方程也可以写成
-
 
 $$
 \rho \frac{\partial u}{\partial t} + \rho U\cdot\nabla u = -\frac{\partial p}{\partial x} + \frac{\partial\tau_{xx}}{\partial x} + \frac{\partial\tau_{yx}}{\partial y} + \frac{\partial\tau_{zx}}{\partial z} + \rho f_{x}
@@ -207,51 +213,57 @@ $$\lambda = -\frac{2}{3}\mu$$
 
 根据牛顿第二定理，动量变化率等于作用力，即
 
-$$\bigg(\frac{d(mU)}{dt}\bigg)_{MV}  = \bigg(\int_V \vec{f} dV\bigg)_{MV}$$
+$$\bigg(\frac{d(mU)}{dt}\bigg)_{MV}  = \bigg(\int_V \vec{F} dV\bigg)_{MV}$$
 
-此处的作用力 $\vec{f}$ 包含体积力和表面力。
+此处的作用力 $\vec{F}$ 包含所有体积力和表面力。
 
-根据【雷诺输运定理】
+根据【雷诺输运定理】即
 
 $$
 \bigg(\frac{dB}{dt}\bigg)_{MV} = \int_V\bigg[\frac{\partial}{\partial t}(\rho b) + \nabla \cdot (\rho U b)\bigg]dV = \int_V\bigg[\frac{D}{D t}(\rho b) + \rho b \nabla \cdot U\bigg]dV
 $$
 
-左侧可以改写为守恒型和非守恒型的方程
+其中
+
+$$
+b = \frac{B}{m} = U
+$$
+
+动量方程可以按照上式右侧形式，分别整理为守恒型和非守恒型的方程。
 
 ### 2.1. 非守恒型
 
 对于非守恒型方程，有
 
-$$\int_V\bigg[\frac{D}{D t}(\rho U) + \rho U \nabla \cdot U\bigg]dV - \int_V \vec{f} dV = 0$$
+$$\int_V\bigg[\frac{D}{D t}(\rho U) + \rho U \nabla \cdot U\bigg]dV - \int_V \vec{F} dV = 0$$
 
 整理可得
 
-$$\int_V\bigg[\frac{D}{D t}(\rho U) + \rho U \nabla \cdot U - \vec{f}\bigg]dV = 0$$
+$$\int_V\bigg[\frac{D}{D t}(\rho U) + \rho U \nabla \cdot U - \vec{F}\bigg]dV = 0$$
 
 进一步整理有
 
-$$\frac{D}{D t}(\rho U) + \rho U \nabla \cdot U = \vec{f}$$
+$$\frac{D}{D t}(\rho U) + \rho U \nabla \cdot U = \vec{F}$$
 
 展开第一项的全微分，有
 
-$$(\rho\frac{DU}{Dt} + U\frac{D\rho}{Dt}) + \rho U \nabla \cdot U = \vec{f}$$
+$$(\rho\frac{DU}{Dt} + U\frac{D\rho}{Dt}) + \rho U \nabla \cdot U = \vec{F}$$
 
 整理为
 
-$$\rho\frac{DU}{Dt} + U\underbrace{(\frac{D\rho}{Dt} + \rho \nabla \cdot U)}_{=0} = \vec{f}$$
+$$\rho\frac{DU}{Dt} + U\underbrace{(\frac{D\rho}{Dt} + \rho \nabla \cdot U)}_{=0} = \vec{F}$$
 
 注意左侧第二项括号内是非守恒型微分形式的连续性方程，应该等于零
 
 所以最后有
 
-$$\rho\frac{DU}{Dt}= \vec{f}$$
+$$\rho\frac{DU}{Dt}= \vec{F}$$
 
 根据物质导数，展开有
 
 【**非守恒型微分形式动量方程**】
 
-$$\rho\frac{\partial U}{\partial t} + \rho U\cdot \nabla U= \vec{f}$$
+$$\rho\frac{\partial U}{\partial t} + \rho U\cdot \nabla U= \vec{F}$$
 
 可以看到，该方程和前文的分量形式讨论是一致的。
 
@@ -259,11 +271,11 @@ $$\rho\frac{\partial U}{\partial t} + \rho U\cdot \nabla U= \vec{f}$$
 
 对于守恒型方程，有
 
-$$\int_{V}\bigg[\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho U U)\bigg]dV - \int_{V} \vec{f} dV = 0$$
+$$\int_{V}\bigg[\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho U U)\bigg]dV - \int_{V} \vec{F} dV = 0$$
 
 整理可得
 
-$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = \vec{f}$$
+$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = \vec{F}$$
 
 可以看到，该式和前文的分量形式的讨论是一致的。
 
@@ -271,13 +283,13 @@ $$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = \vec{f}$$
 
 受力可以分成表面力和体积力
 
-$$\vec{f} = \vec{f_{s}} + \vec{f_{b}}$$
+$$\vec{F} = \vec{F_{s}} + \vec{F_{b}}$$
 
 #### 表面力
 
 表面力等于总应力张量和面矢量的乘积
 
-$$d\vec{f_{s}} = \Sigma \cdot d\vec S = \Sigma\cdot \vec{n} dS$$
+$$d\vec{F_{s}} = \Sigma \cdot d\vec S = \Sigma\cdot \vec{n} dS$$
 
 使用 $\Sigma$ 表示总应力张量（total stress tensor)（完整包含单位面积的压力和单位面积的粘性力）
 
@@ -288,7 +300,7 @@ $$\Sigma =
 \Sigma_{zx} & \Sigma_{zy} & \Sigma_{zz}
 \end{bmatrix}$$
 
-- 相同下标 $\Sigma_{ii}$ 表示法向应力，大于零为受拉（tension），小于零为受压（compression）。导致法向应力的主要物理原因是压力，很小一部分原因才是粘性
+- 相同下标 $\Sigma_{ii}$ 表示法向应力，大于零为受拉（tension），小于零为受压（compression）。产生法向应力的主要物理原因是压力，很小一部分原因才是粘性
 - 不同下标 $\Sigma_{ij}$ 表示切向应力，表示 $i$ 面上 $j$ 方向（$i$ 面为垂直 $i$ 方向的面，与分量形式的约定一样），约定如果面的外法向为正，则 $i$ 为正。导致切向应力的物理原因是粘性
 
 
@@ -313,15 +325,15 @@ $$\Sigma =\begin{Bmatrix}
 \tau_{zx} & \tau_{zy} & \tau_{zz} - p
 \end{Bmatrix} = -p\vec I + \vec{\tau}$$
 
-也就是前面说的压力和粘性力。
+也就是前面说的压力和粘性力之和。
 
-回忆前文的讨论，矩阵可以分解成体部分和偏部分，有
+参考前文（00_intro-cfdb）的讨论，矩阵可以分解成体部分和偏部分，有
 
 $$
 \Sigma = \Sigma^{hyd} + \Sigma^{dev} 
 $$
 
-很显然，体部分就是压力矩阵，即
+显然，体部分就是压力矩阵，即
 
 $$
 -p\vec{I} = |\Sigma^{hyd}|\vec{I} = \frac{1}{3}tr(\Sigma)\vec{I}
@@ -330,7 +342,7 @@ $$
 进一步的，有
 
 $$
-\Sigma = -p\vec{I} + \underbrace{ \bigg[\Sigma- \frac{1}{3}tr(\Sigma)\vec{I} \bigg]}_{viscous-sress}
+\Sigma = -p\vec{I} + \underbrace{ \bigg[\Sigma- \frac{1}{3}tr(\Sigma)\vec{I} \bigg]}_{viscous-stress}
 $$
 
 也有
@@ -341,17 +353,17 @@ $$
 
 分析可知，总应力张量的偏部分就是粘性力张量。
 
-所以表面力有
+所以表面力为
 
-$$\int_{V}\vec f_sdV = \int_{\partial V} \Sigma\cdot \vec n dS$$
+$$\int_{V}\vec F_{s}dV = \int_{\partial V} \Sigma\cdot \vec n dS$$
 
 利用散度定理
 
 $$\int_{\partial V} \Sigma\cdot \vec n dS = \int_V\nabla\cdot\Sigma dV$$
 
-整理可得
+对应可得表面力为
 
-$$\vec f_S = [\nabla\cdot\Sigma] = -\nabla p + [\nabla\cdot \tau]$$
+$$\vec F_{S} = \nabla\cdot\Sigma = -\nabla p + \nabla\cdot \tau$$
 
 继续讨论其中的粘性力部分
 
@@ -379,7 +391,7 @@ $$\vec{\tau} = \mu [\nabla U + (\nabla U)^T]$$
 
 结合这些讨论，也就可以理解为什么 $\lambda(\nabla\cdot U)$ 这一项也被为体积膨胀率。
 
-引入应变率（strain rate），也被称为**形变率**，可以表示成速度的函数
+此时引入应变率（strain rate），也被称为**形变率**，可以表示成速度的函数
 
 $$
 \begin{align*}
@@ -419,11 +431,11 @@ $$
 
 主要是重力
 
-$$\vec f_b = \rho \vec g$$
+$$\vec F_{b} = \rho \vec g$$
 
 对于旋转系统来说，体力还来自于科里奥利力 和向心力
 
-$$\vec f_b = -2\rho[\omega \times U] - \rho [\omega\times[\omega\times\vec r]] $$
+$$\vec F_{b} = -2\rho[\omega \times U] - \rho [\omega\times[\omega\times\vec r]] $$
 
 一般来说，重力和向心力都和位置有关，和速度无关，所以会归在压力修正项中。科里奥利力会单独处理。体积力像是还有电磁力电场力等多种类型，针对具体问题需要增加不同的体积力。下面方程中的体积力只考虑重力。
 
@@ -432,17 +444,21 @@ $$\vec f_b = -2\rho[\omega \times U] - \rho [\omega\times[\omega\times\vec r]] $
 
 ### 2.4. NS 方程
 
-考虑最一般情况，动量方程守恒型微分形式为
+考虑一般情况，将受力项的细节代入
+
+$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = \vec{F}$$
+
+得到较为完整形式的动量方程守恒型微分形式为（包含粘性力）
 
 $$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + \nabla\cdot\vec{\tau} + \rho\vec{g}$$
 
-在 OpenFOAM 中，一般表示为
+在 OpenFOAM 中一般从完整形式考虑，写成
 
 $$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + (\nabla\cdot rhoR^{eff}) + \rho\vec{g}$$
 
-流体粘性应力的张量形式
+完整的流体粘性应力的张量形式为
 
-$$rhoR^{eff} = \mu [\nabla U + (\nabla U)^{T}] + \lambda(\nabla\cdot U)\vec I$$
+$$\vec{\tau} = rhoR^{eff} = \mu [\nabla U + (\nabla U)^{T}] + \lambda(\nabla\cdot U)\vec I$$
 
 展开成矩阵形式更加清楚
 
@@ -460,10 +476,10 @@ $$
 \frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + \nabla\cdot[\mu (\nabla      U + (\nabla U)^T)] + \nabla(\lambda\nabla\cdot U) + \rho\vec{g}
 $$
 
-其中
+其中应力张量的散度为，物理上表示流体的粘性力作用
 
 $$
-\nabla\cdot[\mu (\nabla U + (\nabla U)^{T})] = \nabla\cdot(\mu\nabla U) + \nabla\cdot[\mu (\nabla U)^{T}]
+\nabla\cdot\vec{\tau}=\nabla\cdot[\mu (\nabla U + (\nabla U)^{T})] = \nabla\cdot(\mu\nabla U) + \nabla\cdot[\mu (\nabla U)^{T}]
 $$
 
 整理为
@@ -472,23 +488,23 @@ $$
 \frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = \nabla\cdot(\mu\nabla U)-\nabla p + \nabla\cdot[\mu (\nabla U)^T] + \nabla(\lambda\nabla\cdot U) + \rho\vec{g}
 $$
 
-对于更一般的情况，将右边后四项统一为广义源项，整理为
+对于更一般的情况，将右边后三项统一为广义源项，整理为
 
 $$
-\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) - \nabla\cdot(\mu\nabla U) = Q
+\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = \nabla\cdot(\mu\nabla U)-\nabla p + Q
 $$
+
+可以看到粘性力作用一部分作为扩散项，表现为动量的扩散。另一部分作为广义源项，表现为动量的损失。
+
+将压力项也纳入源项，整理成更通用的形式为
+
+$$
+\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = \nabla\cdot(\mu\nabla U) + Q
+$$
+
+即得到瞬态项、对流项、扩散项和源项。
 
 ## 3. 补充讨论
-
-### 3.1. 无粘流动
-
-对于无粘性流动，粘性系数 $\mu=0$ ，动量方程最终简化为
-
-$$\frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) = -\nabla p + \rho\vec{g}$$
-
-即没有粘性扩散。
-
-### 3.2. 不可压缩流动
 
 对于不可压缩流体
 
@@ -508,12 +524,12 @@ $$
 
 $$\begin{align*}
 \frac{\partial}{\partial t}(\rho U) + \nabla \cdot (\rho UU) &=  -\nabla p + \nabla\cdot[\mu (\nabla      U + (\nabla U)^T)] + \cancel{\nabla(\lambda\nabla\cdot U)} + \rho\vec{g} \\
-\frac{\partial U}{\partial t} + \nabla \cdot (UU) - \nabla \cdot[\nu(\nabla U + (\nabla U)^{T}]  &= - \frac{1}{\rho} \nabla p + \rho\vec{g} \\
-\frac{\partial U}{\partial t} + \nabla \cdot (UU) - \nabla \cdot (2\nu S)  &= - \frac{1}{\rho} \nabla p + \rho\vec{g} \\
-\frac{\partial U}{\partial t} + \nabla \cdot (UU) + \nabla \cdot R^{eff}  &= - \frac{1}{\rho} \nabla p + \rho\vec{g}
+\frac{\partial U}{\partial t} + \nabla \cdot (UU) - \nabla \cdot[\nu(\nabla U + (\nabla U)^{T}]  &= - \frac{1}{\rho} \nabla p + \vec{g} \\
+\frac{\partial U}{\partial t} + \nabla \cdot (UU) - \nabla \cdot (\frac{\vec{\tau}}{\rho})  &= - \frac{1}{\rho} \nabla p + \vec{g} \\
+\frac{\partial U}{\partial t} + \nabla \cdot (UU) - \nabla \cdot R^{eff}  &= - \frac{1}{\rho} \nabla p + \vec{g}
 \end{align*}$$
 
-如果此时粘性系数 $\mu$ 为常数，动量方程可以进一步简化
+如果此时粘性系数 $\mu$ 为常数，动量方程可以整理简化
 
 **粘性应力张量的散度**为
 
@@ -568,3 +584,21 @@ $$
 
 
 
+## 支持我们
+
+>[!tip]
+>希望这里的分享可以对坚持、热爱又勇敢的您有所帮助。
+>
+>如果这里的分享对您有帮助，您的评论或赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。
+>
+>赞助打赏时的信息和留言将用于展示和感谢。
+
+{{< cards >}}
+  {{< card link="/" title="支持" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝" >}}
+{{< /cards >}}
+
+> Copyright @ 2026 Aerosand
+>
+> - 课程（文本、图片等）：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+> - OpenFOAM 开发代码：[GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
+> - 其他代码：[MIT License](https://opensource.org/licenses/MIT)
