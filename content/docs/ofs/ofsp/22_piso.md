@@ -24,7 +24,6 @@ draft: false
 ---
 
 > [!important]
-> 访问 [https://aerosand.cc](https://aerosand.cc/) 以获取最近更新。  
 > Visit [https://aerosand.cc](https://aerosand.cc/) for the latest updates.
 
 ## 0. Preface
@@ -345,27 +344,24 @@ This section has completed the following discussions:
 - [x] Equation relaxation
 
 
-## 支持我们 Support us
+## Support us
 
 >[!tip]
->希望这里的分享可以对坚持、热爱又勇敢的您有所帮助。   
 >Hopefully, the sharing here can be helpful to you.
 >
->如果这里的分享对您有帮助，您的评论或赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。  
 >If you find this content helpful, your comments or donations would be greatly appreciated. Your support helps ensure the ongoing updates, corrections, refinements, and improvements to this and future series, ultimately benefiting new readers as well.
 >
->赞助打赏时的信息和留言将用于展示和感谢。  
 >The information and message provided during donation will be displayed as an acknowledgment of your support.
 
 {{< cards >}}
-  {{< card link="/" title="支持Support" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝AliPay" >}}
+  {{< card link="/" title="Support" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="AliPay" >}}
 {{< /cards >}}
 
 
 > Copyright @ 2026 Aerosand
 > 
-> - 课程（文本、图片等）Course (text, images, etc.)：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-> - OpenFOAM 开发代码 Code derived from OpenFOAM：[GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
-> - 其他代码 Other code：[MIT License](https://opensource.org/licenses/MIT)
+> - Course (text, images, etc.)：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+> - Code derived from OpenFOAM：[GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
+> - Other code：[MIT License](https://opensource.org/licenses/MIT)
 
 
