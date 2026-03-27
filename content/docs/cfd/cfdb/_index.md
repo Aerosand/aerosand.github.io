@@ -10,9 +10,9 @@ update: 2026-03-27
 ---
 
 > [!important]
-> 访问 [https://aerosand.cc](https://aerosand.cc/) 以获取最近更新。
+> Visit [https://aerosand.cc](https://aerosand.cc/) for the latest updates.
 
-下面开始本系列的讨论。
+Below begins the discussion of this series.
 
 {{< cards >}}
   {{< card link="./00_cfdbIntro" title="00_cfdbIntro" tag="start here" tagColor="green" >}}
@@ -25,22 +25,21 @@ update: 2026-03-27
   {{< card link="./07_fvm-basics" title="07_fvmBasics" >}}
 {{< /cards >}}
 
-## 支持我们
+## Support Us
 
 >[!tip]
->希望这里的分享可以对坚持、热爱又勇敢的您有所帮助。
+>Hopefully, the sharing here can be helpful to you who are persistent, passionate, and brave.
 >
->如果这里的分享对您有帮助，您的评论或赞助将对本系列以及后续其他系列的更新、勘误、迭代和完善都有很大的意义，这些行动也会为后来的新同学的学习有很大的助益。
+>If the sharing here is helpful to you, your comments or sponsorships will be of great significance for the updates, errata, iterations, and improvements of this series and subsequent other series. These actions will also greatly benefit the learning of future new students.
 >
->赞助打赏时的信息和留言将用于展示和感谢。
+>The information and messages provided during sponsorship will be used for display and gratitude.
 
 {{< cards >}}
-  {{< card link="/" title="支持" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="支付宝" >}}
+  {{< card link="/" title="Support" image="https://www.notion.so/image/attachment%3A3be6af9a-4829-4dfd-997e-641dfd055ba9%3Aalipay.jpg?table=block&id=22cd34b0-7c4c-8086-bdda-d558df1d9a11&t=22cd34b0-7c4c-8086-bdda-d558df1d9a11" subtitle="Alipay" >}}
 {{< /cards >}}
 
 > Copyright @ 2026 Aerosand
 >
-> - 课程（文本、图片等）：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-> - OpenFOAM 开发代码：[GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
-> - 其他代码：[MIT License](https://opensource.org/licenses/MIT)
-
+> - Course (text, images, etc.): [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+> - OpenFOAM development code: [GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
+> - Other code: [MIT License](https://opensource.org/licenses/MIT)
