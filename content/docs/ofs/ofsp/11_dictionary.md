@@ -2,7 +2,7 @@
 uid: 20250916203141
 title: 11_dictionary
 date: 2025-09-16
-update: 2026-03-26
+update: 2026-03-27
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -440,9 +440,9 @@ This project discussed the file stream input/output methods designed in OpenFOAM
 
 This section has completed the following discussions:
 
-- [ ] Understanding input/output for different data formats in OpenFOAM
-- [ ] Understanding the methods provided by OpenFOAM dictionary classes
-- [ ] Compiling and running a dictionary project
+- [x] Understanding input/output for different data formats in OpenFOAM
+- [x] Understanding the methods provided by OpenFOAM dictionary classes
+- [x] Compiling and running a dictionary project
 
 
 ## Support us

@@ -2,12 +2,15 @@
 uid: 20260321205618
 title: 26_epilogue
 date: 2026-03-21
-update: 2026-03-26
+update: 2026-03-27
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
     image: https://github.com/aerosand.png
 tags:
+  - OpenFOAM
+  - ofsp
+  - ofsp2026
 excludeSearch: false
 toc: true
 weight: 27
