@@ -132,7 +132,7 @@ tree
 └── ofsp_06_tensor.C
 ```
 
-Note that the file structure of the development library is slightly different from the previous section. We have already observed that under an OpenFOAM library, there are generally multiple sub-libraries/classes. A user's development library may also consist of several classes, and the development library has its own Makefile to manage multiple classes. For example, here the `Aerosand` library has three classes: `class1`, `class2`, and `class3`.
+Note that the file structure of the development library is slightly different from the previous section. We have already observed that under an OpenFOAM library, there are generally multiple sub-libraries/classes. A user's development library may also consist of several classes, and the development library has its own Make file to manage multiple classes. For example, here the `Aerosand` library has three classes: `class1`, `class2`, and `class3`.
 
 ## 4. Development Library
 
@@ -251,7 +251,7 @@ void class3::class3Info() const
 
 ```
 
-### 4.4. Library Makefile
+### 4.4. Library Make
 
 The library `Make/files` is:
 
@@ -377,7 +377,7 @@ int main()
 
 ```
 
-### 5.2. Project Makefile
+### 5.2. Project Make
 
 The project `Make/files` is:
 

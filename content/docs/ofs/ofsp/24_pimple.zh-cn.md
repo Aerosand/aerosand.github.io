@@ -2,7 +2,7 @@
 uid: 20260319164359
 title: 24_pimple
 date: 2026-03-19
-update: 2026-03-26
+update: 2026-03-27
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -253,10 +253,10 @@ graph TD
 	外循环判断-->动量预测
 	动量预测-->内循环判断
 	内循环判断-->压力修正
-	压力修正-->速度修正
-	速度修正-->|pimple.correct|内循环判断
-	速度修正-->|pimple.loop|外循环判断
-	速度修正-->|时间推进|时间循环
+	压力修正-->动量修正
+	动量修正-->|pimple.correct|内循环判断
+	动量修正-->|pimple.loop|外循环判断
+	动量修正-->|时间推进|时间循环
 ```
 
 关于 PIMPLE 算法框架，摘抄主要代码如下

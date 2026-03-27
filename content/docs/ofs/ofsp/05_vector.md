@@ -795,7 +795,7 @@ double Aerosand::GetLocalTime() const {
 
 ```
 
-### 4.2. Library Makefile
+### 4.2. Library Make
 
 The library `Make/files` is:
 
@@ -863,7 +863,7 @@ int main()
 
 ```
 
-### 5.2. Project Makefile
+### 5.2. Project Make
 
 The project `Make/files` is:
 
@@ -874,7 +874,7 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_05_vector
 
 ```
 
-Because we included `vector.H`, whose path is `$FOAM_SRC/OpenFOAM/primitives/Vector/floats/vector.H`, we can determine from the Makefile location that this file belongs to the OpenFOAM library at `$FOAM_SRC/OpenFOAM`. The affiliation is as follows:
+Because we included `vector.H`, whose path is `$FOAM_SRC/OpenFOAM/primitives/Vector/\frac{floats}{vector.H`, we can determine from the Make file location that this file belongs to the OpenFOAM library at `$FOAM_SRC/OpenFOAM`. The affiliation is as follows:
 
 ```terminal {fileName="terminal"}
 $FOAM_SRC/OpenFOAM

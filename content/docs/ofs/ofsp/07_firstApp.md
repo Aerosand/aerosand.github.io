@@ -29,49 +29,47 @@ draft: false
 
 
 
-## 0. 前言
+## 0. Preface
 
-之前讨论了编译原理、动态库的链接和 OpenFOAM 常见的类，现在我们使用 OpenFOAM ，完成一个较为完整的开发流程。
+Having discussed compilation principles, dynamic library linking, and common OpenFOAM classes, we now use OpenFOAM to complete a relatively comprehensive development workflow.
 
-本文主要讨论
+This section primarily discusses:
 
-- [ ] 理解 OpenFOAM 标准应用的文件架构
-- [ ] 认识使用脚本
-- [ ] 认识应用开发测试流程
-- [ ] 调用其他位置的开发库
-- [ ] 编译运行 firstApp 项目
+- [ ] Understanding the file structure of standard OpenFOAM applications
+- [ ] Learning to use scripts
+- [ ] Understanding the application development and testing process
+- [ ] Calling development libraries located elsewhere
+- [ ] Compiling and running the firstApp project
 
 ## 1. fvCFD.H
 
-在实际开发中，除了之前提到了 vector 和 tensor 等，我们还需要用到更多的和 FVM 相关的类来离散求解偏微分方程。OpenFOAM 提供 `fvCFD.H` ，其中包含了大部分和 FVM 相关的头文件，包括 tensor 类等。使用 `fvCFD.H` 可以大大减少主源码要写的头文件数量。
+In practical development, in addition to the previously mentioned classes like `vector` and `tensor`, we also need more classes related to the Finite Volume Method (FVM) to discretely solve partial differential equations. OpenFOAM provides `fvCFD.H`, which includes most of the header files related to FVM, including the `tensor` class, among others. Using `fvCFD.H` can significantly reduce the number of header files that need to be included in the main source code.
 
-终端输入命令，查找 `fvCFD.H` 文件
+Run the following command in the terminal to find the `fvCFD.H` file:
 
 ```terminal {fileName="terminal"}
 find $FOAM_SRC -iname fvcfd.h
 ```
 
-终端输出如下
+The terminal output is as follows:
 
 ```terminal {fileName="terminal"}
 /usr/lib/openfoam/openfoam2406/src/finiteVolume/cfdTools/general/include/fvCFD.H
 /usr/lib/openfoam/openfoam2406/src/finiteVolume/lnInclude/fvCFD.H
 ```
 
-显然 `fvCFD.H` 在 finiteVolume 库里，所以需要另外在 `Make/options` 中包含、链接。
+Clearly, `fvCFD.H` is located in the `finiteVolume` library, so it needs to be included and linked in `Make/options`.
 
 > [!tip]
-> OpenFOAM 库是低层库，已配置为自动依赖。而 finiteVolume 库属于高层库，依赖于众多低层库，需要手动配置。
+> OpenFOAM low-level libraries are configured as automatic dependencies. The `finiteVolume` library, however, is a high-level library that depends on many low-level libraries and requires manual configuration.
 
-我们可以将上篇代码中的原生头文件替换成 `fvCFD.H` ，并配置相关的 Make 文件。
+We can replace the native header files from the previous section with `fvCFD.H` and configure the corresponding Make files.
 
+## 2. Project
 
+We will use the method provided by OpenFOAM to create a basic solver application template and develop on top of it.
 
-## 2. 项目
-
-我们使用 OpenFOAM 提供的方式创建求解器应用基础模板，并在此基础上进行开发。
-
-终端输入命令，建立本文项目
+Run the following commands in the terminal to create the project for this section:
 
 ```terminal {fileName="terminal"}
 ofsp
@@ -79,75 +77,75 @@ foamNewApp ofsp_07_firstApp
 code ofsp_07_firstApp
 ```
 
-### 2.1. 源代码
+### 2.1. Source Code
 
-下面将讨论源代码。
+The source code will be discussed below.
 
-### 2.2. 测试算例
+### 2.2. Test Case
 
-对于不同的求解器，可以拷贝一个对应的原生算例用于测试求解器的开发。对于本项目来说，测试算例仅仅用于通过求解器语法检查。
+For different solvers, a corresponding native test case can be copied for debugging solver development. For this project, the test case is only used to pass the solver syntax check.
 
-终端输入命令，拷贝测试算例
+Run the following command in the terminal to copy the test case:
 
 ```terminal {fileName="terminal"}
 cp -r $FOAM_TUTORIALS/incompressible/icoFoam/cavity/cavity debug_case
 ```
 
-### 2.3. 脚本文件
+### 2.3. Script Files
 
-使用脚本可以方便用户开发测试。以本项目为例，我们新建脚本如下
+Using scripts facilitates user development and testing. Taking this project as an example, we create scripts as follows:
 
-终端输入命令，新建脚本
+Run the following command in the terminal to create the scripts:
 
 ```terminal {fileName="terminal"}
 code caserun caseclean
 ```
 
-脚本 caserun 主要是负责应用编译成功后，测试算例的运行，可以写入如下内容
+The `caserun` script is primarily responsible for running the test case after the application is successfully compiled. It can include the following content:
 
 ```bash {fileName="/caserun",linenos=table,linenostart=1}
 #!/bin/bash
-# 首行告诉系统使用bash解释器执行脚本
+# The first line tells the system to use the bash interpreter to execute the script
 
-# 对测试算例画网格，并输出日志到测试算例路径下
+# Generate the mesh for the test case and output logs to the test case path
 blockMesh -case debug_case | tee debug_case/log.mesh
-# 输出信息“画网格完成”
+# Output the message "Meshing done."
 echo "Meshing done."
 
-# 对测试算例运行求解器，并输出日志到测试算例路径下
+# Run the solver for the test case and output logs to the test case path
 ofsp_07_firstApp -case debug_case | tee debug_case/log.run
 ```
 
-脚本 caseclean 主要是负责清理应用到到编译前状态，如果应用要修改，那么测试算例也要还原到运行前的状态，可以写入如下内容
+The `caseclean` script is primarily responsible for cleaning up the application to its pre-compilation state. If the application is modified, the test case should also be restored to its pre-run state. It can include the following content:
 
 ```bash {fileName="/caseclean",linenos=table,linenostart=1}
 #!/bin/bash
 
-# 删除测试算例中所有的日志文件
+# Delete all log files in the test case directory
 rm -rf debug_case/log.*
 
-# 清理测试算例
+# Clean the test case
 foamCleanTutorials debug_case
-# 输出信息“清理完成”
+# Output the message "Cleaning done."
 echo "Cleaning done."
 ```
 
-### 2.4. 说明文件
+### 2.4. Documentation File
 
-为了方便后续阅读、开发和使用，我们还应该准备说明文件。
+For the convenience of future reading, development, and use, we should also prepare a documentation file.
 
-终端输入命令，新建说明文件
+Run the following command in the terminal to create the documentation file:
 
 ```terminal {fileName="terminal"}
 code README.md
 ```
 
-说明文件内容如下
+The content of the documentation file is as follows:
 
 ```markdown {fileName="/README.md"}
 ## About
 
-这是ofsp系列中，我们创建的第一个OpenFOAM标准应用。
+This is the first standard OpenFOAM application we have created in the ofsp series.
 
 ## Bio
 
@@ -155,20 +153,20 @@ code README.md
 
 ## Caution
 
-需要使用 OpenFOAM v2406 及更新版本。
+OpenFOAM v2406 or newer versions are required.
 
 ## Deploy
 
-准备好环境和所有的文件。
+Prepare the environment and all files.
 
-在根目录下执行终端命令
+Execute the following commands in the terminal in the root directory:
 
-清理并重新编译应用
+Clean and recompile the application:
 
 1. wclean
 2. wmake
    
-清理并重新计算测试算例
+Clean and recompute the test case:
 
 1. ./caseclean
 2. ./caserun
@@ -176,20 +174,20 @@ code README.md
 ## Event
 
 @ 20250903
-- 增加清理脚本 #done
+- Added cleaning script #done
 
 @ 20250901
-- 新建应用 #done
+- Created application #done
 
 ```
 
-建议遵循 **A**bout-**B**io-**C**aution-**D**eploy-**E**vent 的 A-B-C-D-E 原则书写说明文件，尽量表述清楚必要信息。
+It is recommended to follow the A-B-C-D-E principle (About-Bio-Caution-Deploy-Event) when writing documentation files, clearly expressing the necessary information.
 
-## 3. 文件结构
+## 3. File Structure
 
-可以看到该项目的文件结构如下
+The file structure of this project is as follows:
 
-终端输入命令
+Run the following command in the terminal:
 
 ```terminal {fileName="terminal"}
 tree
@@ -223,9 +221,9 @@ tree
 └── ofsp_07_firstApp.C
 ```
 
-## 4. 测试
+## 4. Testing
 
-终端输入命令，运行脚本
+Run the following commands in the terminal to execute the scripts:
 
 ```terminal {fileName="terminal"}
 wclean
@@ -234,17 +232,17 @@ wmake
 ./caserun
 ```
 
-如果运行提醒 `Permission denied`，那就需要给脚本权限
+If the execution prompts `Permission denied`, you need to grant permission to the scripts:
 
 ```terminal {fileName="terminal"}
 chmod +x caserun caseclean
 ```
 
-虽然我们还没有给求解器写入任何开发代码，但是 OpenFOAM 提供的求解器基础模板在测试算例存在的情况下，仍然可以运行。
+Although we have not yet written any development code for the solver, the basic solver template provided by OpenFOAM can still run when a test case exists.
 
-终端输出信息有两段
+The terminal output consists of two sections:
 
-第一段是划分网格的输出日志
+The first section is the output log for mesh generation:
 
 ```terminal {fileName="terminal"}
 /*---------------------------------------------------------------------------*\
@@ -324,7 +322,7 @@ End
 Meshing done.
 ```
 
-第二段是求解器运行的输出日志
+The second section is the output log for solver execution:
 
 ```terminal {fileName="terminal"}
 /*---------------------------------------------------------------------------*\
@@ -358,9 +356,9 @@ End
 ```
 
 
-## 5. 原生主源码
+## 5. Native Main Source Code
 
-代码 `ofsp_07_firstApp.C` 为
+The code in `ofsp_07_firstApp.C` is:
 
 ```cpp {fileName="/ofsp_07_firstApp.C",linenos=table,linenostart=1}
 /*---------------------------------------------------------------------------*\
@@ -392,33 +390,33 @@ Application
     ofsp_07_firstApp
 
 Description
-	这部分是 OpenFOAM 的注释内容，提供该应用的必要介绍。
+	This section contains OpenFOAM comment content, providing the necessary introduction for this application.
 \*---------------------------------------------------------------------------*/
 
 #include "fvCFD.H"
-// 包含了和FVM有关的类、函数等
+// Includes classes, functions, etc., related to FVM
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 int main(int argc, char *argv[])
 {
     #include "setRootCase.H"
-    // 建立命令行参数
-    // 检查确定算例目录
-    // 后续会详细讨论
+    // Sets up command-line arguments
+    // Checks and determines the case directory
+    // This will be discussed in detail later
     
     #include "createTime.H"
-    // 创建并初始化时间控制对象Time
-    // 后续会详细讨论
+    // Creates and initializes the Time control object
+    // This will be discussed in detail later
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
     Info<< nl;
-    // Info是OpenFOAM提供打印信息、格式化输出的全局对象
-    // nl是OpenFOAM提供的换行符(newline)
+    // Info is a global object provided by OpenFOAM for printing information and formatted output
+    // nl is a newline character provided by OpenFOAM
     
     runTime.printExecutionTime(Info);
-    // 用来打印程序运行时间的函数调用
+    // Function call used to print program execution time
 
     Info<< "End\n" << endl;
 
@@ -427,20 +425,22 @@ int main(int argc, char *argv[])
 
 
 // ************************************************************************* //
+// ************************************************************************* //
+
 ```
 
-## 6. 使用开发库
+## 6. Using a Development Library
 
-在该项目中，我们有选择的使用上一篇讨论所开发的 Aerosand 库中的某个类。
+In this project, we selectively use a class from the `Aerosand` library developed in the previous section.
 
-### 6.1. 主源码
+### 6.1. Main Source Code
 
-代码 `ofsp_07_firstApp.C` 修改为
+The code in `ofsp_07_firstApp.C` is modified as follows:
 
 ```cpp {fileName="/ofsp_07_firstApp.C",linenos=table,linenostart=1}
 #include "fvCFD.H"
 
-#include "class1.H" // 调用我们想要的开发库头文件名称
+#include "class1.H" // Include the header file of the development library we want to use
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -470,12 +470,12 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
 ```
 
-### 6.2. 项目 Make
+### 6.2. Project Make
 
-
-项目 `Make/files` 为
+The project `Make/files` is:
 
 ```wmake {fileName="/Make/files"}
 ofsp_07_firstApp.C
@@ -485,9 +485,9 @@ EXE = $(FOAM_USER_APPBIN)/ofsp_07_firstApp
 ```
 
 > [!caution]
-> 注意，这里需要链接的是上一篇讨论建立的开发库。
+> Note that the development library created in the previous section needs to be linked here.
 
-项目 `Make/options` 为
+The project `Make/options` is:
 
 ```wmake {fileName="/Make/options"}
 EXE_INC = \
@@ -503,26 +503,26 @@ EXE_LIBS = \
 
 ```
 
-我们再次解释其写法
+We explain its syntax again:
 
-- 前缀 EXE 表示这是可执行文件的配置（前缀 LIB 表示是库文件的配置）
-- 后缀 INC 表示包含路径
-	- 使用 `-I` 标志指定头文件搜索路径
-	- 通常指向 OpenFOAM 模块的 `lnInclude` 目录（链接包含目录）
-	- 可以包含系统头文件路径或第三方库头文件路径
-- 后缀 LIBS 表示库链接（直接链接无需链接任何库，可以留空不写）
-	- 使用 `-l` 标志指定需要链接的库
-	- 库名称不需要前缀 `lib` 和后缀 `.so`（如 `-lfiniteVolume` 对应 `libfiniteVolume.so`）
-	- 使用 `-L` 标志指定库搜索路径
-- 路径可以采用多种写法
-	- `$(LIB_SRC)` 通常由 **OpenFOAM 环境变量**和 **相对路径**组合而成
-	- 常见写为 `-I$(FOAM_SRC)/finiteVolume/lnInclude` 也可以
-	- 绝对地址 `-I/usr/lib/openfoam/openfoam2306/src/finiteVolume/lnInclude`
-	- 相对地址 `-I../ofsp_07_tensor/Aerosand/lnInclude`
+- The prefix `EXE` indicates that this configuration is for an executable (the prefix `LIB` indicates configuration for a library).
+- The suffix `INC` denotes include paths.
+    - The `-I` flag specifies header file search paths.
+    - Typically points to the `lnInclude` directory of an OpenFOAM module (linked include directory).
+    - Can include system header paths or third-party library header paths.
+- The suffix `LIBS` denotes library linking.
+    - The `-l` flag specifies libraries to link.
+    - Library names omit the `lib` prefix and `.so` suffix (e.g., `-lfiniteVolume` corresponds to `libfiniteVolume.so`).
+    - The `-L` flag specifies library search paths.
+- Paths can be written in various ways:
+    - `$(LIB_SRC)` is usually a combination of **OpenFOAM environment variables** and **relative paths**.
+    - It is also acceptable to write `-I$(FOAM_SRC)/finiteVolume/lnInclude`.
+    - Absolute path: `-I/usr/lib/openfoam/openfoam2306/src/finiteVolume/lnInclude`.
+    - Relative path: `-I../ofsp_07_tensor/Aerosand/lnInclude`.
 
-## 7. 编译运行
+## 7. Compilation and Execution
 
-因为上一篇讨论的 Aerosand 库已经编译成功，这里不用再次编译，直接调用即可。
+Since the `Aerosand` library discussed in the previous section has already been successfully compiled, it does not need to be recompiled here; it can be called directly.
 
 ```terminal {fileName="terminal"}
 wclean
@@ -532,9 +532,9 @@ wmake
 ```
 
 > [!tip]
-> 输入时可以常用 Tab 键进行快速补全。
+> Use the Tab key frequently for quick completion when typing.
 
-终端输出如下（仅摘取有主要变化的片段）
+The terminal output is as follows (only excerpts with significant changes are shown):
 
 ```terminal {fileName="terminal"}
 ...
@@ -553,15 +553,15 @@ ExecutionTime = 0.01 s  ClockTime = 0 s
 End
 ```
 
-## 8. 小结
+## 8. Summary
 
-本文完成讨论
+This section has completed the following discussions:
 
-- [x] 理解 OpenFOAM 标准应用的文件架构
-- [x] 认识使用脚本
-- [x] 认识应用开发测试流程
-- [x] 调用其他位置的开发库
-- [x] 编译运行 firstApp 项目
+- [x] Understanding the file structure of standard OpenFOAM applications
+- [x] Learning to use scripts
+- [x] Understanding the application development and testing process
+- [x] Calling development libraries located elsewhere
+- [x] Compiling and running the firstApp project
 
 
 
