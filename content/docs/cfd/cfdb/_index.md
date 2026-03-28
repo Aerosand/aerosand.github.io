@@ -15,14 +15,14 @@ update: 2026-03-27
 Below begins the discussion of this series.
 
 {{< cards >}}
-  {{< card link="./00_cfdbIntro" title="00_cfdbIntro" tag="start here" tagColor="green" >}}
-  {{< card link="./01_basic-concept" title="01_basicConcept" >}}
-  {{< card link="./02_mass-conservation" title="02_massConservation" >}}
-  {{< card link="./03_momentum-conservation" title="03_momentumConservation" >}}
-  {{< card link="./04_energy-conservation" title="04_energyConservation" >}}
-  {{< card link="./05_general-conservation" title="05_generalConservation" >}}
-  {{< card link="./06_fdm-basics" title="06_fdmBasics" >}}
-  {{< card link="./07_fvm-basics" title="07_fvmBasics" >}}
+  {{< card link="./00_cfdbintro" title="00_cfdbIntro" tag="start here" tagColor="green" >}}
+  {{< card link="./01_basicconcept" title="01_basicConcept" >}}
+  {{< card link="./02_massconservation" title="02_massConservation" >}}
+  {{< card link="./03_momentumconservation" title="03_momentumConservation" >}}
+  {{< card link="./04_energyconservation" title="04_energyConservation" >}}
+  {{< card link="./05_generalconservation" title="05_generalConservation" >}}
+  {{< card link="./06_fdmbasics" title="06_fdmBasics" >}}
+  {{< card link="./07_fvmbasics" title="07_fvmBasics" >}}
 {{< /cards >}}
 
 ## Support Us
