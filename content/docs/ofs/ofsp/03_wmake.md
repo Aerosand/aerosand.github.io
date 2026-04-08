@@ -162,14 +162,14 @@ int main()
 ```
 
 
-OpenFOAM provides Makefiles to assist development, where:
+OpenFOAM provides Make to assist development, where:
 
 - The `/Make/files` file specifies the source files to compile and the name and location of the target to generate.
 - The `/Make/options` file specifies compilation and linking options, including header file paths and libraries to link.
 
-Note that `#include "Aerosand.H"` does not require a path specification because the path will be handled in the Makefile.
+Note that `#include "Aerosand.H"` does not require a path specification because the path will be handled in the Make.
 
-The following sections discuss different linking approaches and the details of the Makefiles.
+The following sections discuss different linking approaches and the details of the Make.
 
 ## 3. Direct Linking
 
@@ -310,9 +310,9 @@ Adjust the file structure as follows:
 └── ofsp_03_wmake.C
 ```
 
-### 4.1. Library Makefile
+### 4.1. Library Make
 
-Create a Makefile for the library.
+Create a Make for the library.
 
 The contents of `/Aerosand/Make/files` are as follows:
 
@@ -394,9 +394,9 @@ Aerosand
     └── options
 ```
 
-### 4.2. Project Makefile
+### 4.2. Project Make
 
-Because the `Aerosand` library has been compiled into a dynamic library, we need to specify it in the project’s Makefile.
+Because the `Aerosand` library has been compiled into a dynamic library, we need to specify it in the project’s Make.
 
 Modify `/Make/files` as follows:
 
