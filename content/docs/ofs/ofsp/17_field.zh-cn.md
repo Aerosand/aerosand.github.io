@@ -2,7 +2,7 @@
 uid: 20251117135613
 title: 17_field
 date: 2025-11-17
-update: 2026-03-26
+update: 2026-04-08
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -193,7 +193,7 @@ maxP = max(airPressure.value());
 
 那么 volScalarField 是什么呢？又是如何构造场的呢？
 
-API 页面 
+API 页面 [https://api.openfoam.com/2512/volFieldsFwd_8H.html](https://api.openfoam.com/2512/volFieldsFwd_8H.html)
 
 终端输入命令，查阅源文件
 

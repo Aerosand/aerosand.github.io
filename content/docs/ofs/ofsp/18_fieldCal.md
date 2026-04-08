@@ -2,7 +2,7 @@
 uid: 20251125114545
 title: 18_fieldCal
 date: 2025-11-25
-update: 2026-03-26
+update: 2026-04-08
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -725,7 +725,7 @@ void calculateVelocity(const fvMesh& mesh, volVectorField& U, word pName)
 
 ```
 
-### 4.2. Development Library Makefile
+### 4.2. Development Library Make
 
 The development library `Make/files` is as follows:
 
@@ -839,7 +839,7 @@ int main(int argc, char *argv[])
 
 ```
 
-### 4.6. Project Makefile
+### 4.6. Project Make
 
 The project `Make/files` is as follows:
 

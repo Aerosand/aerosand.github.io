@@ -2,7 +2,7 @@
 uid: 20260321180844
 title: 25_pimpleSol
 date: 2026-03-21
-update: 2026-03-27
+update: 2026-04-08
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -379,9 +379,9 @@ U = HbyA - rAtU*fvc::grad(p); // Momentum correction
 > [!tip]
 > Note that for ease of understanding, non-orthogonal correction is not performed here. Since the cavity test case used later has a simple mesh, this has no impact.
 
-### 3.5. Project Makefile
+### 3.5. Project Make
 
-As discussed above, this solver does not use additional libraries, so no extra linking specifications are needed in the project Makefile.
+As discussed above, this solver does not use additional libraries, so no extra linking specifications are needed in the project Make.
 
 The `Make/files` content is as follows:
 

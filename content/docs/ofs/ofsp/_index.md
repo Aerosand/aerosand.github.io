@@ -60,7 +60,7 @@ Let's start the discussion of this series.
 {{< /cards >}}
 
 
-## Stage 3
+## Stage 2
 
 - Basic Algorithm SIMPLE
 - Basic Algorithm PISO

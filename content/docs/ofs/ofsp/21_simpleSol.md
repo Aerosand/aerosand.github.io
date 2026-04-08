@@ -2,7 +2,7 @@
 uid: 20260128101852
 title: 21_simpleSol
 date: 2026-01-28
-update: 2026-03-26
+update: 2026-04-08
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -367,9 +367,9 @@ Pressure also undergoes relaxation, which will be discussed later. Readers can t
 > [!tip]
 > Note that for ease of understanding, non-orthogonal correction is not performed here. Since the cavity test case used later has a simple mesh, this has no impact.
 
-### 3.5. Project Makefile
+### 3.5. Project Make
 
-As discussed above, this solver does not use additional libraries, so no extra linking specifications are needed in the project Makefile.
+As discussed above, this solver does not use additional libraries, so no extra linking specifications are needed in the project Make.
 
 The `Make/files` content is as follows:
 

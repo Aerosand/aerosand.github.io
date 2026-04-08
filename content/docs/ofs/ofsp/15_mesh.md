@@ -2,7 +2,7 @@
 uid: 20251112184331
 title: 15_mesh
 date: 2025-11-12
-update: 2026-03-26
+update: 2026-04-08
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -26,8 +26,6 @@ draft: false
 > [!important]
 > Visit [https://aerosand.cc](https://aerosand.cc/) for the latest updates.
 
-
-## 0. Preface
 
 ## 0. Preface
 
@@ -358,9 +356,9 @@ API page: [https://api.openfoam.com/2506/createMesh_8H.html](https://api.openfo
 
 Run the following command in the terminal to view this header file:
 
-terminal
-
+```terminal {fileName="terminal"}
 find $FOAM_SRC -iname createMesh.H
+```
 
 For ease of understanding, let us examine the code from the OpenFOAM 2.0x version.
 

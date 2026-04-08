@@ -2,7 +2,7 @@
 uid: 20250722130605
 title: 00_ofspIntro
 date: 2025-07-22
-update: 2026-03-27
+update: 2026-03-28
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -89,7 +89,7 @@ OpenFOAM 是什么呢？引用 wiki 解释如下
 ### 算法初见
 
 1. SIMPLE & PISO & PIMPLE 算法
-2. SIMPLE 求解器
+2. SIMPLE & PISO & PIMPLE 求解器
 
 {{% /steps %}}
 

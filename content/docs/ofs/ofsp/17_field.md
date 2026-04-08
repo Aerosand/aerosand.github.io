@@ -2,7 +2,7 @@
 uid: 20251117135613
 title: 17_field
 date: 2025-11-17
-update: 2026-03-26
+update: 2026-04-08
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -193,7 +193,7 @@ We will notice typical statements in OpenFOAM, such as:
 
 So, what is `volScalarField`? How is a field constructed?
 
-API page:
+API page: [https://api.openfoam.com/2512/volFieldsFwd_8H.html](https://api.openfoam.com/2512/volFieldsFwd_8H.html)
 
 Run the following command in the terminal to view the source file:
 

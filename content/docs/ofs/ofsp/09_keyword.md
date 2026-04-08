@@ -2,7 +2,7 @@
 uid: 20250916165944
 title: 09_keyword
 date: 2025-09-16
-update: 2026-03-26
+update: 2026-04-08
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -290,7 +290,7 @@ int main(int argc, char const *argv[])
 
 ```
 
-We also need to define the project Makefile.
+We also need to define the project Make.
 
 The content of `ofsp_09_keyword/Make/files` is as follows:
 
@@ -363,8 +363,6 @@ Run the following command in the terminal:
 ```terminal {fileName="terminal"}
 ofsp_09_keyword
 ```
-
-最后的结果是一样的。
 
 The result remains the same.
 

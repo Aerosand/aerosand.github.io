@@ -2,7 +2,7 @@
 uid: 20250826161556
 title: 03_wmake
 date: 2025-08-26
-update: 2026-03-27
+update: 2026-04-08
 authors:
   - name: Aerosand
     link: https://github.com/aerosand
@@ -36,7 +36,7 @@ This section primarily covers:
 - [ ] A brief understanding of `wmake`
 - [ ] Direct linking using `wmake`
 - [ ] Dynamic library linking using `wmake`
-- [ ] Understanding Makefiles
+- [ ] Understanding Make
 - [ ] Compiling and running a `wmake`-based project
 
 
@@ -502,7 +502,7 @@ This section has completed the following discussions:
 - [x] A brief understanding of `wmake`
 - [x] Direct linking using `wmake`
 - [x] Dynamic library linking using `wmake`
-- [x] Understanding Makefiles
+- [x] Understanding Make
 - [x] Compiling and running a `wmake`-based project
 
 
