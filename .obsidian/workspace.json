@@ -16,9 +16,9 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -664.8147459959068,
-                  "y": 1696.513241690597,
-                  "zoom": -3.2
+                  "x": -1900,
+                  "y": 1465,
+                  "zoom": -3.022519619735691
                 }
               },
               "pinned": true,
@@ -288,8 +288,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "_base/cfdb.base",
     "Home.canvas",
+    "_base/cfdb.base",
     "content/docs/cfd/cfdb/07_fvm-basics.md",
     "content/docs/cfd/cfdb/_index.md",
     "content/docs/cfd/cfdb/06_fdm-basics.md",
