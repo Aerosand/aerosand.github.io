@@ -16,27 +16,14 @@
               "state": {
                 "file": "Home.canvas",
                 "viewState": {
-                  "x": -3013.1853392924177,
-                  "y": 1424.2776462568286,
-                  "zoom": 0.1605070203268334
+                  "x": -664.8147459959068,
+                  "y": 1696.513241690597,
+                  "zoom": -3.2
                 }
               },
               "pinned": true,
               "icon": "lucide-layout-dashboard",
               "title": "Home"
-            }
-          },
-          {
-            "id": "4db60b2a149dcc2c",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "_base/cfdb.base",
-                "viewName": "Table"
-              },
-              "icon": "lucide-table",
-              "title": "cfdb"
             }
           }
         ]
@@ -99,8 +86,8 @@
             "state": {
               "type": "todo",
               "state": {},
-              "icon": "checkmark",
-              "title": "Todo List"
+              "icon": "lucide-ghost",
+              "title": "todo"
             }
           },
           {
@@ -118,8 +105,7 @@
               "title": "Outline of Home"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       },
       {
         "id": "d5574f3c9c5c4dc4",
@@ -185,8 +171,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "icon": "lucide-ghost",
+              "title": "calendar"
             }
           },
           {
@@ -222,9 +208,19 @@
               "icon": "lucide-tags",
               "title": "Tags"
             }
+          },
+          {
+            "id": "ed32f489e9cc70c1",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "checkmark",
+              "title": "Todo List"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       },
       {
         "id": "ca790a3de457ce4b",
@@ -278,7 +274,6 @@
   "left-ribbon": {
     "hiddenItems": {
       "bases:Create new base": true,
-      "templater-obsidian:Templater": true,
       "switcher:Open quick switcher": true,
       "graph:Open graph view": true,
       "canvas:Create new canvas": true,
@@ -286,7 +281,8 @@
       "templates:Insert template": true,
       "command-palette:Open command palette": true,
       "omnisearch:Omnisearch": false,
-      "homepage:Open homepage": true,
+      "homepage:Open homepage": false,
+      "templater-obsidian:Templater": false,
       "open-vscode:VSCode": false
     }
   },
